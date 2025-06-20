@@ -1,0 +1,11 @@
+# .env
+# typst_merged_pdf
+# typst_merged_pdf_bulk
+# failed_typst_files
+# *.pdf
+# sftp_data
+# wms-*
+# app_logs.json
+# dist
+# DataLogs
+# .vscode/settings.json
