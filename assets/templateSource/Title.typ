@@ -48,11 +48,11 @@
 #let pageNumber = context {
   counter(page).display()
 }
-#let DateString = "12-05-2025"
+#let DateString = "{{.ReportDate}}"
 #let DateParts = DateString.split("-")
-#let DateYear = int(DateParts.at(2))
+#let DateYear = int(DateParts.at(0))
 #let DateMonth = int(DateParts.at(1))
-#let DateDay = int(DateParts.at(0))
+#let DateDay = int(DateParts.at(2))
 #let DateTimeFormat = datetime(
   year: DateYear,
   month: DateMonth,
@@ -171,7 +171,7 @@
     #text(fill: rgb("#248DDC"), weight: "bold", font: "Bai Jamjuree", size: 40pt, "ANALYSIS REPORT")\
     \
     \
-    #text(fill: rgb("#0B1A24"), weight: "bold", font: "Bai Jamjuree", size: 40pt, "KFin Capitals / ")
+    #text(fill: rgb("#0B1A24"), weight: "bold", font: "Bai Jamjuree", size: 40pt, "{{.ClientName}} / ")
     #text(fill: rgb("#D4567B"), weight: "bold", font: "Bai Jamjuree", size: 40pt, "W0000339")
   ]
 ]
@@ -242,7 +242,7 @@
         block(width: 350pt)[
           #stack(
             block(width: 350pt)[
-              #text("", fill: black, weight: "bold", size: 25pt)
+              #text("{{.ClientName}}", fill: black, weight: "bold", size: 25pt)
             ],
           )
         ],
@@ -261,7 +261,7 @@
         block(width: 350pt)[
           #stack(
             block(width: 350pt)[
-              #text("-", fill: black, weight: "bold", size: 25pt)
+              #text("{{.RMEmail}}", fill: black, weight: "bold", size: 25pt)
             ],
           )
         ],
@@ -280,7 +280,7 @@
         block(width: 350pt)[
           #stack(
             block(width: 350pt)[
-              #text("-", fill: black, weight: "bold", size: 25pt)
+              #text("{{.RMMobile}}", fill: black, weight: "bold", size: 25pt)
             ],
           )
         ],

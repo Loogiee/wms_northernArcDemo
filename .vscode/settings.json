@@ -1,6 +1,6 @@
 {
     // "editor.fontFamily": "Operator Mono, Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontSize": 15,
+    "editor.fontSize": 16,
     "editor.lineHeight": 25,
     "editor.letterSpacing": 0.5,
     "files.trimTrailingWhitespace": true,
@@ -27,5 +27,8 @@
     "workbench.settings.openDefaultSettings": false,
     "window.density.editorTabHeight": "compact",
     "postman.settings.dotenv-detection-notification-visibility": false,
-    "go.gopath": "//home//lkc//go",
+    // "go.gopath": "//home//lkc//go",
+    "go.gopath": "C://Users//8001206//go",
+    "go.GOROOT": "C://Go",
+    "liveServer.settings.port": 5501,
 }

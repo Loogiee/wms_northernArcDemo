@@ -46,6 +46,27 @@ type RelativePerformance struct {
 	Dec2024 float64 `json:"Dec 2024"`
 }
 
+type Overview struct {
+	ReportDate     string `json:"Report Date"`
+	ReportFrom     string `json:"Report From"`
+	ReportTo       string `json:"Report To"`
+	PrintDate      string `json:"Print Date"`
+	RM             string `json:"RM"`
+	RMMobile       string `json:"RMMobile"`
+	RMEmail        string `json:"RMEmail"`
+	SM             string `json:"SM"`
+	SMMobile       string `json:"SMMobile"`
+	SMEmail        string `json:"SMEmail"`
+	ClientName     string `json:"Client_Name"`
+	FamilyName     string `json:"Family_Name"`
+	CustomerMobile string `json:"Customer_Mobile"`
+	CustomerType   string `json:"Customer_Type"`
+}
+
+type ReportOverview struct {
+	OverviewSection []Overview `json:"overview_section"`
+}
+
 type Report struct {
 	ExecutiveSummary ExecutiveSummary `json:"executive_summary"`
 }

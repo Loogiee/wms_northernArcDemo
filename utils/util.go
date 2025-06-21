@@ -6,9 +6,10 @@ import (
 	"html/template"
 )
 
-func MapToStruct(data []byte, result interface{}) error {
+func MapToStruct(data string, result interface{}) error {
+
 	// Unmarshal the JSON into the struct
-	if err := json.Unmarshal(data, result); err != nil {
+	if err := json.Unmarshal([]byte(data), result); err != nil {
 		return fmt.Errorf("failed to unmarshal into struct: %w", err)
 	}
 	return nil

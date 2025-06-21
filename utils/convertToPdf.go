@@ -2,10 +2,13 @@ package utils
 
 import (
 	"bytes"
-	"errors"
+	// "errors"
 	"fmt"
 	"os"
 	"os/exec"
+	"strings"
+
+	"github.com/pkg/errors"
 )
 
 func ConvertToPdfBuffer(finalString string, customerName string, filePath string) ([]byte, error) {
@@ -88,4 +91,27 @@ func ConvertToPdfLocal(finalString []byte, filePath string, fileName string) ([]
 
 	return pdfBuffer.Bytes(), nil
 
+}
+
+// Example function to transform the response
+func GetErrorOrigin(err error) string {
+	type stackTracer interface {
+		StackTrace() errors.StackTrace
+	}
+	if stackErr, ok := err.(stackTracer); ok {
+		stackTrace := stackErr.StackTrace()
+		// fmt.Println("error stack", stackTrace)
+		if len(stackTrace) > 1 {
+			var stackTraceLogs []string
+			for index, val := range stackTrace {
+				if index != len(stackTrace)-1 {
+					stackTraceLogs = append(stackTraceLogs, fmt.Sprintf("%v", val))
+				}
+			}
+			finalLog := strings.Join(stackTraceLogs, " <-- ")
+			return finalLog
+		}
+	}
+	// Fallback if no stack trace
+	return err.Error()
 }
