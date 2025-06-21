@@ -1,0 +1,13 @@
+{"time":"2025-06-21T16:24:59.8593062+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-06-21T16:24:59.8598186+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-06-21T16:25:10.9541966+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-21T16:25:32.3017654+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-21T16:26:11.8486398+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-21T16:26:11.9490697+05:30","level":"ERROR","msg":"Error wile populating data in template","Err:":"failed to parse title template:: template: Title.typ:264: bad character U+002D '-'"}
+{"time":"2025-06-21T16:26:50.162304+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-21T16:26:50.264738+05:30","level":"ERROR","msg":"Error wile populating data in template","Err:":"failed to parse title template:: template: Title.typ:264: bad character U+002D '-'"}
+{"time":"2025-06-21T16:30:22.465088+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-06-21T16:30:22.4656855+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-06-21T16:30:35.9811507+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-21T16:30:35.9816617+05:30","level":"INFO","msg":"insde create pfbyte"}
+{"time":"2025-06-21T16:30:36.0766054+05:30","level":"ERROR","msg":"Error wile populating data in template","Err:":"failed to parse title template:: template: Title.typ:264: bad character U+002D '-'"}

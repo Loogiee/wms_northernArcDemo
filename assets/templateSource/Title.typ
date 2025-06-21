@@ -261,7 +261,7 @@
         block(width: 350pt)[
           #stack(
             block(width: 350pt)[
-              #text("{{.RMEmail}}", fill: black, weight: "bold", size: 25pt)
+              #text("{{.RMEmail-}}", fill: black, weight: "bold", size: 25pt)
             ],
           )
         ],

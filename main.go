@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"log"
 	"log/slog"
 	"os"
@@ -37,8 +38,24 @@ func init() {
 var logger *slog.Logger
 
 func main() {
+	// initial log dir and file
+	os.MkdirAll("./logs", os.ModeAppend)
+	logFile, err := os.OpenFile("./logs/app_log.json", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	if err != nil {
+		panic(err)
+	}
+	defer logFile.Close()
+	// MultiWriter to log to both console and file
+	writer := io.MultiWriter(os.Stdout, logFile)
+	handler := slog.NewJSONHandler(writer, &slog.HandlerOptions{
+		Level: slog.LevelDebug,
+	})
+	logger = slog.New(handler)
+	logger.Debug("Application Started")
+
 	if ENVIRONMENT == "" {
-		log.Fatalf("ENVIRONMENT variable not found in env")
+		logger.Error("ENVIRONMENT variable not found in env")
+		os.Exit(0)
 	}
 	// Initialize Gin router
 	r := gin.Default()
@@ -47,12 +64,13 @@ func main() {
 	// Start the Gin HTTP server
 	port, err := strconv.Atoi(GOPORT)
 	if err != nil {
-		log.Fatal("Error setting environment Missing Port:", err)
-
+		logger.Error("Error setting environment Missing Port", "Err:", err)
+		os.Exit(1)
 	}
-	fmt.Printf("Starting server on port %d...\n", port)
+	logger.Info("Starting server on port", "Port :", GOPORT)
 	if err := r.Run(fmt.Sprintf(":%d", port)); err != nil {
-		log.Fatalf("Error starting server: %v", err)
+		logger.Error("Error starting server", "Err:", err)
+		os.Exit(1)
 	}
 
 }
@@ -62,37 +80,42 @@ func reportHandler(c *gin.Context) {
 	// Generate a new UUID
 	uuid := uuid.New()
 	traceId := uuid.String()
-
 	if err := c.ShouldBindJSON(&requestBody); err != nil {
-		fmt.Print("Error binding RequstBody JSON:", err, "Origin", GetErrorOrigin(err))
+		logger.Error("Error binding RequstBody JSON:", "Err:", err, "Origin", GetErrorOrigin(err))
 		c.JSON(400, gin.H{"error": err.Error()})
 		return
 	}
-
 	fmt.Println("Trace ID:", traceId, "Request received to generate report", requestBody.Portfolio)
 	db, err := ConnectToDB()
-	defer db.Close()
 	if err != nil {
-		fmt.Println("DB connection or ping fails", "Category", "DB", "error", err, "Origin", GetErrorOrigin(err))
+		logger.Error("DB connection or ping fails", "Category", "DB", "Err:", err, "Origin", GetErrorOrigin(err))
 		c.JSON(500, gin.H{"error": "Failed to connect to db"})
 		log.Fatalf("Failed to connect to Oracle database: %v", err)
 		return
 	}
+	defer db.Close()
 	requestedReports := requestBody.RequestedReports
 	customer := requestBody.CustomerName
 	portfolio := requestBody.Portfolio
 	reportDate := requestBody.ReportDate
-	fmt.Printf("Generating report for customer: %s, portfolio: %s, report date: %s, report srlno: %v\n", customer, portfolio, reportDate, requestedReports)
+	logger.Info("Generating report", "ReportID:", requestedReports, "Customer:", customer, "Portfolio:", portfolio, "ReportDate:", reportDate)
 
 	// strict validation for the incoming request body
 	if obj := ValidateAdHocRequest(requestBody); len(obj) != 0 {
 		c.JSON(406, gin.H{"error": obj})
 		return
 	}
-	pdfByte := CreatePDFByte(requestedReports, customer, portfolio, reportDate, db, traceId)
-
-	pdfData, _ := ConvertToPdfLocal(pdfByte, "./GeneratedOutput/", "output.pdf")
-
+	pdfByte, err := CreatePDFByte(requestedReports, customer, portfolio, reportDate, db, traceId, logger)
+	if err != nil {
+		logger.Error("Error wile populating data in template", "Err:", err)
+		c.JSON(500, gin.H{"message": "Error while populating data in template", "error": err.Error(), "traceId": traceId})
+		return
+	}
+	pdfData, err := ConvertToPdfLocal(pdfByte, "./GeneratedOutput/", "output.pdf")
+	if err != nil {
+		c.JSON(500, gin.H{"message": "Error while genrating PDF file", "Error": err.Error(), "traceId": traceId})
+		return
+	}
 	c.Header("Content-Type", "application/pdf")
 	c.Header("Content-Disposition", "attachment; filename=report.pdf")
 	c.Data(200, "application/pdf", pdfData)
