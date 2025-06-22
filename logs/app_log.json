@@ -11,3 +11,23 @@
 {"time":"2025-06-21T16:30:35.9811507+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
 {"time":"2025-06-21T16:30:35.9816617+05:30","level":"INFO","msg":"insde create pfbyte"}
 {"time":"2025-06-21T16:30:36.0766054+05:30","level":"ERROR","msg":"Error wile populating data in template","Err:":"failed to parse title template:: template: Title.typ:264: bad character U+002D '-'"}
+{"time":"2025-06-21T19:45:26.3394986+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-06-21T19:45:26.3406616+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-06-21T19:45:46.657399+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-21T19:45:46.657399+05:30","level":"INFO","msg":"insde create pfbyte"}
+{"time":"2025-06-21T19:46:52.7472943+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-21T19:46:52.7478118+05:30","level":"INFO","msg":"insde create pfbyte"}
+{"time":"2025-06-21T19:48:22.4945354+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-06-21T19:48:22.4955355+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-06-21T19:48:30.4565821+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-21T19:48:30.4571809+05:30","level":"INFO","msg":"insde create pfbyte"}
+{"time":"2025-06-22T10:10:13.269817+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-06-22T10:10:13.2709327+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-06-22T10:10:50.7247849+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-22T10:10:50.724856+05:30","level":"INFO","msg":"insde create pfbyte"}
+{"time":"2025-06-22T11:02:05.8528199+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-06-22T11:02:05.8538565+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-06-22T11:19:24.4397889+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-06-22T11:19:24.4421115+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-06-22T11:20:48.2956017+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-06-22T11:20:48.2963332+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}

@@ -4647,9 +4647,6 @@ Others", size: 16pt),
   stack(
     place(dx: 0pt, dy: 15pt)[
       #text("Client Portfolio Statement", size: 35pt, fill: rgb("#0d3c6a"), weight: "extrabold")
-      //        #hide[
-      //   #heading(outlined: true)[#text([Sub Asset Class Wise Exposure - Advisors / Distributors],fill:rgb("#0d3c6a"),size: 25pt)]
-      // ]
     ],
     v(50pt),
     // text("as on "+FormatedDate2,size: 25pt, fill: rgb("#6b737e"), weight: "regular"),

@@ -1,4 +1,5 @@
 #import "@preview/echarm:0.2.0"
+#import "@preview/shadowed:0.2.0": shadowed
 
 #let customFooter = box(
   width: 100%,
@@ -32,6 +33,7 @@
 #set page(
   paper: "a2",
   flipped: true,
+  fill: rgb("#fbfbfb"),
   margin: (
     top: 50pt,
     left: 35pt,
@@ -48,11 +50,11 @@
 #let pageNumber = context {
   counter(page).display()
 }
-#let DateString = "{{.ReportDate}}"
+#let DateString = "12-05-2025"
 #let DateParts = DateString.split("-")
-#let DateYear = int(DateParts.at(0))
+#let DateYear = int(DateParts.at(2))
 #let DateMonth = int(DateParts.at(1))
-#let DateDay = int(DateParts.at(2))
+#let DateDay = int(DateParts.at(0))
 #let DateTimeFormat = datetime(
   year: DateYear,
   month: DateMonth,
@@ -63,18 +65,18 @@
 
 #let FormatedDate2 = DateTimeFormat.display("[day] [month repr:short] [year]")
 #place(dx: 1100pt, dy: -50pt)[
-  #image("assets/images/bg design2.jpg", width: 100%, height: 100%)
+  #image("./assets/images/bg design2.jpg", width: 100%, height: 100%)
 ]
 #place(top + right, dx: -90pt)[
-  #image("assets/images/kfintech-logo.png", width: 300pt)
+  #image("./assets/images/kfintech-logo.png", width: 300pt)
 ]
 #place(bottom + left, dx: -40pt, dy: -150pt)[
-  #image("assets/images/design.png", width: 480pt)
+  #image("./assets/images/design.png", width: 480pt)
 ]
 
 
 #place(bottom + right, dx: -140pt, dy: -150pt)[
-  #image("assets/images/bgdesign.jpg", width: 1050pt, height: 370pt)
+  #image("./assets/images/bgdesign.jpg", width: 1050pt, height: 370pt)
 ]
 
 #place(
@@ -171,7 +173,7 @@
     #text(fill: rgb("#248DDC"), weight: "bold", font: "Bai Jamjuree", size: 40pt, "ANALYSIS REPORT")\
     \
     \
-    #text(fill: rgb("#0B1A24"), weight: "bold", font: "Bai Jamjuree", size: 40pt, "{{.ClientName}} / ")
+    #text(fill: rgb("#0B1A24"), weight: "bold", font: "Bai Jamjuree", size: 40pt, "KFin Capitals / ")
     #text(fill: rgb("#D4567B"), weight: "bold", font: "Bai Jamjuree", size: 40pt, "W0000339")
   ]
 ]
@@ -238,11 +240,11 @@
       #set stack(spacing: 16pt)
 
       #stack(
-        stack(spacing: 0.4cm, text("Client Name", weight: "bold", fill: rgb("248DDC"), size: 25pt)),
+        stack(spacing: 0.4cm, text("Client Name", weight: "bold", font: "Open Sans", fill: rgb("248DDC"), size: 25pt)),
         block(width: 350pt)[
           #stack(
             block(width: 350pt)[
-              #text("{{.ClientName}}", fill: black, weight: "bold", size: 25pt)
+              #text("", fill: black, weight: "bold", font: "Open Sans", size: 25pt)
             ],
           )
         ],
@@ -257,11 +259,11 @@
       #set stack(spacing: 16pt)
 
       #stack(
-        stack(spacing: 0.4cm, text("Email", weight: "bold", fill: rgb("248DDC"), size: 25pt)),
+        stack(spacing: 0.4cm, text("Email", weight: "bold", font: "Open Sans", fill: rgb("248DDC"), size: 25pt)),
         block(width: 350pt)[
           #stack(
             block(width: 350pt)[
-              #text("{{.RMEmail-}}", fill: black, weight: "bold", size: 25pt)
+              #text("-", fill: black, weight: "bold", font: "Open Sans", size: 25pt)
             ],
           )
         ],
@@ -276,11 +278,11 @@
       #set stack(spacing: 16pt)
 
       #stack(
-        stack(spacing: 0.4cm, text("Phone Number", weight: "bold", fill: rgb("248DDC"), size: 25pt)),
+        stack(spacing: 0.4cm, text("Phone Number", weight: "bold", font: "Open Sans", fill: rgb("248DDC"), size: 25pt)),
         block(width: 350pt)[
           #stack(
             block(width: 350pt)[
-              #text("{{.RMMobile}}", fill: black, weight: "bold", size: 25pt)
+              #text("-", fill: black, weight: "bold", font: "Open Sans", size: 25pt)
             ],
           )
         ],

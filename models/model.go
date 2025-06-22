@@ -67,6 +67,4 @@ type ReportOverview struct {
 	OverviewSection []Overview `json:"overview_section"`
 }
 
-type Report struct {
-	ExecutiveSummary ExecutiveSummary `json:"executive_summary"`
-}
+

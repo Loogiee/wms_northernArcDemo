@@ -105,6 +105,9 @@ func reportHandler(c *gin.Context) {
 		c.JSON(406, gin.H{"error": obj})
 		return
 	}
+	if len(requestedReports) == 0 {
+		requestedReports = []int{1, 2, 3, 4, 5, 6, 7, 8, 16, 21, 22, 23, 24, 25, 26, 27, 28, 29}
+	}
 	pdfByte, err := CreatePDFByte(requestedReports, customer, portfolio, reportDate, db, traceId, logger)
 	if err != nil {
 		logger.Error("Error wile populating data in template", "Err:", err)

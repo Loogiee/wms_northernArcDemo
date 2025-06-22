@@ -39,7 +39,7 @@ func ConnectToDB() (*sql.DB, error) {
 	return db, nil
 }
 
-func FetchDataForReport(customer string, portfolio string, reportDate string, db *sql.DB, trackId string, reportName string) (string, error) {
+func FetchDataForReport(customer string, portfolio string, reportDate string, db *sql.DB, reportName string) (string, error) {
 	query := `
 		SELECT JSON_ARRAYAGG(REPORT_DATA RETURNING CLOB) AS JSON_DATA
 		FROM RPT_PMS.REPORT_PACKAGE_DATA

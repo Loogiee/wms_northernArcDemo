@@ -9,10 +9,10 @@ import (
 	"github.com/pkg/errors"
 )
 
-func ProcessTitle(wmsData *string, requestedReports []int) (string, error) {
+func ProcessTitle(sqlData *string) (string, error) {
 	var parsingData []ReportOverview
 
-	if err := MapToStruct(*wmsData, &parsingData); err != nil {
+	if err := MapToStruct(*sqlData, &parsingData); err != nil {
 		return "", errors.Wrap(err, "Error converting title map to struct: ")
 	}
 	var tmpl, terr = template.New("Title.typ").Funcs(FuncMap).ParseFiles("./assets/templateSource/Title.typ")
