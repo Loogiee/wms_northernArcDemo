@@ -2,6 +2,7 @@ package templateProcesser
 
 import (
 	"bytes"
+	"encoding/json"
 	"text/template"
 	. "wms_report/models"
 	. "wms_report/utils"
@@ -9,19 +10,25 @@ import (
 	"github.com/pkg/errors"
 )
 
-func ProcessTitle(sqlData *string) (string, error) {
-	var parsingData []ReportOverview
+func ProcessTitle(sqlData *[]map[string]interface{}) (string, error) {
+	var finalProcessData Overview
 
-	if err := MapToStruct(*sqlData, &parsingData); err != nil {
-		return "", errors.Wrap(err, "Error converting title map to struct: ")
+	for _, item := range *sqlData {
+		var tempData []Overview
+		for _, value := range item {
+			jsonBytes, _ := json.Marshal(value)
+			json.Unmarshal(jsonBytes, &tempData)
+		}
+		finalProcessData = tempData[0]
 	}
+
 	var tmpl, terr = template.New("Title.typ").Funcs(FuncMap).ParseFiles("./assets/templateSource/Title.typ")
 	if terr != nil {
 		return "", errors.Wrap(terr, "failed to parse title template:")
 	}
+
 	var buf bytes.Buffer
-	err := tmpl.Execute(&buf, parsingData[0].OverviewSection[0])
-	if err != nil {
+	if err := tmpl.Execute(&buf, finalProcessData); err != nil {
 		return "", errors.Wrapf(err, "failed to execute parsed title template err: %v", err)
 	}
 	return buf.String(), nil

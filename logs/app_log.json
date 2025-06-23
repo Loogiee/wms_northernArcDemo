@@ -1,33 +1,133 @@
-{"time":"2025-06-21T16:24:59.8593062+05:30","level":"DEBUG","msg":"Application Started"}
-{"time":"2025-06-21T16:24:59.8598186+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
-{"time":"2025-06-21T16:25:10.9541966+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
-{"time":"2025-06-21T16:25:32.3017654+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
-{"time":"2025-06-21T16:26:11.8486398+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
-{"time":"2025-06-21T16:26:11.9490697+05:30","level":"ERROR","msg":"Error wile populating data in template","Err:":"failed to parse title template:: template: Title.typ:264: bad character U+002D '-'"}
-{"time":"2025-06-21T16:26:50.162304+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
-{"time":"2025-06-21T16:26:50.264738+05:30","level":"ERROR","msg":"Error wile populating data in template","Err:":"failed to parse title template:: template: Title.typ:264: bad character U+002D '-'"}
-{"time":"2025-06-21T16:30:22.465088+05:30","level":"DEBUG","msg":"Application Started"}
-{"time":"2025-06-21T16:30:22.4656855+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
-{"time":"2025-06-21T16:30:35.9811507+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
-{"time":"2025-06-21T16:30:35.9816617+05:30","level":"INFO","msg":"insde create pfbyte"}
-{"time":"2025-06-21T16:30:36.0766054+05:30","level":"ERROR","msg":"Error wile populating data in template","Err:":"failed to parse title template:: template: Title.typ:264: bad character U+002D '-'"}
-{"time":"2025-06-21T19:45:26.3394986+05:30","level":"DEBUG","msg":"Application Started"}
-{"time":"2025-06-21T19:45:26.3406616+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
-{"time":"2025-06-21T19:45:46.657399+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
-{"time":"2025-06-21T19:45:46.657399+05:30","level":"INFO","msg":"insde create pfbyte"}
-{"time":"2025-06-21T19:46:52.7472943+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
-{"time":"2025-06-21T19:46:52.7478118+05:30","level":"INFO","msg":"insde create pfbyte"}
-{"time":"2025-06-21T19:48:22.4945354+05:30","level":"DEBUG","msg":"Application Started"}
-{"time":"2025-06-21T19:48:22.4955355+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
-{"time":"2025-06-21T19:48:30.4565821+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
-{"time":"2025-06-21T19:48:30.4571809+05:30","level":"INFO","msg":"insde create pfbyte"}
-{"time":"2025-06-22T10:10:13.269817+05:30","level":"DEBUG","msg":"Application Started"}
-{"time":"2025-06-22T10:10:13.2709327+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
-{"time":"2025-06-22T10:10:50.7247849+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
-{"time":"2025-06-22T10:10:50.724856+05:30","level":"INFO","msg":"insde create pfbyte"}
-{"time":"2025-06-22T11:02:05.8528199+05:30","level":"DEBUG","msg":"Application Started"}
-{"time":"2025-06-22T11:02:05.8538565+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
-{"time":"2025-06-22T11:19:24.4397889+05:30","level":"DEBUG","msg":"Application Started"}
-{"time":"2025-06-22T11:19:24.4421115+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
-{"time":"2025-06-22T11:20:48.2956017+05:30","level":"DEBUG","msg":"Application Started"}
-{"time":"2025-06-22T11:20:48.2963332+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+Index: 0, Object: map[allocation_comparison_section: [map[ASSET_GROUP_NAME:Alternative Investment Fund Strategic_Percentage: 15 Total_Exposure_Percentage: 0
+        ] map[ASSET_GROUP_NAME:Commodities Strategic_Percentage: 0 Total_Exposure_Percentage: 0.45
+        ] map[ASSET_GROUP_NAME:Commodity Strategic_Percentage: 5 Total_Exposure_Percentage: 0
+        ] map[ASSET_GROUP_NAME:Debt Strategic_Percentage: 20 Total_Exposure_Percentage: 0
+        ] map[ASSET_GROUP_NAME:Equities Strategic_Percentage: 0 Total_Exposure_Percentage: 96.6
+        ] map[ASSET_GROUP_NAME:Equity Strategic_Percentage: 60 Total_Exposure_Percentage: 0
+        ] map[ASSET_GROUP_NAME:Fixed Income Strategic_Percentage: 0 Total_Exposure_Percentage: 2.95
+        ] map[ASSET_GROUP_NAME:Liquid Strategic_Percentage: 0 Total_Exposure_Percentage: 0.01
+        ]
+    ]
+]
+
+Key: allocation_comparison_section, Value: [map[ASSET_GROUP_NAME:Alternative Investment Fund Strategic_Percentage: 15 Total_Exposure_Percentage: 0
+    ] map[ASSET_GROUP_NAME:Commodities Strategic_Percentage: 0 Total_Exposure_Percentage: 0.45
+    ] map[ASSET_GROUP_NAME:Commodity Strategic_Percentage: 5 Total_Exposure_Percentage: 0
+    ] map[ASSET_GROUP_NAME:Debt Strategic_Percentage: 20 Total_Exposure_Percentage: 0
+    ] map[ASSET_GROUP_NAME:Equities Strategic_Percentage: 0 Total_Exposure_Percentage: 96.6
+    ] map[ASSET_GROUP_NAME:Equity Strategic_Percentage: 60 Total_Exposure_Percentage: 0
+    ] map[ASSET_GROUP_NAME:Fixed Income Strategic_Percentage: 0 Total_Exposure_Percentage: 2.95
+    ] map[ASSET_GROUP_NAME:Liquid Strategic_Percentage: 0 Total_Exposure_Percentage: 0.01
+    ]
+]
+
+Index: 1, Object: map[basic_information_section: [map[Date:As on 2025-09-25 Description:ACQU_COST Value: 2.9397607683e+08
+        ] map[Date:As on 2025-09-25 Description:MARKET_VALUE Value: 2.9397607683e+08
+        ] map[Date:Since Inception Description:NetContribution Value: 1.5986858245e+08
+        ] map[Date:Since Inception Description:XIRR Value: -8.77
+        ] map[Date:Since Inception Description:BMXIRR Value: -3.03
+        ] map[Date: Description:Nifty Value: 1
+        ] map[Date: Description:Crisil Value: 1
+        ]
+    ]
+]
+
+Key: basic_information_section, Value: [map[Date:As on 2025-09-25 Description:ACQU_COST Value: 2.9397607683e+08
+    ] map[Date:As on 2025-09-25 Description:MARKET_VALUE Value: 2.9397607683e+08
+    ] map[Date:Since Inception Description:NetContribution Value: 1.5986858245e+08
+    ] map[Date:Since Inception Description:XIRR Value: -8.77
+    ] map[Date:Since Inception Description:BMXIRR Value: -3.03
+    ] map[Date: Description:Nifty Value: 1
+    ] map[Date: Description:Crisil Value: 1
+    ]
+]
+
+Index: 2, Object: map[quarterly_allocation_section: [map[ASSET_GROUP_NAME:Commodities Exposure%_December 2024: 0.62 Exposure%_June 2025: 0.45 Exposure%_March 2025: 0.45 Exposure%_September 2024: 1.15
+        ] map[ASSET_GROUP_NAME:Equities Exposure%_December 2024: 98.26 Exposure%_June 2025: 96.6 Exposure%_March 2025: 96.6 Exposure%_September 2024: 98.84
+        ] map[ASSET_GROUP_NAME:Fixed Income Exposure%_December 2024: 1.11 Exposure%_June 2025: 2.95 Exposure%_March 2025: 2.95 Exposure%_September 2024: 0
+        ] map[ASSET_GROUP_NAME:Liquid Exposure%_December 2024: 0.01 Exposure%_June 2025: 0.01 Exposure%_March 2025: 0.01 Exposure%_September 2024: 0.01
+        ]
+    ]
+]
+
+Key: quarterly_allocation_section, Value: [map[ASSET_GROUP_NAME:Commodities Exposure%_December 2024: 0.62 Exposure%_June 2025: 0.45 Exposure%_March 2025: 0.45 Exposure%_September 2024: 1.15
+    ] map[ASSET_GROUP_NAME:Equities Exposure%_December 2024: 98.26 Exposure%_June 2025: 96.6 Exposure%_March 2025: 96.6 Exposure%_September 2024: 98.84
+    ] map[ASSET_GROUP_NAME:Fixed Income Exposure%_December 2024: 1.11 Exposure%_June 2025: 2.95 Exposure%_March 2025: 2.95 Exposure%_September 2024: 0
+    ] map[ASSET_GROUP_NAME:Liquid Exposure%_December 2024: 0.01 Exposure%_June 2025: 0.01 Exposure%_March 2025: 0.01 Exposure%_September 2024: 0.01
+    ]
+]
+
+Index: 3, Object: map[relative_performance_over_quarters: [map[Dec 2024: -13.69 Jun 2025: -11.67 Mar 2025: -17.84 Metric:XIRR Sep 2024: -16.77
+        ] map[Dec 2024: 0.99 Jun 2025: -3.03 Mar 2025: -3.03 Metric:BMXIRR Sep 2024: -0.67
+        ] map[Dec 2024: -14.68 Jun 2025: -8.64 Mar 2025: -14.81 Metric:ExcessReturns Sep 2024: -16.1
+        ]
+    ]
+]
+
+Key: relative_performance_over_quarters, Value: [map[Dec 2024: -13.69 Jun 2025: -11.67 Mar 2025: -17.84 Metric:XIRR Sep 2024: -16.77
+    ] map[Dec 2024: 0.99 Jun 2025: -3.03 Mar 2025: -3.03 Metric:BMXIRR Sep 2024: -0.67
+    ] map[Dec 2024: -14.68 Jun 2025: -8.64 Mar 2025: -14.81 Metric:ExcessReturns Sep 2024: -16.1
+    ]
+]{"time":"2025-06-23T19:19:42.008683179+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-06-23T19:19:42.009301544+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-06-23T19:19:42.009637683+05:30","level":"ERROR","msg":"Error starting server","Err:":"listen tcp :5445: bind: address already in use"}
+{"time":"2025-06-23T19:19:56.639848456+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-06-23T19:19:56.64006142+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-06-23T19:20:01.673901328+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100010","Portfolio:":"NX100010","ReportDate:":"2025-04-16"}
+{"time":"2025-06-23T19:20:02.020111385+05:30","level":"ERROR","msg":"Failed to fetch Title report data","Category":"DB","Error":"failed to scan row for report Overview. No Data Available:: sql: Scan error on column index 0, name \"JSON_DATA\": converting NULL to string is unsupported","Origin":"connectDB.go:63 <-- GenerateReport.go:18 <-- main.go:111 <-- context.go:185 <-- recovery.go:102 <-- context.go:185 <-- logger.go:249 <-- context.go:185 <-- gin.go:644 <-- gin.go:600 <-- server.go:3301 <-- server.go:2102"}
+{"time":"2025-06-23T19:20:02.020221083+05:30","level":"ERROR","msg":"Error wile populating data in template","Err:":"failed to scan row for report Overview. No Data Available:: sql: Scan error on column index 0, name \"JSON_DATA\": converting NULL to string is unsupported"}
+{"time":"2025-06-23T19:20:21.8910329+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100010","Portfolio:":"NX100010","ReportDate:":"2025-04-16"}
+{"time":"2025-06-23T19:20:22.15438591+05:30","level":"ERROR","msg":"Failed to fetch Title report data","Category":"DB","Error":"failed to scan row for report Overview. No Data Available:: sql: Scan error on column index 0, name \"JSON_DATA\": converting NULL to string is unsupported","Origin":"connectDB.go:63 <-- GenerateReport.go:18 <-- main.go:111 <-- context.go:185 <-- recovery.go:102 <-- context.go:185 <-- logger.go:249 <-- context.go:185 <-- gin.go:644 <-- gin.go:600 <-- server.go:3301 <-- server.go:2102"}
+{"time":"2025-06-23T19:20:22.15448108+05:30","level":"ERROR","msg":"Error wile populating data in template","Err:":"failed to scan row for report Overview. No Data Available:: sql: Scan error on column index 0, name \"JSON_DATA\": converting NULL to string is unsupported"}
+{"time":"2025-06-23T19:20:44.493032213+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100010","Portfolio:":"NX100010","ReportDate:":"2025-04-16"}
+{"time":"2025-06-23T19:20:44.798308507+05:30","level":"ERROR","msg":"Failed to fetch Title report data","Category":"DB","Error":"failed to scan row for report Overview. No Data Available:: sql: Scan error on column index 0, name \"JSON_DATA\": converting NULL to string is unsupported","Origin":"connectDB.go:63 <-- GenerateReport.go:18 <-- main.go:111 <-- context.go:185 <-- recovery.go:102 <-- context.go:185 <-- logger.go:249 <-- context.go:185 <-- gin.go:644 <-- gin.go:600 <-- server.go:3301 <-- server.go:2102"}
+{"time":"2025-06-23T19:20:44.798388138+05:30","level":"ERROR","msg":"Error wile populating data in template","Err:":"failed to scan row for report Overview. No Data Available:: sql: Scan error on column index 0, name \"JSON_DATA\": converting NULL to string is unsupported"}
+{"time":"2025-06-23T19:48:50.587412901+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-06-23T19:48:50.587781869+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-06-23T19:48:53.340052404+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100010","Portfolio:":"NX100010","ReportDate:":"2025-04-16"}
+{"time":"2025-06-23T19:48:53.432883078+05:30","level":"ERROR","msg":"Failed to fetch Title report data","Category":"DB","Error":"failed to scan row for report Overview. No Data Available:: sql: Scan error on column index 0, name \"JSON_DATA\": converting NULL to string is unsupported","Origin":"connectDB.go:63 <-- GenerateReport.go:18 <-- main.go:111 <-- context.go:185 <-- recovery.go:102 <-- context.go:185 <-- logger.go:249 <-- context.go:185 <-- gin.go:644 <-- gin.go:600 <-- server.go:3301 <-- server.go:2102"}
+{"time":"2025-06-23T19:48:53.432980733+05:30","level":"ERROR","msg":"Error wile populating data in template","Err:":"failed to scan row for report Overview. No Data Available:: sql: Scan error on column index 0, name \"JSON_DATA\": converting NULL to string is unsupported"}
+{"time":"2025-06-23T19:52:55.006989056+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-06-23T19:52:55.007238407+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-06-23T19:52:57.434410061+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-23T19:58:04.669891659+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-06-23T19:58:04.670978722+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-06-23T19:58:08.925750207+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-23T19:59:16.079437058+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-23T20:04:56.371226374+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-06-23T20:04:56.371354186+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-06-23T20:05:21.905594558+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-23T20:14:26.736173996+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-06-23T20:14:26.736398664+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-06-23T20:14:42.267600549+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-23T20:18:32.960524268+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-06-23T20:18:32.960777581+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-06-23T20:18:35.192855882+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-23T20:19:46.414155444+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-06-23T20:19:46.414391566+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-06-23T20:19:54.090482766+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-23T20:19:54.705583804+05:30","level":"ERROR","msg":"Failed to process Executive Summary report data","Category":"PROCESS","Error":"failed to execute parsed title template err: template: ExecutiveSummary.typ:5:26: executing \"ExecutiveSummary.typ\" at <.BasicInformationSection.Description>: can't evaluate field Description in type []models.BasicInfo: template: ExecutiveSummary.typ:5:26: executing \"ExecutiveSummary.typ\" at <.BasicInformationSection.Description>: can't evaluate field Description in type []models.BasicInfo","Origin":"ProcessExecutinveSummary.go:38 <-- GenerateReport.go:36 <-- main.go:111 <-- context.go:185 <-- recovery.go:102 <-- context.go:185 <-- logger.go:249 <-- context.go:185 <-- gin.go:644 <-- gin.go:600 <-- server.go:3301 <-- server.go:2102"}
+{"time":"2025-06-23T20:19:54.705680495+05:30","level":"ERROR","msg":"Error wile populating data in template","Err:":"failed to execute parsed title template err: template: ExecutiveSummary.typ:5:26: executing \"ExecutiveSummary.typ\" at <.BasicInformationSection.Description>: can't evaluate field Description in type []models.BasicInfo: template: ExecutiveSummary.typ:5:26: executing \"ExecutiveSummary.typ\" at <.BasicInformationSection.Description>: can't evaluate field Description in type []models.BasicInfo"}
+{"time":"2025-06-23T20:20:24.976090387+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-23T20:20:25.189465413+05:30","level":"ERROR","msg":"Failed to process Executive Summary report data","Category":"PROCESS","Error":"failed to execute parsed title template err: template: ExecutiveSummary.typ:5:29: executing \"ExecutiveSummary.typ\" at <.BasicInformationSection.Description>: can't evaluate field Description in type []models.BasicInfo: template: ExecutiveSummary.typ:5:29: executing \"ExecutiveSummary.typ\" at <.BasicInformationSection.Description>: can't evaluate field Description in type []models.BasicInfo","Origin":"ProcessExecutinveSummary.go:38 <-- GenerateReport.go:36 <-- main.go:111 <-- context.go:185 <-- recovery.go:102 <-- context.go:185 <-- logger.go:249 <-- context.go:185 <-- gin.go:644 <-- gin.go:600 <-- server.go:3301 <-- server.go:2102"}
+{"time":"2025-06-23T20:20:25.18957105+05:30","level":"ERROR","msg":"Error wile populating data in template","Err:":"failed to execute parsed title template err: template: ExecutiveSummary.typ:5:29: executing \"ExecutiveSummary.typ\" at <.BasicInformationSection.Description>: can't evaluate field Description in type []models.BasicInfo: template: ExecutiveSummary.typ:5:29: executing \"ExecutiveSummary.typ\" at <.BasicInformationSection.Description>: can't evaluate field Description in type []models.BasicInfo"}
+{"time":"2025-06-23T20:20:48.759879499+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-23T20:20:49.343485775+05:30","level":"ERROR","msg":"Failed to process Executive Summary report data","Category":"PROCESS","Error":"failed to execute parsed title template err: template: ExecutiveSummary.typ:5:29: executing \"ExecutiveSummary.typ\" at <.BasicInformationSection.Description>: can't evaluate field Description in type []models.BasicInfo: template: ExecutiveSummary.typ:5:29: executing \"ExecutiveSummary.typ\" at <.BasicInformationSection.Description>: can't evaluate field Description in type []models.BasicInfo","Origin":"ProcessExecutinveSummary.go:38 <-- GenerateReport.go:36 <-- main.go:111 <-- context.go:185 <-- recovery.go:102 <-- context.go:185 <-- logger.go:249 <-- context.go:185 <-- gin.go:644 <-- gin.go:600 <-- server.go:3301 <-- server.go:2102"}
+{"time":"2025-06-23T20:20:49.343655603+05:30","level":"ERROR","msg":"Error wile populating data in template","Err:":"failed to execute parsed title template err: template: ExecutiveSummary.typ:5:29: executing \"ExecutiveSummary.typ\" at <.BasicInformationSection.Description>: can't evaluate field Description in type []models.BasicInfo: template: ExecutiveSummary.typ:5:29: executing \"ExecutiveSummary.typ\" at <.BasicInformationSection.Description>: can't evaluate field Description in type []models.BasicInfo"}
+{"time":"2025-06-23T20:21:06.4772236+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-23T20:21:06.977065236+05:30","level":"ERROR","msg":"Failed to process Executive Summary report data","Category":"PROCESS","Error":"failed to parse title template:: template: ExecutiveSummary.typ:3: undefined variable \"$item\"","Origin":"ProcessExecutinveSummary.go:33 <-- GenerateReport.go:36 <-- main.go:111 <-- context.go:185 <-- recovery.go:102 <-- context.go:185 <-- logger.go:249 <-- context.go:185 <-- gin.go:644 <-- gin.go:600 <-- server.go:3301 <-- server.go:2102"}
+{"time":"2025-06-23T20:21:06.977117303+05:30","level":"ERROR","msg":"Error wile populating data in template","Err:":"failed to parse title template:: template: ExecutiveSummary.typ:3: undefined variable \"$item\""}
+{"time":"2025-06-23T20:21:45.71948932+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-23T20:21:45.90962611+05:30","level":"ERROR","msg":"Failed to process Executive Summary report data","Category":"PROCESS","Error":"failed to parse title template:: template: ExecutiveSummary.typ:3: undefined variable \"$item\"","Origin":"ProcessExecutinveSummary.go:33 <-- GenerateReport.go:36 <-- main.go:111 <-- context.go:185 <-- recovery.go:102 <-- context.go:185 <-- logger.go:249 <-- context.go:185 <-- gin.go:644 <-- gin.go:600 <-- server.go:3301 <-- server.go:2102"}
+{"time":"2025-06-23T20:21:45.909689589+05:30","level":"ERROR","msg":"Error wile populating data in template","Err:":"failed to parse title template:: template: ExecutiveSummary.typ:3: undefined variable \"$item\""}
+{"time":"2025-06-23T20:22:03.757800203+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-23T20:22:04.171197591+05:30","level":"ERROR","msg":"Failed to process Executive Summary report data","Category":"PROCESS","Error":"failed to execute parsed title template err: template: ExecutiveSummary.typ:5:29: executing \"ExecutiveSummary.typ\" at <.BasicInformationSection.Description>: can't evaluate field Description in type []models.BasicInfo: template: ExecutiveSummary.typ:5:29: executing \"ExecutiveSummary.typ\" at <.BasicInformationSection.Description>: can't evaluate field Description in type []models.BasicInfo","Origin":"ProcessExecutinveSummary.go:38 <-- GenerateReport.go:36 <-- main.go:111 <-- context.go:185 <-- recovery.go:102 <-- context.go:185 <-- logger.go:249 <-- context.go:185 <-- gin.go:644 <-- gin.go:600 <-- server.go:3301 <-- server.go:2102"}
+{"time":"2025-06-23T20:22:04.171294733+05:30","level":"ERROR","msg":"Error wile populating data in template","Err:":"failed to execute parsed title template err: template: ExecutiveSummary.typ:5:29: executing \"ExecutiveSummary.typ\" at <.BasicInformationSection.Description>: can't evaluate field Description in type []models.BasicInfo: template: ExecutiveSummary.typ:5:29: executing \"ExecutiveSummary.typ\" at <.BasicInformationSection.Description>: can't evaluate field Description in type []models.BasicInfo"}
+{"time":"2025-06-23T20:23:42.121964858+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-23T20:23:42.572422895+05:30","level":"ERROR","msg":"Failed to process Executive Summary report data","Category":"PROCESS","Error":"failed to execute parsed title template err: template: ExecutiveSummary.typ:2:27: executing \"ExecutiveSummary.typ\" at <.PfReturn>: can't evaluate field PfReturn in type models.ExecutiveSummary: template: ExecutiveSummary.typ:2:27: executing \"ExecutiveSummary.typ\" at <.PfReturn>: can't evaluate field PfReturn in type models.ExecutiveSummary","Origin":"ProcessExecutinveSummary.go:38 <-- GenerateReport.go:36 <-- main.go:111 <-- context.go:185 <-- recovery.go:102 <-- context.go:185 <-- logger.go:249 <-- context.go:185 <-- gin.go:644 <-- gin.go:600 <-- server.go:3301 <-- server.go:2102"}
+{"time":"2025-06-23T20:23:42.572494108+05:30","level":"ERROR","msg":"Error wile populating data in template","Err:":"failed to execute parsed title template err: template: ExecutiveSummary.typ:2:27: executing \"ExecutiveSummary.typ\" at <.PfReturn>: can't evaluate field PfReturn in type models.ExecutiveSummary: template: ExecutiveSummary.typ:2:27: executing \"ExecutiveSummary.typ\" at <.PfReturn>: can't evaluate field PfReturn in type models.ExecutiveSummary"}
+{"time":"2025-06-23T20:24:05.333116293+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-23T20:24:05.890990522+05:30","level":"ERROR","msg":"Failed to process Executive Summary report data","Category":"PROCESS","Error":"failed to execute parsed title template err: template: ExecutiveSummary.typ:2:20: executing \"ExecutiveSummary.typ\" at <.PfReturn>: can't evaluate field PfReturn in type models.ExecutiveSummary: template: ExecutiveSummary.typ:2:20: executing \"ExecutiveSummary.typ\" at <.PfReturn>: can't evaluate field PfReturn in type models.ExecutiveSummary","Origin":"ProcessExecutinveSummary.go:38 <-- GenerateReport.go:36 <-- main.go:111 <-- context.go:185 <-- recovery.go:102 <-- context.go:185 <-- logger.go:249 <-- context.go:185 <-- gin.go:644 <-- gin.go:600 <-- server.go:3301 <-- server.go:2102"}
+{"time":"2025-06-23T20:24:05.891082535+05:30","level":"ERROR","msg":"Error wile populating data in template","Err:":"failed to execute parsed title template err: template: ExecutiveSummary.typ:2:20: executing \"ExecutiveSummary.typ\" at <.PfReturn>: can't evaluate field PfReturn in type models.ExecutiveSummary: template: ExecutiveSummary.typ:2:20: executing \"ExecutiveSummary.typ\" at <.PfReturn>: can't evaluate field PfReturn in type models.ExecutiveSummary"}
+{"time":"2025-06-23T20:24:24.645140488+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}
+{"time":"2025-06-23T20:25:28.220224116+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-09-25"}

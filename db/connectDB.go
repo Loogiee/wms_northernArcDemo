@@ -2,6 +2,7 @@ package db
 
 import (
 	"database/sql"
+	"encoding/json"
 	"fmt"
 	"log"
 	"time"
@@ -39,7 +40,7 @@ func ConnectToDB() (*sql.DB, error) {
 	return db, nil
 }
 
-func FetchDataForReport(customer string, portfolio string, reportDate string, db *sql.DB, reportName string) (string, error) {
+func FetchDataForReport(customer string, portfolio string, reportDate string, db *sql.DB, reportName string) ([]map[string]interface{}, error) {
 	query := `
 		SELECT JSON_ARRAYAGG(REPORT_DATA RETURNING CLOB) AS JSON_DATA
 		FROM RPT_PMS.REPORT_PACKAGE_DATA
@@ -50,23 +51,32 @@ func FetchDataForReport(customer string, portfolio string, reportDate string, db
 	// Execute the query with the correct parameters
 	rows, err := db.Query(query, customer, portfolio, reportDate, reportName)
 	if err != nil {
-		return "", errors.Wrap(err, "failed to execute query:")
+		return nil, errors.Wrap(err, "failed to execute query:")
 	}
 	defer rows.Close()
 
-	var reportData string
-
+	// var reportData string
+	var reportData []map[string]interface{}
 	for rows.Next() {
+		var jsonData string
 		// Scan the JSON_DATA column into the variable
-		if err := rows.Scan(&reportData); err != nil {
+		if err := rows.Scan(&jsonData); err != nil {
 			// FIXME: incase if the data is empty send out a custom http response saying no data found
-			return "", errors.Wrapf(err, "failed to scan row for report %v. No Data Available:", reportName)
+			return nil, errors.Wrapf(err, "failed to scan row for report %v. No Data Available:", reportName)
 		}
+		// Parse the JSON_DATA into []map[string]interface{}
+		var parsedData []map[string]interface{}
+		if err := json.Unmarshal([]byte(jsonData), &parsedData); err != nil {
+			return nil, errors.Wrap(err, "failed to unmarshal JSON_DATA:")
+			// fmt.Errorf("failed to unmarshal JSON_DATA: %v", err)
+		}
+		// Append parsed data to result
+		reportData = append(reportData, parsedData...)
 	}
 
 	// Check for errors during iteration
 	if err := rows.Err(); err != nil {
-		return "", errors.Wrap(err, "error during row iteration:")
+		return nil, errors.Wrap(err, "error during row iteration:")
 		// fmt.Errorf("error during row iteration: %v", err)
 	}
 	return reportData, nil

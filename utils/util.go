@@ -6,10 +6,14 @@ import (
 	"html/template"
 )
 
-func MapToStruct(data string, result interface{}) error {
-
+func MapToStruct(data interface{}, result interface{}) error {
+	// Convert the input data to JSON
+	dataBytes, err := json.Marshal(data)
+	if err != nil {
+		return fmt.Errorf("failed to marshal data to JSON: %w", err)
+	}
 	// Unmarshal the JSON into the struct
-	if err := json.Unmarshal([]byte(data), result); err != nil {
+	if err := json.Unmarshal(dataBytes, result); err != nil {
 		return fmt.Errorf("failed to unmarshal into struct: %w", err)
 	}
 	return nil

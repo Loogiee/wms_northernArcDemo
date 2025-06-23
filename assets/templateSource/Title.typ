@@ -1,34 +1,29 @@
 #import "@preview/echarm:0.2.0"
 #import "@preview/shadowed:0.2.0": shadowed
 
-#let customFooter = box(
-  width: 100%,
-  height: 30pt,
-  inset: 10pt,
-  align(center + bottom)[
-    #place(dx: 0pt)[
-      #text("Report is at : Investor Level", size: 21pt, weight: "medium", fill: blue)
-    ]
-    #place(dx: 48%)[
-      #text("RM Name :", size: 21pt, weight: "medium", fill: blue)
-    ]
-    #place(dx: 99%)[
-      #text(
-        context {
-          let pageNum = counter(page).get().first()
-          if pageNum < 10 {
-            "0" + str(pageNum)
-          } else {
-            pageNum
-          }
-        },
-        size: 21pt,
-        weight: "medium",
-        fill: blue,
-      )
-    ]
-  ],
-)
+#let customFooter = box(width: 100%, height: 30pt, inset: 10pt, align(center + bottom)[
+  #place(dx: 0pt)[
+    #text("Report is at : Investor Level", size: 21pt, weight: "medium", fill: blue)
+  ]
+  #place(dx: 48%)[
+    #text("RM Name :", size: 21pt, weight: "medium", fill: blue)
+  ]
+  #place(dx: 99%)[
+    #text(
+      context {
+        let pageNum = counter(page).get().first()
+        if pageNum < 10 {
+          "0" + str(pageNum)
+        } else {
+          pageNum
+        }
+      },
+      size: 21pt,
+      weight: "medium",
+      fill: blue,
+    )
+  ]
+])
 #set text(size: 12pt, font: "Bai Jamjuree")
 #set page(
   paper: "a2",
@@ -91,16 +86,10 @@
       context {
         let outline_data = query(heading.where(level: 1))
         for entry in outline_data {
-          link(
-            entry.location(),
-            [
-              #box(
-                width: 80%,
-                text(weight: "bold", size: 2.3em, fill: rgb("#005397"), entry.body),
-              )
-              #v(10pt)
-            ],
-          )
+          link(entry.location(), [
+            #box(width: 80%, text(weight: "bold", size: 2.3em, fill: rgb("#005397"), entry.body))
+            #v(10pt)
+          ])
         }
       },
     )
@@ -108,39 +97,23 @@
   ]
 
 
-  #place(
-    top + right,
-    dx: -440pt,
-    dy: 50pt,
-    line(
-      stroke: 2pt + rgb("#2F75B5"),
-      start: (0pt, 0pt),
-      end: (0pt, 330pt),
-    ),
-  )
-  #place(
-    top + right,
-    dx: -437pt,
-    dy: 50pt,
-    box(fill: rgb("#0090F3"), width: 6pt, height: 25pt),
-  )
+  #place(top + right, dx: -440pt, dy: 50pt, line(
+    stroke: 2pt + rgb("#2F75B5"),
+    start: (0pt, 0pt),
+    end: (0pt, 330pt),
+  ))
+  #place(top + right, dx: -437pt, dy: 50pt, box(fill: rgb("#0090F3"), width: 6pt, height: 25pt))
   #place(
     bottom + right,
     dy: -320pt,
     dx: -20pt,
   )[
-    #box(
-      fill: rgb("#005397"),
-      stroke: none,
-      width: 50pt,
-      height: 80pt,
-      radius: (
-        left: 0pt,
-        right: 0pt,
-        bottom-right: 100pt,
-        bottom-left: 00pt,
-      ),
-    )[
+    #box(fill: rgb("#005397"), stroke: none, width: 50pt, height: 80pt, radius: (
+      left: 0pt,
+      right: 0pt,
+      bottom-right: 100pt,
+      bottom-left: 00pt,
+    ))[
 
 
       #pad(
@@ -232,61 +205,40 @@
   dx: 80pt,
   dy: 20pt,
 )[
-  #place(
-    bottom + left,
-    dx: 800pt,
-    dy: -80pt,
-    rect(width: 100%, stroke: none)[
-      #set stack(spacing: 16pt)
+  #place(bottom + left, dx: 800pt, dy: -80pt, rect(width: 100%, stroke: none)[
+    #set stack(spacing: 16pt)
 
-      #stack(
-        stack(spacing: 0.4cm, text("Client Name", weight: "bold", font: "Open Sans", fill: rgb("248DDC"), size: 25pt)),
-        block(width: 350pt)[
-          #stack(
-            block(width: 350pt)[
-              #text("", fill: black, weight: "bold", font: "Open Sans", size: 25pt)
-            ],
-          )
-        ],
-      )
-    ],
-  )
-  #place(
-    bottom + left,
-    dx: 1070pt,
-    dy: -80pt,
-    rect(width: 100%, stroke: none)[
-      #set stack(spacing: 16pt)
+    #stack(
+      stack(spacing: 0.4cm, text("Client Name", weight: "bold", font: "Open Sans", fill: rgb("248DDC"), size: 25pt)),
+      block(width: 350pt)[
+        #stack(block(width: 350pt)[
+          #text("{{.ClientName}}", fill: black, weight: "bold", font: "Open Sans", size: 25pt)
+        ])
+      ],
+    )
+  ])
+  #place(bottom + left, dx: 1070pt, dy: -80pt, rect(width: 100%, stroke: none)[
+    #set stack(spacing: 16pt)
 
-      #stack(
-        stack(spacing: 0.4cm, text("Email", weight: "bold", font: "Open Sans", fill: rgb("248DDC"), size: 25pt)),
-        block(width: 350pt)[
-          #stack(
-            block(width: 350pt)[
-              #text("-", fill: black, weight: "bold", font: "Open Sans", size: 25pt)
-            ],
-          )
-        ],
-      )
-    ],
-  )
-  #place(
-    bottom + left,
-    dx: 1340pt,
-    dy: -80pt,
-    rect(width: 100%, stroke: none)[
-      #set stack(spacing: 16pt)
+    #stack(
+      stack(spacing: 0.4cm, text("Email", weight: "bold", font: "Open Sans", fill: rgb("248DDC"), size: 25pt)),
+      block(width: 350pt)[
+        #stack(block(width: 350pt)[
+          #text("-", fill: black, weight: "bold", font: "Open Sans", size: 25pt)
+        ])
+      ],
+    )
+  ])
+  #place(bottom + left, dx: 1340pt, dy: -80pt, rect(width: 100%, stroke: none)[
+    #set stack(spacing: 16pt)
 
-      #stack(
-        stack(spacing: 0.4cm, text("Phone Number", weight: "bold", font: "Open Sans", fill: rgb("248DDC"), size: 25pt)),
-        block(width: 350pt)[
-          #stack(
-            block(width: 350pt)[
-              #text("-", fill: black, weight: "bold", font: "Open Sans", size: 25pt)
-            ],
-          )
-        ],
-      )
-    ],
-  )
+    #stack(
+      stack(spacing: 0.4cm, text("Phone Number", weight: "bold", font: "Open Sans", fill: rgb("248DDC"), size: 25pt)),
+      block(width: 350pt)[
+        #stack(block(width: 350pt)[
+          #text("{{.RMMobile}}", fill: black, weight: "bold", font: "Open Sans", size: 25pt)
+        ])
+      ],
+    )
+  ])
 ]

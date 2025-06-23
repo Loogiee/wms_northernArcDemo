@@ -40,7 +40,7 @@ var logger *slog.Logger
 func main() {
 	// initial log dir and file
 	os.MkdirAll("./logs", os.ModeAppend)
-	logFile, err := os.OpenFile("./logs/app_log.json", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	logFile, err := os.OpenFile("/home/lkc/Downloads/wms/NorthernArc/logs/app_log.json", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
 	if err != nil {
 		panic(err)
 	}

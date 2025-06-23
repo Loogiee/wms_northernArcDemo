@@ -21,7 +21,7 @@ type ExecutiveSummary struct {
 type BasicInfo struct {
 	Description string  `json:"Description"`
 	Value       float64 `json:"Value"`
-	Date        *string `json:"Date"` // Use pointer to handle null
+	Date        string  `json:"Date"` // Use pointer to handle null
 }
 
 type Allocation struct {
@@ -62,9 +62,3 @@ type Overview struct {
 	CustomerMobile string `json:"Customer_Mobile"`
 	CustomerType   string `json:"Customer_Type"`
 }
-
-type ReportOverview struct {
-	OverviewSection []Overview `json:"overview_section"`
-}
-
-

@@ -1,0 +1,142 @@
+[
+    {
+        "allocation_comparison_section": [
+            {
+                "ASSET_GROUP_NAME": "Alternative Investment Fund",
+                "Total_Exposure_Percentage": 0,
+                "Strategic_Percentage": 15
+            },
+            {
+                "ASSET_GROUP_NAME": "Commodities",
+                "Total_Exposure_Percentage": 0.45,
+                "Strategic_Percentage": 0
+            },
+            {
+                "ASSET_GROUP_NAME": "Commodity",
+                "Total_Exposure_Percentage": 0,
+                "Strategic_Percentage": 5
+            },
+            {
+                "ASSET_GROUP_NAME": "Debt",
+                "Total_Exposure_Percentage": 0,
+                "Strategic_Percentage": 20
+            },
+            {
+                "ASSET_GROUP_NAME": "Equities",
+                "Total_Exposure_Percentage": 96.6,
+                "Strategic_Percentage": 0
+            },
+            {
+                "ASSET_GROUP_NAME": "Equity",
+                "Total_Exposure_Percentage": 0,
+                "Strategic_Percentage": 60
+            },
+            {
+                "ASSET_GROUP_NAME": "Fixed Income",
+                "Total_Exposure_Percentage": 2.95,
+                "Strategic_Percentage": 0
+            },
+            {
+                "ASSET_GROUP_NAME": "Liquid",
+                "Total_Exposure_Percentage": 0.01,
+                "Strategic_Percentage": 0
+            }
+        ]
+    },
+    {
+        "basic_information_section": [
+            {
+                "Description": "ACQU_COST",
+                "Value": 293976076.83,
+                "Date": "As on 2025-09-25"
+            },
+            {
+                "Description": "MARKET_VALUE",
+                "Value": 293976076.83,
+                "Date": "As on 2025-09-25"
+            },
+            {
+                "Description": "NetContribution",
+                "Value": 159868582.45,
+                "Date": "Since Inception"
+            },
+            {
+                "Description": "XIRR",
+                "Value": -8.77,
+                "Date": "Since Inception"
+            },
+            {
+                "Description": "BMXIRR",
+                "Value": -3.03,
+                "Date": "Since Inception"
+            },
+            {
+                "Description": "Nifty",
+                "Value": 1,
+                "Date": ""
+            },
+            {
+                "Description": "Crisil",
+                "Value": 1,
+                "Date": ""
+            }
+        ]
+    },
+    {
+        "quarterly_allocation_section": [
+            {
+                "ASSET_GROUP_NAME": "Commodities",
+                "Exposure%_September 2024": 1.15,
+                "Exposure%_December 2024": 0.62,
+                "Exposure%_March 2025": 0.45,
+                "Exposure%_June 2025": 0.45
+            },
+            {
+                "ASSET_GROUP_NAME": "Equities",
+                "Exposure%_September 2024": 98.84,
+                "Exposure%_December 2024": 98.26,
+                "Exposure%_March 2025": 96.6,
+                "Exposure%_June 2025": 96.6
+            },
+            {
+                "ASSET_GROUP_NAME": "Fixed Income",
+                "Exposure%_September 2024": 0,
+                "Exposure%_December 2024": 1.11,
+                "Exposure%_March 2025": 2.95,
+                "Exposure%_June 2025": 2.95
+            },
+            {
+                "ASSET_GROUP_NAME": "Liquid",
+                "Exposure%_September 2024": 0.01,
+                "Exposure%_December 2024": 0.01,
+                "Exposure%_March 2025": 0.01,
+                "Exposure%_June 2025": 0.01
+            }
+        ]
+    },
+    {
+        "relative_performance_over_quarters": [
+            {
+                "Metric": "XIRR",
+                "Sep 2024": -16.77,
+                "Dec 2024": -13.69,
+                "Mar 2025": -17.84,
+                "Jun 2025": -11.67
+            },
+            {
+                "Metric": "BMXIRR",
+                "Sep 2024": -0.67,
+                "Dec 2024": 0.99,
+                "Mar 2025": -3.03,
+                "Jun 2025": -3.03
+            },
+            {
+                "Metric": "ExcessReturns",
+                "Sep 2024": -16.1,
+                "Dec 2024": -14.68,
+                "Mar 2025": -14.81,
+                "Jun 2025": -8.64
+            }
+        ]
+    }
+]
