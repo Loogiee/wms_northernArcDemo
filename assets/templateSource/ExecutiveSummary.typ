@@ -1,6 +1,10 @@
 #pagebreak()
-{{range $element := .BasicInformationSection}}
-{{$element.Description}} {{$element.Value}}{{$element.Date}}}
+{{range $element := .RelativePerformanceOverQuarters}}
+{{$element.Metric}}\
+{{$element.Month1}}\
+{{$element.Month2}}\
+{{$element.Month3}}\
+{{$element.Month4}}
 {{end}}
 #pagebreak()
 
