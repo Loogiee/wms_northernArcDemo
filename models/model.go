@@ -127,6 +127,38 @@ type SubAssetSection struct {
 	GroupLabel       string  `json:"GROUP_LABEL"`
 }
 
+// --> Mutual Funds - Investment Summary
+type MututalFundHoldingSection struct {
+	AssetGroupName  string  `json:"ASSET_GROUP_NAME"`
+	MarketCapType   string  `json:"MARKET_CAP_TYPE"`
+	SecurityName    string  `json:"SECURITY_NAME"`
+	FolioNo         string  `json:"FOLIO_NO"`
+	AcquisitionCost float64 `json:"ACQU_COST"`
+	MarketValue     float64 `json:"MARKET_VALUE"`
+	Appreciation    float64 `json:"APPRE_DEPRE"`
+	RealGainLoss    float64 `json:"REAL_GAIN_LOSS"`
+	Quantity        float64 `json:"QUANTITY"`
+	PurchaseDate    string  `json:"PUR_DATE"`
+	HoldingDays     float64 `json:"HOLD_DAYS"`
+	XIRR            float64 `json:"XIRR"`
+	AbsoluteReturn  float64 `json:"ABSOLUTE_RETURN"`
+	GroupLabel      string  `json:"GROUP_LABEL"`
+}
+
+// --> PMS - Investment Summary
+type PmsHoldingSection struct {
+	AssetGroupName string  `json:"ASSET_GROUP_NAME"`
+	MarketCapType  string  `json:"MARKET_CAP_TYPE"`
+	SecurityName   string  `json:"SECURITY_NAME"`
+	MarketValue    float64 `json:"MARKET_VALUE"`
+	FolioNo        string  `json:"FOLIO_NO"`
+	Inflow         float64 `json:"INFLOW"`
+	Outflow        float64 `json:"OUTFLOW"`
+	XIRR           float64 `json:"XIRR"`
+	AssetExposure  float64 `json:"ASSET_EXPOSURE%"`
+	// market value data is missing need to add that
+}
+
 // AMC Wise Exposure - All Advisors
 type AmcWiseSection struct {
 	AssetGroupName  string  `json:"ASSET_GROUP_NAME"`
