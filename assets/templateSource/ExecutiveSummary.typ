@@ -1,13 +1,4 @@
 #pagebreak()
-{{range $element := .RelativePerformanceOverQuarters}}
-{{$element.Metric}}\
-{{$element.Month1}}\
-{{$element.Month2}}\
-{{$element.Month3}}\
-{{$element.Month4}}
-{{end}}
-#pagebreak()
-
 #text("Executive Summary", size: 40pt, fill: rgb("#0d3c6a"), weight: "extrabold")
 #hide[
 

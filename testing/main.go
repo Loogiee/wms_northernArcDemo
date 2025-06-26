@@ -1,8 +1,8 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
+	"time"
 )
 
 type RequestBody struct {
@@ -73,22 +73,30 @@ type ReportOverview struct {
 }
 
 func main() {
-	var finalProcessData Overview
-	var tempData []map[string]interface{}
-	sqlData := `[{"overview_section": [{"Report Date": "2025-06-20", "Report From": "2024-09-25", "Report To": "2025-09-25", "Print Date": "2025-06-20", "RM": "Abhishek Puri", "RMMobile": "8851555342", "RMEmail": "abhishek.puri@nexedge.capital", "SM": "", "SMMobile": "", "SMEmail": "", "Client_Name": "GAUTAM GAMBHIR", "Family_Name": "GAUTAM GAMBHIR", "Customer_Mobile": "", "Customer_Type": ""}]}]`
+	// var finalProcessData Overview
+	// var tempData []map[string]interface{}
+	// sqlData := `[{"overview_section": [{"Report Date": "2025-06-20", "Report From": "2024-09-25", "Report To": "2025-09-25", "Print Date": "2025-06-20", "RM": "Abhishek Puri", "RMMobile": "8851555342", "RMEmail": "abhishek.puri@nexedge.capital", "SM": "", "SMMobile": "", "SMEmail": "", "Client_Name": "GAUTAM GAMBHIR", "Family_Name": "GAUTAM GAMBHIR", "Customer_Mobile": "", "Customer_Type": ""}]}]`
 
-	json.Unmarshal([]byte(sqlData), &tempData)
-	for _, item := range tempData {
-		var tempData []Overview
-		for _, value := range item {
-			jsonBytes, _ := json.Marshal(value)
-			json.Unmarshal(jsonBytes, &tempData)
-		}
-		finalProcessData = tempData[0]
-	}
-	fmt.Println(finalProcessData.PrintDate)
+	// json.Unmarshal([]byte(sqlData), &tempData)
+	// for _, item := range tempData {
+	// 	var tempData []Overview
+	// 	for _, value := range item {
+	// 		jsonBytes, _ := json.Marshal(value)
+	// 		json.Unmarshal(jsonBytes, &tempData)
+	// 	}
+	// 	finalProcessData = tempData[0]
+	// }
+	// fmt.Println(finalProcessData.PrintDate)
+	parsedDate, err := DateFormatter("2022-10-04", "02 Jan 2006")
+	fmt.Println(parsedDate, err)
+
 }
 
-func MapToStruct(data interface{},) {
-
+func DateFormatter(dateStr string, format string) (string, error) {
+	layout := "2006-01-02"
+	parsedDate, err := time.Parse(layout, dateStr)
+	if err != nil {
+		return "", fmt.Errorf("failed to parse date: %w", err)
+	}
+	return parsedDate.Format(format), nil
 }

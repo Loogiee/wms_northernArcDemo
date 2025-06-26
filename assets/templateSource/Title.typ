@@ -6,7 +6,7 @@
     #text("Report is at : Investor Level", size: 21pt, weight: "medium", fill: blue)
   ]
   #place(dx: 48%)[
-    #text("RM Name :", size: 21pt, weight: "medium", fill: blue)
+    #text("RM Name : {{.RM}}", size: 21pt, weight: "medium", fill: blue)
   ]
   #place(dx: 99%)[
     #text(
@@ -45,20 +45,11 @@
 #let pageNumber = context {
   counter(page).display()
 }
-#let DateString = "12-05-2025"
-#let DateParts = DateString.split("-")
-#let DateYear = int(DateParts.at(2))
-#let DateMonth = int(DateParts.at(1))
-#let DateDay = int(DateParts.at(0))
-#let DateTimeFormat = datetime(
-  year: DateYear,
-  month: DateMonth,
-  day: DateDay,
-)
-#let FormatedDate = DateTimeFormat.display("[day] [month repr:short] [year] ")
-#let FormatedDate1 = DateTimeFormat.display("[day] [month repr:short] [year] - [day] [month repr:short] [year]")
-
-#let FormatedDate2 = DateTimeFormat.display("[day] [month repr:short] [year]")
+{{$RequredDateFormat :="02 Jan 2006"}}
+#let ReportDate = "{{DateFormatter .ReportDate $RequredDateFormat}}"
+#let ReportBeginDate = "{{DateFormatter .ReportFrom $RequredDateFormat}}"
+#let ReportEndDate = "{{DateFormatter .ReportFrom $RequredDateFormat}}"
+#let ReportPeriod = "{{DateFormatter .PrintDate $RequredDateFormat}}"
 #place(dx: 1100pt, dy: -50pt)[
   #image("./assets/images/bg design2.jpg", width: 100%, height: 100%)
 ]
@@ -161,7 +152,7 @@
     #block()[
       #text("Report as on date", size: 25pt, weight: "semibold", font: "Bai Jamjuree", fill: rgb("248DDC"))\
       \
-      #text(FormatedDate, size: 25pt, weight: "semibold", font: "Bai Jamjuree", fill: black)
+      #text(ReportDate, size: 25pt, weight: "semibold", font: "Bai Jamjuree", fill: black)
     ]
   ]
   #place(
@@ -172,7 +163,7 @@
     #block()[
       #text("Report Period", size: 25pt, weight: "semibold", font: "Bai Jamjuree", fill: rgb("248DDC"))\
       \
-      #text(FormatedDate1, size: 25pt, weight: "semibold", font: "Bai Jamjuree", fill: black)
+      #text("ReportBeginDate-ReportEndDate", size: 25pt, weight: "semibold", font: "Bai Jamjuree", fill: black)
     ]
   ]
 
@@ -184,7 +175,7 @@
     #block()[
       #text("Print date", size: 25pt, weight: "semibold", font: "Bai Jamjuree", fill: rgb("248DDC"))\
       \
-      #text(FormatedDate, size: 25pt, weight: "semibold", font: "Bai Jamjuree", fill: black)
+      #text(ReportPeriod, size: 25pt, weight: "semibold", font: "Bai Jamjuree", fill: black)
     ]
   ]
 

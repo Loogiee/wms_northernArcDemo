@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"html/template"
+	"time"
 )
 
 func MapToStruct(data interface{}, result interface{}) error {
@@ -48,8 +49,17 @@ func ConvertToFormattedNumberWithoutDecimalPointer(amount *float64) string {
 
 	return result
 }
+func DateFormatter(dateStr string, format string) (string, error) {
+	layout := "2006-01-02"
+	parsedDate, err := time.Parse(layout, dateStr)
+	if err != nil {
+		return "", fmt.Errorf("failed to parse date: %w", err)
+	}
+	return parsedDate.Format(format), nil
+}
 
 var FuncMap = template.FuncMap{
 	"sub": func(a, b int) int { return a - b },
 	"ConvertToFormattedNumberWithoutDecimalPointer": ConvertToFormattedNumberWithoutDecimalPointer,
+	"DateFormatter": DateFormatter,
 }
