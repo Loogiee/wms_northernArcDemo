@@ -29,12 +29,13 @@
       height: 30pt,
       stack(
      place(dx: 10pt,dy: 15pt)[
-       #text("Asset Class Wise Summary", size: 16pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
-      #text("as on "+ReportDate,size: 8pt, fill: rgb("#585858"))
+        #text("Asset Class Wise Summary", size: 16pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
+        #text("as on "+ReportDate,size: 8pt, fill: rgb("#585858"))
+        #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
        place(top+right,dx: -15pt,dy: 10pt,
-          [#image("./assets/images/kfintech-logo.png", width: 155pt,height: 30pt)]),
-      place(dy: -10pt,[#line(length: 100%,stroke: 0.5pt + rgb("#cdcdcd"))])
+          [#image("./assets/images/kfintech-logo.png", width: 155pt,height: 30pt)])
+
 )
 )
 
@@ -46,7 +47,8 @@ header: context{
   }
 })
 {{if ne $DataCount  0}}
-
+  #v(15pt)
+  #hide[ #heading(outlined: true)[#text([Asset Class Wise Summary],fill:rgb("#0d3c6a"))]]
   #table(
     columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
     stroke: none,
@@ -54,7 +56,7 @@ header: context{
     // Header
     table.header(
     table.cell(rowspan: 2, colspan: 9, align: left + horizon, [#text(fill: heading0,size: 15pt, weight: "bold", [ Portfolio Analysis Report])]),
-    table.hline(stroke: rgb(gray)),
+    table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
 
     // Column headers
     table.cell(align(left)[#text(fill: heading0, "Particulars")]),
@@ -97,26 +99,33 @@ header: context{
 
   )
   #pagebreak()
-   #text("Product Wise Exposure - Advisors / Distributors", size: 16pt, fill: rgb("0e496e"), weight: "extrabold")\
-    #text("as on "+ReportDate,size: 8pt, fill: rgb("#585858"))
-    #hide[
-      #heading(outlined: true)[#text([Product Wise Exposure - Advisors / Distributors],fill:rgb("#0d3c6a"))]
-    ]
-    #place(dy: -5pt,[#line(length: 100%,stroke: 0.5pt + rgb("#cdcdcd"))])
-
-    #place(top+right,
-          dx: -10pt,
-          dy: -8pt,
-          [#image("./assets/images/kfintech-logo.png", width: 155pt,height: 30pt)])
-
+  #let customHeader =box(
+      width: 100%,
+      height: 30pt,
+      stack(
+     place(dx: 10pt,dy: 15pt)[
+       #text("Product Wise Exposure - Advisors / Distributors", size: 16pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
+      #text("as on "+ReportDate,size: 8pt, fill: rgb("#585858"))
+       #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
+      ],
+       place(top+right,dx: -15pt,dy: 10pt,
+          [#image("./assets/images/kfintech-logo.png", width: 155pt,height: 30pt)]),
+      place(dy: -10pt,[#line(length: 100%,stroke: 0.5pt + rgb("#cdcdcd"))])
+)
+)
+#set page(paper: "a4", flipped: true,
+margin: (top:35pt,left:15pt,right:15pt),
+header: context{
+  if counter(page).get().first() >= 1 {
+    align(top)[#customHeader]
+  }
+})
+ #v(15pt)
+ #hide[#heading(outlined: true)[#text([Product Wise Exposure - Advisors / Distributors],fill:rgb("#0d3c6a"))]]
   #table(
     columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
     stroke: none,
-    inset: (x, y) => if y == 0 and y == 1 {
-    10pt
-  } else {
-    15pt
-  },
+    inset: (top: 15pt, left: 10pt, right: 10pt, bottom: 15pt),
     // Header
     table.header(
     table.cell(rowspan: 2, colspan: 8, align: left + horizon, [#text(fill: heading0,size: 15pt, weight: "bold", [ Portfolio Analysis Report])]),
@@ -160,26 +169,33 @@ header: context{
   )
 
     #pagebreak()
-   #text("Sub Asset Class Wise Exposure - Advisors / Distributors", size: 16pt, fill: rgb("0e496e"), weight: "extrabold")\
-    #text("as on "+ReportDate,size: 8pt, fill: rgb("#585858"))
-    #hide[
-      #heading(outlined: true)[#text([Sub Asset Class Wise Exposure - Advisors / Distributors],fill:rgb("#0d3c6a"))]
-    ]
-    #place(dy: -5pt,[#line(length: 100%,stroke: 0.5pt + rgb("#cdcdcd"))])
-
-    #place(top+right,
-          dx: -10pt,
-          dy: -8pt,
-          [#image("./assets/images/kfintech-logo.png", width: 155pt,height: 30pt)])
-
+     #let customHeader =box(
+      width: 100%,
+      height: 30pt,
+      stack(
+     place(dx: 10pt,dy: 15pt)[
+       #text("Sub Asset Class Wise Exposure - Advisors / Distributors", size: 16pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
+      #text("as on "+ReportDate,size: 8pt, fill: rgb("#585858"))
+       #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
+      ],
+       place(top+right,dx: -15pt,dy: 10pt,
+          [#image("./assets/images/kfintech-logo.png", width: 155pt,height: 30pt)]),
+      place(dy: -10pt,[#line(length: 100%,stroke: 0.5pt + rgb("#cdcdcd"))])
+      )
+      )
+      #set page(paper: "a4", flipped: true,
+      margin: (top:35pt,left:15pt,right:15pt,bottom:35pt),
+      header: context{
+        if counter(page).get().first() >= 1 {
+          align(top)[#customHeader]
+        }
+      })
+   #v(15pt)
+  #hide[#heading(outlined: true)[#text([Sub Asset Class Wise Exposure - Advisors / Distributors],fill:rgb("#0d3c6a"))]]
   #table(
     columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
     stroke: none,
-    inset: (x, y) => if y == 0 and y == 1 {
-    10pt
-  } else {
-    15pt
-  },
+    inset: (top: 15pt, left: 10pt, right: 10pt, bottom: 15pt),
     // Header
     table.header(
     table.cell(rowspan: 2, colspan: 8, align: left + horizon, [#text(fill: heading0,size: 15pt, weight: "bold", [ Portfolio Analysis Report])]),
