@@ -1,12 +1,15 @@
 #import "@preview/echarm:0.2.0"
-#import "@preview/shadowed:0.2.0": shadowed
 
-#let customFooter = box(width: 100%, height: 30pt, inset: 10pt, align(center + bottom)[
+#let customFooter = box(width: 100%, height: 30pt,  align(center + bottom)[
+  #place(dy: -20pt,[#line(length: 100%,stroke: 0.5pt + rgb("#cdcdcd"))])
+
   #place(dx: 0pt)[
-    #text("Report is at : Investor Level", size: 21pt, weight: "medium", fill: blue)
+    #text("Report is at : ", size: 15pt, weight: "medium", fill: blue)
+    #text("Investor Level", size: 15pt, weight: "medium", fill: black)
   ]
-  #place(dx: 48%)[
-    #text("RM Name : {{.RM}}", size: 21pt, weight: "medium", fill: blue)
+  #place(dx: 55%)[
+    #text("RM Name : ", size: 15pt, weight: "medium", fill: blue)
+    #text("{{.RM}}", size: 15pt, weight: "medium", fill: black)
   ]
   #place(dx: 99%)[
     #text(
@@ -24,7 +27,7 @@
     )
   ]
 ])
-#set text(size: 12pt, font: "Bai Jamjuree")
+#set text(size: 15pt, font: "Bai Jamjuree")
 #set page(
   paper: "a2",
   flipped: true,
@@ -78,7 +81,7 @@
         let outline_data = query(heading.where(level: 1))
         for entry in outline_data {
           link(entry.location(), [
-            #box(width: 80%, text(weight: "bold", size: 2.3em, fill: rgb("#005397"), entry.body))
+            #box(width: 80%, text(weight: "bold", size: 15pt, fill: rgb("#005397"), entry.body))
             #v(10pt)
           ])
         }
@@ -131,18 +134,16 @@
 )[
   #box()[
 
-    #text(fill: rgb("#0B1A24"), weight: "extrabold", font: "Bai Jamjuree", size: 80pt, [PORTFOLIO])\
+    #text(fill: rgb("#0B1A24"), weight: "extrabold",  size: 55pt, [PORTFOLIO])\
     \
+    #text(fill: rgb("#248DDC"), weight: "bold",  size: 33pt, "ANALYSIS REPORT")\
     \
-    #text(fill: rgb("#248DDC"), weight: "bold", font: "Bai Jamjuree", size: 40pt, "ANALYSIS REPORT")\
-    \
-    \
-    #text(fill: rgb("#0B1A24"), weight: "bold", font: "Bai Jamjuree", size: 40pt, "KFin Capitals / ")
-    #text(fill: rgb("#D4567B"), weight: "bold", font: "Bai Jamjuree", size: 40pt, "W0000339")
+    #text(fill: rgb("#0B1A24"), weight: "bold",  size: 20pt, "KFin Capitals / ")
+    #text(fill: rgb("#D4567B"), weight: "bold",  size: 20pt, "W0000339")
   ]
 ]
 
-#place(dx: 50pt)[
+#place(dx: 50pt,dy:-70pt)[
 
   #place(
     top + left,
@@ -150,9 +151,9 @@
     dy: 350pt,
   )[
     #block()[
-      #text("Report as on date", size: 25pt, weight: "semibold", font: "Bai Jamjuree", fill: rgb("248DDC"))\
+      #text("Report as on date", size: 15pt, weight: "bold",  fill: rgb("248DDC"))\
       \
-      #text(ReportDate, size: 25pt, weight: "semibold", font: "Bai Jamjuree", fill: black)
+      #text(ReportDate, size: 15pt, weight: "bold",  fill: black)
     ]
   ]
   #place(
@@ -161,32 +162,32 @@
     dy: 350pt,
   )[
     #block()[
-      #text("Report Period", size: 25pt, weight: "semibold", font: "Bai Jamjuree", fill: rgb("248DDC"))\
+      #text("Report Period", size: 15pt, weight: "bold", fill: rgb("248DDC"))\
       \
-      #text("ReportBeginDate-ReportEndDate", size: 25pt, weight: "semibold", font: "Bai Jamjuree", fill: black)
+      #text(ReportBeginDate+ " - " +ReportEndDate, size: 15pt, weight: "bold",  fill: black)
     ]
   ]
 
   #place(
     top + left,
-    dx: 700pt,
+    dx: 600pt,
     dy: 350pt,
   )[
     #block()[
-      #text("Print date", size: 25pt, weight: "semibold", font: "Bai Jamjuree", fill: rgb("248DDC"))\
+      #text("Print date", size: 15pt, weight: "bold",  fill: rgb("248DDC"))\
       \
-      #text(ReportPeriod, size: 25pt, weight: "semibold", font: "Bai Jamjuree", fill: black)
+      #text(ReportPeriod, size: 15pt, weight: "bold",  fill: black)
     ]
   ]
 
   #place(
     top + left,
-    dy: 450pt,
+    dy: 430pt,
   )[
     #block()[
-      #text("Report is at", size: 25pt, weight: "semibold", font: "Bai Jamjuree", fill: rgb("248DDC"))\
+      #text("Report is at", size: 15pt, weight: "bold",  fill: rgb("248DDC"))\
       \
-      #text("Investor Level", size: 37pt, weight: "bold", font: "Bai Jamjuree", fill: black)
+      #text("Investor Level", size: 20pt, weight: "bold",  fill: black)
     ]
   ]
 
@@ -196,40 +197,53 @@
   dx: 80pt,
   dy: 20pt,
 )[
-  #place(bottom + left, dx: 800pt, dy: -80pt, rect(width: 100%, stroke: none)[
+  #place(bottom + left, dx: 650pt, dy: -80pt, rect(width: 100%, stroke: none)[
     #set stack(spacing: 16pt)
 
     #stack(
-      stack(spacing: 0.4cm, text("Client Name", weight: "bold", font: "Open Sans", fill: rgb("248DDC"), size: 25pt)),
+      stack(spacing: 0.4cm, text("RM Name", weight: "bold", fill: rgb("248DDC"), size: 15pt)),
       block(width: 350pt)[
         #stack(block(width: 350pt)[
-          #text("{{.ClientName}}", fill: black, weight: "bold", font: "Open Sans", size: 25pt)
+          #text("{{.RM}}", fill: black, weight: "bold", size: 15pt)
         ])
       ],
     )
   ])
-  #place(bottom + left, dx: 1070pt, dy: -80pt, rect(width: 100%, stroke: none)[
+
+#place(bottom + left, dx: 950pt, dy: -80pt, rect(width: 100%, stroke: none)[
+
+])
+
+#place(bottom + left, dx: 910pt, dy: -80pt, rect(width: 100%, stroke: none)[
+  #set stack(spacing: 16pt)
+  #set text(hyphenate: true, lang: "en")
+
+  #stack(
+    block(width: 350pt, height: 30pt)[
+   #text("Email", weight: "bold", fill: rgb("248DDC"), size: 15pt)
+  ],
+    block(width: 350pt)[
+      #stack(
+        block(width: 350pt)[
+          #box(width: 350pt, clip: false)[
+            #text("{{.RMEmail}}".replace(".", ".").replace("@", "@"), fill: black, weight: "bold", size: 15pt)
+          ]
+        ]
+      )
+    ],
+  )
+])
+  #place(bottom + left, dx: 1240pt, dy: -80pt, rect(width: 100%, stroke: none)[
     #set stack(spacing: 16pt)
 
     #stack(
-      stack(spacing: 0.4cm, text("Email", weight: "bold", font: "Open Sans", fill: rgb("248DDC"), size: 25pt)),
+      stack(spacing: 0.4cm, text("Phone Number", weight: "bold", fill: rgb("248DDC"), size: 15pt)),
       block(width: 350pt)[
         #stack(block(width: 350pt)[
-          #text("-", fill: black, weight: "bold", font: "Open Sans", size: 25pt)
-        ])
-      ],
-    )
-  ])
-  #place(bottom + left, dx: 1340pt, dy: -80pt, rect(width: 100%, stroke: none)[
-    #set stack(spacing: 16pt)
-
-    #stack(
-      stack(spacing: 0.4cm, text("Phone Number", weight: "bold", font: "Open Sans", fill: rgb("248DDC"), size: 25pt)),
-      block(width: 350pt)[
-        #stack(block(width: 350pt)[
-          #text("{{.RMMobile}}", fill: black, weight: "bold", font: "Open Sans", size: 25pt)
+          #text("{{.RMMobile}}", fill: black, weight: "bold", size: 15pt)
         ])
       ],
     )
   ])
 ]
+

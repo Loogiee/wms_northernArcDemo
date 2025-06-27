@@ -40,6 +40,30 @@ func CreatePDFByte(requestedReports []int, customer string, portfolio string, re
 	}
 	allReportsData.Store(2, exeResult)
 
+	portSumDisData, portSumErr := FetchDataForReport(customer, portfolio, reportDate, db, "portfolio_summary")
+	if portSumErr != nil {
+		logger.Error("Failed to fetch Portfolio Summary report data", "Category", "DB", "Error", portSumErr.Error(), "Origin", GetErrorOrigin(portSumErr))
+		return nil, portSumErr
+	}
+	portSumResult, portSumErr := ProcessPortfolioSummary(&portSumDisData)
+	if portSumErr != nil {
+		logger.Error("Failed to process Portfolio Summary report data", "Category", "PROCESS", "Error", portSumErr.Error(), "Origin", GetErrorOrigin(portSumErr))
+		return nil, portSumErr
+	}
+	allReportsData.Store(4, portSumResult)
+
+	portAllocDisData, portAllocErr := FetchDataForReport(customer, portfolio, reportDate, db, "portfolio_allocation_summary")
+	if portSumErr != nil {
+		logger.Error("Failed to fetch Portfolio Allocation report data", "Category", "DB", "Error", portAllocErr.Error(), "Origin", GetErrorOrigin(portAllocErr))
+		return nil, portAllocErr
+	}
+	portAllocResult, portAllocErr := ProcessPortfolioAllocation(&portAllocDisData)
+	if portAllocErr != nil {
+		logger.Error("Failed to process Portfolio Allocation report data", "Category", "PROCESS", "Error", portAllocErr.Error(), "Origin", GetErrorOrigin(portAllocErr))
+		return nil, portAllocErr
+	}
+	allReportsData.Store(3, portAllocResult)
+
 	// collecting and ordering Data from sync mapper
 	var keys []int
 	allReportsData.Range(func(key, value interface{}) bool {

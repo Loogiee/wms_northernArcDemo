@@ -2,7 +2,7 @@
 #text("Executive Summary", size: 40pt, fill: rgb("#0d3c6a"), weight: "extrabold")
 #hide[
 
-  #heading(outlined: true)[#text([Executive Summary], fill: rgb("#0d3c6a"), size: 25pt)]
+  #heading(outlined: true)[#text([Executive Summary], fill: rgb("#0d3c6a"))]
 
 ]
 #place(dx: 75%, dy: -7%, [#image("./assets/images/kfintech-logo.png", width: 350pt)])
@@ -231,15 +231,15 @@ Hybrid",
 ]
 #place(bottom + left, dy: 15pt)[
   #box(
-    inset: (y: 60pt, x: 10pt),
+    inset: (y: 20pt, x: 10pt),
     width: 810pt,
     height: 490pt,
     radius: 8pt,
     stroke: (2.8pt + luma(88%)),
   )[
-    #place(dx: 10pt, dy: -10pt, pad(..titlePadding, text(
+    #place(dx: 0pt, dy: 0pt, pad(..titlePadding, text(
       " Relative Performance",
-      size: 30pt,
+      size: 25pt,
       fill: rgb("0e496e"),
       weight: "extrabold",
     )))
@@ -257,34 +257,28 @@ Hybrid",
 
       // Table with horizontal lines only
       table(
+        //stroke: (x, y) => if y == 0 or y == 1 { (bottom: 1pt + black) } else { none },
+        columns: (0.9fr, 1.2fr, 1.5fr, 1.2fr),
+        inset: 25pt,
+        align: center+horizon,
         stroke: none,
-        columns: (1fr, 1fr, 1fr, 1fr),
-        inset: 20pt,
-        align: horizon,
 
         // Table header with increased text size
         table.header(
-          [],
-          [#text(size: 18pt, weight: "bold", "Portfolio Returns")],
-          [#text(size: 18pt, weight: "bold", "Benchmark Returns")],
-          [#text(size: 18pt, weight: "bold", "Excess Returns")],
+          [#text(size: 16pt,fill: rgb("#0d3b6b"), weight: "bold", "  ")],
+          [#text(size: 16pt,fill: rgb("#0d3b6b"), weight: "bold", "Portfolio Returns")],
+          [#text(size: 16pt,fill: rgb("#0d3b6b"), weight: "bold", "Benchmark Returns")],
+          [#text(size: 16pt,fill: rgb("#0d3b6b"), weight: "bold", "Excess Returns")],
         ),
-
-        table.hline(),
-        // Horizontal line under the header
-
-        // Table rows generated from tableData with increased text size
-        ..tableData
-          .map(row => {
-            (
-              text(size: 16pt, row.month),
-              text(size: 16pt, row.portfolioReturn),
-              text(size: 16pt, row.benchmarkReturn),
-              text(size: 16pt, row.excessReturn),
-              table.hline(),
-            )
-          })
-          .flatten(),
+        {{range .RelativePerformanceOverQuarters}}
+        table.cell(align(center)[#text(size: 16pt,"{{.Date}}")]),
+        table.hline(stroke:  (thickness:0.1pt,paint:luma(54.51%))),
+        table.cell(align(center)[#text(size: 16pt,"{{.BMXIRR}}"+"%")]),
+                table.hline(stroke:  (thickness:0.1pt,paint:luma(54.51%))),
+        table.cell(align(center)[#text(size: 16pt,"{{.ExcessReturns}}"+"%")]),
+                table.hline(stroke:  (thickness:0.1pt,paint:luma(54.51%))),
+        table.cell(align(center)[#text(size: 16pt,"{{.XIRR}}"+"%")]),
+        {{end}}
       ),
     )
     // Grid for the two chart
@@ -320,10 +314,16 @@ Hybrid",
 
     // Data for quarterly asset allocation
     #let quarterData = (
-      (quarter: "Jun 2024", values: (19.51, 32.60, 48.32, 0.57)), // Values in percentages
-      (quarter: "Mar 2024", values: (11.76, 34.51, 53.13, 0.60)),
-      (quarter: "Dec 2023", values: (0, 33.93, 58.90, 7.17)),
-      (quarter: "Sep 2023", values: (0, 30.68, 61.85, 7.47)),
+      (quarter: "Jun 2024", Category: "Hybrid", values: 19.51),
+      (quarter: "Jun 2024", Category: "Equtity", values: 1.51),
+      (quarter: "Jun 2024", Category: "Debt", values: 9.51),
+      (quarter: "Jun 2024", Category: "Commodities", values: -19.51),
+      (quarter: "Jun 2024", Category: "Equtity", values: 10.51),
+      (quarter: "Apr 2024", Category: "Hybrid", values: 19.51),
+      (quarter: "Apr 2024", Category: "Equtity", values: 1.51),
+      (quarter: "Apr 2024", Category: "Debt", values: 9.51),
+      (quarter: "Apr 2024", Category: "Commodities", values: -19.51),
+      (quarter: "Apr 2024", Category: "Equtity", values: 10.51),
     )
 
     #let assetClasses = (
@@ -333,119 +333,6 @@ Hybrid",
       "Commodities",
     )
 
-    // Chart container function
-    #let allocation_chart() = {
-      // Chart height calculation
-      let rowHeight = 40pt
-      let totalHeight = quarterData.len() * rowHeight + 80pt // Extra height for title and legend
 
-      box(
-        width: 100%,
-        height: totalHeight,
-        inset: (x: 10pt, y: 15pt),
-        radius: 8pt,
-        stroke: none,
-      )[
-        // Title
-
-
-        // Draw axis
-        #place(dx: 0pt, dy: 35pt, line(
-          start: (90pt, 0pt),
-          end: (90pt, rowHeight * quarterData.len() + 20pt),
-        ))
-
-        // X-axis labels
-        #for i in range(0, 6) {
-          let value = i * 20
-          let xPos = 90pt + (i * 80pt)
-
-          place(dx: xPos, dy: rowHeight * quarterData.len() + 60pt, text(str(value), size: 9pt))
-        }
-
-        // Draw bars
-        #for (i, row) in quarterData.enumerate() {
-          let yPos = 65pt + i * rowHeight
-
-          // Quarter label
-          place(dx: 15pt, dy: yPos, text(size: 11pt, weight: "medium", row.quarter))
-
-          // Draw bar segments
-          let xRunning = 90pt
-          let totalWidth = 450pt // Total width of the bar (representing 100%)
-          for (j, value) in row.values.enumerate() {
-            if value > 0 {
-              let segmentWidth = value * totalWidth / 100
-
-              place(dx: xRunning, dy: yPos - 15pt, box(
-                width: segmentWidth,
-                height: 39pt,
-                fill: chartColors.at(j),
-                radius: (
-                  top-left: if j == 0 { 4pt } else { 0pt },
-                  bottom-left: if j == 0 { 4pt } else { 0pt },
-                  top-right: if j == row.values.len() - 1
-                    or j == row.values.enumerate().find(((_, v)) => v > 0).last() { 7pt } else { 0pt },
-                  bottom-right: if j == row.values.len() - 1
-                    or j == row.values.enumerate().find(((_, v)) => v > 0).last() { 7pt } else { 0pt },
-                ),
-              ))
-
-              // Add percentage label if segment is wide enough
-              if value >= 5 {
-                place(dx: xRunning + segmentWidth / 2 - 12pt, dy: yPos, text(
-                  fill: white,
-                  weight: "medium",
-                  size: 10pt,
-                  str(value) + "%",
-                ))
-              }
-
-              xRunning += segmentWidth
-            }
-          }
-        }
-
-        // Legend
-        #place(dy: 250pt)[
-          #pad(left: 20pt, top: 1pt, grid(
-            columns: (1fr, 1fr, 1fr, 1fr),
-            gutter: -300pt,
-            inset: 1pt,
-            align: left,
-            stack(
-              dir: ltr,
-              spacing: 10pt,
-              rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(1))),
-              text("Hybrid", size: 16pt),
-            ),
-            stack(
-              dir: ltr,
-              spacing: 10pt,
-              rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(2))),
-              text("Equity", size: 16pt),
-            ),
-            stack(
-              dir: ltr,
-              spacing: 10pt,
-              rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(4))),
-              text("
-Debt", size: 16pt),
-            ),
-            [#stack(
-                dir: ltr,
-                spacing: 10pt,
-                rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(3))),
-                text("Commodities", size: 16pt),
-              )],
-          ))
-        ]
-      ]
-    }
-    // Generate the chart
-    #place()[
-
-      #allocation_chart()
-    ]
   ]
 ]

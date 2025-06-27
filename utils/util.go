@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"html/template"
+	"strings"
 	"time"
 )
 
@@ -19,6 +20,16 @@ func MapToStruct(data interface{}, result interface{}) error {
 	}
 	return nil
 }
+
+func DateFormatter(dateStr string, format string) (string, error) {
+	layout := "2006-01-02"
+	parsedDate, err := time.Parse(layout, dateStr)
+	if err != nil {
+		return "", fmt.Errorf("failed to parse date: %w", err)
+	}
+	return parsedDate.Format(format), nil
+}
+
 func ConvertToFormattedNumberWithoutDecimalPointer(amount *float64) string {
 	if amount == nil {
 		return "--"
@@ -49,17 +60,50 @@ func ConvertToFormattedNumberWithoutDecimalPointer(amount *float64) string {
 
 	return result
 }
-func DateFormatter(dateStr string, format string) (string, error) {
-	layout := "2006-01-02"
-	parsedDate, err := time.Parse(layout, dateStr)
-	if err != nil {
-		return "", fmt.Errorf("failed to parse date: %w", err)
+
+func ConvertToDecimalValuePointer(amount *float64) string {
+	if amount == nil {
+		return "--"
 	}
-	return parsedDate.Format(format), nil
+	if *amount == 0.0 {
+		return "0"
+	}
+	return fmt.Sprintf("%.2f", *amount)
+}
+func ConvertToFormattedNumberPointer(amount *float64) string {
+	if amount == nil {
+		return "--"
+	}
+
+	// Ensure amount is a float64
+	value := *amount
+
+	if value == 0.0 {
+		return "0"
+	}
+
+	strVal := fmt.Sprintf("%.2f", value)
+	parts := strings.Split(strVal, ".")
+	intPart := parts[0]
+	decimalPart := parts[1]
+	intSeparatedPart := ""
+
+	for i, digit := range intPart {
+		revIndex := len(intPart) - 1 - i
+		if revIndex > 0 && ((revIndex == 3 && revIndex%3 == 0) || (revIndex > 3 && revIndex%2 != 0)) {
+			intSeparatedPart += string(digit) + ","
+		} else {
+			intSeparatedPart += string(digit)
+		}
+	}
+
+	return intSeparatedPart + "." + decimalPart
 }
 
 var FuncMap = template.FuncMap{
 	"sub": func(a, b int) int { return a - b },
 	"ConvertToFormattedNumberWithoutDecimalPointer": ConvertToFormattedNumberWithoutDecimalPointer,
-	"DateFormatter": DateFormatter,
+	"ConvertToFormattedNumberPointer":               ConvertToFormattedNumberPointer,
+	"DateFormatter":                                 DateFormatter,
+	"Contains":                                      strings.Contains,
 }

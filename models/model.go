@@ -83,6 +83,16 @@ type SecurityCategoryAllocation struct {
 	EndExposure      float64 `json:"END_Exposure%"`
 }
 
+type PortfolioAllocation struct {
+	AssetwiseAllocation        []AssetwiseAllocation
+	SecurityCategoryAllocation []SecurityCategoryAllocation
+}
+type FinalPortfolioSummary struct {
+	AssetSubassetSection         []AssetSubassetSection
+	SubassetMarketCapTypeSection []SubassetMarketCapTypeSection
+	SubAssetSection              []SubAssetSection
+}
+
 // Portfolio Analysis Report
 // --> Asset Class Wise Summary
 type AssetSubassetSection struct {

@@ -1,516 +1,171 @@
 [
     {
-        "direct_equities_holding_section": [
+        "allocation_comparison_section": [
             {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "NA",
-                "SECURITY_NAME": "Adani Green Energy Ltd",
-                "ISIN": "INE364U01010",
-                "QUANTITY": 553.0,
-                "AVERAGE_PRICE": 1800.2378,
-                "ACQU_COST": 995531.53,
-                "DIVIDEND": 0,
-                "MARKET_PRICE": 848.7,
-                "MARKET_VALUE": 469331.1,
-                "APPRE_DEPRE": -526200.43,
-                "ABSOLUTE_RETURN": -52.86,
-                "ASSET_EXPOSURE%": 13.79
+                "ASSET_GROUP_NAME": "Alternative Investment Fund",
+                "Total_Exposure_Percentage": 0,
+                "Strategic_Percentage": 15
+            },
+            {
+                "ASSET_GROUP_NAME": "Commodities",
+                "Total_Exposure_Percentage": 0.71,
+                "Strategic_Percentage": 0
+            },
+            {
+                "ASSET_GROUP_NAME": "Commodity",
+                "Total_Exposure_Percentage": 0,
+                "Strategic_Percentage": 5
+            },
+            {
+                "ASSET_GROUP_NAME": "Debt",
+                "Total_Exposure_Percentage": 0,
+                "Strategic_Percentage": 20
             },
             {
                 "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "NA",
-                "SECURITY_NAME": "Adani Ports & Special Economic Zone Ltd",
-                "ISIN": "INE742F01042",
-                "QUANTITY": 1059.0,
-                "AVERAGE_PRICE": 566.7494,
-                "ACQU_COST": 600187.61,
-                "DIVIDEND": 0,
-                "MARKET_PRICE": 1112.7,
-                "MARKET_VALUE": 1178349.3,
-                "APPRE_DEPRE": 578161.69,
-                "ABSOLUTE_RETURN": 96.33,
-                "ASSET_EXPOSURE%": 34.61
+                "Total_Exposure_Percentage": 96.4,
+                "Strategic_Percentage": 0
             },
             {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "NA",
-                "SECURITY_NAME": "Aditya Birla Fashion & Retail Ltd",
-                "ISIN": "INE647O01011",
-                "QUANTITY": 3098.0,
-                "AVERAGE_PRICE": 323.0129,
-                "ACQU_COST": 1000693.92,
-                "DIVIDEND": 0,
-                "MARKET_PRICE": 243.78,
-                "MARKET_VALUE": 755230.44,
-                "APPRE_DEPRE": -245463.48,
-                "ABSOLUTE_RETURN": -24.53,
-                "ASSET_EXPOSURE%": 22.18
+                "ASSET_GROUP_NAME": "Equity",
+                "Total_Exposure_Percentage": 0,
+                "Strategic_Percentage": 60
             },
             {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "NA",
-                "SECURITY_NAME": "Ambuja Cements Ltd",
-                "ISIN": "INE079A01024",
-                "QUANTITY": 2039.0,
-                "AVERAGE_PRICE": 343.0813,
-                "ACQU_COST": 699542.76,
-                "DIVIDEND": 0,
-                "MARKET_PRICE": 491.1,
-                "MARKET_VALUE": 1001352.9,
-                "APPRE_DEPRE": 301810.14,
-                "ABSOLUTE_RETURN": 43.14,
-                "ASSET_EXPOSURE%": 29.41
+                "ASSET_GROUP_NAME": "Fixed Income",
+                "Total_Exposure_Percentage": 2.88,
+                "Strategic_Percentage": 0
             },
             {
-                "ASSET_GROUP_NAME": "GRAND_TOTAL",
-                "MARKET_CAP_TYPE": "GRAND_TOTAL",
-                "SECURITY_NAME": "GRAND_TOTAL",
-                "ISIN": "-",
-                "QUANTITY": "-",
-                "AVERAGE_PRICE": "-",
-                "ACQU_COST": 3295955.82,
-                "DIVIDEND": "-",
-                "MARKET_PRICE": "-",
-                "MARKET_VALUE": 3404263.74,
-                "APPRE_DEPRE": 108307.92,
-                "ABSOLUTE_RETURN": 3.29,
-                "ASSET_EXPOSURE%": 100.0
+                "ASSET_GROUP_NAME": "Liquid",
+                "Total_Exposure_Percentage": 0.01,
+                "Strategic_Percentage": 0
             }
         ]
     },
     {
-        "mutuals_funds_holding_section": [
+        "basic_information_section": [
             {
-                "ASSET_GROUP_NAME": "Commodities",
-                "MARKET_CAP_TYPE": "Mutual Funds/ETFs",
-                "SECURITY_NAME": "Nippon India Gold Savings Fund-Growth",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 1320000.93,
-                "MARKET_VALUE": 2137536.07,
-                "APPRE_DEPRE": 817535.14,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 62277.98,
-                "PUR_DATE": "2020-0812",
-                "HOLD_DAYS": 1656.5,
-                "XIRR": 11.39,
-                "ABSOLUTE_RETURN": 61.93,
-                "GROUP_LABEL": "Commodities: Mutual Funds/ETFs"
+                "Description": "ACQU_COST",
+                "Value": 293976076.83,
+                "Date": "As on 2025-03-19"
             },
             {
-                "ASSET_GROUP_NAME": "Commodities",
-                "MARKET_CAP_TYPE": "Mutual Funds/ETFs",
-                "SECURITY_NAME": ": TOTAL",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 1320000.93,
-                "MARKET_VALUE": 2137536.07,
-                "APPRE_DEPRE": 817535.14,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 62277.98,
-                "PUR_DATE": "2020-0812",
-                "HOLD_DAYS": 1656.5,
-                "XIRR": 11.39,
-                "ABSOLUTE_RETURN": 61.93,
-                "GROUP_LABEL": "Commodities: Mutual Funds/ETFs"
+                "Description": "MARKET_VALUE",
+                "Value": 300751912.95,
+                "Date": "As on 2025-03-19"
             },
             {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "Factor",
-                "SECURITY_NAME": "360 ONE Quant Fund Direct - Growth",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 15900001.44,
-                "MARKET_VALUE": 14353310.46,
-                "APPRE_DEPRE": -1546690.98,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 796432.72,
-                "PUR_DATE": "2024-1004",
-                "HOLD_DAYS": 138.6,
-                "XIRR": -23.92,
-                "ABSOLUTE_RETURN": -9.73,
-                "GROUP_LABEL": "Equities: Factor"
+                "Description": "NetContribution",
+                "Value": 290254594.11,
+                "Date": "Since Inception"
             },
             {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "Factor",
-                "SECURITY_NAME": "360 ONE Quant Fund Regular - Growth",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 10099999.85,
-                "MARKET_VALUE": 9773115.87,
-                "APPRE_DEPRE": -326883.98,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 564534.93,
-                "PUR_DATE": "2024-0215",
-                "HOLD_DAYS": 281.6363636364,
-                "XIRR": -3.96,
-                "ABSOLUTE_RETURN": -3.24,
-                "GROUP_LABEL": "Equities: Factor"
+                "Description": "XIRR",
+                "Value": 2.62,
+                "Date": "Since Inception"
             },
             {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "Factor",
-                "SECURITY_NAME": "ICICI Prudential Nifty 100 Low Volatility 30 ETF FOF - Growth",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 1999998.41,
-                "MARKET_VALUE": 2016803.88,
-                "APPRE_DEPRE": 16805.47,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 122996.85,
-                "PUR_DATE": "2024-0322",
-                "HOLD_DAYS": 316.5,
-                "XIRR": 0.97,
-                "ABSOLUTE_RETURN": 0.84,
-                "GROUP_LABEL": "Equities: Factor"
+                "Description": "BMXIRR",
+                "Value": -3.15,
+                "Date": "Since Inception"
             },
             {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "Factor",
-                "SECURITY_NAME": "UTI Nifty200 Momentum 30 Index Fund Direct - Growth",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 15900006.84,
-                "MARKET_VALUE": 12557296.66,
-                "APPRE_DEPRE": -3342710.18,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 653372.5,
-                "PUR_DATE": "2024-1004",
-                "HOLD_DAYS": 134.5454545455,
-                "XIRR": -48.18,
-                "ABSOLUTE_RETURN": -21.02,
-                "GROUP_LABEL": "Equities: Factor"
+                "Description": "Nifty",
+                "Value": 1,
+                "Date": ""
             },
             {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "Factor",
-                "SECURITY_NAME": ": TOTAL",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 43900006.54,
-                "MARKET_VALUE": 38700526.87,
-                "APPRE_DEPRE": -5199479.67,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 2137336.99,
-                "PUR_DATE": "2024-0322",
-                "HOLD_DAYS": 316.5,
-                "XIRR": -24.23,
-                "ABSOLUTE_RETURN": -11.84,
-                "GROUP_LABEL": "Equities: Factor"
-            },
-            {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "Large Cap",
-                "SECURITY_NAME": "ICICI Prudential Bluechip Fund Direct-Growth",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 21000000.54,
-                "MARKET_VALUE": 19946514.01,
-                "APPRE_DEPRE": -1053486.53,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 181513.46,
-                "PUR_DATE": "2024-1004",
-                "HOLD_DAYS": 107.1428571429,
-                "XIRR": -35.63,
-                "ABSOLUTE_RETURN": -5.02,
-                "GROUP_LABEL": "Equities: Large Cap"
-            },
-            {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "Large Cap",
-                "SECURITY_NAME": ": TOTAL",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 21000000.54,
-                "MARKET_VALUE": 19946514.01,
-                "APPRE_DEPRE": -1053486.53,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 181513.46,
-                "PUR_DATE": "2024-1004",
-                "HOLD_DAYS": 107.1428571429,
-                "XIRR": -15.52,
-                "ABSOLUTE_RETURN": -5.02,
-                "GROUP_LABEL": "Equities: Large Cap"
-            },
-            {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "Mid Cap",
-                "SECURITY_NAME": "Nippon India Growth Fund - Growth",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 4999999.99,
-                "MARKET_VALUE": 4616836.11,
-                "APPRE_DEPRE": -383163.88,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 1277.05,
-                "PUR_DATE": "2024-0619",
-                "HOLD_DAYS": 245.3333333333,
-                "XIRR": -15.52,
-                "ABSOLUTE_RETURN": -7.66,
-                "GROUP_LABEL": "Equities: Mid Cap"
-            },
-            {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "Mid Cap",
-                "SECURITY_NAME": "Nippon India Growth Fund Direct- Growth",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 6899999.98,
-                "MARKET_VALUE": 6145516.55,
-                "APPRE_DEPRE": -754483.43,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 1556.11,
-                "PUR_DATE": "2024-1004",
-                "HOLD_DAYS": 150.6,
-                "XIRR": -11.59,
-                "ABSOLUTE_RETURN": -10.93,
-                "GROUP_LABEL": "Equities: Mid Cap"
-            },
-            {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "Mid Cap",
-                "SECURITY_NAME": "SBI Magnum Mid Cap Fund-Growth",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 12154013.85,
-                "MARKET_VALUE": 15254668.84,
-                "APPRE_DEPRE": 3100654.99,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 70450.67,
-                "PUR_DATE": "2022-0829",
-                "HOLD_DAYS": 619.1509433962,
-                "XIRR": -24.24,
-                "ABSOLUTE_RETURN": 25.51,
-                "GROUP_LABEL": "Equities: Mid Cap"
-            },
-            {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "Mid Cap",
-                "SECURITY_NAME": ": TOTAL",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 24054013.82,
-                "MARKET_VALUE": 26017021.5,
-                "APPRE_DEPRE": 1963007.68,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 73283.83,
-                "PUR_DATE": "2024-0619",
-                "HOLD_DAYS": 619.1509433962,
-                "XIRR": 7.52,
-                "ABSOLUTE_RETURN": 8.16,
-                "GROUP_LABEL": "Equities: Mid Cap"
-            },
-            {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "Multi/Flexi cap",
-                "SECURITY_NAME": "HDFC Flexi Cap Direct Plan-Growth",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 12399999.95,
-                "MARKET_VALUE": 11902531.46,
-                "APPRE_DEPRE": -497468.49,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 6061.64,
-                "PUR_DATE": "2024-1004",
-                "HOLD_DAYS": 129.8888888889,
-                "XIRR": 15.03,
-                "ABSOLUTE_RETURN": -4.01,
-                "GROUP_LABEL": "Equities: Multi/Flexi cap"
-            },
-            {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "Multi/Flexi cap",
-                "SECURITY_NAME": "HDFC Flexi Cap Fund-Growth",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 3500000.63,
-                "MARKET_VALUE": 9157818.87,
-                "APPRE_DEPRE": 5657818.24,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 5087.81,
-                "PUR_DATE": "2019-0412",
-                "HOLD_DAYS": 2119.8333333333,
-                "XIRR": -10.58,
-                "ABSOLUTE_RETURN": 161.65,
-                "GROUP_LABEL": "Equities: Multi/Flexi cap"
-            },
-            {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "Multi/Flexi cap",
-                "SECURITY_NAME": "Nippon India Vision Direct-Growth",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 16199999.88,
-                "MARKET_VALUE": 15275336.41,
-                "APPRE_DEPRE": -924663.47,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 10826.13,
-                "PUR_DATE": "2024-1004",
-                "HOLD_DAYS": 116.0833333333,
-                "XIRR": 24.02,
-                "ABSOLUTE_RETURN": -5.71,
-                "GROUP_LABEL": "Equities: Multi/Flexi cap"
-            },
-            {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "Multi/Flexi cap",
-                "SECURITY_NAME": "Nippon India Vision-Growth",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 5803426.62,
-                "MARKET_VALUE": 5345818.7,
-                "APPRE_DEPRE": -457607.92,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 4065.07,
-                "PUR_DATE": "2024-0723",
-                "HOLD_DAYS": 212.2857142857,
-                "XIRR": -16.76,
-                "ABSOLUTE_RETURN": -7.89,
-                "GROUP_LABEL": "Equities: Multi/Flexi cap"
-            },
-            {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "Multi/Flexi cap",
-                "SECURITY_NAME": "Parag Parikh Flexi Cap Fund Direct-Growth",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 1000000.19,
-                "MARKET_VALUE": 1012279.94,
-                "APPRE_DEPRE": 12279.75,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 11941.8,
-                "PUR_DATE": "2025-0305",
-                "HOLD_DAYS": 15.0,
-                "XIRR": -12.85,
-                "ABSOLUTE_RETURN": 1.23,
-                "GROUP_LABEL": "Equities: Multi/Flexi cap"
-            },
-            {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "Multi/Flexi cap",
-                "SECURITY_NAME": "Parag Parikh Flexi Cap Fund Regular-Growth",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 12594285.65,
-                "MARKET_VALUE": 16908549.89,
-                "APPRE_DEPRE": 4314264.24,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 216909.21,
-                "PUR_DATE": "2022-0829",
-                "HOLD_DAYS": 612.5660377358,
-                "XIRR": 37.65,
-                "ABSOLUTE_RETURN": 34.26,
-                "GROUP_LABEL": "Equities: Multi/Flexi cap"
-            },
-            {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "Multi/Flexi cap",
-                "SECURITY_NAME": ": TOTAL",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 51497712.92,
-                "MARKET_VALUE": 59602335.27,
-                "APPRE_DEPRE": 8104622.35,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 254891.64,
-                "PUR_DATE": "2024-0723",
-                "HOLD_DAYS": 2119.8333333333,
-                "XIRR": 15.08,
-                "ABSOLUTE_RETURN": 15.74,
-                "GROUP_LABEL": "Equities: Multi/Flexi cap"
-            },
-            {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "Thematic",
-                "SECURITY_NAME": "ICICI Prudential India Opportunities Fund - Growth",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 11252039.49,
-                "MARKET_VALUE": 13778198.54,
-                "APPRE_DEPRE": 2526159.05,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 425778.69,
-                "PUR_DATE": "2023-0913",
-                "HOLD_DAYS": 451.5833333333,
-                "XIRR": 20.42,
-                "ABSOLUTE_RETURN": 22.45,
-                "GROUP_LABEL": "Equities: Thematic"
-            },
-            {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "Thematic",
-                "SECURITY_NAME": "ICICI Prudential India Opportunities Fund Direct - Growth",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 13899998.51,
-                "MARKET_VALUE": 13256575.65,
-                "APPRE_DEPRE": -643422.86,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 377357.69,
-                "PUR_DATE": "2024-1004",
-                "HOLD_DAYS": 122.0,
-                "XIRR": 16.98,
-                "ABSOLUTE_RETURN": -4.63,
-                "GROUP_LABEL": "Equities: Thematic"
-            },
-            {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "Thematic",
-                "SECURITY_NAME": ": TOTAL",
-                "FOLIO_NO": "0",
-                "ACQU_COST": 25152038.0,
-                "MARKET_VALUE": 27034774.19,
-                "APPRE_DEPRE": 1882736.19,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 803136.38,
-                "PUR_DATE": "2024-1004",
-                "HOLD_DAYS": 451.5833333333,
-                "XIRR": 9.7,
-                "ABSOLUTE_RETURN": 7.49,
-                "GROUP_LABEL": "Equities: Thematic"
-            },
-            {
-                "ASSET_GROUP_NAME": "GRAND_TOTAL",
-                "MARKET_CAP_TYPE": "GRAND_TOTAL",
-                "SECURITY_NAME": "GRAND_TOTAL",
-                "FOLIO_NO": "-",
-                "ACQU_COST": 166923772.75,
-                "MARKET_VALUE": 173438707.91,
-                "APPRE_DEPRE": 6514935.16,
-                "REAL_GAIN_LOSS": 0.0,
-                "QUANTITY": 3512440.29,
-                "PUR_DATE": "-",
-                "HOLD_DAYS": "-",
-                "XIRR": 4.16,
-                "ABSOLUTE_RETURN": 3.9,
-                "GROUP_LABEL": "-"
+                "Description": "Crisil",
+                "Value": 1,
+                "Date": ""
             }
         ]
     },
     {
-        "pms_holding_section": [
+        "quarterly_allocation_section": [
             {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "NA",
-                "SECURITY_NAME": "Abakkus All Cap Approach",
-                "MARKET_VALUE": 8680761.06,
-                "FOLIO_NO": "0",
-                "INFLOW": 0.0,
-                "OUTFLOW": 10001962.0,
-                "XIRR": -21.14,
-                "ASSET_EXPOSURE%": 21.28
+                "Commodities": 1.92,
+                "Equities": 98.08,
+                "Fixed Income": 0,
+                "Liquid": 0,
+                "Date": "March 2024"
             },
             {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "NA",
-                "SECURITY_NAME": "CARNELIAN SHIFT STRATEGY",
-                "MARKET_VALUE": 16982491.71,
-                "FOLIO_NO": "0",
-                "INFLOW": 6520.0,
-                "OUTFLOW": 14781432.0,
-                "XIRR": 12.52,
-                "ASSET_EXPOSURE%": 41.64
+                "Commodities": 1.76,
+                "Equities": 98.24,
+                "Fixed Income": 0,
+                "Liquid": 0,
+                "Date": "June 2024"
             },
             {
-                "ASSET_GROUP_NAME": "Equities",
-                "MARKET_CAP_TYPE": "NA",
-                "SECURITY_NAME": "UNIFI CAPTIAL - BLENDED RANGOLI",
-                "MARKET_VALUE": 15121501.03,
-                "FOLIO_NO": "0",
-                "INFLOW": 22668.0,
-                "OUTFLOW": 13079678.0,
-                "XIRR": 8.06,
-                "ASSET_EXPOSURE%": 37.08
+                "Commodities": 1.15,
+                "Equities": 98.84,
+                "Fixed Income": 0,
+                "Liquid": 0.01,
+                "Date": "September 2024"
             },
             {
-                "ASSET_GROUP_NAME": "GRAND_TOTAL",
-                "MARKET_CAP_TYPE": "GRAND_TOTAL",
-                "SECURITY_NAME": "GRAND_TOTAL",
-                "MARKET_VALUE": 40784753.8,
-                "FOLIO_NO": "-",
-                "INFLOW": 29188.0,
-                "OUTFLOW": 37863072.0,
-                "XIRR": 6.07,
-                "ASSET_EXPOSURE%": 100.0
+                "Commodities": 0.62,
+                "Equities": 98.26,
+                "Fixed Income": 1.11,
+                "Liquid": 0.01,
+                "Date": "December 2024"
+            },
+            {
+                "Category": "Commodities",
+                "Value": 3.15,
+                "Date": "March 2025"
+            },
+            {
+                "Category": "Equtiy",
+                "Value": 3.15,
+                "Date": "March 2025"
+            },
+            {
+                "Category": "Fixed Income",
+                "Value": 3.15,
+                "Date": "March 2025"
+            },
+            {
+                "Category": {
+                    "Liquid": {
+                        "Value": 3.15,
+                        "Date": "March 2025"
+                    },
+                    "Equtiy": {
+                        "Value": 3.15,
+                        "Date": "March 2025"
+                    }
+                },
+            }
+        ]
+    },
+    {
+        "relative_performance_over_quarters": [
+            {
+                "Date": "Dec 2024",
+                "BMXIRR": 0.99,
+                "ExcessReturns": 8.72,
+                "XIRR": 9.71
+            },
+            {
+                "Date": "Jun 2024",
+                "BMXIRR": 17.88,
+                "ExcessReturns": 2.2,
+                "XIRR": 20.08
+            },
+            {
+                "Date": "Mar 2024",
+                "BMXIRR": 20.92,
+                "ExcessReturns": -3.88,
+                "XIRR": 17.04
+            },
+            {
+                "Date": "Sep 2024",
+                "BMXIRR": -0.67,
+                "ExcessReturns": 21.43,
+                "XIRR": 20.76
             }
         ]
     }
