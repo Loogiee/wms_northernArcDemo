@@ -1,172 +1,147 @@
-[
-    {
-        "allocation_comparison_section": [
-            {
-                "ASSET_GROUP_NAME": "Alternative Investment Fund",
-                "Total_Exposure_Percentage": 0,
-                "Strategic_Percentage": 15
-            },
-            {
-                "ASSET_GROUP_NAME": "Commodities",
-                "Total_Exposure_Percentage": 0.71,
-                "Strategic_Percentage": 0
-            },
-            {
-                "ASSET_GROUP_NAME": "Commodity",
-                "Total_Exposure_Percentage": 0,
-                "Strategic_Percentage": 5
-            },
-            {
-                "ASSET_GROUP_NAME": "Debt",
-                "Total_Exposure_Percentage": 0,
-                "Strategic_Percentage": 20
-            },
-            {
-                "ASSET_GROUP_NAME": "Equities",
-                "Total_Exposure_Percentage": 96.4,
-                "Strategic_Percentage": 0
-            },
-            {
-                "ASSET_GROUP_NAME": "Equity",
-                "Total_Exposure_Percentage": 0,
-                "Strategic_Percentage": 60
-            },
-            {
-                "ASSET_GROUP_NAME": "Fixed Income",
-                "Total_Exposure_Percentage": 2.88,
-                "Strategic_Percentage": 0
-            },
-            {
-                "ASSET_GROUP_NAME": "Liquid",
-                "Total_Exposure_Percentage": 0.01,
-                "Strategic_Percentage": 0
-            }
-        ]
-    },
-    {
-        "basic_information_section": [
-            {
-                "Description": "ACQU_COST",
-                "Value": 293976076.83,
-                "Date": "As on 2025-03-19"
-            },
-            {
-                "Description": "MARKET_VALUE",
-                "Value": 300751912.95,
-                "Date": "As on 2025-03-19"
-            },
-            {
-                "Description": "NetContribution",
-                "Value": 290254594.11,
-                "Date": "Since Inception"
-            },
-            {
-                "Description": "XIRR",
-                "Value": 2.62,
-                "Date": "Since Inception"
-            },
-            {
-                "Description": "BMXIRR",
-                "Value": -3.15,
-                "Date": "Since Inception"
-            },
-            {
-                "Description": "Nifty",
-                "Value": 1,
-                "Date": ""
-            },
-            {
-                "Description": "Crisil",
-                "Value": 1,
-                "Date": ""
-            }
-        ]
-    },
-    {
-        "quarterly_allocation_section": [
-            {
-                "Commodities": 1.92,
-                "Equities": 98.08,
-                "Fixed Income": 0,
-                "Liquid": 0,
-                "Date": "March 2024"
-            },
-            {
-                "Commodities": 1.76,
-                "Equities": 98.24,
-                "Fixed Income": 0,
-                "Liquid": 0,
-                "Date": "June 2024"
-            },
-            {
-                "Commodities": 1.15,
-                "Equities": 98.84,
-                "Fixed Income": 0,
-                "Liquid": 0.01,
-                "Date": "September 2024"
-            },
-            {
-                "Commodities": 0.62,
-                "Equities": 98.26,
-                "Fixed Income": 1.11,
-                "Liquid": 0.01,
-                "Date": "December 2024"
-            },
-            {
-                "Category": "Commodities",
-                "Value": 3.15,
-                "Date": "March 2025"
-            },
-            {
-                "Category": "Equtiy",
-                "Value": 3.15,
-                "Date": "March 2025"
-            },
-            {
-                "Category": "Fixed Income",
-                "Value": 3.15,
-                "Date": "March 2025"
-            },
-            {
-                "Category": {
-                    "Liquid": {
-                        "Value": 3.15,
-                        "Date": "March 2025"
-                    },
-                    "Equtiy": {
-                        "Value": 3.15,
-                        "Date": "March 2025"
-                    }
-                },
-            }
-        ]
-    },
-    {
-        "relative_performance_over_quarters": [
-            {
-                "Date": "Dec 2024",
-                "BMXIRR": 0.99,
-                "ExcessReturns": 8.72,
-                "XIRR": 9.71
-            },
-            {
-                "Date": "Jun 2024",
-                "BMXIRR": 17.88,
-                "ExcessReturns": 2.2,
-                "XIRR": 20.08
-            },
-            {
-                "Date": "Mar 2024",
-                "BMXIRR": 20.92,
-                "ExcessReturns": -3.88,
-                "XIRR": 17.04
-            },
-            {
-                "Date": "Sep 2024",
-                "BMXIRR": -0.67,
-                "ExcessReturns": 21.43,
-                "XIRR": 20.76
-            }
-        ]
-    }
-]
+{
+    "subasset_asset_section": [
+        {
+            "SECURITY_CATEGORY": "AIF",
+            "ASSET_GROUP_NAME": "Equities",
+            "MARKET_VALUE": 74437647.67,
+            "ACQU_COST": 77236961.0,
+            "REAL_GAIN_LOSS": 0.0,
+            "APPRE_DEPRE": -2799313.33,
+            "XIRR": -7.55,
+            "ASSET_EXPOSURE%": 100.0,
+            "GROUP_LABEL": "Equities"
+        },
+        {
+            "SECURITY_CATEGORY": "AIF",
+            "ASSET_GROUP_NAME": ": TOTAL",
+            "MARKET_VALUE": 74437647.67,
+            "ACQU_COST": 77236961.0,
+            "REAL_GAIN_LOSS": 0.0,
+            "APPRE_DEPRE": -2799313.33,
+            "XIRR": -7.55,
+            "ASSET_EXPOSURE%": 100.0,
+            "GROUP_LABEL": "AIF"
+        },
+        {
+            "SECURITY_CATEGORY": "Bonds",
+            "ASSET_GROUP_NAME": "Fixed Income",
+            "MARKET_VALUE": 8664072.99,
+            "ACQU_COST": 8664072.99,
+            "REAL_GAIN_LOSS": 0.0,
+            "APPRE_DEPRE": 0.0,
+            "XIRR": 0.0,
+            "ASSET_EXPOSURE%": 100.0,
+            "GROUP_LABEL": "Fixed Income"
+        },
+        {
+            "SECURITY_CATEGORY": "Bonds",
+            "ASSET_GROUP_NAME": ": TOTAL",
+            "MARKET_VALUE": 8664072.99,
+            "ACQU_COST": 8664072.99,
+            "REAL_GAIN_LOSS": 0.0,
+            "APPRE_DEPRE": 0.0,
+            "XIRR": 0.0,
+            "ASSET_EXPOSURE%": 100.0,
+            "GROUP_LABEL": "Bonds"
+        },
+        {
+            "SECURITY_CATEGORY": "Direct Equities",
+            "ASSET_GROUP_NAME": "Equities",
+            "MARKET_VALUE": 3404263.74,
+            "ACQU_COST": 3295955.82,
+            "REAL_GAIN_LOSS": 0.0,
+            "APPRE_DEPRE": 108307.92,
+            "XIRR": 2.74,
+            "ASSET_EXPOSURE%": 100.0,
+            "GROUP_LABEL": "Equities"
+        },
+        {
+            "SECURITY_CATEGORY": "Direct Equities",
+            "ASSET_GROUP_NAME": ": TOTAL",
+            "MARKET_VALUE": 3404263.74,
+            "ACQU_COST": 3295955.82,
+            "REAL_GAIN_LOSS": 0.0,
+            "APPRE_DEPRE": 108307.92,
+            "XIRR": 2.74,
+            "ASSET_EXPOSURE%": 100.0,
+            "GROUP_LABEL": "Direct Equities"
+        },
+        {
+            "SECURITY_CATEGORY": "Liquid/Overnight Funds",
+            "ASSET_GROUP_NAME": "Liquid",
+            "MARKET_VALUE": 22466.84,
+            "ACQU_COST": 21430.27,
+            "REAL_GAIN_LOSS": 88245.26,
+            "APPRE_DEPRE": 1036.57,
+            "XIRR": 7.13,
+            "ASSET_EXPOSURE%": 100.0,
+            "GROUP_LABEL": "Liquid"
+        },
+        {
+            "SECURITY_CATEGORY": "Liquid/Overnight Funds",
+            "ASSET_GROUP_NAME": ": TOTAL",
+            "MARKET_VALUE": 22466.84,
+            "ACQU_COST": 21430.27,
+            "REAL_GAIN_LOSS": 88245.26,
+            "APPRE_DEPRE": 1036.57,
+            "XIRR": 7.13,
+            "ASSET_EXPOSURE%": 100.0,
+            "GROUP_LABEL": "Liquid/Overnight Funds"
+        },
+        {
+            "SECURITY_CATEGORY": "Mutual Funds/ETFs",
+            "ASSET_GROUP_NAME": "Commodities",
+            "MARKET_VALUE": 2137536.07,
+            "ACQU_COST": 1320000.93,
+            "REAL_GAIN_LOSS": 0.0,
+            "APPRE_DEPRE": 817535.14,
+            "XIRR": 11.39,
+            "ASSET_EXPOSURE%": 1.23,
+            "GROUP_LABEL": "Commodities"
+        },
+        {
+            "SECURITY_CATEGORY": "Mutual Funds/ETFs",
+            "ASSET_GROUP_NAME": "Equities",
+            "MARKET_VALUE": 171301171.84,
+            "ACQU_COST": 165603771.82,
+            "REAL_GAIN_LOSS": 0.0,
+            "APPRE_DEPRE": 5697400.02,
+            "XIRR": 3.72,
+            "ASSET_EXPOSURE%": 98.77,
+            "GROUP_LABEL": "Equities"
+        },
+        {
+            "SECURITY_CATEGORY": "Mutual Funds/ETFs",
+            "ASSET_GROUP_NAME": ": TOTAL",
+            "MARKET_VALUE": 173438707.91,
+            "ACQU_COST": 166923772.75,
+            "REAL_GAIN_LOSS": 0.0,
+            "APPRE_DEPRE": 6514935.16,
+            "XIRR": 4.16,
+            "ASSET_EXPOSURE%": 100.0,
+            "GROUP_LABEL": "Mutual Funds/ETFs"
+        },
+        {
+            "SECURITY_CATEGORY": "PMS",
+            "ASSET_GROUP_NAME": "Equities",
+            "MARKET_VALUE": 40784753.8,
+            "ACQU_COST": 37833884.0,
+            "REAL_GAIN_LOSS": 0.0,
+            "APPRE_DEPRE": 2950869.8,
+            "XIRR": 6.07,
+            "ASSET_EXPOSURE%": 100.0,
+            "GROUP_LABEL": "Equities"
+        },
+        {
+            "SECURITY_CATEGORY": "PMS",
+            "ASSET_GROUP_NAME": ": TOTAL",
+            "MARKET_VALUE": 40784753.8,
+            "ACQU_COST": 37833884.0,
+            "REAL_GAIN_LOSS": 0.0,
+            "APPRE_DEPRE": 2950869.8,
+            "XIRR": 6.07,
+            "ASSET_EXPOSURE%": 100.0,
+            "GROUP_LABEL": "PMS"
+        }
+    ]
+}

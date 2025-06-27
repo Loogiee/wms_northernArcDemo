@@ -114,6 +114,7 @@ func reportHandler(c *gin.Context) {
 		c.JSON(500, gin.H{"message": "Error while populating data in template", "error": err.Error(), "traceId": traceId})
 		return
 	}
+	os.WriteFile("./FinalTypst.txt", pdfByte, 0777)
 	pdfData, err := ConvertToPdfLocal(pdfByte, "./GeneratedOutput/", "output.pdf")
 	if err != nil {
 		c.JSON(500, gin.H{"message": "Error while genrating PDF file", "Error": err.Error(), "traceId": traceId})
