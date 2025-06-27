@@ -64,6 +64,18 @@ func CreatePDFByte(requestedReports []int, customer string, portfolio string, re
 	}
 	allReportsData.Store(3, portAllocResult)
 
+	holdData, holdErr := FetchDataForReport(customer, portfolio, reportDate, db, "holding_report")
+	if holdErr != nil {
+		logger.Error("Failed to fetch Asset Class Wise Summary report data", "Category", "DB", "Error", holdErr.Error(), "Origin", GetErrorOrigin(holdErr))
+		return nil, holdErr
+	}
+	holdResult, holdErr := ProcessHolding(&holdData)
+	if holdErr != nil {
+		logger.Error("Failed to Holding report data", "Category", "PROCESS", "Error", holdErr.Error(), "Origin", GetErrorOrigin(holdErr))
+		return nil, holdErr
+	}
+	allReportsData.Store(5, holdResult)
+
 	// collecting and ordering Data from sync mapper
 	var keys []int
 	allReportsData.Range(func(key, value interface{}) bool {

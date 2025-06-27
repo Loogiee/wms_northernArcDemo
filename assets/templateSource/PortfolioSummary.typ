@@ -40,19 +40,19 @@
 )
 
 #set page(paper: "a4", flipped: true,
-margin: (top:35pt,left:15pt,right:15pt),
+margin: (top:45pt,left:15pt,right:15pt),
 header: context{
   if counter(page).get().first() >= 1 {
     align(top)[#customHeader]
   }
 })
 {{if ne $DataCount  0}}
-  #v(15pt)
+
   #hide[ #heading(outlined: true)[#text([Asset Class Wise Summary],fill:rgb("#0d3c6a"))]]
   #table(
-    columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+    columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1.5fr),
     stroke: none,
-    inset: (top: 15pt, left: 10pt, right: 10pt, bottom: 15pt),
+    inset: (top: 10pt, left: 10pt, right: 10pt, bottom: 10pt),
     // Header
     table.header(
     table.cell(rowspan: 2, colspan: 9, align: left + horizon, [#text(fill: heading0,size: 15pt, weight: "bold", [ Portfolio Analysis Report])]),
@@ -114,18 +114,17 @@ header: context{
 )
 )
 #set page(paper: "a4", flipped: true,
-margin: (top:35pt,left:15pt,right:15pt),
+margin: (top:45pt,left:15pt,right:15pt),
 header: context{
   if counter(page).get().first() >= 1 {
     align(top)[#customHeader]
   }
 })
- #v(15pt)
  #hide[#heading(outlined: true)[#text([Product Wise Exposure - Advisors / Distributors],fill:rgb("#0d3c6a"))]]
   #table(
     columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
     stroke: none,
-    inset: (top: 15pt, left: 10pt, right: 10pt, bottom: 15pt),
+    inset: (top: 10pt, left: 10pt, right: 10pt, bottom: 10pt),
     // Header
     table.header(
     table.cell(rowspan: 2, colspan: 8, align: left + horizon, [#text(fill: heading0,size: 15pt, weight: "bold", [ Portfolio Analysis Report])]),
@@ -141,10 +140,11 @@ header: context{
     table.cell(align(center)[#text(fill: heading0, "IRR %")]),
     table.cell(align(center)[#text(fill: heading0, "Exposure %")]),
   ),
-  {{$SubassetMarketCapTypeSection := .SubassetMarketCapTypeSection}}
+ {{$ShowOnce := true}}
 
   {{range  .SubassetMarketCapTypeSection}}
     {{if Contains .AssetGroupName "TOTAL"}}
+       {{$ShowOnce = true}}
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
       table.cell(align(left)[#text("Total" ,fill: heading0)],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}" ,fill: heading0)],),
@@ -155,6 +155,11 @@ header: context{
       table.cell(align(center)[#text("{{.XIRR}}" ,fill: heading0)],),
       table.cell(align(center)[#text("{{.AssetExposure}}" ,fill: heading0)],),
     {{else}}
+      {{if $ShowOnce}}
+      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+      table.cell(colspan: 8, align(left)[#text("{{.SecurityCategory}}" )],fill: highlightBlue ),
+      {{$ShowOnce = false}}
+      {{end}}
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
       table.cell(align(left)[#text("{{.GroupLabel}}" )] ),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}" )],),
@@ -184,23 +189,23 @@ header: context{
       )
       )
       #set page(paper: "a4", flipped: true,
-      margin: (top:35pt,left:15pt,right:15pt,bottom:35pt),
+      margin: (top:45pt,left:15pt,right:15pt,bottom:35pt),
       header: context{
         if counter(page).get().first() >= 1 {
           align(top)[#customHeader]
         }
       })
-   #v(15pt)
+
   #hide[#heading(outlined: true)[#text([Sub Asset Class Wise Exposure - Advisors / Distributors],fill:rgb("#0d3c6a"))]]
+
   #table(
     columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
     stroke: none,
-    inset: (top: 15pt, left: 10pt, right: 10pt, bottom: 15pt),
+   inset: (top: 10pt, left: 10pt, right: 10pt, bottom: 10pt),
     // Header
     table.header(
     table.cell(rowspan: 2, colspan: 8, align: left + horizon, [#text(fill: heading0,size: 15pt, weight: "bold", [ Portfolio Analysis Report])]),
     table.hline(stroke: rgb(gray)),
-
     // Column headers
     table.cell(align(left)[#text(fill: heading0, "Asset Class")]),
     table.cell(align(right)[#text(fill: heading0, "Purchase Value")]),
@@ -211,10 +216,11 @@ header: context{
     table.cell(align(center)[#text(fill: heading0, "IRR%")]),
     table.cell(align(center)[#text(fill: heading0, "Exposure %")]),
   ),
-
+ {{$ShowOnce := true}}
   {{range  .SubAssetSection}}
     {{if Contains .AssetGroupName "TOTAL"}}
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+       {{$ShowOnce = true}}
       table.cell(align(left)[#text("Total" ,fill: heading0)],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}" ,fill: heading0)],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}" ,fill: heading0)],),
@@ -224,6 +230,11 @@ header: context{
       table.cell(align(center)[#text("{{.XIRR}}" ,fill: heading0)],),
       table.cell(align(center)[#text("{{.AssetExposure}}" ,fill: heading0)],),
     {{else}}
+      {{if $ShowOnce}}
+      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+      table.cell(colspan: 8, align(left)[#text("{{.SecurityCategory}}" )],fill: highlightBlue ),
+      {{$ShowOnce = false}}
+      {{end}}
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
       table.cell(align(left)[#text("{{.GroupLabel}}" )] ),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}" )],),

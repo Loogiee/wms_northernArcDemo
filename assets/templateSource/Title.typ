@@ -27,7 +27,12 @@
     )
   ]
 ])
-#set text(size: 15pt, font: "Bai Jamjuree")
+
+#set text(size:8pt,weight: "bold",font: "Bai Jamjuree")
+#let heading0 = rgb("#0d3c6a")
+#let headerBg = rgb("#f4f5f6")
+#let whiteBg = white
+#let highlightBlue = rgb("#9cccf8")
 #set page(
   paper: "a4",
   flipped: true,

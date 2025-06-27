@@ -169,6 +169,11 @@ type PmsHoldingSection struct {
 	// market value data is missing need to add that
 }
 
+type HoldingSection struct {
+	MututalFundHoldingSection []MututalFundHoldingSection
+	PmsHoldingSection         []PmsHoldingSection
+}
+
 // AMC Wise Exposure - All Advisors
 type AmcWiseSection struct {
 	AssetGroupName  string  `json:"ASSET_GROUP_NAME"`
