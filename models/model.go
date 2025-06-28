@@ -194,9 +194,10 @@ type HoldingSection struct {
 }
 
 type MutualFundSection struct {
-	AmcWiseSection     []AmcWiseSection
-	FundManagerSection []FundManagerSection
-	SectorWiseSection  []SectorWiseSection
+	AmcWiseSection          []AmcWiseSection
+	FundManagerSection      []FundManagerSection
+	SectorWiseSection       []SectorWiseSection
+	MututalFundTransSection []MututalFundTransSection
 }
 
 // AMC Wise Exposure - All Advisors
@@ -223,4 +224,17 @@ type SectorWiseSection struct {
 	SectorName       string  `json:"SECTOR_NAME"`
 	MarketValue      float64 `json:"MARKET_VALUE"`
 	TotAssetExposure float64 `json:"TOTAL_ASSET_EXPOSURE%"`
+}
+
+//Transaction History - Mutual Funds
+type MututalFundTransSection struct {
+	AssetGroupName   string  `json:"ASSET_GROUP_NAME"`
+	SecurityCategory string  `json:"SECURITY_CATEGORY"`
+	SecurityName     string  `json:"SECURITY_NAME"`
+	FolioNo          string  `json:"FOLIO_NO"`
+	TransDate        string  `json:"CASHFLOW_DATE"`
+	TransCode        string  `json:"TRANS_CODE"`
+	Quantity         float64 `json:"QUANTITY"`
+	Price            float64 `json:"PRICE"`
+	AcquCost         float64 `json:"ACQU_COST"`
 }
