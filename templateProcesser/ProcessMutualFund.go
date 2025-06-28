@@ -1,0 +1,55 @@
+package templateProcesser
+
+import (
+
+	// "encoding/json"
+	"bytes"
+	"text/template"
+	. "wms_report/models"
+	. "wms_report/utils"
+
+	"github.com/pkg/errors"
+)
+
+func ProcessMutualFund(sqlData *[]map[string]interface{}) (string, error) {
+	var FinalProcessData MutualFundSection
+	for _, obj := range *sqlData {
+		for key, value := range obj {
+			switch key {
+			case "amc_wise_section":
+				mapAmcWiseSection(value, &FinalProcessData)
+			case "fund_manager_wise_section":
+				mapFundManagerWiseSection(value, &FinalProcessData)
+			case "mf_sector_wise_section":
+				mapSectorWiseSection(value, &FinalProcessData)
+			}
+		}
+	}
+	var tmpl, terr = template.New("MututalFundReport.typ").Funcs(FuncMap).ParseFiles("./assets/templateSource/MututalFundReport.typ")
+	if terr != nil {
+		return "", errors.Wrap(terr, "failed to parse title template:")
+	}
+
+	var buf bytes.Buffer
+	if err := tmpl.Execute(&buf, FinalProcessData); err != nil {
+		return "", errors.Wrapf(err, "failed to execute parsed Holding Report template err: %v", err)
+	}
+	return buf.String(), nil
+}
+
+func mapAmcWiseSection(value interface{}, parsingData *MutualFundSection) {
+	var processData []AmcWiseSection
+	MapToStruct(value, &processData)
+	parsingData.AmcWiseSection = processData
+}
+func mapFundManagerWiseSection(value interface{}, parsingData *MutualFundSection) {
+	var processData []FundManagerSection
+	MapToStruct(value, &processData)
+	parsingData.FundManagerSection = processData
+}
+
+func mapSectorWiseSection(value interface{}, parsingData *MutualFundSection) {
+	var processData []SectorWiseSection
+	MapToStruct(value, &processData)
+	parsingData.SectorWiseSection = processData
+}

@@ -76,6 +76,18 @@ func CreatePDFByte(requestedReports []int, customer string, portfolio string, re
 	}
 	allReportsData.Store(5, holdResult)
 
+	mutualFundData, mutualFundErr := FetchDataForReport(customer, portfolio, reportDate, db, "mutual_fund_report")
+	if mutualFundErr != nil {
+		logger.Error("Failed to fetch mututal fund report data", "Category", "DB", "Error", mutualFundErr.Error(), "Origin", GetErrorOrigin(mutualFundErr))
+		return nil, mutualFundErr
+	}
+	mutualFundResult, mutualFundErr := ProcessMutualFund(&mutualFundData)
+	if mutualFundErr != nil {
+		logger.Error("Failed to mututal fund report data", "Category", "PROCESS", "Error", mutualFundErr.Error(), "Origin", GetErrorOrigin(mutualFundErr))
+		return nil, mutualFundErr
+	}
+	allReportsData.Store(6, mutualFundResult)
+
 	// collecting and ordering Data from sync mapper
 	var keys []int
 	allReportsData.Range(func(key, value interface{}) bool {

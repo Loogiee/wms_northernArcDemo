@@ -1,5 +1,4 @@
 #pagebreak()
-#set page(paper: "a2", flipped: true,
 margin: (top:50pt,left:35pt,right:35pt))
 
 // #import "footer.typ": custom-footer

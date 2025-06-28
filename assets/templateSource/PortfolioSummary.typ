@@ -1,144 +1,138 @@
-#pagebreak()
-#pagebreak()
-#set text(size:8pt,weight: "bold")
+// {{$DataCount:=0}}
+// {{if .SubassetMarketCapTypeSection}}
+// "Product Wise Exposure - Advisors / Distributors"
+// {{$DataCount = 1}}
+// {{end}}
+
+// {{if .AssetSubassetSection}}
+// "Asset Class Wise Summary"
+// {{$DataCount = 1}}
+// {{end}}
+
+// {{if .SubassetMarketCapTypeSection}}
+// "Sub Asset Class Wise Exposure - Advisors / Distributors"
+// {{$DataCount = 1}}
+// {{end}}
+
 #let heading0 = rgb("#0d3c6a")
 #let headerBg = rgb("#f4f5f6")
 #let whiteBg = white
 #let highlightBlue = rgb("#9cccf8")
-
-{{$DataCount:=0}}
-
-{{if .SubassetMarketCapTypeSection}}
-// "Product Wise Exposure - Advisors / Distributors"
-{{$DataCount = 1}}
-{{end}}
-
+#set text(weight: "black")
 {{if .AssetSubassetSection}}
-// "Asset Class Wise Summary"
-{{$DataCount = 1}}
-{{end}}
-
-{{if .SubassetMarketCapTypeSection}}
-// "Sub Asset Class Wise Exposure - Advisors / Distributors"
-{{$DataCount = 1}}
-{{end}}
-
-
+#pagebreak()
 #let customHeader =box(
       width: 100%,
       height: 30pt,
       stack(
      place(dx: 10pt,dy: 15pt)[
-        #text("Asset Class Wise Summary", size: 16pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
-        #text("as on "+ReportDate,size: 8pt, fill: rgb("#585858"))
+        #text("Asset Class Wise Summary", size: 38pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
+        #text("as on "+ReportDate,size: 14pt, fill: rgb("#585858"))
         #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
-       place(top+right,dx: -15pt,dy: 10pt,
-          [#image("./assets/images/kfintech-logo.png", width: 155pt,height: 30pt)])
-
+       place(top+right,dx: -15pt,dy: 12pt,
+          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
 )
 )
-
-#set page(paper: "a4", flipped: true,
-margin: (top:45pt,left:15pt,right:15pt),
+#set page(paper: "a2", flipped: true,
+margin: (top:80pt,left:15pt,right:15pt),
 header: context{
   if counter(page).get().first() >= 1 {
     align(top)[#customHeader]
   }
 })
-{{if ne $DataCount  0}}
-
-  #hide[ #heading(outlined: true)[#text([Asset Class Wise Summary],fill:rgb("#0d3c6a"))]]
+#hide[ #heading(outlined: true)[#text([Asset Class Summary],fill:rgb("#0d3c6a"))]]
   #table(
-    columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1.5fr),
+    columns: (1.5fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, .5fr, 1.5fr),
     stroke: none,
-    inset: (top: 10pt, left: 10pt, right: 10pt, bottom: 10pt),
+    inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     // Header
     table.header(
-    table.cell(rowspan: 2, colspan: 9, align: left + horizon, [#text(fill: heading0,size: 15pt, weight: "bold", [ Portfolio Analysis Report])]),
+    table.cell(rowspan: 2, colspan: 9, align: left + horizon, [#text(fill: heading0,size: 20pt, weight: "bold", [ Portfolio Analysis Report])]),
     table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
 
     // Column headers
-    table.cell(align(left)[#text(fill: heading0, "Particulars")]),
-    table.cell(align(right)[#text(fill: heading0, "Market Value")]),
-    table.cell(align(center+horizon)[#text(fill: heading0, "% Holding")]),
-    table.cell(align(right)[#text(fill: heading0, "Holding Cost")]),
-    table.cell(align(right)[#text(fill: heading0, "Gain/Loss Realised")]),
-    table.cell(align(right)[#text(fill: heading0, "Dividend Interest")]),
-    table.cell(align(right)[#text(fill: heading0, "Gain/Loss Unrealised")]),
-    table.cell(align(center+horizon)[#text(fill: heading0, "IRR %")]),
-    table.cell(align(left)[#text(fill: heading0, "Benchmark")]),
+    table.cell(align(left)[#text(fill: heading0,weight: "black", "Particulars")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "Market Value")]),
+    table.cell(align(right)[#text(fill: heading0, weight: "black","% Holding")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "Holding Cost")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "Gain/Loss Realised")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "Dividend Interest")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "Gain/Loss Unrealised")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "IRR %")]),
+    table.cell(align(left)[#text(fill: heading0,weight: "black", "Benchmark")]),
   ),
-
-
  {{range  .AssetSubassetSection}}
     {{if Contains .SecurityCategory "TOTAL"}}
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("{{.AssetGroupName}}" )],fill: highlightBlue),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}")],fill: highlightBlue),
-    table.cell(align(center+horizon)[#text("{{ .AssetExposure}}")],fill: highlightBlue),
+    table.cell(align(right)[#text("{{ .AssetExposure}}")],fill: highlightBlue),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}")],fill: highlightBlue),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .RealGainLoss}}")],fill: highlightBlue),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Dividend}}")],fill: highlightBlue),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}")],fill: highlightBlue),
-    table.cell(align(center+horizon)[#text("{{ConvertToFormattedNumberPointer .XIRR}}")],fill: highlightBlue),
+    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .XIRR}}")],fill: highlightBlue),
     table.cell(align(left)[#text("{{.BenchmarkName}}")],fill: highlightBlue),
     {{else}}
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("{{.SecurityCategory}}" )] ),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}")]),
-    table.cell(align(center+horizon)[#text("{{ .AssetExposure}}")]),
+    table.cell(align(right)[#text("{{ .AssetExposure}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .RealGainLoss}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Dividend}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}")]),
-    table.cell(align(center+horizon)[#text("{{ConvertToFormattedNumberPointer .XIRR}}")]),
+    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .XIRR}}")]),
     table.cell(align(left)[#text("{{.BenchmarkName}}")]),
     {{end}}
   {{end}}
 
   )
+{{end}}
+
+{{if .SubassetMarketCapTypeSection}}
   #pagebreak()
-  #let customHeader =box(
+#let customHeader =box(
       width: 100%,
       height: 30pt,
       stack(
      place(dx: 10pt,dy: 15pt)[
-       #text("Product Wise Exposure - Advisors / Distributors", size: 16pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
-      #text("as on "+ReportDate,size: 8pt, fill: rgb("#585858"))
-       #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
+        #text("Product Wise Exposure - Advisors / Distributors", size: 38pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
+        #text("as on "+ReportDate,size: 14pt, fill: rgb("#585858"))
+        #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
-       place(top+right,dx: -15pt,dy: 10pt,
-          [#image("./assets/images/kfintech-logo.png", width: 155pt,height: 30pt)]),
-      place(dy: -10pt,[#line(length: 100%,stroke: 0.5pt + rgb("#cdcdcd"))])
+       place(top+right,dx: -15pt,dy: 12pt,
+          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+
 )
 )
-#set page(paper: "a4", flipped: true,
-margin: (top:45pt,left:15pt,right:15pt),
+#set page(paper: "a2", flipped: true,
+margin: (top:80pt,left:15pt,right:15pt),
 header: context{
   if counter(page).get().first() >= 1 {
     align(top)[#customHeader]
   }
 })
- #hide[#heading(outlined: true)[#text([Product Wise Exposure - Advisors / Distributors],fill:rgb("#0d3c6a"))]]
+//  #hide[#heading(outlined: true)[#text([Product Wise Exposure - Advisors / Distributors],fill:rgb("#0d3c6a"))]]
   #table(
     columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
     stroke: none,
-    inset: (top: 10pt, left: 10pt, right: 10pt, bottom: 10pt),
+    inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     // Header
     table.header(
     table.cell(rowspan: 2, colspan: 8, align: left + horizon, [#text(fill: heading0,size: 15pt, weight: "bold", [ Portfolio Analysis Report])]),
     table.hline(stroke: rgb(gray)),
 
     // Column headers
-    table.cell(align(left)[#text(fill: heading0, "Asset Class")]),
-    table.cell(align(right)[#text(fill: heading0, "Purchase Value")]),
-    table.cell(align(right)[#text(fill: heading0, "Market Value")]),
-    table.cell(align(right)[#text(fill: heading0, "Unrealised Gain/Loss")]),
-    table.cell(align(right)[#text(fill: heading0, "Dividend Interest")]),
-    table.cell(align(right)[#text(fill: heading0, "Realised Gain/Loss")]),
-    table.cell(align(center)[#text(fill: heading0, "IRR %")]),
-    table.cell(align(center)[#text(fill: heading0, "Exposure %")]),
+    table.cell(align(left)[#text(fill: heading0,weight: "black", "Asset Class")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "Purchase Value")]),
+    table.cell(align(right)[#text(fill: heading0, weight: "black","Market Value")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "Unrealised Gain/Loss")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "Dividend Interest")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "Realised Gain/Loss")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "IRR %")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "Exposure %")]),
   ),
  {{$ShowOnce := true}}
 
@@ -152,8 +146,8 @@ header: context{
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}" ,fill: heading0)],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .DistributedIncome}}" ,fill: heading0)],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .RealGainLoss}}" ,fill: heading0)],),
-      table.cell(align(center)[#text("{{.XIRR}}" ,fill: heading0)],),
-      table.cell(align(center)[#text("{{.AssetExposure}}" ,fill: heading0)],),
+      table.cell(align(right)[#text("{{.XIRR}}" ,fill: heading0)],),
+      table.cell(align(right)[#text("{{.AssetExposure}}" ,fill: heading0)],),
     {{else}}
       {{if $ShowOnce}}
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -167,54 +161,54 @@ header: context{
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}" )],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .DistributedIncome}}" )],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .RealGainLoss}}" )],),
-      table.cell(align(center)[#text("{{.XIRR}}" )],),
-      table.cell(align(center)[#text("{{.AssetExposure}}" )],),
+      table.cell(align(right)[#text("{{.XIRR}}" )],),
+      table.cell(align(right)[#text("{{.AssetExposure}}" )],),
     {{end}}
   {{end}}
   )
-
+{{end}}
+{{if .SubAssetSection}}
     #pagebreak()
-     #let customHeader =box(
+    #let customHeader =box(
       width: 100%,
       height: 30pt,
       stack(
      place(dx: 10pt,dy: 15pt)[
-       #text("Sub Asset Class Wise Exposure - Advisors / Distributors", size: 16pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
-      #text("as on "+ReportDate,size: 8pt, fill: rgb("#585858"))
-       #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
+        #text("Sub Asset Class Wise Exposure - Advisors / Distributors", size: 38pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
+        #text("as on "+ReportDate,size: 14pt, fill: rgb("#585858"))
+        #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
-       place(top+right,dx: -15pt,dy: 10pt,
-          [#image("./assets/images/kfintech-logo.png", width: 155pt,height: 30pt)]),
-      place(dy: -10pt,[#line(length: 100%,stroke: 0.5pt + rgb("#cdcdcd"))])
-      )
-      )
-      #set page(paper: "a4", flipped: true,
-      margin: (top:45pt,left:15pt,right:15pt,bottom:35pt),
-      header: context{
-        if counter(page).get().first() >= 1 {
-          align(top)[#customHeader]
-        }
-      })
+       place(top+right,dx: -15pt,dy: 12pt,
+          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
 
-  #hide[#heading(outlined: true)[#text([Sub Asset Class Wise Exposure - Advisors / Distributors],fill:rgb("#0d3c6a"))]]
+)
+)
+#set page(paper: "a2", flipped: true,
+margin: (top:80pt,left:15pt,right:15pt),
+header: context{
+  if counter(page).get().first() >= 1 {
+    align(top)[#customHeader]
+  }
+})
+  // #hide[#heading(outlined: true)[#text([Sub Asset Class Wise Exposure - Advisors / Distributors],fill:rgb("#0d3c6a"))]]
 
   #table(
     columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
     stroke: none,
-   inset: (top: 10pt, left: 10pt, right: 10pt, bottom: 10pt),
+   inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     // Header
     table.header(
     table.cell(rowspan: 2, colspan: 8, align: left + horizon, [#text(fill: heading0,size: 15pt, weight: "bold", [ Portfolio Analysis Report])]),
     table.hline(stroke: rgb(gray)),
     // Column headers
-    table.cell(align(left)[#text(fill: heading0, "Asset Class")]),
-    table.cell(align(right)[#text(fill: heading0, "Purchase Value")]),
-    table.cell(align(right)[#text(fill: heading0, "Market Value")]),
-    table.cell(align(right)[#text(fill: heading0, "Unrealised Gain/Loss")]),
-    table.cell(align(right)[#text(fill: heading0, "Income")]),
-    table.cell(align(right)[#text(fill: heading0, "Realised Gain/Loss")]),
-    table.cell(align(center)[#text(fill: heading0, "IRR%")]),
-    table.cell(align(center)[#text(fill: heading0, "Exposure %")]),
+    table.cell(align(left)[#text(fill: heading0,weight: "black", "Asset Class")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "Purchase Value")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "Market Value")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "Unrealised Gain/Loss")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "Income")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "Realised Gain/Loss")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "IRR%")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "Exposure %")]),
   ),
  {{$ShowOnce := true}}
   {{range  .SubAssetSection}}
@@ -227,8 +221,8 @@ header: context{
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}" ,fill: heading0)],),
       table.cell(align(right)[#text("-" ,fill: heading0)],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .RealGainLoss}}" ,fill: heading0)],),
-      table.cell(align(center)[#text("{{.XIRR}}" ,fill: heading0)],),
-      table.cell(align(center)[#text("{{.AssetExposure}}" ,fill: heading0)],),
+      table.cell(align(right)[#text("{{.XIRR}}" ,fill: heading0)],),
+      table.cell(align(right)[#text("{{.AssetExposure}}" ,fill: heading0)],),
     {{else}}
       {{if $ShowOnce}}
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -242,11 +236,10 @@ header: context{
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}" )],),
       table.cell(align(right)[#text("-" )],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .RealGainLoss}}" )],),
-      table.cell(align(center)[#text("{{.XIRR}}" )],),
-      table.cell(align(center)[#text("{{.AssetExposure}}" )],),
+      table.cell(align(right)[#text("{{.XIRR}}" )],),
+      table.cell(align(right)[#text("{{.AssetExposure}}" )],),
     {{end}}
   {{end}}
   )
-
 {{end}}
 

@@ -169,9 +169,34 @@ type PmsHoldingSection struct {
 	// market value data is missing need to add that
 }
 
+// --> Direct Equity Holding - Advisor Wise
+type DirectEquHoldingSection struct {
+	AssetGroupName   string  `json:"ASSET_GROUP_NAME"`
+	MarketCapType    string  `json:"MARKET_CAP_TYPE"`
+	SecurityName     string  `json:"SECURITY_NAME"`
+	ISIN             string  `json:"ISIN"`
+	Quantity         float64 `json:"QUANTITY"`
+	AveragePrice     float64 `json:"AVERAGE_PRICE"`
+	AcquCost         float64 `json:"ACQU_COST"`
+	Dividend         float64 `json:"DIVIDEND"`
+	MarketPrice      float64 `json:"MARKET_PRICE"`
+	MarketValue      float64 `json:"MARKET_VALUE"`
+	AppreDepre       float64 `json:"APPRE_DEPRE"`
+	AbsoluteReturn   float64 `json:"ABSOLUTE_RETURN"`
+	AssetExposurePct float64 `json:"ASSET_EXPOSURE%"`
+}
+
+// amc_wise_report
 type HoldingSection struct {
 	MututalFundHoldingSection []MututalFundHoldingSection
 	PmsHoldingSection         []PmsHoldingSection
+	DirectEquHoldingSection   []DirectEquHoldingSection
+}
+
+type MutualFundSection struct {
+	AmcWiseSection     []AmcWiseSection
+	FundManagerSection []FundManagerSection
+	SectorWiseSection  []SectorWiseSection
 }
 
 // AMC Wise Exposure - All Advisors
@@ -183,4 +208,19 @@ type AmcWiseSection struct {
 	Appreciation    float64 `json:"APPRE_DEPRE"`
 	XIRR            float64 `json:"XIRR"`
 	AssetExposure   float64 `json:"ASSET_EXPOSURE%"`
+}
+
+// Fund Manager Wise Exposure - All Advisors
+type FundManagerSection struct {
+	FundManagerName  string  `json:"FUND_MANAGER_NAME"`
+	IssuerName       string  `json:"ISSUER_NAME"`
+	MarketValue      float64 `json:"MARKET_VALUE"`
+	TotAssetExposure float64 `json:"TOTAL_ASSET_EXPOSURE%"`
+}
+
+// Mutual Fund - Sector Wise Exposure
+type SectorWiseSection struct {
+	SectorName       string  `json:"SECTOR_NAME"`
+	MarketValue      float64 `json:"MARKET_VALUE"`
+	TotAssetExposure float64 `json:"TOTAL_ASSET_EXPOSURE%"`
 }

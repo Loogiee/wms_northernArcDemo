@@ -18,9 +18,12 @@ func ProcessHolding(sqlData *[]map[string]interface{}) (string, error) {
 			switch key {
 			case "mutuals_funds_holding_section":
 				mapMutualFund(value, &finalProcessData)
+			case "pms_holding_section":
+				mapPMSHolding(value, &finalProcessData)
+			case "direct_equities_holding_section":
+				mapDirectEquHolding(value, &finalProcessData)
 			}
 		}
-
 	}
 
 	var tmpl, terr = template.New("HoldingReport.typ").Funcs(FuncMap).ParseFiles("./assets/templateSource/HoldingReport.typ")
@@ -39,4 +42,15 @@ func mapMutualFund(value interface{}, parsingData *HoldingSection) {
 	var processData []MututalFundHoldingSection
 	MapToStruct(value, &processData)
 	parsingData.MututalFundHoldingSection = processData
+}
+
+func mapPMSHolding(value interface{}, parsingData *HoldingSection) {
+	var processData []PmsHoldingSection
+	MapToStruct(value, &processData)
+	parsingData.PmsHoldingSection = processData
+}
+func mapDirectEquHolding(value interface{}, parsingData *HoldingSection) {
+	var processData []DirectEquHoldingSection
+	MapToStruct(value, &processData)
+	parsingData.DirectEquHoldingSection = processData
 }

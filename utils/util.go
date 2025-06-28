@@ -99,11 +99,14 @@ func ConvertToFormattedNumberPointer(amount *float64) string {
 
 	return intSeparatedPart + "." + decimalPart
 }
+func Contains(input string, contain string) bool {
+	return strings.Contains(strings.ToUpper(input), contain)
+}
 
 var FuncMap = template.FuncMap{
 	"sub": func(a, b int) int { return a - b },
 	"ConvertToFormattedNumberWithoutDecimalPointer": ConvertToFormattedNumberWithoutDecimalPointer,
 	"ConvertToFormattedNumberPointer":               ConvertToFormattedNumberPointer,
 	"DateFormatter":                                 DateFormatter,
-	"Contains":                                      strings.Contains,
+	"Contains":                                      Contains,
 }
