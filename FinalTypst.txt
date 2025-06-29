@@ -256,24 +256,24 @@
 #show heading: it => place(text(weight: "bold",fill: red,size: 0pt,it.body))
 
 
-#show outline.entry: it => [
-  #link(
-    it.element.location(),
-    [
-      #text(weight: "bold", size: 3em,it.body)
-      #text(weight: "bold", size: 3em,it.page),
-    ]
-  )
-]
-#place(
-  horizon+center,
-  dx:15em,
-  stack(
-    dir: ltr,
-    spacing: 2em,
-    outline(title: none,depth: 1)
-  )
-)#pagebreak()
+// #show outline.entry: it => [
+//   #link(
+//     it.element.location(),
+//     [
+//       #text(weight: "bold", size: 3em,it.body)
+//       #text(weight: "bold", size: 3em,it.page),
+//     ]
+//   )
+// ]
+// #place(
+//   horizon+center,
+//   dx:15em,
+//   stack(
+//     dir: ltr,
+//     spacing: 2em,
+//     outline(title: none,depth: 1)
+//   )
+// )#pagebreak()
 #text("Executive Summary", size: 40pt, fill: rgb("#0d3c6a"), weight: "extrabold")
 #hide[
 
@@ -1153,21 +1153,39 @@ stroke: rgb("#cdcdcd")
 ]
 // #place(dy: -75pt)[
 //    #custom-footer
-// ]// 
-// 
-// "Product Wise Exposure - Advisors / Distributors"
-// 
-// 
+// ]
 
-// 
-// "Asset Class Wise Summary"
-// 
-// 
 
-// 
-// "Sub Asset Class Wise Exposure - Advisors / Distributors"
-// 
-// 
+
+
+
+
+
+
+
+
+
+
+
+// #pagebreak()
+#pagebreak()
+#hide[ #heading(outlined: true)[#text([Asset Class Summary],fill:rgb("#0d3c6a"))]]
+#place(
+    context {
+      let outline_data = query(heading.where(level:2))
+      for entry in outline_data {
+        // entry
+        if entry.body.text.contains("Asset Class Summary -"){
+          link(
+            entry.location(),
+            [#text(weight: "bold", entry.body.text.split("- ").at(-1))            #entry.location().page() \
+            ]
+          )
+        }
+      }
+    }
+  )
+
 
 #let heading0 = rgb("#0d3c6a")
 #let headerBg = rgb("#f4f5f6")
@@ -1196,7 +1214,9 @@ header: context{
     align(top)[#customHeader]
   }
 })
-#hide[ #heading(outlined: true)[#text([Asset Class Summary],fill:rgb("#0d3c6a"))]]
+#hide[
+  #place()[== #text("Asset Class Summary - Asset Class Wise Summary")]
+]
   #table(
     columns: (1.5fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, .5fr, 1.5fr),
     stroke: none,
@@ -1388,7 +1408,9 @@ header: context{
     align(top)[#customHeader]
   }
 })
-//  #hide[#heading(outlined: true)[#text([Product Wise Exposure - Advisors / Distributors],fill:rgb("#0d3c6a"))]]
+#hide[
+  #place()[== #text("Asset Class Summary - Product wise Exposure")]
+]
   #table(
     columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
     stroke: none,
@@ -1707,8 +1729,9 @@ header: context{
     align(top)[#customHeader]
   }
 })
-  // #hide[#heading(outlined: true)[#text([Sub Asset Class Wise Exposure - Advisors / Distributors],fill:rgb("#0d3c6a"))]]
-
+#hide[
+  #place()[== #text("Asset Class Summary - Sub Asset Class wise Summary")]
+]
   #table(
     columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
     stroke: none,
@@ -1943,9 +1966,6 @@ header: context{
 
 // 
 
-#hide[
-  #heading(outlined: true)[#text([Mutual Fund Analysis],fill:rgb("#0d3c6a"))]
-]
 #pagebreak()
 #let customHeader =box(
       width: 100%,
@@ -1972,6 +1992,9 @@ header: context{
   stroke: none,
 inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
 )
+ #hide[
+  #place()[== #text("Asset Class Summary - Mutual Fund Analysis")]
+]
 #table(
     columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1.3fr, 1fr,1fr,.5fr,1fr),
 
@@ -2403,7 +2426,9 @@ header: context{
     align(top)[#customHeader]
   }
 })
-
+ #hide[
+  #place()[== #text("Asset Class Summary - PMS Investment Summary")]
+]
 #table(
     columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr,1fr),
 
@@ -2496,7 +2521,9 @@ header: context{
     align(top)[#customHeader]
   }
 })
-
+ #hide[
+  #place()[== #text("Asset Class Summary - Direct Equity Holding Advisor Wise")]
+]
 #table(
     columns: (1.5fr, .7fr, .7fr, 1fr, 1fr, .7fr, .7fr,.7fr,1.2fr,1fr,1fr),
 

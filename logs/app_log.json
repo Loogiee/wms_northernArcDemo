@@ -1059,3 +1059,4 @@ Key: relative_performance_over_quarters, Value: [map[Dec 2024: -13.69 Jun 2025: 
 {"time":"2025-06-29T08:51:53.0718074+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-03-19"}
 {"time":"2025-06-29T09:41:20.3508469+05:30","level":"DEBUG","msg":"Application Started"}
 {"time":"2025-06-29T09:41:20.3520924+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-06-29T09:56:05.7437764+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-03-19"}

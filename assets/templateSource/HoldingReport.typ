@@ -16,9 +16,6 @@
 
 // {{if ne $DataCount  0}}
 {{if .MututalFundHoldingSection}}
-#hide[
-  #heading(outlined: true)[#text([Mutual Fund Analysis],fill:rgb("#0d3c6a"))]
-]
 #pagebreak()
 #let customHeader =box(
       width: 100%,
@@ -45,6 +42,9 @@ header: context{
   stroke: none,
 inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
 )
+ #hide[
+  #place()[== #text("Asset Class Summary - Mutual Fund Analysis")]
+]
 #table(
     columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1.3fr, 1fr,1fr,.5fr,1fr),
 
@@ -124,7 +124,9 @@ header: context{
     align(top)[#customHeader]
   }
 })
-
+ #hide[
+  #place()[== #text("Asset Class Summary - PMS Investment Summary")]
+]
 #table(
     columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr,1fr),
 
@@ -191,7 +193,9 @@ header: context{
     align(top)[#customHeader]
   }
 })
-
+ #hide[
+  #place()[== #text("Asset Class Summary - Direct Equity Holding Advisor Wise")]
+]
 #table(
     columns: (1.5fr, .7fr, .7fr, 1fr, 1fr, .7fr, .7fr,.7fr,1.2fr,1fr,1fr),
 

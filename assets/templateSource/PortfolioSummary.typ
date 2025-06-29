@@ -1,18 +1,36 @@
-// {{$DataCount:=0}}
-// {{if .SubassetMarketCapTypeSection}}
-// "Product Wise Exposure - Advisors / Distributors"
-// {{$DataCount = 1}}
-// {{end}}
+{{$DataCount:=0}}
+{{if .SubassetMarketCapTypeSection}}
+{{$DataCount = 1}}
+{{end}}
 
-// {{if .AssetSubassetSection}}
-// "Asset Class Wise Summary"
-// {{$DataCount = 1}}
-// {{end}}
+{{if .AssetSubassetSection}}
+{{$DataCount = 1}}
+{{end}}
 
-// {{if .SubassetMarketCapTypeSection}}
-// "Sub Asset Class Wise Exposure - Advisors / Distributors"
-// {{$DataCount = 1}}
-// {{end}}
+{{if .SubassetMarketCapTypeSection}}
+{{$DataCount = 1}}
+{{end}}
+
+{{if ne $DataCount 0 }}
+// #pagebreak()
+#pagebreak()
+#hide[ #heading(outlined: true)[#text([Asset Class Summary],fill:rgb("#0d3c6a"))]]
+#place(
+    context {
+      let outline_data = query(heading.where(level:2))
+      for entry in outline_data {
+        // entry
+        if entry.body.text.contains("Asset Class Summary -"){
+          link(
+            entry.location(),
+            [#text(weight: "bold", entry.body.text.split("- ").at(-1))            #entry.location().page() \
+            ]
+          )
+        }
+      }
+    }
+  )
+{{end}}
 
 #let heading0 = rgb("#0d3c6a")
 #let headerBg = rgb("#f4f5f6")
@@ -41,7 +59,9 @@ header: context{
     align(top)[#customHeader]
   }
 })
-#hide[ #heading(outlined: true)[#text([Asset Class Summary],fill:rgb("#0d3c6a"))]]
+#hide[
+  #place()[== #text("Asset Class Summary - Asset Class Wise Summary")]
+]
   #table(
     columns: (1.5fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, .5fr, 1.5fr),
     stroke: none,
@@ -114,7 +134,9 @@ header: context{
     align(top)[#customHeader]
   }
 })
-//  #hide[#heading(outlined: true)[#text([Product Wise Exposure - Advisors / Distributors],fill:rgb("#0d3c6a"))]]
+#hide[
+  #place()[== #text("Asset Class Summary - Product wise Exposure")]
+]
   #table(
     columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
     stroke: none,
@@ -190,8 +212,9 @@ header: context{
     align(top)[#customHeader]
   }
 })
-  // #hide[#heading(outlined: true)[#text([Sub Asset Class Wise Exposure - Advisors / Distributors],fill:rgb("#0d3c6a"))]]
-
+#hide[
+  #place()[== #text("Asset Class Summary - Sub Asset Class wise Summary")]
+]
   #table(
     columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
     stroke: none,
