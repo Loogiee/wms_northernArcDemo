@@ -16,6 +16,9 @@
 
 // {{if ne $DataCount  0}}
 {{if .MututalFundHoldingSection}}
+#hide[
+  #heading(outlined: true)[#text([Mutual Fund Analysis],fill:rgb("#0d3c6a"))]
+]
 #pagebreak()
 #let customHeader =box(
       width: 100%,

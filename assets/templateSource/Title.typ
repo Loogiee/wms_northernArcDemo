@@ -249,3 +249,28 @@
     )
   ])
 ]
+
+#pagebreak()
+
+
+#show heading: it => place(text(weight: "bold",fill: red,size: 0pt,it.body))
+
+
+#show outline.entry: it => [
+  #link(
+    it.element.location(),
+    [
+      #text(weight: "bold", size: 3em,it.body)
+      #text(weight: "bold", size: 3em,it.page),
+    ]
+  )
+]
+#place(
+  horizon+center,
+  dx:15em,
+  stack(
+    dir: ltr,
+    spacing: 2em,
+    outline(title: none,depth: 1)
+  )
+)
