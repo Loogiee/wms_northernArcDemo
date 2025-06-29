@@ -1,3 +1,31 @@
+{{$DataCount:=0}}
+{{if .AmcWiseSection}}
+{{$DataCount = 1}}
+{{end}}
+
+{{if ne $DataCount 0 }}
+#set page(paper: "a2", flipped: true,
+margin: (top:80pt,left:15pt,right:15pt),
+header: none
+)
+#pagebreak()
+#hide[ #heading(outlined: true)[#text([Mutual Fund Analysis],fill:rgb("#0d3c6a"))]]
+#place(
+    context {
+      let outline_data = query(heading.where(level:2))
+      for entry in outline_data {
+        // entry
+        if entry.body.text.contains("Mutual Fund Analysis -"){
+          link(
+            entry.location(),
+            [#text(weight: "bold", entry.body.text.split("- ").at(-1))            #entry.location().page() \
+            ]
+          )
+        }
+      }
+    }
+  )
+{{end}}
 
 // AMC Wise Exposure - All Advisors
 {{if .AmcWiseSection}}
@@ -23,6 +51,9 @@ header: context{
     align(top)[#customHeader]
   }
 })
+#hide[
+  #place()[== #text("Mutual Fund Analysis - AMC wise Exposure")]
+]
 #table(
     columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1fr),
 
@@ -93,6 +124,9 @@ header: context{
     align(top)[#customHeader]
   }
 })
+#hide[
+  #place()[== #text("Mutual Fund Analysis - Fund Manager wise Exposure")]
+]
 #table(
     columns: (2fr, 1fr, 1fr, 1fr),
 
@@ -151,6 +185,9 @@ header: context{
     align(top)[#customHeader]
   }
 })
+#hide[
+  #place()[== #text("Mutual Fund Analysis - Sector Wise Exposure")]
+]
 #table(
     columns: (2fr, 1fr, 1fr),
 
@@ -207,6 +244,9 @@ header: context{
     align(top)[#customHeader]
   }
 })
+#hide[
+  #place()[== #text("Mutual Fund Analysis - Transaction History")]
+]
 #table(
     columns: (.7fr, 1.5fr, 1.5fr, .7fr, .7fr, .7fr, .7fr, .7fr, .7fr),
 
