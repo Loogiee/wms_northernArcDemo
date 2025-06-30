@@ -52,46 +52,56 @@ header: context{
 
 
 #let smallCardList = (
+  {{range .BasicInformationSection}}
   (
-    description: "INFLOW MINUS OUTFLOW",
-    Value: "₹ -26,78,06,427.9",
-    Date: "Since Inception",
-    Image: "./assets/images/one.png",
+    description: "{{ .Description}}",
+    Value: "{{ ConvertToFormattedNumberPointer .Value}}",
+    Date: "{{ .Date}}",
   ),
-  (
-    description: "HOLDING COST",
-    Value: "₹ 1,32,48,47,581.1",
-    Date: "as on 30 Jun 2022",
-    Image: "./assets/images/two.png",
-  ),
-  (
-    description: "CURRENT VALUE",
-    Value: "₹ 1,64,89,89,920.8",
-    Date: "as on 30 Jun 2022",
-    Image: "./assets/images/three.png",
-  ),
-  (description: "PORTFOLIO RETURN(IRR)", Value: "24.5%", Date: "Since Inception", Image: "./assets/images/four.png"),
-  (
-    description: "NIFTY",
-    des: "SENSEX",
-    Value: "-2.631%",
-    Value1: "0.569%",
-    Date: "12-May-2025",
-    Image: "./assets/images/fiveone.png",
-    Image2: "./assets/images/fivetwo.png",
-  ),
-  (description: "BENCHMARK RETURN(IRR)", Value: "4.25%", Date: "Since Inception", Image: "./assets/images/six.png"),
+  {{end}}
 )
 #hide[
   #heading(outlined: true)[#text([Executive Summary], fill: rgb("#0d3c6a"))]
 ]
-#place(top + left, dy: 80pt)[
+#place(top + left, dy: 20pt)[
+
+  #let benchItems = smallCardList.filter(item => item.description.contains("BenchmarkInfo_"))
+  // Fil'er for i'ems wi'hou' "BenchmarkInfo_" in descrip'ion
+  #let nonBenchItems = smallCardList.filter(item => not item.description.contains("BenchmarkInfo_"))
+
+  // Ensure we have a' leas' 5 non-benchmark i'ems for box1-box4 and box6
+  #let nonBenchCount = nonBenchItems.len()
+  #let boxesBeforeCombined = if nonBenchCount >= 4 { nonBenchItems.slice(0, 4) } else { nonBenchItems }
+  #let boxesAfterCombined = if nonBenchCount > 4 { nonBenchItems.slice(4) } else { () }
 
   #grid(
     columns: 2,
     column-gutter: 10pt,
     row-gutter: 10pt,
-    ..smallCardList.map(item => {
+    // Boxes 1-4 (firs' 4 non-benchmark i'ems or placeholders)
+    ..boxesBeforeCombined.map(item => {
+      box(
+        inset: 15pt,
+        width: 400pt,
+        height: 155pt,
+        radius: 8pt,
+        stroke: (2.8pt + luma(88%)),
+        fill: white,
+      )[
+        // Display descrip'ion
+        #text(item.description, size: 20pt, weight: "extrabold")\
+        // Display da'e
+        #place(dy:-15pt)[#text(item.Date, size: 14pt, fill: rgb("#0006"), weight: "extrabold", spacing: 2pt, baseline: -3pt)]
+        // Display value
+        #align(bottom, text(item.Value, size: 25pt, spacing: 2pt, weight: "bold", stretch: 50%))
+      ]
+    }),
+    // Add placeholders if fewer 'han 4 non-benchmark i'ems
+    ..if nonBenchCount < 4 {
+      range(4 - nonBenchCount).map(_ => box(width: 400pt, height: 155pt))
+    } else { () },
+    // Combined box for benchmark i'ems in 5'h posi'ion
+    if benchItems.len() > 0 {
       box(
         inset: (y: 14pt, x: 10pt),
         width: 400pt,
@@ -100,69 +110,57 @@ header: context{
         stroke: (2.8pt + luma(88%)),
         fill: white,
       )[
-        // Display description for all cards
-        #if item.description != "NIFTY" {
-          text(item.description, size: 20pt, weight: "extrabold")
-        } else {
-          place(dx: 0pt, dy: -10pt)[
-            #image(item.Image, width: 50pt, height: 55pt)
-            #text(item.description, size: 20pt, weight: "extrabold")
-          ]
-        }
-
-
-
-        // Display appropriate images based on the description
-        #if item.description == "NIFTY" {
-          // For NIFTY, place first image under description
-          place(dx: 310pt, dy: -10pt)[
-            #image(item.Image2, width: 50pt, height: 55pt)
-            #text(item.des, size: 20pt, weight: "extrabold")
-          ]
-          // Display the "des" field for NIFTY
-
-          // Place second image under the "des" field
-          place(dx: 250pt, dy: 38pt)[
-
-          ]
-        } else {
-          // For other cards, display single image
-          place(dx: 310pt, dy: -45pt)[
-            #image(item.Image, width: 55pt, height: 55pt)
-          ]
-        }
-
-        // Display date only for non-NIFTY cards
-        #if item.description != "NIFTY" {
-          text(item.Date, size: 25pt, fill: rgb("#0006"), weight: "extrabold", spacing: 2pt, baseline: -3pt)
-        }
-        // Handle value display based on card type
-        #if item.description == "NIFTY" {
-          // For NIFTY card, display Value under NIFTY
-          place(dx: 0pt, dy: 105pt)[
-            #text(item.Value, size: 25pt, weight: "bold", spacing: 2pt)
-          ]
-
-          // Display Value1 under SENSEX
-          place(dx: 310pt, dy: 105pt)[
-            #text(item.Value1, size: 25pt, weight: "bold", spacing: 2pt)
-          ]
-        } else {
-          // For other cards, display Value centered
-          align(horizon, text(item.Value, size: 25pt, spacing: 2pt, weight: "bold", stretch: 50%))
-        }
+        #grid(
+          columns: 2,
+          column-gutter: 230pt,
+          // Ver'ical alignmen' for each column
+          ..benchItems.map(item => {
+            // Trunca'e "BenchmarkInfo_" from descrip'ion
+            let displayDesc = item.description.replace("BenchmarkInfo_", "")
+            box(height:126pt)[
+              // Display 'runca'ed descrip'ion
+              #align(bottom)[
+              #text(displayDesc, size: 15pt, weight: "extrabold")
+              // Display value below descrip'ion
+             #text(item.Value, size: 25pt, spacing: 2pt, weight: "bold")
+            ]]
+          })
+        )
+      ]
+    } else {
+      // Emp'y box if no benchmark i'ems
+      box(width: 400pt, height: 155pt)
+    },
+    // Box 6 and onward (remaining non-benchmark i'ems)
+    ..boxesAfterCombined.map(item => {
+      box(
+        inset: 15pt,
+        width: 400pt,
+        height: 155pt,
+        radius: 8pt,
+        stroke: (2.8pt + luma(88%)),
+        fill: white,
+      )[
+        // Display descrip'ion
+        #text(item.description, size: 20pt, weight: "extrabold")\
+        // Display da'e
+        #place(dy:-15pt)[#text(item.Date, size: 14pt, fill: rgb("#0006"), weight: "extrabold", spacing: 2pt, baseline: -3pt)]
+        // Display value
+        #align(bottom, text(item.Value, size: 25pt, spacing: 2pt, weight: "bold", stretch: 50%))
       ]
     })
   )
 ]
 
+
 // Place donut chart on the right
-#place(top + right, dy: 80pt)[
+#place(top + right, dy: 20pt)[
   #box(
     inset: (y: 14pt, x: 10pt),
     width: 790pt,
     height: 485pt,
     radius: 8pt,
+    fill: white,
     stroke: (2.8pt + luma(88%)),
   )[
     // Chart titles
@@ -292,8 +290,9 @@ header: context{
   )
   ]
 ]
-#place(bottom + left, dy: 15pt)[
+#place(bottom + left, dy: -20pt)[
   #box(
+    fill:white,
     inset: (y: 20pt, x: 10pt),
     width: 810pt,
     height: 490pt,
@@ -328,19 +327,19 @@ header: context{
 
         // Table header with increased text size
         table.header(
-          [#text(size: 16pt,fill: rgb("#0d3b6b"), weight: "bold", "  ")],
-          [#text(size: 16pt,fill: rgb("#0d3b6b"), weight: "bold", "Portfolio Returns")],
-          [#text(size: 16pt,fill: rgb("#0d3b6b"), weight: "bold", "Benchmark Returns")],
-          [#text(size: 16pt,fill: rgb("#0d3b6b"), weight: "bold", "Excess Returns")],
+          table.cell(align(right)[#text(fill: rgb("#0d3b6b"), weight: "black", " ")]),
+          table.cell(align(right)[#text(fill: rgb("#0d3b6b"), weight: "black", "Portfolio Returns")]),
+          table.cell(align(right)[#text(fill: rgb("#0d3b6b"), weight: "black", "Benchmark Returns")]),
+          table.cell(align(right)[#text(fill: rgb("#0d3b6b"), weight: "black", "Excess Returns")]),
         ),
         {{range .RelativePerformanceOverQuarters}}
         table.cell(align(center)[#text(size: 16pt,"{{.Date}}")]),
         table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(center)[#text(size: 16pt,"{{.BMXIRR}}"+"%")]),
+        table.cell(align(right)[#text(size: 16pt,"{{.BMXIRR}}"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(center)[#text(size: 16pt,"{{.ExcessReturns}}"+"%")]),
+        table.cell(align(right)[#text(size: 16pt,"{{.ExcessReturns}}"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(center)[#text(size: 16pt,"{{.XIRR}}"+"%")]),
+        table.cell(align(right)[#text(size: 16pt,"{{.XIRR}}"+"%")]),
         {{end}}
       ),
     )
@@ -348,7 +347,7 @@ header: context{
     // Legend for the charts
   ]
 ]
-#place(bottom + right, dy: 15pt)[
+#place(bottom + right, dy: -20pt)[
   #box(
     inset: (y: 60pt, x: 10pt),
 
@@ -398,4 +397,3 @@ header: context{
 
   ]
 ]
-

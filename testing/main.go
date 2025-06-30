@@ -1,7 +1,9 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"sort"
 	"time"
 )
 
@@ -71,24 +73,44 @@ type Overview struct {
 type ReportOverview struct {
 	OverviewSection []Overview `json:"overview_section"`
 }
+type FinalEquityMfIndustryAllocation struct {
+	EquityMfIndustryAllocation []EquityMfIndustryAllocation
+}
+type EquityMfIndustryAllocation struct {
+	IndustryName string  `json:"INDUSTRY_NAME"`
+	Percentage   float64 `json:"Percentage"`
+}
 
 func main() {
-	// var finalProcessData Overview
-	// var tempData []map[string]interface{}
-	// sqlData := `[{"overview_section": [{"Report Date": "2025-06-20", "Report From": "2024-09-25", "Report To": "2025-09-25", "Print Date": "2025-06-20", "RM": "Abhishek Puri", "RMMobile": "8851555342", "RMEmail": "abhishek.puri@nexedge.capital", "SM": "", "SMMobile": "", "SMEmail": "", "Client_Name": "GAUTAM GAMBHIR", "Family_Name": "GAUTAM GAMBHIR", "Customer_Mobile": "", "Customer_Type": ""}]}]`
+	var finalProcessData FinalEquityMfIndustryAllocation
+	var tempData []map[string]interface{}
+	sqlData := `[{"equity_mf_industry_allocation%": [{"INDUSTRY_NAME": "Banking", "Percentage": 16.5200495723}, {"INDUSTRY_NAME": "Software", "Percentage": 7.9025017895}, {"INDUSTRY_NAME": "Drugs & Pharma", "Percentage": 7.4460083269}, {"INDUSTRY_NAME": "Cement", "Percentage": 4.3877079956}, {"INDUSTRY_NAME": "Cars & Multi Utility Vehicles", "Percentage": 2.7510672857}, {"INDUSTRY_NAME": "Telecom Services", "Percentage": 2.463508379}, {"INDUSTRY_NAME": "Life Insurance", "Percentage": 2.4406426937}, {"INDUSTRY_NAME": "E-Commerce", "Percentage": 2.2222556683}, {"INDUSTRY_NAME": "Auto Ancillaries", "Percentage": 2.0726549388}, {"INDUSTRY_NAME": "Other Financial Instututions", "Percentage": 1.977855761}, {"INDUSTRY_NAME": "Others", "Percentage": 49.8157475891}]}]`
 
-	// json.Unmarshal([]byte(sqlData), &tempData)
-	// for _, item := range tempData {
-	// 	var tempData []Overview
-	// 	for _, value := range item {
-	// 		jsonBytes, _ := json.Marshal(value)
-	// 		json.Unmarshal(jsonBytes, &tempData)
-	// 	}
-	// 	finalProcessData = tempData[0]
-	// }
-	// fmt.Println(finalProcessData.PrintDate)
-	parsedDate, err := DateFormatter("2022-10-04", "02 Jan 2006")
-	fmt.Println(parsedDate, err)
+	json.Unmarshal([]byte(sqlData), &tempData)
+	// fmt.Println(err,tempData)
+	for _, item := range tempData {
+		fmt.Println(item)
+		var tempData []EquityMfIndustryAllocation
+		for _, value := range item {
+			jsonBytes, _ := json.Marshal(value)
+			json.Unmarshal(jsonBytes, &tempData)
+		}
+		finalProcessData.EquityMfIndustryAllocation = tempData
+		// 	finalProcessData = tempData[0]
+	}
+
+	fmt.Println(finalProcessData.EquityMfIndustryAllocation)
+
+	// Sort the slice by Percentage in ascending order
+	sort.Slice(finalProcessData.EquityMfIndustryAllocation, func(i, j int) bool {
+		return finalProcessData.EquityMfIndustryAllocation[i].Percentage > finalProcessData.EquityMfIndustryAllocation[j].Percentage
+	})
+
+	for group, data := range finalProcessData.EquityMfIndustryAllocation {
+		fmt.Println(group, data)
+	}
+	// parsedDate, err := DateFormatter("2022-10-04", "02 Jan 2006")
+	// fmt.Println(parsedDate, err)
 
 }
 
@@ -99,4 +121,17 @@ func DateFormatter(dateStr string, format string) (string, error) {
 		return "", fmt.Errorf("failed to parse date: %w", err)
 	}
 	return parsedDate.Format(format), nil
+}
+
+func MapToStruct(data interface{}, result interface{}) error {
+	// Convert the input data to JSON
+	dataBytes, err := json.Marshal(data)
+	if err != nil {
+		return fmt.Errorf("failed to marshal data to JSON: %w", err)
+	}
+	// Unmarshal the JSON into the struct
+	if err := json.Unmarshal(dataBytes, result); err != nil {
+		return fmt.Errorf("failed to unmarshal into struct: %w", err)
+	}
+	return nil
 }

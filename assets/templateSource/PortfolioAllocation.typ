@@ -57,8 +57,9 @@ header: context{
 )
 
 
-#place(top+left,dy: 70pt)[
+#place(top+left,dy: 10pt)[
   #box(
+    fill:white,
     inset: (y: 14pt, x: 10pt),
     width: 780pt,
     height: 1000pt,
@@ -253,8 +254,9 @@ stroke: rgb("#cdcdcd")
 ]
 ]
 
-#place(top+right,dy: 70pt,dx: -30pt)[
+#place(top+right,dy: 10pt,dx: -30pt)[
  #box(
+  fill:white,
     inset: (y: 14pt, x: 50pt),
     width: 780pt,
     height: 1000pt,

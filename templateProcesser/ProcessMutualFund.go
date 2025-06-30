@@ -4,6 +4,7 @@ import (
 
 	// "encoding/json"
 	"bytes"
+	"sort"
 	"text/template"
 	. "wms_report/models"
 	. "wms_report/utils"
@@ -24,6 +25,14 @@ func ProcessMutualFund(sqlData *[]map[string]interface{}) (string, error) {
 				mapSectorWiseSection(value, &FinalProcessData)
 			case "mutual_fund_transaction_section":
 				mapMututalFundTransSection(value, &FinalProcessData)
+			case "equity_mf_market_capitalization_allocation%":
+				mapEqMktCapSection(value, &FinalProcessData)
+			case "equity_mf_amc_allocation%":
+				mapEqAmcAllocSection(value, &FinalProcessData)
+			case "equity_quants":
+				mapEqQuantsSection(value, &FinalProcessData)
+			case "equity_mf_industry_allocation%":
+				mapEqIndAllocSection(value, &FinalProcessData)
 			}
 		}
 	}
@@ -59,4 +68,36 @@ func mapMututalFundTransSection(value interface{}, parsingData *MutualFundSectio
 	var processData []MututalFundTransSection
 	MapToStruct(value, &processData)
 	parsingData.MututalFundTransSection = processData
+}
+
+func mapEqMktCapSection(value interface{}, parsingData *MutualFundSection) {
+	var processData []EquityMfMarketCapitalization
+	MapToStruct(value, &processData)
+	sort.Slice(processData, func(i, j int) bool {
+		return processData[i].Percentage > processData[j].Percentage
+	})
+	parsingData.EquityMfMarketCapitalization = processData
+}
+
+func mapEqAmcAllocSection(value interface{}, parsingData *MutualFundSection) {
+	var processData []EquityMfAmcAllocation
+	MapToStruct(value, &processData)
+	sort.Slice(processData, func(i, j int) bool {
+		return processData[i].Percentage > processData[j].Percentage
+	})
+	parsingData.EquityMfAmcAllocation = processData
+}
+func mapEqQuantsSection(value interface{}, parsingData *MutualFundSection) {
+	var processData []EquityQuants
+	MapToStruct(value, &processData)
+	parsingData.EquityQuants = processData
+}
+
+func mapEqIndAllocSection(value interface{}, parsingData *MutualFundSection) {
+	var processData []EquityMfIndustryAllocation
+	MapToStruct(value, &processData)
+	sort.Slice(processData, func(i, j int) bool {
+		return processData[i].Percentage > processData[j].Percentage
+	})
+	parsingData.EquityMfIndustryAllocation = processData
 }

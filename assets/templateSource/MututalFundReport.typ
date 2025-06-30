@@ -195,6 +195,315 @@ header: context{
 )
 {{end}}
 
+// Equity Mutual Fund - Quants
+{{$CountData := 0}}
+{{if .EquityMfAmcAllocation}}
+{{$CountData = 1}}
+{{end}}
+{{if .EquityMfIndustryAllocation}}
+{{$CountData = 1}}
+{{end}}
+{{if .EquityMfMarketCapitalization}}
+{{$CountData = 1}}
+{{end}}
+{{if .EquityQuants}}
+{{$CountData = 1}}
+{{end}}
+
+{{if ne $CountData 0}}
+#pagebreak()
+#let customHeader =box(
+      width: 100%,
+      height: 30pt,
+      stack(
+     place(dx: 10pt,dy: 15pt)[
+        #text("Equity Mutual Fund - Quants", size: 38pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
+        #text(" ")
+        #place(dy: -2pt)[#text("as on "+ReportDate,size: 14pt, fill: rgb("#585858"))]
+        #place(dy: 14pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
+      ],
+       place(top+right,dx: -15pt,dy: 15pt,
+          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+
+)
+)
+#set page(paper: "a2", flipped: true,
+margin: (top:80pt,left:15pt,right:15pt),
+header: context{
+  if counter(page).get().first() >= 1 {
+    align(top)[#customHeader]
+  }
+})
+#hide[
+  #place()[== #text("Mutual Fund Analysis - Equity Mutual Fund Quants")]
+]
+
+
+#let primaryColors = (
+  "#1e90ff",
+  "#0ecb81",
+  "#f79009",
+  "#f14366",
+  "#73c0de",
+  "#EA342C",
+  "#FE9900",
+  "#060270",
+  "#E3a2",
+  "#aEF702",
+  "#ec02",
+  "#702"
+)
+
+
+#let currentData1 = (
+ {{range .EquityMfMarketCapitalization}}
+  ( value: {{ConvertToFormattedNumberPointer .Percentage}},
+     name: "{{ .MarketCapType}}"
+  ),
+{{end}}
+ )
+ //top left
+#place(top+left,
+  dx: 0pt, dy: 20pt
+)[
+  #box(
+    width: 49%,
+    height: 50%,
+   stroke: rgb("#cecece"),
+    radius: 20pt,
+    inset: 10pt
+  )[
+    // Title
+    #place(dx: 0pt,dy: 5pt)[
+    #text("Industry Allocation(%)", size: 25pt, fill: rgb("0e496e"), weight: "bold")
+    #v(10pt)
+
+#let amcBar = (width, label: "100%", color: rgb("#2caffe")) => {
+  let widthRatio = if type(width) == "float" { calc.min(width / 100, 1.0) } else { width }
+  if (widthRatio <= 0.0) {
+    return rect(
+      width: 20%,
+      fill: white,
+      height: 17.2pt,
+      align(left + horizon, text(size: 15pt, label, fill: black)) // Left-align label
+    )
+  }
+  return stack(
+    dir: ltr,
+    spacing: 5pt,
+    rect(width: widthRatio * 100%, fill: color, height: 30pt, radius: (right: 5pt)),
+    align(left + horizon, text(size: 15pt, label, baseline: 3pt)) // Left-align label outside bar
+  )
+}
+
+#set table(
+  align: (x, y) => {
+    if x == 0 {
+      (right + horizon)
+    } else {
+      (left + horizon)
+    }
+  },
+  inset: 2pt
+)
+
+#place(dx: 80pt, dy: 20pt)[
+  #table(
+    columns: (150pt, 300pt),
+    stroke: none,
+    column-gutter: 10pt,
+    {{range .EquityMfIndustryAllocation}}
+    box(align(top, text(size: 15pt, "{{.IndustryName}}"))),
+    amcBar({{ConvertToFormattedNumberPointer .Percentage}}, label: text(size: 15pt, "{{ConvertToFormattedNumberPointer .Percentage}}%")),
+    {{end}}
+  )
+]  ]
+
+  ]
+  ]
+
+ //bottom left
+#place(bottom+left,
+  dx: 0pt, dy: -10pt
+)[
+
+  #box(
+    width: 49%,
+    height: 45%,
+    stroke: rgb("#cecece"),
+    radius: 20pt,
+    inset: 20pt
+  )[
+    // Title
+    #place(dx: 0pt,dy: 5pt)[
+    #text("AMC Allocation(%)",  size: 25pt, fill: rgb("0e496e"), weight: "bold")
+
+    #v(10pt)
+
+  #let amcBar = (width, label: "100%", color: rgb("#2caffe")) => {
+  // Convert width to a ratio if it's a float (assuming width is a percentage like 16.52)
+  let widthRatio = if type(width) == "float" { calc.min(width / 100, 1.0) } else { width }
+
+
+  if (widthRatio <= 0.0) {
+    return rect(
+      width: 20%,
+      fill: white,
+      height: 17.2pt,
+      align(left + horizon, text(size: 15pt, label, fill: black)) // Left-align label
+    )
+  }
+  return stack(
+    dir: ltr,
+    spacing: 5pt,
+    rect(width: widthRatio * 100%, fill: color, height: 30pt, radius: (right: 5pt)),
+    align(left + horizon, text(size: 15pt, label, baseline: 3pt)) // Left-align label outside bar
+  )
+}
+
+#set table(
+  align: (x, y) => {
+    if x == 0 {
+      (right + horizon)
+    } else {
+      (left + horizon)
+    }
+  },
+  inset: 2pt
+)
+
+#place(dx: 250pt, dy: 40pt)[
+  #table(
+    columns: (150pt, 300pt),
+    stroke: none,
+    column-gutter: 10pt,
+    {{range .EquityMfAmcAllocation}}
+    box(width: 250pt,align(top, text(size: 15pt, "{{.IssuerName}}"))),
+    amcBar({{ConvertToFormattedNumberPointer .Percentage}}, label: text(size: 15pt, "{{ConvertToFormattedNumberPointer .Percentage}}%")),
+    {{end}}
+  )
+]
+  ]
+  ]
+]
+
+ //top right
+#place(top+right,
+dx: 0pt,dy:20pt)[
+#place(dx: 20pt,dy:20pt)[#text(" Market Capitalization Allocation(%)", size: 25pt,  fill: rgb("0e496e"), weight: "extrabold")]
+  #box(width: 49%,height: 50%, stroke: rgb("#cecece"),radius: 20pt)[
+  #pad(left: 250pt,top: -650pt,
+    grid(
+      columns: (1fr, 1fr),
+      align: (center),
+      // Current allocation chart
+      box(
+        width: 130%, height: 150%, stroke: none)[
+        #echarm.render(width: 100%, height: 100%, options: (
+          series: (
+            name: "Current Allocation",
+            type: "pie",
+            radius: ("50%", "60%"),
+            avoidLabelOverlap: false,
+            color: primaryColors,
+            itemStyle: (
+              borderColor: "#fff",
+              borderWidth: 0,
+            ),
+            labelLine: (
+            //  show: true,
+            ),
+            data: currentData1
+          ),
+        )
+      ),
+    ]
+  )
+)
+
+
+#place(
+ dx: 70pt, dy: -150pt
+)[
+ #grid(
+  columns: (1fr, 1fr, 1fr),
+  column-gutter: -120pt,
+  gutter: 10pt,
+  inset: 20pt,
+  align: left,
+  // Dynamically generate legend items
+  ..currentData1.enumerate().map(((i, item)) => {
+    let value = str(item.value) + "%"
+    let name = item.name
+    stack(
+      dir: ttb, // Stack vertically
+      spacing: 5pt, // Space between color-value and name
+      stack(
+        dir: ltr, // Horizontal stack for color and value
+        spacing: 15pt,
+        rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(i))),
+        text(value, size: 15pt)
+      ),
+      place(
+        dx: 27pt, // Offset to align name under value (12pt for rect width + 15pt for spacing)
+        text(name, size: 15pt)
+      )
+    )
+  })
+)
+]
+]
+],
+
+
+ //bottom right
+#place(bottom+right,
+  dx: 0pt, dy: -10pt
+)[
+
+  #let bottomdata = (
+    (Metric: "P/E", Values: [0.0]),
+    (Metric: "P/B", Values: [0.0]),
+    (Metric: "Weighted Avg. Market Cap(Cr)", Values: [0.0]),
+    (Metric: "Portfolio Beta", Values: [0.0]),
+    (Metric: "Sharpe Ratio", Values: [0.0]),
+    (Metric: "Standard Deviation", Values: [0.0]),
+  )
+
+  // Create a bordered box containing the table
+  #box(
+    width: 49%,
+    height: 45%,
+    stroke: rgb("#cecece"),
+    radius: 20pt,
+    inset: 20pt
+  )[
+    // Title
+    #place(dx: 0pt,dy: 5pt)[
+    #text("Equity Quants",  size: 25pt, fill: rgb("0e496e"), weight: "bold")
+    #v(10pt)
+    // Table
+    #table(
+
+      columns: (2fr, 1fr),
+     stroke: none,
+     inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
+      align: (left, right),
+      // Header row
+      table.cell(fill: rgb("#dadada"))[Metric],
+      table.cell(fill: rgb("#dadada"), align: right)[*Value(yr)*],
+      // Data rows
+      ..bottomdata.map(row => {
+        (
+          text(size: 14pt, row.Metric),
+          text(size: 14pt, row.Values),
+        )
+      }).flatten()
+    )
+  ]
+  ]
+]
+{{end}}
 
 // Mutual Fund - Sector Wise Exposure
 {{if .SectorWiseSection}}

@@ -143,7 +143,7 @@
     #text(fill: rgb("#248DDC"), weight: "bold",  size: 50pt, "ANALYSIS REPORT")\
     \
     #text(fill: rgb("#0B1A24"), weight: "bold",  size: 25pt, "{{.ClientName}} / ")
-    #text(fill: rgb("#D4567B"), weight: "bold",  size: 25pt, "W0000339")
+    #text(fill: rgb("#D4567B"), weight: "bold",  size: 25pt, "{{.Portfolio}}")
   ]
 ]
 
@@ -156,6 +156,7 @@
     #block()[
       #text("Report as on date", size: 20pt, weight: "bold",  fill: rgb("248DDC"))
       \
+      \
       #text(ReportDate, size: 20pt, weight: "bold",  fill: black)
     ]
   ]
@@ -165,7 +166,7 @@
     dy: 350pt,
   )[
     #block()[
-      #text("Report Period", size: 20pt, weight: "bold", fill: rgb("248DDC"))
+      #text("Report Period", size: 20pt, weight: "bold", fill: rgb("248DDC"))\
       \
       #text(ReportBeginDate+ " - " +ReportEndDate, size: 20pt, weight: "bold",  fill: black)
     ]
@@ -179,6 +180,7 @@
     #block()[
       #text("Print date", size: 20pt, weight: "bold",  fill: rgb("248DDC"))
       \
+      \
       #text(ReportPeriod, size: 20pt, weight: "bold",  fill: black)
     ]
   ]
@@ -190,7 +192,8 @@
     #block()[
       #text("Report is at", size: 20pt, weight: "bold",  fill: rgb("248DDC"))
       \
-      #text("Investor Level", size: 25pt, weight: "bold",  fill: black)
+      \
+      #text("{{.ConsolidatedLevel}}", size: 25pt, weight: "bold",  fill: black)
     ]
   ]
 
@@ -200,7 +203,7 @@
   dx: 80pt,
   dy: 50pt,
 )[
-  #place(bottom + left, dx: 650pt, dy: -80pt, rect(width: 100%, stroke: none)[
+  #place(bottom + left, dx: -25pt, dy: -70pt, rect(width: 100%, stroke: none)[
     #set stack(spacing: 16pt)
 
     #stack(
@@ -213,11 +216,9 @@
     )
   ])
 
-#place(bottom + left, dx: 950pt, dy: -80pt, rect(width: 100%, stroke: none)[
 
-])
 
-#place(bottom + left, dx: 910pt, dy: -80pt, rect(width: 100%, stroke: none)[
+#place(bottom + left, dx: 510pt, dy: -70pt, rect(width: 100%, stroke: none)[
   #set stack(spacing: 16pt)
   #set text(hyphenate: true, lang: "en")
 
@@ -236,7 +237,7 @@
     ],
   )
 ])
-  #place(bottom + left, dx: 1260pt, dy: -80pt, rect(width: 100%, stroke: none)[
+  #place(bottom + left, dx: 1260pt, dy: -70pt, rect(width: 100%, stroke: none)[
     #set stack(spacing: 16pt)
 
     #stack(

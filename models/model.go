@@ -14,21 +14,24 @@ type RequestApiError struct {
 }
 
 // Report Overview page
+
 type Overview struct {
-	ReportDate     string `json:"Report Date"`
-	ReportFrom     string `json:"Report From"`
-	ReportTo       string `json:"Report To"`
-	PrintDate      string `json:"Print Date"`
-	RM             string `json:"RM"`
-	RMMobile       string `json:"RMMobile"`
-	RMEmail        string `json:"RMEmail"`
-	SM             string `json:"SM"`
-	SMMobile       string `json:"SMMobile"`
-	SMEmail        string `json:"SMEmail"`
-	ClientName     string `json:"Client_Name"`
-	FamilyName     string `json:"Family_Name"`
-	CustomerMobile string `json:"Customer_Mobile"`
-	CustomerType   string `json:"Customer_Type"`
+	ReportDate        string `json:"Report Date"`
+	ReportFrom        string `json:"Report From"`
+	ReportTo          string `json:"Report To"`
+	PrintDate         string `json:"Print Date"`
+	Portfolio         string `json:"portfolio"`
+	ConsolidatedLevel string `json:"consolidated_level"`
+	RM                string `json:"RM"`
+	RMMobile          int64  `json:"RMMobile"`
+	RMEmail           string `json:"RMEmail"`
+	SM                string `json:"SM"`
+	SMMobile          string `json:"SMMobile"`
+	SMEmail           string `json:"SMEmail"`
+	ClientName        string `json:"Client_Name"`
+	FamilyName        string `json:"Family_Name"`
+	CustomerMobile    string `json:"Customer_Mobile"`
+	CustomerType      string `json:"Customer_Type"`
 }
 
 //  Executive Summary page Start
@@ -194,10 +197,14 @@ type HoldingSection struct {
 }
 
 type MutualFundSection struct {
-	AmcWiseSection          []AmcWiseSection
-	FundManagerSection      []FundManagerSection
-	SectorWiseSection       []SectorWiseSection
-	MututalFundTransSection []MututalFundTransSection
+	AmcWiseSection               []AmcWiseSection
+	FundManagerSection           []FundManagerSection
+	SectorWiseSection            []SectorWiseSection
+	MututalFundTransSection      []MututalFundTransSection
+	EquityMfAmcAllocation        []EquityMfAmcAllocation
+	EquityMfIndustryAllocation   []EquityMfIndustryAllocation
+	EquityMfMarketCapitalization []EquityMfMarketCapitalization
+	EquityQuants                 []EquityQuants
 }
 
 // AMC Wise Exposure - All Advisors
@@ -237,4 +244,28 @@ type MututalFundTransSection struct {
 	Quantity         float64 `json:"QUANTITY"`
 	Price            float64 `json:"PRICE"`
 	AcquCost         float64 `json:"ACQU_COST"`
+}
+
+type EquityMfIndustryAllocation struct {
+	IndustryName string  `json:"INDUSTRY_NAME"`
+	Percentage   float64 `json:"Percentage"`
+}
+
+
+type EquityMfAmcAllocation struct {
+	IssuerName string  `json:"ISSUER_NAME"`
+	Percentage float64 `json:"Percentage"`
+}
+type EquityMfMarketCapitalization struct {
+	MarketCapType string  `json:"MARKET_CAP_TYPE"`
+	Percentage    float64 `json:"Percentage"`
+}
+
+type EquityQuants struct {
+	Peratio           float64 `json:"PE_RATIO"`
+	Pbratio           float64 `json:"PB_RATIO"`
+	MarketCap         float64 `json:"MARKET_CAP"`
+	SharpeRatio       float64 `json:"SHARPE_RATIO"`
+	Beta              float64 `json:"BETA"`
+	StandardDeviation float64 `json:"STANDARD_DEVIATION"`
 }
