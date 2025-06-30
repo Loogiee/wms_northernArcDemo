@@ -250,12 +250,10 @@
   ])
 ]
 
-#pagebreak()
+// #pagebreak()
 
 
 #show heading: it => place(text(weight: "bold",fill: red,size: 0pt,it.body))
-
-
 // #show outline.entry: it => [
 //   #link(
 //     it.element.location(),
@@ -274,14 +272,27 @@
 //     outline(title: none,depth: 1)
 //   )
 // )#pagebreak()
-#text("Executive Summary", size: 40pt, fill: rgb("#0d3c6a"), weight: "extrabold")
-#hide[
+#let customHeader =box(
+      width: 100%,
+      height: 30pt,
+      stack(
+     place(dx: 10pt,dy: 15pt)[
+        #text("Executive Summary", size: 38pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
+        #text(" ",size: 14pt, fill: rgb("#585858"))
+        #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
+      ],
+       place(top+right,dx: -15pt,dy: 12pt,
+          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+)
+)
+#set page(paper: "a2", flipped: true,fill: rgb("#f4f5f6"),
+margin: (top:80pt,left:15pt,right:15pt),
+header: context{
+  if counter(page).get().first() >= 1 {
+    align(top)[#customHeader]
+  }
+})
 
-  #heading(outlined: true)[#text([Executive Summary], fill: rgb("#0d3c6a"))]
-
-]
-#place(dx: 75%, dy: -7%, [#image("./assets/images/kfintech-logo.png", width: 350pt)])
-#place(dy: 20pt, [#line(length: 100%)])
 #let headerBg = rgb("#f4f5f6")
 // Define colors and data
 #let primaryColors = (
@@ -290,14 +301,56 @@
   "#fac858", // Fixed Income
   "#ee6666", // Commodities
   "#73c0de", // Liq & Eqv.
+  "#5470c6", // Equities
+  "#91cc75", // Alternatives
+  "#fac858", // Fixed Income
+  "#ee6666", // Commodities
+  "#73c0de", // Liq & Eqv.
 )
 // Current asset allocation data
 #let currentData = (
-  (value: 10, name: "Equities"),
-  (value: 20, name: "Alternatives"),
-  (value: 5, name: "Fixed Income"),
-  (value: 0, name: "Commodities"),
-  (value: 0, name: "Liq & Eqv."),
+
+ 
+  ( value: 15,
+     name: "Alternative Investment Fund",
+     total: 0
+  ),
+
+  ( value: 0,
+     name: "Commodities",
+     total: 0.71
+  ),
+
+  ( value: 5,
+     name: "Commodity",
+     total: 0
+  ),
+
+  ( value: 20,
+     name: "Debt",
+     total: 0
+  ),
+
+  ( value: 0,
+     name: "Equities",
+     total: 96.4
+  ),
+
+  ( value: 60,
+     name: "Equity",
+     total: 0
+  ),
+
+  ( value: 0,
+     name: "Fixed Income",
+     total: 2.88
+  ),
+
+  ( value: 0,
+     name: "Liquid",
+     total: 0.01
+  ),
+
 )
 
 // Page and header settings
@@ -305,18 +358,7 @@
 #let headersize_xs = 18pt
 #let titlePadding = (top: 15pt, bottom: 15pt, left: 20pt, right: 20pt)
 
-// Small cards data
 
-
-
-
-#let tableData = (
-  (month: "Sep 2023", portfolioReturn: "8.1%", benchmarkReturn: "0.2%", excessReturn: "7.9%"),
-  (month: "Oct 2023", portfolioReturn: "7.5%", benchmarkReturn: "0.3%", excessReturn: "7.2%"),
-  (month: "Nov 2023", portfolioReturn: "6.9%", benchmarkReturn: "0.1%", excessReturn: "6.8%"),
-  (month: "Dec 2023", portfolioReturn: "7.2%", benchmarkReturn: "0.4%", excessReturn: "6.8%"),
-)
-// Place small cards on the left
 #let smallCardList = (
   (
     description: "INFLOW MINUS OUTFLOW",
@@ -348,7 +390,9 @@
   ),
   (description: "BENCHMARK RETURN(IRR)", Value: "4.25%", Date: "Since Inception", Image: "./assets/images/six.png"),
 )
-
+#hide[
+  #heading(outlined: true)[#text([Executive Summary], fill: rgb("#0d3c6a"))]
+]
 #place(top + left, dy: 80pt)[
 
   #grid(
@@ -430,9 +474,8 @@
     stroke: (2.8pt + luma(88%)),
   )[
     // Chart titles
-    #place(dx: 145pt, dy: 145pt, text(weight: "extrabold", size: 25pt, "Current"))
-    #place(dx: 400pt, dy: 145pt, text(weight: "extrabold", size: 22pt, " Risk assessment not
- available"))
+    #place(dx: 145pt, dy: 130pt, text(weight: "extrabold", size: 25pt, "Current"))
+    #place(dx: 540pt, dy: 130pt, text(weight: "extrabold", size: 22pt, "Current"))
 
     #place(dx: 10pt, dy: -15pt, pad(..titlePadding, text(
       "Asset Allocation (%)",
@@ -449,7 +492,26 @@
       columns: (1fr, 1fr),
       align: (center),
       // Current allocation chart
-      box(width: 100%, height: 70%, stroke: none)[
+      box(width: 60%, height: 60%, stroke: none)[
+        #echarm.render(width: 100%, height: 100%, options: (
+          series: (
+            name: "Current Allocation",
+            type: "pie",
+            radius: ("60%", "70%"),
+            avoidLabelOverlap: false,
+            color: primaryColors,
+            itemStyle: (
+              borderColor: "#fff",
+              borderWidth: 0,
+            ),
+            labelLine: (
+              //  show: true,
+            ),
+            data: currentData,
+          ),
+        ))
+      ],
+      box(width: 60%, height: 60%, stroke: none)[
         #echarm.render(width: 100%, height: 100%, options: (
           series: (
             name: "Current Allocation",
@@ -471,37 +533,71 @@
 
       // Target allocation chart
     )
+ // Legend for the charts
 
-    // Legend for the charts
 
-    #pad(left: 20pt, top: -20pt, grid(
-      columns: (1fr, 1fr, 1fr),
-      gutter: 1pt,
-      column-gutter: -400pt,
-      inset: 0.5em,
-      align: left,
-      stack(dir: ltr, spacing: 10pt, rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(0))), text(
-        "10 %
-Equities",
-        size: 16pt,
-      )),
-      stack(dir: ltr, spacing: 10pt, rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(1))), text(
-        "20 %
-Alternatives",
-        size: 16pt,
-      )),
-      stack(dir: ltr, spacing: 10pt, rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(2))), text(
-        "5 %
-Fixed Income",
-        size: 16pt,
-      )),
-
-      stack(dir: ltr, spacing: 10pt, rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(2))), text(
-        "18.5 %
-Hybrid",
-        size: 16pt,
-      )),
-    ))
+  #pad(left: 0pt, top: -50pt,
+  grid(
+    columns: (1fr, 1fr, 1fr),
+    column-gutter: -400pt, // Adjustable to prevent overlap
+    gutter: 25pt,
+    inset: 15pt,
+    align: left,
+    // Dynamically generate legend items
+    ..currentData.enumerate().map(((i, item)) => {
+      let value = str(item.value) + "%"
+      let name = item.name
+      // Dynamically wrap long names
+      let wrapped-name = if name.len() > 15 { // Adjust threshold as needed
+        let words = name.split(" ")
+        let mid = calc.floor(words.len() / 2)
+        words.slice(0, mid).join(" ") + "\n" + words.slice(mid).join(" ")
+      } else {
+        name
+      }
+      stack(dir: ltr, spacing: 10pt,
+        rect(width: 10pt, height: 8pt, radius: 50%, fill: rgb(primaryColors.at(i))),
+        text(value, size: 12pt),
+        place(
+          dx: -30pt,
+          dy: 15pt,
+          box(width: 60pt, text(wrapped-name, size: 12pt)) // Auto-wrap within 60pt
+        )
+      )
+    })
+  )
+  )
+  #pad(left: 400pt, top: -183pt,
+  grid(
+    columns: (1fr, 1fr, 1fr),
+    column-gutter: 30pt, // Adjustable to prevent overlap
+    gutter: 25pt,
+    inset: 15pt,
+    align: left,
+    // Dynamically generate legend items
+    ..currentData.enumerate().map(((i, item)) => {
+      let value = str(item.value) + "%"
+      let name = item.name
+      // Dynamically wrap long names
+      let wrapped-name = if name.len() > 15 { // Adjust threshold as needed
+        let words = name.split(" ")
+        let mid = calc.floor(words.len() / 2)
+        words.slice(0, mid).join(" ") + "\n" + words.slice(mid).join(" ")
+      } else {
+        name
+      }
+      stack(dir: ltr, spacing: 10pt,
+        rect(width: 10pt, height: 8pt, radius: 50%, fill: rgb(primaryColors.at(i))),
+        text(value, size: 12pt),
+        place(
+          dx: -30pt,
+          dy: 15pt,
+          box(width: 60pt, text(wrapped-name, size: 12pt)) // Auto-wrap within 60pt
+        )
+      )
+    })
+  )
+  )
   ]
 ]
 #place(bottom + left, dy: 15pt)[
@@ -547,35 +643,35 @@ Hybrid",
         ),
         
         table.cell(align(center)[#text(size: 16pt,"Dec 2024")]),
-        table.hline(stroke:  (thickness:0.1pt,paint:luma(54.51%))),
+        table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
         table.cell(align(center)[#text(size: 16pt,"0.99"+"%")]),
-                table.hline(stroke:  (thickness:0.1pt,paint:luma(54.51%))),
+                table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
         table.cell(align(center)[#text(size: 16pt,"8.72"+"%")]),
-                table.hline(stroke:  (thickness:0.1pt,paint:luma(54.51%))),
+                table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
         table.cell(align(center)[#text(size: 16pt,"9.71"+"%")]),
         
         table.cell(align(center)[#text(size: 16pt,"Jun 2024")]),
-        table.hline(stroke:  (thickness:0.1pt,paint:luma(54.51%))),
+        table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
         table.cell(align(center)[#text(size: 16pt,"17.88"+"%")]),
-                table.hline(stroke:  (thickness:0.1pt,paint:luma(54.51%))),
+                table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
         table.cell(align(center)[#text(size: 16pt,"2.2"+"%")]),
-                table.hline(stroke:  (thickness:0.1pt,paint:luma(54.51%))),
+                table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
         table.cell(align(center)[#text(size: 16pt,"20.08"+"%")]),
         
         table.cell(align(center)[#text(size: 16pt,"Mar 2024")]),
-        table.hline(stroke:  (thickness:0.1pt,paint:luma(54.51%))),
+        table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
         table.cell(align(center)[#text(size: 16pt,"20.92"+"%")]),
-                table.hline(stroke:  (thickness:0.1pt,paint:luma(54.51%))),
+                table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
         table.cell(align(center)[#text(size: 16pt,"-3.88"+"%")]),
-                table.hline(stroke:  (thickness:0.1pt,paint:luma(54.51%))),
+                table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
         table.cell(align(center)[#text(size: 16pt,"17.04"+"%")]),
         
         table.cell(align(center)[#text(size: 16pt,"Sep 2024")]),
-        table.hline(stroke:  (thickness:0.1pt,paint:luma(54.51%))),
+        table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
         table.cell(align(center)[#text(size: 16pt,"-0.67"+"%")]),
-                table.hline(stroke:  (thickness:0.1pt,paint:luma(54.51%))),
+                table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
         table.cell(align(center)[#text(size: 16pt,"21.43"+"%")]),
-                table.hline(stroke:  (thickness:0.1pt,paint:luma(54.51%))),
+                table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
         table.cell(align(center)[#text(size: 16pt,"20.76"+"%")]),
         
       ),
@@ -632,58 +728,98 @@ Hybrid",
       "Commodities",
     )
 
-
   ]
 ]
-#pagebreak()
-margin: (top:50pt,left:35pt,right:35pt))
 
-// #import "footer.typ": custom-footer
+#pagebreak()
+#let customHeader =box(
+      width: 100%,
+      height: 30pt,
+      stack(
+     place(dx: 10pt,dy: 15pt)[
+        #text("Portfolio Allocation", size: 38pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
+        #text(" ",size: 14pt, fill: rgb("#585858"))
+        #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
+      ],
+       place(top+right,dx: -15pt,dy: 12pt,
+          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+)
+)
+#set page(paper: "a2", flipped: true,fill: rgb("#f4f5f6"),
+margin: (top:80pt,left:15pt,right:15pt),
+header: context{
+  if counter(page).get().first() >= 1 {
+    align(top)[#customHeader]
+  }
+})
+#hide[
+  #heading(outlined: true)[#text([Portfolio Allocation], fill: rgb("#0d3c6a"))]
+]
+
 
 #let titlePadding = (top: 15pt, bottom: 15pt, left: 20pt, right: 20pt)
 
 #let primaryColors = (
-  "#5470c6", // Equities
-  "#91cc75", // Alternatives
-  "#fac858", // Fixed Income
-  "#ee6666", // Commodities
-  "#73c0de"  // Liq & Eqv.
+  "#1e90ff",
+  "#0ecb81",
+  "#f79009",
+  "#f14366",
+  "#73c0de",
+  "#EA342C",
+  "#FE9900",
+  "#060270",
+  "#EEF702"
 )
 
 #let currentData1 = (
-  (value: 30, name: "Equities"),
-  (value: 61, name: "Alternatives"),
-  (value: 6, name: "Commodities"),
-  (value: 0.6, name: "Fixed Income"),
-  (value: 0, name: "Liq & Eqv.")
+
+  ( value: 27.39,
+     name: "Commodities",
+     total: 1.32000093e+06
+  ),
+
+  ( value: 72.61,
+     name: "Equities",
+     total: 3.50000063e+06
+  ),
+
+  ( value: 0,
+     name: "Fixed Income",
+     total: 0
+  ),
+
+  ( value: 0,
+     name: "Liquid",
+     total: 0
+  ),
+
 )
 
 #let currentData2 = (
-  (value: 18, name: "Equities"),
-  (value: 48, name: "Alternatives"),
-  (value: 32, name: "Fixed Income"),
-  (value: 0.6, name: "Commodities"),
-  (value: 0, name: "Liq & Eqv.")
+
+  ( value: 0.71,
+     name: "Commodities",
+     total: 2.13753607e+06
+  ),
+
+  ( value: 96.4,
+     name: "Equities",
+     total: 2.8992783705e+08
+  ),
+
+  ( value: 2.88,
+     name: "Fixed Income",
+     total: 8.66407299e+06
+  ),
+
+  ( value: 0.01,
+     name: "Liquid",
+     total: 22466.84
+  ),
+
 )
-#place(top+left, dx: 0pt, dy: -20pt,)[
-    #text("Portfolio Allocation", size: 40pt, fill: rgb("0e496e"), weight: "extrabold")
-]
 
 
-#place(
-    top+right, dx: -35pt, dy: -30pt, [#image("./assets/images/kfintech-logo.png", width: 252pt,height:50pt)])
- #hide[
-  #heading(outlined: true)[#text([Portfolio Allocation],fill:rgb("#0d3c6a"))]
-]
-
-#place(dy: 30pt, [#line(length: 100%)])
-#v(100pt)
-
-
-// Footer Section
-
-
-// Footer end
 #place(top+left,dy: 70pt)[
   #box(
     inset: (y: 14pt, x: 10pt),
@@ -693,10 +829,17 @@ margin: (top:50pt,left:35pt,right:35pt))
     stroke: (2.8pt + luma(88%))
   )[
     // Chart titles
-    #place(dx: 70pt, dy: 220pt, text(weight: "extrabold", size: 25pt, "Beginning Allocation
-        30-Sep-2023"))
-     #place(dx: 470pt, dy: 220pt, text(weight: "extrabold", size: 25pt, " Ending Allocation
-     30-Jun-2024"))
+    //  #place(dx: 500pt, dy: 150pt, text(weight: "extrabold", size: 15pt, " Ending Allocation
+    //  30-Jun-2024"))
+
+      #place(dx: 130pt, dy: 150pt, text(weight: "extrabold", size: 15pt, "Beginning Allocatio"))
+      #place(dx: 150pt, dy: 170pt, text(weight: "extrabold", size: 15pt,  ReportBeginDate))
+
+      #place(dx: 500pt, dy: 150pt, text(weight: "extrabold", size: 15pt, "Ending Allocation"))
+      #place(dx: 520pt, dy: 170pt, text(weight: "extrabold", size: 15pt,  ReportEndDate))
+
+
+
 
    #place(dx: 10pt, dy: -15pt,
   pad(..titlePadding, text("Portfolio Allocation by  Asset Class", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold"))
@@ -704,13 +847,13 @@ margin: (top:50pt,left:35pt,right:35pt))
     // Main header
         #pad(left: 5pt,top: -150pt,
     // Grid for the two charts
-    grid(
+grid(
       columns: (1fr, 1fr),
       align: (center),
       // Current allocation chart
       box(
         width: 120%, height: 70%, stroke: none)[
-        #echarm.render(width: 100%, height: 100%, options: (
+        #echarm.render(width: 80%, height:80%, options: (
           series: (
             name: "Current Allocation",
             type: "pie",
@@ -728,38 +871,42 @@ margin: (top:50pt,left:35pt,right:35pt))
           ),
         )
       ),
-#place(
- dx: 20%, dy: -210pt
-)[
+      #place(
+       dx: 30pt,
+        dy: -190pt  // Adjust this value to move the legend below the chart
+      )[
   #grid(
-    columns: (1fr, 1fr, 1fr,1fr),
-    column-gutter: (0% + -9.1em,),
-    gutter: -5.1em,       // Slightly reduced gutter
-    inset: -2.2em,     // Reduced inset for less side padding
-    align: left,
-    stack(dir: ltr, spacing: 6pt,
-      rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(0))),
-      text("0.6% CO", size: 16pt)
-    ),
-    stack(dir: ltr, spacing: 6pt,
-      rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(1))),
-      text("61.9 DE", size: 16pt)
-    ),
-    stack(dir: ltr, spacing: 6pt,
-      rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(2))),
-      text("30.7 EQ", size: 16pt)
-    ),
-    stack(dir: ltr, spacing: 6pt,
-      rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(2))),
-      text("6.8 HY", size: 16pt)
+  columns: (1fr, 1fr, 1fr),
+  column-gutter: -120pt,
+  gutter: 10pt,
+  inset: 20pt,
+  align: left,
+  // Dynamically generate legend items
+  ..currentData1.enumerate().map(((i, item)) => {
+    let value = str(item.value) + "%"
+    let name = item.name
+    stack(
+      dir: ttb, // Stack vertically
+      spacing: 5pt, // Space between color-value and name
+      stack(
+        dir: ltr, // Horizontal stack for color and value
+        spacing: 15pt,
+        rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(i))),
+        text(value, size: 15pt)
+      ),
+      place(
+        dx: 27pt, // Offset to align name under value (12pt for rect width + 15pt for spacing)
+        text(name, size: 15pt)
+      )
     )
-  )
+  })
+)
 ]
 
       ],
       box(
          width: 120%, height: 70%, stroke: none)[
-        #echarm.render(width: 100%, height: 100%, options: (
+        #echarm.render(width: 80%, height: 80%, options: (
           series: (
             name: "Current Allocation",
             type: "pie",
@@ -778,33 +925,34 @@ margin: (top:50pt,left:35pt,right:35pt))
         )
       )
       #place(
-      dx: 95pt,  dy: -188pt
+      dx: 50pt,  dy: -165pt
       )[
-
-     #grid(
-    columns: (1fr, 1fr, 1fr,1fr),
-    column-gutter: (0% + -9.1em,),
-    gutter: -5.1em,       // Slightly reduced gutter
-    inset: -2.2em,        // Reduced inset for less side padding
-    align: left,
- stack(dir: ltr, spacing: 6pt,
-      rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(0))),
-      text("0.6% CO", size: 16pt)
-    ),
-
-    stack(dir: ltr, spacing: 6pt,
-      rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(1))),
-      text("61.9 DE", size: 16pt)
-    ),
-    stack(dir: ltr, spacing: 6pt,
-      rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(2))),
-      text("30.7 EQ", size: 16pt)
-    ),
-    stack(dir: ltr, spacing: 6pt,
-      rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(2))),
-      text("6.8 HY", size: 16pt)
-    )  )
-
+    #grid(
+  columns: (1fr, 1fr, 1fr),
+  column-gutter: -120pt,
+  gutter: 10pt,
+  inset: 20pt,
+  align: left,
+  // Dynamically generate legend items
+  ..currentData2.enumerate().map(((i, item)) => {
+    let value = str(item.value) + "%"
+    let name = item.name
+    stack(
+      dir: ttb, // Stack vertically
+      spacing: 5pt, // Space between color-value and name
+      stack(
+        dir: ltr, // Horizontal stack for color and value
+        spacing: 15pt,
+        rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(i))),
+        text(value, size: 15pt)
+      ),
+      place(
+        dx: 27pt, // Offset to align name under value (12pt for rect width + 15pt for spacing)
+        text(name, size: 15pt)
+      )
+    )
+  })
+)
       ]
       ],
 
@@ -820,14 +968,15 @@ margin: (top:50pt,left:35pt,right:35pt))
 
   )
 
+#set table(stroke: stroke(thickness:01pt,paint: rgb("#cdcdcd")))
 
   #table(
     columns: (1fr,1fr,1fr,1fr,1fr),
     stroke: none,
     align: center+horizon,
     inset: 20pt,
-      table.hline(
-stroke: rgb("#cdcdcd")
+    // stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))
+      table.hline(stroke: rgb("#cdcdcd")
 ),
   table.vline(
 stroke: rgb("#cdcdcd")
@@ -899,170 +1048,135 @@ stroke: rgb("#cdcdcd")
     #place(dx: 10pt, dy: -15pt,
   pad(..titlePadding, text("Portfolio Breakup by Product Type", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold"))
 )
-#place(top+right,dy: 50pt,dx: -650pt)[
- #let categories = ("AIF", "Equity", "Mutual Funds", "NCD", "PMS")
+#place(top+right, dy: 50pt, dx: -700pt)[
 
-#let beginning = (30, 10, 1000, 15, 25)
+  // Simulate the data structure from the template
+  #let data = (
+    
+(SecurityCategory: "AIF", StartExposure: 0, EndExposure: 24.75),
 
-#let ending = (40, 60, 1350, 20, 30)
+(SecurityCategory: "Bonds", StartExposure: 0, EndExposure: 2.88),
 
-#let max-value = 1500
+(SecurityCategory: "Direct Equities", StartExposure: 0, EndExposure: 1.13),
 
-// Chart dimensions
+(SecurityCategory: "Liquid/Overnight Funds", StartExposure: 0, EndExposure: 0.01),
 
-#let bar-width = 50pt
+(SecurityCategory: "Mutual Funds/ETFs", StartExposure: 100, EndExposure: 57.67),
 
-#let bar-spacing = 4pt
+(SecurityCategory: "PMS", StartExposure: 0, EndExposure: 13.56),
 
-#let group-spacing = 20pt
+  )
 
-#let chart-height = 380pt
+  // Extract arrays from the data
+  #let categories = data.map(item => item.SecurityCategory)
+  #let beginning = data.map(item => item.StartExposure)
+  #let ending = data.map(item => item.EndExposure)
 
-// Draw the entire chart
+  #let max-value = 1500
 
-#block(width: auto, height: auto, inset: 0pt, {
+  // Chart dimensions
+  #let bar-width = 50pt
+  #let bar-spacing = 4pt
+  #let group-spacing = 10pt
+  #let chart-height = 330pt
+   #let chart-width = 300pt
 
+  // Draw the entire chart
+  #block(width: auto, height: auto, inset: 0pt, {
+    v(20pt)
 
+    // Main chart area with Y-axis and bars
+    box(width: auto, height: auto, {
+      // Y-axis with values and grid lines
+      place(
+        box(width: chart-width, height: chart-height, {
+          // Y-axis vertical line
+          place(dx: 34pt, dy: 0pt, line(start: (0pt, 0pt), end: (0pt, chart-height), stroke: 1pt))
 
-  v(20pt)
+          // Y-axis values and horizontal grid lines - increments of 250
+          for i in range(7) {
+            let y-value = max-value - i * 250
+            let y-pos = chart-height * float(i * 250) / float(max-value)
+            // Y-axis value
 
-  // Main chart area with Y-axis and bars
+            place(dx: -10pt, dy: y-pos, align(right, text(size: 12pt,[#y-value]+"M")))
+            // Horizontal grid line (light gray)
 
-  box(width: auto, height: auto, {
+          }
+        })
+      )
 
-    // Y-axis with values and grid lines
+      // Chart with bars
+      place(dx: 35pt, dy: 0pt, {
+        box(width: auto, height: chart-height, {
+          // Calculate total width to use for x-axis line
+          let total-width = categories.len() * (2 * bar-width + bar-spacing + group-spacing)
 
-    place(
+          // X-axis line
+          place(dx: 0pt, dy: chart-height, line(start: (0pt, 0pt), end: (total-width, 0pt), stroke: 1pt))
 
-      box(width: 30pt, height: chart-height, {
+          // Draw bars for each category
+          let x-pos = 0pt
+          for i in range(categories.len()) {
+            let cat = categories.at(i)
+            let beg = beginning.at(i)
+            let end = ending.at(i)
 
-        // Y-axis vertical line
+            // Calculate bar heights
+            let beg-height = float(beg) / float(max-value) * chart-height
+            let end-height = float(end) / float(max-value) * chart-height
 
-        place(dx: 30pt, dy: 0pt, line(start: (0pt, 0pt), end: (0pt, chart-height), stroke: 1pt))
+            // Draw group
+            place(dx: x-pos, dy: 0pt, {
+              // Beginning value bar (green)
+              place(dx: 0pt, dy: chart-height - beg-height,
+                rect(width: bar-width, height: beg-height, fill: rgb("#39b97d"), radius: (top: 15pt))
+              )
+              // Ending value bar (blue)
+              place(dx: bar-width + bar-spacing, dy: chart-height - end-height,
+                rect(width: bar-width, height: end-height, fill: rgb("#4886c6"
+ ), radius: (top: 15pt))
+              )
+              // Category label
+              place(dx: 0pt, dy: chart-height + 7pt,
+                box(width: 2*bar-width + bar-spacing, {
+                  align(center, text(size: 15pt)[#cat])
+                })
+              )
+              // Tick mark on x-axis
+              place(dx: bar-width, dy: chart-height,
+                line(start: (0pt, 0pt), end: (0pt, 5pt), stroke: 1pt)
+              )
+            })
 
-        // Y-axis values and horizontal grid lines - increments of 250
-
-        for i in range(7) {
-
-          let y-value = max-value - i * 250
-
-          let y-pos = chart-height * float(i * 250) / float(max-value)
-
-          // Y-axis value
-
-          place(dx: 0pt, dy: y-pos, align(right, text(size: 8pt)[#y-value]))
-
-          // Horizontal grid line (light gray)
-
-          place(dx: 30pt, dy: y-pos, line(start: (0pt, 0pt), end: (50pt, 0pt), stroke: (paint: rgb(200, 200, 200), thickness: 0.5pt)))
-
-        }
-
+            // Move to next group position
+            x-pos += 2 * bar-width + bar-spacing + group-spacing
+          }
+        })
       })
-
-    )
-
-    // Chart with bars
-
-    place(dx: 35pt, dy: 0pt, {
-
-      box(width: auto, height: chart-height, {
-
-        // Calculate total width to use for x-axis line
-
-        let total-width = categories.len() * (2 * bar-width + bar-spacing + group-spacing)
-
-        // X-axis line
-
-        place(dx: 0pt, dy: chart-height, line(start: (0pt, 0pt), end: (total-width, 0pt), stroke: 1pt))
-
-        // Draw bars for each category
-
-        let x-pos = 0pt
-
-        for i in range(categories.len()) {
-
-          let cat = categories.at(i)
-
-          let beg = beginning.at(i)
-
-          let end = ending.at(i)
-
-          // Calculate bar heights
-
-          let beg-height = float(beg) / float(max-value) * chart-height
-
-          let end-height = float(end) / float(max-value) * chart-height
-
-          // Draw group
-
-          place(dx: x-pos, dy: 0pt, {
-
-            // Beginning value bar (green)
-
-            place(dx: 0pt, dy: chart-height - beg-height,
-
-                  rect(width: bar-width, height: beg-height, fill: rgb(0, 128, 0),radius: (
-
-    top: 15pt)))
-
-            // Ending value bar (blue)
-
-            place(dx: bar-width + bar-spacing, dy: chart-height - end-height,
-
-                  rect(width: bar-width, height: end-height, fill: rgb(0, 0, 255),radius: (
-
-    top: 15pt),))
-
-            // Category label
-
-            place(dx: 0pt, dy: chart-height + 5pt,
-
-                  box(width: 2*bar-width + bar-spacing, {
-
-                    align(center, text(size: 10pt, weight: "medium")[#cat])
-
-                  }))
-
-            // Tick mark on x-axis
-
-            place(dx: bar-width, dy: chart-height,
-
-                  line(start: (0pt, 0pt), end: (0pt, 5pt), stroke: 1pt))
-
-          })
-
-          // Move to next group position
-
-          x-pos += 2 * bar-width + bar-spacing + group-spacing
-
-        }
-
-      })
-
     })
 
-  })
+    // Y-axis label (commented out in original code)
+    // place(dx: -30pt, dy: chart-height/2, rotate(90deg, text(size: 12pt)[Value]))
 
-  // Y-axis label
-
-  // place(dx: -30pt, dy: chart-height/2, rotate(90deg, text(size: 12pt)[Value]))
-
-  // Legend
-
-  v(50pt)
-  place(dx: 450pt,)[
-  #align(center, {
-    box(width: 15pt, height: 15pt, fill: rgb(0, 128, 0))
-    h(5pt)
-    text(size: 12pt)[Beginning Value]
-    h(30pt)
-    box(width: 15pt, height: 15pt, fill: rgb(0, 0, 255))
-    h(5pt)
-    text(size: 12pt)[Ending Value]
+    // Legend
+    v(0pt)
+    place(dx: 450pt, [
+      #align(center, {
+        box(width: 15pt, height: 15pt, fill: rgb("#39b97d"))
+        h(5pt)
+        text(size: 12pt)[Beginning Value]
+        h(30pt)
+        box(width: 15pt, height: 15pt, fill: rgb("#4886c6"))
+        h(5pt)
+        text(size: 12pt)[Ending Value]
+      })
+    ])
   })
 ]
-})]
+
+
+
 #place(dy: 500pt)[
   #set table(
     fill:(x,y) =>
@@ -1167,10 +1281,32 @@ stroke: rgb("#cdcdcd")
 
 
 
+
 // #pagebreak()
-#pagebreak()
+// #pagebreak()
+
+#set page(paper: "a2", flipped: true,
+margin: (top:80pt,left:15pt,right:15pt),
+header: none)
+// #place(
+//     context {
+//       let outline_data = query(heading.where(level:2))
+//       for entry in outline_data {
+//         // entry
+//         if entry.body.text.contains("Asset Class Summary -"){
+//           link(
+//             entry.location(),
+//             [#text(weight: "bold", entry.body.text.split("- ").at(-1))            #entry.location().page() \
+//             ]
+//           )
+//         }
+//       }
+//     }
+//   )
 #hide[ #heading(outlined: true)[#text([Asset Class Summary],fill:rgb("#0d3c6a"))]]
-#place(
+  #place(
+    dx:20%,
+    dy:30%,
     context {
       let outline_data = query(heading.where(level:2))
       for entry in outline_data {
@@ -1178,7 +1314,25 @@ stroke: rgb("#cdcdcd")
         if entry.body.text.contains("Asset Class Summary -"){
           link(
             entry.location(),
-            [#text(weight: "bold", entry.body.text.split("- ").at(-1))            #entry.location().page() \
+            [/*#text(weight: "bold", entry.body.text.split("- ").at(-1))            #entry.location().page() \*/
+               #box(
+                 // stroke: 1pt+green,
+                  width: 60%,
+                  inset: (top: 20pt,bottom: 20pt),
+                    stack(
+                      dir: ltr,
+                      spacing: 10%,
+                      align(left)[
+                        #stack(
+                          dir: ltr,
+                          spacing: 20pt,
+                          circle(radius:7pt,fill: black),
+                          text(weight: "bold",size:20pt,entry.body.text.split("- ").at(-1)),
+                        )
+                      ],
+                      align(right,text(weight: "bold",size:20pt)[#entry.location().page()])
+                  )
+                )
             ]
           )
         }
@@ -2635,7 +2789,24 @@ header: none
 )
 #pagebreak()
 #hide[ #heading(outlined: true)[#text([Mutual Fund Analysis],fill:rgb("#0d3c6a"))]]
-#place(
+// #place(
+//     context {
+//       let outline_data = query(heading.where(level:2))
+//       for entry in outline_data {
+//         // entry
+//         if entry.body.text.contains("Mutual Fund Analysis -"){
+//           link(
+//             entry.location(),
+//             [#text(weight: "bold", entry.body.text.split("- ").at(-1))            #entry.location().page() \
+//             ]
+//           )
+//         }
+//       }
+//     }
+//   )
+  #place(
+    dx:20%,
+    dy:30%,
     context {
       let outline_data = query(heading.where(level:2))
       for entry in outline_data {
@@ -2643,7 +2814,25 @@ header: none
         if entry.body.text.contains("Mutual Fund Analysis -"){
           link(
             entry.location(),
-            [#text(weight: "bold", entry.body.text.split("- ").at(-1))            #entry.location().page() \
+            [/*#text(weight: "bold", entry.body.text.split("- ").at(-1))            #entry.location().page() \*/
+               #box(
+                 // stroke: 1pt+green,
+                  width: 60%,
+                  inset: (top: 20pt,bottom: 20pt),
+                    stack(
+                      dir: ltr,
+                      spacing: 10%,
+                      align(left)[
+                        #stack(
+                          dir: ltr,
+                          spacing: 20pt,
+                          circle(radius:7pt,fill: black),
+                          text(weight: "bold",size:20pt,entry.body.text.split("- ").at(-1)),
+                        )
+                      ],
+                      align(right,text(weight: "bold",size:20pt)[#entry.location().page()])
+                  )
+                )
             ]
           )
         }
@@ -5049,3 +5238,92 @@ header: context{
 
 )
 
+
+#pagebreak()
+#let customHeader =box(
+      width: 100%,
+      height: 30pt,
+      stack(
+     place(dx: 10pt,dy: 15pt)[
+        #text("Client Portfolio Statement", size: 38pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
+        #text(" ",size: 14pt, fill: rgb("#585858"))
+        #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
+      ],
+       place(top+right,dx: -15pt,dy: 12pt,
+          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+)
+)
+#set page(paper: "a2", flipped: true,fill: rgb("#f4f5f6"),
+margin: (top:80pt,left:15pt,right:15pt),
+header: context{
+  if counter(page).get().first() >= 1 {
+    align(top)[#customHeader]
+  }
+})
+
+
+#box(
+  fill: rgb("#f4f5f6"),
+
+  width: 98%,
+  height: 100pt,
+  stroke: none,
+  radius: (
+    left: 0pt,
+    top-right: 100pt,
+    top-left: 100pt,
+    bottom-right: 0pt,
+    bottom-left: 0pt,
+  ),
+)
+
+
+#place(top + left, dx: 30pt, dy: 40pt)[
+  #text([Disclaimer], size: 40pt, fill: rgb("#0d3c6a"), weight: "extrabold")]
+
+#v(-14pt)
+
+
+#set par(justify: true)
+#box(
+  fill: rgb("fff"),
+  inset: (top :24pt,bottom:35pt,left:20pt,right:20pt)
+)[#text(weight: "medium",
+      size: 20pt,
+      [This statement is for the exclusive and confidential use of the addressee only. Any is distribution, use or reproduction of this report without prior written permission of Kfintech Limited ("Kfintech") is unauthorised
+        and strictly prohibited. Kfintech shall not be liable for any delay in receipt of this report.
+        \
+        \
+        Kfintech Limited is only a distributor of third party investment products and not an advisor in offering investment advice and any information contained in this report or otherwise communicated shall not be
+        construed as investment advice. All decisions to purchase or sell units/securities shall be on the basis of the personal judgement of the customer arrived at after due consideration and after understanding the risk
+        factors associated with them. Kfintech does not in any manner guarantee any returns on any investment products.
+        \
+        \
+        This report is for information purposes only. Although the information herein has been obtained from sources believed to be reliable by Kfintech Technologies Public Limited: Kfintech, does not guarantee, represent
+        or warrant its accuracy, completeness or fairness. While effort was made to ensure the accuracy of information indicated in this report, neither Kfintech nor any of its afiliates, of cers, directors or employees shall
+        in anyway be accountable, liable or responsible for any inaccuracy, omission, incompleteness or errors in the contents hereof.
+        \
+        \
+        Kfintech disclaims all liability in relation to use of data or information used in this report which is sourced from third parties. The prices, value, income and appreciation of the securities mentioned in this
+        statement are based on current market conditions as of the Statement Date mentioned herein and are subject to change without prior notice.
+        \
+        \
+        Investments in securities are subject to risk including but not limited the risk of loss of the initial principal amount invested. Past performance is not indicative of future results. Please note the calculations shown
+        in this report are purely indicative and are based on applicable tax laws. The client is solely responsible for consulting his/her/its own independent advisors as to the legal, tax, accounting and related matters
+        concerning investments and nothing in this document or in any communication shall constitute such legal, tax or accounting advice.
+        \
+        \
+        In case of any deviation from your Risk Pro le, you are requested to review your portfolio and take relevant action on the same.
+        \
+        \
+        Please notify us immediately and in any case within 7 (seven) days of the Statement Date if you notice any error or discrepancy in the entries in this report otherwise the same will be considered correct.
+        \
+        \
+        Portfolio details of Held away assets have been aggregated based on information provided by the client. The accuracy, authenticity of the data including prices, maturity details and performance cannot be
+        ascertained by Kfintech and the responsibility to provide correct information on such assets and to make it meaningful solely lies with the Client/Investor. The Client/Investor is responsible for updating the
+        information on a regular basis including reporting every such transaction. Kfintech takes no responsibility for authentication of any such data provided by the Client.
+        \
+        \
+        Please note that the new entity name has been of cially updated with the Registrar of Companies (ROC). However, it is important to note that we are currently in the process of seeking approval from the
+        regulators. Therefore, any mentions of the updated name should be interpreted within this ongoing regulatory context.]
+    ))]

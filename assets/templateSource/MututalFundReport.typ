@@ -10,7 +10,24 @@ header: none
 )
 #pagebreak()
 #hide[ #heading(outlined: true)[#text([Mutual Fund Analysis],fill:rgb("#0d3c6a"))]]
-#place(
+// #place(
+//     context {
+//       let outline_data = query(heading.where(level:2))
+//       for entry in outline_data {
+//         // entry
+//         if entry.body.text.contains("Mutual Fund Analysis -"){
+//           link(
+//             entry.location(),
+//             [#text(weight: "bold", entry.body.text.split("- ").at(-1))            #entry.location().page() \
+//             ]
+//           )
+//         }
+//       }
+//     }
+//   )
+  #place(
+    dx:20%,
+    dy:30%,
     context {
       let outline_data = query(heading.where(level:2))
       for entry in outline_data {
@@ -18,7 +35,25 @@ header: none
         if entry.body.text.contains("Mutual Fund Analysis -"){
           link(
             entry.location(),
-            [#text(weight: "bold", entry.body.text.split("- ").at(-1))            #entry.location().page() \
+            [/*#text(weight: "bold", entry.body.text.split("- ").at(-1))            #entry.location().page() \*/
+               #box(
+                 // stroke: 1pt+green,
+                  width: 60%,
+                  inset: (top: 20pt,bottom: 20pt),
+                    stack(
+                      dir: ltr,
+                      spacing: 10%,
+                      align(left)[
+                        #stack(
+                          dir: ltr,
+                          spacing: 20pt,
+                          circle(radius:7pt,fill: black),
+                          text(weight: "bold",size:20pt,entry.body.text.split("- ").at(-1)),
+                        )
+                      ],
+                      align(right,text(weight: "bold",size:20pt)[#entry.location().page()])
+                  )
+                )
             ]
           )
         }

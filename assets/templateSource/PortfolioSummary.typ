@@ -13,9 +13,30 @@
 
 {{if ne $DataCount 0 }}
 // #pagebreak()
-#pagebreak()
+// #pagebreak()
+
+#set page(paper: "a2", flipped: true,
+margin: (top:80pt,left:15pt,right:15pt),
+header: none)
+// #place(
+//     context {
+//       let outline_data = query(heading.where(level:2))
+//       for entry in outline_data {
+//         // entry
+//         if entry.body.text.contains("Asset Class Summary -"){
+//           link(
+//             entry.location(),
+//             [#text(weight: "bold", entry.body.text.split("- ").at(-1))            #entry.location().page() \
+//             ]
+//           )
+//         }
+//       }
+//     }
+//   )
 #hide[ #heading(outlined: true)[#text([Asset Class Summary],fill:rgb("#0d3c6a"))]]
-#place(
+  #place(
+    dx:20%,
+    dy:30%,
     context {
       let outline_data = query(heading.where(level:2))
       for entry in outline_data {
@@ -23,7 +44,25 @@
         if entry.body.text.contains("Asset Class Summary -"){
           link(
             entry.location(),
-            [#text(weight: "bold", entry.body.text.split("- ").at(-1))            #entry.location().page() \
+            [/*#text(weight: "bold", entry.body.text.split("- ").at(-1))            #entry.location().page() \*/
+               #box(
+                 // stroke: 1pt+green,
+                  width: 60%,
+                  inset: (top: 20pt,bottom: 20pt),
+                    stack(
+                      dir: ltr,
+                      spacing: 10%,
+                      align(left)[
+                        #stack(
+                          dir: ltr,
+                          spacing: 20pt,
+                          circle(radius:7pt,fill: black),
+                          text(weight: "bold",size:20pt,entry.body.text.split("- ").at(-1)),
+                        )
+                      ],
+                      align(right,text(weight: "bold",size:20pt)[#entry.location().page()])
+                  )
+                )
             ]
           )
         }

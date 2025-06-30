@@ -1,12 +1,25 @@
 #pagebreak()
-#text("Executive Summary", size: 40pt, fill: rgb("#0d3c6a"), weight: "extrabold")
-#hide[
+#let customHeader =box(
+      width: 100%,
+      height: 30pt,
+      stack(
+     place(dx: 10pt,dy: 15pt)[
+        #text("Executive Summary", size: 38pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
+        #text(" ",size: 14pt, fill: rgb("#585858"))
+        #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
+      ],
+       place(top+right,dx: -15pt,dy: 12pt,
+          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+)
+)
+#set page(paper: "a2", flipped: true,fill: rgb("#f4f5f6"),
+margin: (top:80pt,left:15pt,right:15pt),
+header: context{
+  if counter(page).get().first() >= 1 {
+    align(top)[#customHeader]
+  }
+})
 
-  #heading(outlined: true)[#text([Executive Summary], fill: rgb("#0d3c6a"))]
-
-]
-#place(dx: 75%, dy: -7%, [#image("./assets/images/kfintech-logo.png", width: 350pt)])
-#place(dy: 20pt, [#line(length: 100%)])
 #let headerBg = rgb("#f4f5f6")
 // Define colors and data
 #let primaryColors = (
@@ -15,14 +28,21 @@
   "#fac858", // Fixed Income
   "#ee6666", // Commodities
   "#73c0de", // Liq & Eqv.
+  "#5470c6", // Equities
+  "#91cc75", // Alternatives
+  "#fac858", // Fixed Income
+  "#ee6666", // Commodities
+  "#73c0de", // Liq & Eqv.
 )
 // Current asset allocation data
 #let currentData = (
-  (value: 10, name: "Equities"),
-  (value: 20, name: "Alternatives"),
-  (value: 5, name: "Fixed Income"),
-  (value: 0, name: "Commodities"),
-  (value: 0, name: "Liq & Eqv."),
+
+ {{range .AllocationComparisonSection}}
+  ( value: {{ .StrategicPercentage}},
+     name: "{{ .AssetGroupName}}",
+     total: {{ .TotalExposurePercentage}}
+  ),
+{{end}}
 )
 
 // Page and header settings
@@ -30,18 +50,7 @@
 #let headersize_xs = 18pt
 #let titlePadding = (top: 15pt, bottom: 15pt, left: 20pt, right: 20pt)
 
-// Small cards data
 
-
-
-
-#let tableData = (
-  (month: "Sep 2023", portfolioReturn: "8.1%", benchmarkReturn: "0.2%", excessReturn: "7.9%"),
-  (month: "Oct 2023", portfolioReturn: "7.5%", benchmarkReturn: "0.3%", excessReturn: "7.2%"),
-  (month: "Nov 2023", portfolioReturn: "6.9%", benchmarkReturn: "0.1%", excessReturn: "6.8%"),
-  (month: "Dec 2023", portfolioReturn: "7.2%", benchmarkReturn: "0.4%", excessReturn: "6.8%"),
-)
-// Place small cards on the left
 #let smallCardList = (
   (
     description: "INFLOW MINUS OUTFLOW",
@@ -73,7 +82,9 @@
   ),
   (description: "BENCHMARK RETURN(IRR)", Value: "4.25%", Date: "Since Inception", Image: "./assets/images/six.png"),
 )
-
+#hide[
+  #heading(outlined: true)[#text([Executive Summary], fill: rgb("#0d3c6a"))]
+]
 #place(top + left, dy: 80pt)[
 
   #grid(
@@ -155,9 +166,8 @@
     stroke: (2.8pt + luma(88%)),
   )[
     // Chart titles
-    #place(dx: 145pt, dy: 145pt, text(weight: "extrabold", size: 25pt, "Current"))
-    #place(dx: 400pt, dy: 145pt, text(weight: "extrabold", size: 22pt, " Risk assessment not
- available"))
+    #place(dx: 145pt, dy: 130pt, text(weight: "extrabold", size: 25pt, "Current"))
+    #place(dx: 540pt, dy: 130pt, text(weight: "extrabold", size: 22pt, "Current"))
 
     #place(dx: 10pt, dy: -15pt, pad(..titlePadding, text(
       "Asset Allocation (%)",
@@ -174,7 +184,26 @@
       columns: (1fr, 1fr),
       align: (center),
       // Current allocation chart
-      box(width: 100%, height: 70%, stroke: none)[
+      box(width: 60%, height: 60%, stroke: none)[
+        #echarm.render(width: 100%, height: 100%, options: (
+          series: (
+            name: "Current Allocation",
+            type: "pie",
+            radius: ("60%", "70%"),
+            avoidLabelOverlap: false,
+            color: primaryColors,
+            itemStyle: (
+              borderColor: "#fff",
+              borderWidth: 0,
+            ),
+            labelLine: (
+              //  show: true,
+            ),
+            data: currentData,
+          ),
+        ))
+      ],
+      box(width: 60%, height: 60%, stroke: none)[
         #echarm.render(width: 100%, height: 100%, options: (
           series: (
             name: "Current Allocation",
@@ -196,37 +225,71 @@
 
       // Target allocation chart
     )
+ // Legend for the charts
 
-    // Legend for the charts
 
-    #pad(left: 20pt, top: -20pt, grid(
-      columns: (1fr, 1fr, 1fr),
-      gutter: 1pt,
-      column-gutter: -400pt,
-      inset: 0.5em,
-      align: left,
-      stack(dir: ltr, spacing: 10pt, rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(0))), text(
-        "10 %
-Equities",
-        size: 16pt,
-      )),
-      stack(dir: ltr, spacing: 10pt, rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(1))), text(
-        "20 %
-Alternatives",
-        size: 16pt,
-      )),
-      stack(dir: ltr, spacing: 10pt, rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(2))), text(
-        "5 %
-Fixed Income",
-        size: 16pt,
-      )),
-
-      stack(dir: ltr, spacing: 10pt, rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(2))), text(
-        "18.5 %
-Hybrid",
-        size: 16pt,
-      )),
-    ))
+  #pad(left: 0pt, top: -50pt,
+  grid(
+    columns: (1fr, 1fr, 1fr),
+    column-gutter: -400pt, // Adjustable to prevent overlap
+    gutter: 25pt,
+    inset: 15pt,
+    align: left,
+    // Dynamically generate legend items
+    ..currentData.enumerate().map(((i, item)) => {
+      let value = str(item.value) + "%"
+      let name = item.name
+      // Dynamically wrap long names
+      let wrapped-name = if name.len() > 15 { // Adjust threshold as needed
+        let words = name.split(" ")
+        let mid = calc.floor(words.len() / 2)
+        words.slice(0, mid).join(" ") + "\n" + words.slice(mid).join(" ")
+      } else {
+        name
+      }
+      stack(dir: ltr, spacing: 10pt,
+        rect(width: 10pt, height: 8pt, radius: 50%, fill: rgb(primaryColors.at(i))),
+        text(value, size: 12pt),
+        place(
+          dx: -30pt,
+          dy: 15pt,
+          box(width: 60pt, text(wrapped-name, size: 12pt)) // Auto-wrap within 60pt
+        )
+      )
+    })
+  )
+  )
+  #pad(left: 400pt, top: -183pt,
+  grid(
+    columns: (1fr, 1fr, 1fr),
+    column-gutter: 30pt, // Adjustable to prevent overlap
+    gutter: 25pt,
+    inset: 15pt,
+    align: left,
+    // Dynamically generate legend items
+    ..currentData.enumerate().map(((i, item)) => {
+      let value = str(item.value) + "%"
+      let name = item.name
+      // Dynamically wrap long names
+      let wrapped-name = if name.len() > 15 { // Adjust threshold as needed
+        let words = name.split(" ")
+        let mid = calc.floor(words.len() / 2)
+        words.slice(0, mid).join(" ") + "\n" + words.slice(mid).join(" ")
+      } else {
+        name
+      }
+      stack(dir: ltr, spacing: 10pt,
+        rect(width: 10pt, height: 8pt, radius: 50%, fill: rgb(primaryColors.at(i))),
+        text(value, size: 12pt),
+        place(
+          dx: -30pt,
+          dy: 15pt,
+          box(width: 60pt, text(wrapped-name, size: 12pt)) // Auto-wrap within 60pt
+        )
+      )
+    })
+  )
+  )
   ]
 ]
 #place(bottom + left, dy: 15pt)[
@@ -272,11 +335,11 @@ Hybrid",
         ),
         {{range .RelativePerformanceOverQuarters}}
         table.cell(align(center)[#text(size: 16pt,"{{.Date}}")]),
-        table.hline(stroke:  (thickness:0.1pt,paint:luma(54.51%))),
+        table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
         table.cell(align(center)[#text(size: 16pt,"{{.BMXIRR}}"+"%")]),
-                table.hline(stroke:  (thickness:0.1pt,paint:luma(54.51%))),
+                table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
         table.cell(align(center)[#text(size: 16pt,"{{.ExcessReturns}}"+"%")]),
-                table.hline(stroke:  (thickness:0.1pt,paint:luma(54.51%))),
+                table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
         table.cell(align(center)[#text(size: 16pt,"{{.XIRR}}"+"%")]),
         {{end}}
       ),
@@ -333,6 +396,6 @@ Hybrid",
       "Commodities",
     )
 
-
   ]
 ]
+

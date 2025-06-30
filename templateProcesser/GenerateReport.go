@@ -155,6 +155,7 @@ func CreatePDFByte(requestedReports []int, customer string, portfolio string, re
 	default:
 		log.Printf("All reports generated successfully!")
 	}
+	FinalTemp = append(FinalTemp,DisclaimerText)
 	return []byte(strings.Join(FinalTemp, "")), nil
 
 }
