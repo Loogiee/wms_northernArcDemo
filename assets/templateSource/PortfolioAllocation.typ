@@ -75,7 +75,7 @@ header: context{
     // Main header
         #pad(left: 5pt,top: -150pt,
     // Grid for the two charts
-grid(
+    grid(
       columns: (1fr, 1fr),
       align: (center),
       // Current allocation chart

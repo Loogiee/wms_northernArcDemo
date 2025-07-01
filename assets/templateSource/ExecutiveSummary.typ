@@ -168,14 +168,14 @@ header: context{
   #box(
     inset: (y: 14pt, x: 10pt),
     width: 49.5%,
-    height: 49.5%,
+    height:46.5%,
     radius: 8pt,
     fill: white,
     stroke: (2.8pt + luma(88%)),
   )[
     // Chart titles
-    #place(dx: 155pt, dy: 130pt, text(weight: "extrabold", size: 25pt, "Current"))
-    #place(dx: 560pt, dy: 130pt, text(weight: "extrabold", size: 22pt, "Target"))
+    #place(dx: 120pt, dy: 130pt, text(weight: "extrabold", size: 25pt, "Current"))
+    #place(dx: 530pt, dy: 130pt, text(weight: "extrabold", size: 22pt, "Target"))
 
     #place(dx: 10pt, dy: -15pt, pad(..titlePadding, text(
       "Asset Allocation (%)",
@@ -183,21 +183,37 @@ header: context{
       fill: rgb("0e496e"),
       weight: "extrabold",
     )))
+#let currentData1 = (
+{{range .AllocationComparisonSection}}
+  ( value: {{ .TotalExposurePercentage}},
+     name: "{{ .AssetGroupName}}",
+  ),
+{{end}}
+)
+
+#let currentData2 = (
+{{range .AllocationComparisonSection}}
+  ( value: {{ .StrategicPercentage}},
+     name: "{{ .AssetGroupName}}",
+  ),
+{{end}}
+)
+
     // Main header
-
-
-
+ #pad(left: 5pt,top: 0pt,
     // Grid for the two charts
-    #grid(
+    grid(
       columns: (1fr, 1fr),
       align: (center),
       // Current allocation chart
-      box(width: 60%, height: 60%, stroke: none)[
-        #echarm.render(width: 100%, height: 100%, options: (
+      box(
+        width: 100%, height: 100%, stroke: none)[
+          #place(dy:-50pt)[
+        #echarm.render(width: 80%, height:80%, options: (
           series: (
             name: "Current Allocation",
             type: "pie",
-            radius: ("60%", "70%"),
+            radius: ("50%", "60%"),
             avoidLabelOverlap: false,
             color: primaryColors,
             itemStyle: (
@@ -205,99 +221,104 @@ header: context{
               borderWidth: 0,
             ),
             labelLine: (
-              //  show: true,
+            //  show: true,
             ),
-            data: currentData,
+            data: currentData1
           ),
-        ))
-      ],
-      box(width: 60%, height: 60%, stroke: none)[
-        #echarm.render(width: 100%, height: 100%, options: (
-          series: (
-            name: "Target Allocation",
-            type: "pie",
-            radius: ("60%", "70%"),
-            avoidLabelOverlap: false,
-            color: primaryColors,
-            itemStyle: (
-              borderColor: "#fff",
-              borderWidth: 0,
-            ),
-            labelLine: (
-              //  show: true,
-            ),
-            data: targetData,
-          ),
-        ))
-      ],
-
-      // Target allocation chart
+        )
+      )],
+      #place(
+       dx: 0pt,
+        dy: 250pt
+      )[
+  #grid(
+  columns: (1fr, 1fr, 1fr),
+  column-gutter: -25pt,
+  gutter: 10pt,
+  inset: 15pt,
+  align: left,
+  // Dynamically generate legend items
+  ..currentData1.enumerate().map(((i, item)) => {
+    let value = str(item.value) + "%"
+    let name = item.name
+    stack(
+      dir: ttb, // Stack vertically
+      spacing: 5pt, // Space between color-value and name
+      stack(
+        dir: ltr, // Horizontal stack for color and value
+        spacing: 15pt,
+        rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(i))),
+        text(value, size: 15pt)
+      ),
+      place(
+        dx: 27pt, // Offset to align name under value (12pt for rect width + 15pt for spacing)
+        text(name, size: 15pt)
+      )
     )
- // Legend for the charts
+  })
+)
+]
+
+      ],
+      box(
+         width: 100%, height: 100%, stroke: none)[
+           #place(dy:-50pt)[
+        #echarm.render(width: 80%, height: 80%, options: (
+          series: (
+            name: "Current Allocation",
+            type: "pie",
+            radius: ("50%", "60%"),
+            avoidLabelOverlap: false,
+            color: primaryColors,
+            itemStyle: (
+              borderColor: "#fff",
+              borderWidth: 0,
+            ),
+            labelLine: (
+            //  show: true,
+            ),
+            data: currentData2
+          ),
+        )
+      )]
+      #place(
+     dx: 0pt,
+        dy: 250pt
+      )[
+    #grid(
+  columns: (1fr, 1fr, 1fr),
+  column-gutter: -25pt,
+  gutter: 10pt,
+  inset: 15pt,
+  align: left,
+  // Dynamically generate legend items
+  ..currentData2.enumerate().map(((i, item)) => {
+    let value = str(item.value) + "%"
+    let name = item.name
+    stack(
+      dir: ttb, // Stack vertically
+      spacing: 5pt, // Space between color-value and name
+      stack(
+        dir: ltr, // Horizontal stack for color and value
+        spacing: 15pt,
+        rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(i))),
+        text(value, size: 15pt)
+      ),
+      place(
+        dx: 27pt, // Offset to align name under value (12pt for rect width + 15pt for spacing)
+        text(name, size: 15pt)
+      )
+    )
+  })
+)
+      ]
+      ],
 
 
-  #pad(left: 0pt, top: -50pt,
-  grid(
-    columns: (1fr, 1fr, 1fr),
-    column-gutter: -400pt, // Adjustable to prevent overlap
-    gutter: 25pt,
-    inset: 15pt,
-    align: left,
-    // Dynamically generate legend items
-    ..currentData.enumerate().map(((i, item)) => {
-      let value = str(item.value) + "%"
-      let name = item.name
-      // Dynamically wrap long names
-      let wrapped-name = if name.len() > 15 { // Adjust threshold as needed
-        let words = name.split(" ")
-        let mid = calc.floor(words.len() / 2)
-        words.slice(0, mid).join(" ") + "\n" + words.slice(mid).join(" ")
-      } else {
-        name
-      }
-      stack(dir: ltr, spacing: 10pt,
-        rect(width: 10pt, height: 8pt, radius: 50%, fill: rgb(primaryColors.at(i))),
-        text(value, size: 12pt),
-        place(
-          dx: -30pt,
-          dy: 15pt,
-          box(width: 60pt, text(wrapped-name, size: 12pt)) // Auto-wrap within 60pt
-        )
-      )
-    })
+    )
   )
-  )
-  #pad(left: 400pt, top: -183pt,
-  grid(
-    columns: (1fr, 1fr, 1fr),
-    column-gutter: 30pt, // Adjustable to prevent overlap
-    gutter: 25pt,
-    inset: 15pt,
-    align: left,
-    // Dynamically generate legend items
-    ..targetData.enumerate().map(((i, item)) => {
-      let value = str(item.value) + "%"
-      let name = item.name
-      // Dynamically wrap long names
-      let wrapped-name = if name.len() > 15 { // Adjust threshold as needed
-        let words = name.split(" ")
-        let mid = calc.floor(words.len() / 2)
-        words.slice(0, mid).join(" ") + "\n" + words.slice(mid).join(" ")
-      } else {
-        name
-      }
-      stack(dir: ltr, spacing: 10pt,
-        rect(width: 10pt, height: 8pt, radius: 50%, fill: rgb(primaryColors.at(i))),
-        text(value, size: 12pt),
-        place(
-          dx: -30pt,
-          dy: 15pt,
-          box(width: 60pt, text(wrapped-name, size: 12pt)) // Auto-wrap within 60pt
-        )
-      )
-    })
-  )
-  )
+
+
   ]
 ]
 #place(bottom + left)[
