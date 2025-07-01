@@ -56,7 +56,7 @@ header: context{
     description: "{{ .Description}}",
     Value: "{{ .StrigValue}}",
     Date: "{{ .Date}}",
-    Colors :"{{.Color}}"
+    Colors :"{{.Color}}",
     Image: "{{.Images}}"
   ),
   {{end}}
@@ -83,14 +83,14 @@ header: context{
     ..boxesBeforeCombined.map(item => {
       box(
         inset: 15pt,
-        width: 400pt,
+        width: 405pt,
         height: 155pt,
         radius: 8pt,
         stroke: (2.8pt + luma(88%)),
         fill: white,
       )[
         // Display descrip'ion
-        #image(item.Image, width: 50pt, height: 55pt)
+        #place(dx:310pt)[#image(item.Image, width: 50pt, height: 55pt)]
         #text(item.description, size: 20pt, weight: "extrabold")\
         // Display da'e
         #place(dy:-15pt)[#text(item.Date, size: 14pt, fill: rgb("#00000041"), weight: "extrabold", spacing: 2pt, baseline: -3pt)]
@@ -106,7 +106,7 @@ header: context{
     if benchItems.len() > 0 {
       box(
         inset: (y: 14pt, x: 10pt),
-        width: 400pt,
+        width: 405pt,
         height: 155pt,
         radius: 8pt,
         stroke: (2.8pt + luma(88%)),
@@ -138,12 +138,13 @@ header: context{
     ..boxesAfterCombined.map(item => {
       box(
         inset: 15pt,
-        width: 400pt,
+        width: 404pt,
         height: 155pt,
         radius: 8pt,
         stroke: (2.8pt + luma(88%)),
         fill: white,
       )[
+        #place(dx:310pt)[#image(item.Image, width: 50pt, height: 55pt)]
         // Display descrip'ion
         #text(item.description, size: 20pt, weight: "extrabold")\
         // Display da'e
@@ -160,15 +161,15 @@ header: context{
 #place(top + right, dy: 20pt)[
   #box(
     inset: (y: 14pt, x: 10pt),
-    width: 790pt,
+    width: 49.5%,
     height: 485pt,
     radius: 8pt,
     fill: white,
     stroke: (2.8pt + luma(88%)),
   )[
     // Chart titles
-    #place(dx: 145pt, dy: 130pt, text(weight: "extrabold", size: 25pt, "Current"))
-    #place(dx: 540pt, dy: 130pt, text(weight: "extrabold", size: 22pt, "Target"))
+    #place(dx: 155pt, dy: 130pt, text(weight: "extrabold", size: 25pt, "Current"))
+    #place(dx: 560pt, dy: 130pt, text(weight: "extrabold", size: 22pt, "Target"))
 
     #place(dx: 10pt, dy: -15pt, pad(..titlePadding, text(
       "Asset Allocation (%)",
@@ -293,11 +294,11 @@ header: context{
   )
   ]
 ]
-#place(bottom + left, dy: -20pt)[
+#place(bottom + left)[
   #box(
     fill:white,
     inset: (y: 20pt, x: 10pt),
-    width: 810pt,
+    width: 49.5%,
     height: 490pt,
     radius: 8pt,
     stroke: (2.8pt + luma(88%)),
@@ -350,11 +351,11 @@ header: context{
     // Legend for the charts
   ]
 ]
-#place(bottom + right, dy: -20pt)[
+#place(bottom + right)[
   #box(
     inset: (y: 60pt, x: 10pt),
 
-    width: 790pt,
+    width: 49.5%,
     height: 490pt,
     radius: 8pt,
     stroke: (2.8pt + luma(88%)),

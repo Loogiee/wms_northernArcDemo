@@ -60,8 +60,8 @@ header: context{
 #place(top+left,dy: 10pt)[
   #box(
     fill:white,
-    inset: (y: 14pt, x: 10pt),
-    width: 780pt,
+    inset: 20pt,
+    width: 49.5%,
     height: 1000pt,
     radius: 8pt,
     stroke: (2.8pt + luma(88%))
@@ -209,7 +209,7 @@ grid(
 #set table(stroke: stroke(thickness:01pt,paint: rgb("#cdcdcd")))
 
   #table(
-    columns: (1fr,1fr,1fr,1fr,1fr),
+     columns: (1.5fr,1fr,.5fr,1fr,.5fr),
     stroke: none,
     align: center+horizon,
     inset: 20pt,
@@ -242,9 +242,9 @@ stroke: rgb("#cdcdcd")
 
   {{range .AssetwiseAllocation}}
     align(left)[#text(size: 18pt, "{{.AssetGroupName}}")],
-    align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberPointer .StartMarketValue}}")],
+    align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberWithoutDecimalPointer .StartMarketValue}}")],
     align(center)[#text(size: 18pt, "{{ConvertToFormattedNumberPointer .StartExposure}}"+"%")],
-    align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberPointer .EndMarketValue}}")],
+    align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberWithoutDecimalPointer .EndMarketValue}}")],
     align(center)[#text(size: 18pt, "{{ConvertToFormattedNumberPointer .EndExposure}}"+"%")],
     table.hline(stroke: rgb("#cdcdcd")),
 {{end}}
@@ -254,11 +254,11 @@ stroke: rgb("#cdcdcd")
 ]
 ]
 
-#place(top+right,dy: 10pt,dx: -30pt)[
+#place(top+right,dy: 10pt)[
  #box(
   fill:white,
     inset: (y: 14pt, x: 50pt),
-    width: 780pt,
+    width: 49.5%,
     height: 1000pt,
     radius: 8pt,
     stroke: (2.8pt + luma(88%))
@@ -394,7 +394,7 @@ stroke: rgb("#cdcdcd")
   )
 
   #table(
-    columns: (1.5fr,1fr,1fr,1fr,1fr),
+    columns: (1.5fr,1fr,.5fr,1fr,.5fr),
     stroke: none,
 align: center+horizon,
     inset: 20pt,
@@ -427,9 +427,9 @@ stroke: rgb("#cdcdcd")
 ),
   {{range .SecurityCategoryAllocation}}
     align(left)[#text(size: 18pt, "{{.SecurityCategory}}")],
-    align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberPointer .StartMarketValue}}")],
+    align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberWithoutDecimalPointer .StartMarketValue}}")],
     align(center)[#text(size: 18pt, "{{ConvertToFormattedNumberPointer .StartExposure}}"+"%")],
-    align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberPointer .EndMarketValue}}")],
+    align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberWithoutDecimalPointer .EndMarketValue}}")],
     align(center)[#text(size: 18pt, "{{ConvertToFormattedNumberPointer .EndExposure}}"+"%")],
     table.hline(stroke: rgb("#cdcdcd")),
 {{end}}
