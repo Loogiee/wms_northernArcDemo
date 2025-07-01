@@ -19,7 +19,7 @@ func ProcessMutualFund(sqlData *[]map[string]interface{}) (string, error) {
 			switch key {
 			case "amc_wise_section":
 				mapAmcWiseSection(value, &FinalProcessData)
-			case "fund_manager_wise_section":
+			case "fund_manager_wise_section": //Fund Manager Wise Exposure - All Advisor
 				mapFundManagerWiseSection(value, &FinalProcessData)
 			case "mf_sector_wise_section":
 				mapSectorWiseSection(value, &FinalProcessData)
@@ -56,6 +56,9 @@ func mapAmcWiseSection(value interface{}, parsingData *MutualFundSection) {
 func mapFundManagerWiseSection(value interface{}, parsingData *MutualFundSection) {
 	var processData []FundManagerSection
 	MapToStruct(value, &processData)
+	sort.Slice(processData, func(i, j int) bool {
+		return processData[i].TotAssetExposure > processData[j].TotAssetExposure
+	})
 	parsingData.FundManagerSection = processData
 }
 func mapSectorWiseSection(value interface{}, parsingData *MutualFundSection) {

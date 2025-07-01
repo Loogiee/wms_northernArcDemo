@@ -46,6 +46,9 @@ type BasicInfo struct {
 	Description string  `json:"Description"`
 	Value       float64 `json:"Value"`
 	Date        string  `json:"Date"`
+	StrigValue  string
+	Images      string
+	Color       string
 }
 
 type Allocation struct {
@@ -250,7 +253,6 @@ type EquityMfIndustryAllocation struct {
 	IndustryName string  `json:"INDUSTRY_NAME"`
 	Percentage   float64 `json:"Percentage"`
 }
-
 
 type EquityMfAmcAllocation struct {
 	IssuerName string  `json:"ISSUER_NAME"`

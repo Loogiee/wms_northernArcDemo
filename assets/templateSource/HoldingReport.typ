@@ -22,7 +22,7 @@
       height: 30pt,
       stack(
      place(dx: 10pt,dy: 15pt)[
-        #text("Mutual Funds - Investment Summar", size: 38pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
+        #text("Mutual Funds - Investment Summary", size: 38pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
         #text("as on "+ReportDate,size: 14pt, fill: rgb("#585858"))
         #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
@@ -58,11 +58,11 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     table.cell(align(left)[#text(fill: heading0, weight: "black", "Folio Number")]),
     table.cell(align(right)[#text(fill: heading0, weight: "black", "Units")]),
     table.cell(align(right)[#text(fill: heading0, weight: "black", "Purchase Value")]),
-    table.cell(align(center)[#text(fill: heading0, weight: "black", "Inception Date")]),
-    table.cell(align(right)[#text(fill: heading0, weight: "black", "Unrealized Gain/Loss")]),
     table.cell(align(right)[#text(fill: heading0, weight: "black", "Market Value")]),
+    table.cell(align(right)[#text(fill: heading0, weight: "black", "Unrealized Gain/Loss")]),
     table.cell(align(right)[#text(fill: heading0, weight: "black", "Absolute Return")]),
     table.cell(align(right)[#text(fill: heading0, weight: "black", "XIRR %")]),
+    table.cell(align(center)[#text(fill: heading0, weight: "black", "Inception Date")]),
     table.cell(align(right)[#text(fill: heading0, weight: "black", "Life Days")]),
   ),
   {{$ShowOnce := true}}
@@ -74,12 +74,12 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     table.cell(align(left)[#text("{{.FolioNo}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Quantity}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}",fill :heading0)]),
-    table.cell(align(center)[#text("{{.PurchaseDate}}",fill :heading0)]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}",fill :heading0)]),
+    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .RealGainLoss}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .XIRR}}",fill :heading0)]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .HoldingDays}}",fill :heading0)]),
+    table.cell(align(center)[#text("{{.PurchaseDate}}",fill :heading0)]),
+    table.cell(align(right)[#text("{{ConvertToFormattedNumberWithoutDecimalPointer .HoldingDays}}",fill :heading0)]),
   {{else}}
   {{if $ShowOnce}}
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -91,12 +91,12 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     table.cell(align(left)[#text("{{.FolioNo}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Quantity}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}")]),
-    table.cell(align(center)[#text("{{.PurchaseDate}}")]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}")]),
+    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .RealGainLoss}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .XIRR}}")]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .HoldingDays}}")]),
+    table.cell(align(center)[#text("{{.PurchaseDate}}")]),
+    table.cell(align(right)[#text("{{ConvertToFormattedNumberWithoutDecimalPointer .HoldingDays}}")]),
   {{end}}
 {{end}}
 )

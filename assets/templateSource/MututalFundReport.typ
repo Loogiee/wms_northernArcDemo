@@ -178,18 +178,23 @@ header: context{
   ),
 
 {{range  .FundManagerSection}}
-   {{if Contains .FundManagerName "TOTAL"}}
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Total",fill :heading0)]),
-    table.cell(align(left)[#text("{{.IssuerName}}",fill :heading0)]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}",fill :heading0)]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .TotAssetExposure}}",fill :heading0)]),
-  {{else}}
+{{$isTotalRow := Contains .FundManagerName "TOTAL"}}
+  {{if not $isTotalRow}}
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("{{.FundManagerName}}")]),
     table.cell(align(left)[#text("{{.IssuerName}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .TotAssetExposure}}")]),
+  {{end}}
+{{end}}
+{{range  .FundManagerSection}}
+{{$isTotalRow := Contains .FundManagerName "TOTAL"}}
+  {{if $isTotalRow}}
+    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Total",fill :heading0)]),
+    table.cell(align(left)[#text("{{.IssuerName}}",fill :heading0)]),
+    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}",fill :heading0)]),
+    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .TotAssetExposure}}",fill :heading0)]),
   {{end}}
 {{end}}
 )

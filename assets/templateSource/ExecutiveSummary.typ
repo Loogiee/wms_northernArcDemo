@@ -50,13 +50,14 @@ header: context{
 #let headersize_xs = 18pt
 #let titlePadding = (top: 15pt, bottom: 15pt, left: 20pt, right: 20pt)
 
-
 #let smallCardList = (
   {{range .BasicInformationSection}}
   (
     description: "{{ .Description}}",
-    Value: "{{ ConvertToFormattedNumberPointer .Value}}",
+    Value: "{{ .StrigValue}}",
     Date: "{{ .Date}}",
+    Colors :"{{.Color}}"
+    Image: "{{.Images}}"
   ),
   {{end}}
 )
@@ -89,11 +90,12 @@ header: context{
         fill: white,
       )[
         // Display descrip'ion
+        #image(item.Image, width: 50pt, height: 55pt)
         #text(item.description, size: 20pt, weight: "extrabold")\
         // Display da'e
-        #place(dy:-15pt)[#text(item.Date, size: 14pt, fill: rgb("#0006"), weight: "extrabold", spacing: 2pt, baseline: -3pt)]
+        #place(dy:-15pt)[#text(item.Date, size: 14pt, fill: rgb("#00000041"), weight: "extrabold", spacing: 2pt, baseline: -3pt)]
         // Display value
-        #align(bottom, text(item.Value, size: 25pt, spacing: 2pt, weight: "bold", stretch: 50%))
+        #align(bottom, text(item.Value,fill:rgb(item.Colors), size: 25pt, spacing: 2pt, weight: "bold", stretch: 50%))
       ]
     }),
     // Add placeholders if fewer 'han 4 non-benchmark i'ems
@@ -112,7 +114,8 @@ header: context{
       )[
         #grid(
           columns: 2,
-          column-gutter: 230pt,
+          column-gutter: 180pt,
+          inset: (left:8pt,right:10pt),
           // Ver'ical alignmen' for each column
           ..benchItems.map(item => {
             // Trunca'e "BenchmarkInfo_" from descrip'ion
@@ -122,7 +125,7 @@ header: context{
               #align(bottom)[
               #text(displayDesc, size: 15pt, weight: "extrabold")
               // Display value below descrip'ion
-             #text(item.Value, size: 25pt, spacing: 2pt, weight: "bold")
+             #text(item.Value, size: 25pt,fill:rgb(item.Colors), spacing: 2pt, weight: "bold")
             ]]
           })
         )
@@ -144,9 +147,9 @@ header: context{
         // Display descrip'ion
         #text(item.description, size: 20pt, weight: "extrabold")\
         // Display da'e
-        #place(dy:-15pt)[#text(item.Date, size: 14pt, fill: rgb("#0006"), weight: "extrabold", spacing: 2pt, baseline: -3pt)]
+        #place(dy:-15pt)[#text(item.Date, size: 14pt, fill: rgb("#00000041"), weight: "extrabold", spacing: 2pt, baseline: -3pt)]
         // Display value
-        #align(bottom, text(item.Value, size: 25pt, spacing: 2pt, weight: "bold", stretch: 50%))
+        #align(bottom, text(item.Value,fill:rgb(item.Colors), size: 25pt, spacing: 2pt, weight: "bold", stretch: 50%))
       ]
     })
   )
@@ -165,7 +168,7 @@ header: context{
   )[
     // Chart titles
     #place(dx: 145pt, dy: 130pt, text(weight: "extrabold", size: 25pt, "Current"))
-    #place(dx: 540pt, dy: 130pt, text(weight: "extrabold", size: 22pt, "Current"))
+    #place(dx: 540pt, dy: 130pt, text(weight: "extrabold", size: 22pt, "Target"))
 
     #place(dx: 10pt, dy: -15pt, pad(..titlePadding, text(
       "Asset Allocation (%)",
@@ -335,11 +338,11 @@ header: context{
         {{range .RelativePerformanceOverQuarters}}
         table.cell(align(center)[#text(size: 16pt,"{{.Date}}")]),
         table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text(size: 16pt,"{{.BMXIRR}}"+"%")]),
+        table.cell(align(right)[#text(size: 16pt,"{{.XIRR}}"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
         table.cell(align(right)[#text(size: 16pt,"{{.ExcessReturns}}"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text(size: 16pt,"{{.XIRR}}"+"%")]),
+        table.cell(align(right)[#text(size: 16pt,"{{.BMXIRR}}"+"%")]),
         {{end}}
       ),
     )

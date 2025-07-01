@@ -70,7 +70,7 @@ header: context{
     //  #place(dx: 500pt, dy: 150pt, text(weight: "extrabold", size: 15pt, " Ending Allocation
     //  30-Jun-2024"))
 
-      #place(dx: 130pt, dy: 150pt, text(weight: "extrabold", size: 15pt, "Beginning Allocatio"))
+      #place(dx: 130pt, dy: 150pt, text(weight: "extrabold", size: 15pt, "Beginning Allocation"))
       #place(dx: 150pt, dy: 170pt, text(weight: "extrabold", size: 15pt,  ReportBeginDate))
 
       #place(dx: 500pt, dy: 150pt, text(weight: "extrabold", size: 15pt, "Ending Allocation"))

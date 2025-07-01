@@ -3,112 +3,49 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"sort"
+	"strconv"
+	"strings"
 	"time"
 )
-
-type RequestBody struct {
-	RequestedReports []int  `json:"requested_reports" validate:"required,positivearr"`
-	CustomerName     string `json:"customer_name" validate:"required"`
-	Portfolio        string `json:"portfolio" validate:"required"`
-	ReportDate       string `json:"report_date" validate:"required,date"`
-	Logs             string `json:"logs"`
-}
-type RequestApiError struct {
-	Field string
-	Msg   string
-}
-type ExecutiveSummary struct {
-	BasicInformationSection         []BasicInfo           `json:"basic_information_section"`
-	AllocationComparisonSection     []Allocation          `json:"allocation_comparison_section"`
-	QuarterlyAllocationSection      []QuarterlyAlloc      `json:"quarterly_allocation_section"`
-	RelativePerformanceOverQuarters []RelativePerformance `json:"relative_performance_over_quarters"`
-}
 
 type BasicInfo struct {
 	Description string  `json:"Description"`
 	Value       float64 `json:"Value"`
-	Date        *string `json:"Date"` // Use pointer to handle null
+	Date        string  `json:"Date"`
+	StrigValue  string
+	Images      string
+	Color       string
 }
-
-type Allocation struct {
-	AssetGroupName          string  `json:"ASSET_GROUP_NAME"`
-	TotalExposurePercentage float64 `json:"Total_Exposure_Percentage"`
-	StrategicPercentage     float64 `json:"Strategic_Percentage"`
-}
-
-type QuarterlyAlloc struct {
-	AssetGroupName string  `json:"ASSET_GROUP_NAME"`
-	March2024      float64 `json:"March 2024"`
-	June2024       float64 `json:"June 2024"`
-	September2024  float64 `json:"September 2024"`
-	December2024   float64 `json:"December 2024"`
-}
-
-type RelativePerformance struct {
-	Metric  string  `json:"Metric"`
-	Mar2024 float64 `json:"Mar 2024"`
-	Jun2024 float64 `json:"Jun 2024"`
-	Sep2024 float64 `json:"Sep 2024"`
-	Dec2024 float64 `json:"Dec 2024"`
-}
-
-type Overview struct {
-	ReportDate     string `json:"Report Date"`
-	ReportFrom     string `json:"Report From"`
-	ReportTo       string `json:"Report To"`
-	PrintDate      string `json:"Print Date"`
-	RM             string `json:"RM"`
-	RMMobile       string `json:"RMMobile"`
-	RMEmail        string `json:"RMEmail"`
-	SM             string `json:"SM"`
-	SMMobile       string `json:"SMMobile"`
-	SMEmail        string `json:"SMEmail"`
-	ClientName     string `json:"Client_Name"`
-	FamilyName     string `json:"Family_Name"`
-	CustomerMobile string `json:"Customer_Mobile"`
-	CustomerType   string `json:"Customer_Type"`
-}
-
-type ReportOverview struct {
-	OverviewSection []Overview `json:"overview_section"`
-}
-type FinalEquityMfIndustryAllocation struct {
-	EquityMfIndustryAllocation []EquityMfIndustryAllocation
-}
-type EquityMfIndustryAllocation struct {
-	IndustryName string  `json:"INDUSTRY_NAME"`
-	Percentage   float64 `json:"Percentage"`
+type AssetSubassetSection struct {
+	AssetGroupName   string  `json:"ASSET_GROUP_NAME"`
+	SecurityCategory string  `json:"SECURITY_CATEGORY"`
+	MarketValue      float64 `json:"MARKET_VALUE"`
+	AcquisitionCost  float64 `json:"ACQU_COST"`
+	RealGainLoss     float64 `json:"REAL_GAIN_LOSS"`
+	Appreciation     float64 `json:"APPRE_DEPRE"`
+	Dividend         float64 `json:"DIVIDEND"`
+	XIRR             float64 `json:"XIRR"`
+	AssetExposure    float64 `json:"ASSET_EXPOSURE%"`
+	BenchmarkName    string  `json:"BENCHMARK_NAME"`
+	GroupLabel       string  `json:"GROUP_LABEL"`
+	OrderNumber      int
 }
 
 func main() {
-	var finalProcessData FinalEquityMfIndustryAllocation
-	var tempData []map[string]interface{}
-	sqlData := `[{"equity_mf_industry_allocation%": [{"INDUSTRY_NAME": "Banking", "Percentage": 16.5200495723}, {"INDUSTRY_NAME": "Software", "Percentage": 7.9025017895}, {"INDUSTRY_NAME": "Drugs & Pharma", "Percentage": 7.4460083269}, {"INDUSTRY_NAME": "Cement", "Percentage": 4.3877079956}, {"INDUSTRY_NAME": "Cars & Multi Utility Vehicles", "Percentage": 2.7510672857}, {"INDUSTRY_NAME": "Telecom Services", "Percentage": 2.463508379}, {"INDUSTRY_NAME": "Life Insurance", "Percentage": 2.4406426937}, {"INDUSTRY_NAME": "E-Commerce", "Percentage": 2.2222556683}, {"INDUSTRY_NAME": "Auto Ancillaries", "Percentage": 2.0726549388}, {"INDUSTRY_NAME": "Other Financial Instututions", "Percentage": 1.977855761}, {"INDUSTRY_NAME": "Others", "Percentage": 49.8157475891}]}]`
+	var FinalData []BasicInfo
+	var parsedData []map[string]interface{}
+	jsonData := `[{"basic_information_section":[{"Description":"ACQU_COST","Value":293976076.83,"Date":"As on 19 Mar 2025"},{"Description":"MARKET_VALUE","Value":300751912.95,"Date":"As on 19 Mar 2025"},{"Description":"NetContribution","Value":290254594.11,"Date":"Since Inception"},{"Description":"XIRR","Value":-14.36,"Date":"Since Inception"},{"Description":"BMXIRR","Value":-3.15,"Date":"Since Inception"},{"Description":"BenchmarkInfo_CRISILCBI","Value":2.75,"Date":""},{"Description":"BenchmarkInfo_NIFTY500","Value":-17.21,"Date":""}]}]`
 
-	json.Unmarshal([]byte(sqlData), &tempData)
-	// fmt.Println(err,tempData)
-	for _, item := range tempData {
-		fmt.Println(item)
-		var tempData []EquityMfIndustryAllocation
-		for _, value := range item {
-			jsonBytes, _ := json.Marshal(value)
-			json.Unmarshal(jsonBytes, &tempData)
+	if err := json.Unmarshal([]byte(jsonData), &parsedData); err != nil {
+		fmt.Println("failed to unmarshal JSON_DATA:", err)
+	}
+	for _, group := range parsedData {
+		for _, data := range group {
+			MapToStruct(data, &FinalData)
 		}
-		finalProcessData.EquityMfIndustryAllocation = tempData
-		// 	finalProcessData = tempData[0]
 	}
-
-	fmt.Println(finalProcessData.EquityMfIndustryAllocation)
-
-	// Sort the slice by Percentage in ascending order
-	sort.Slice(finalProcessData.EquityMfIndustryAllocation, func(i, j int) bool {
-		return finalProcessData.EquityMfIndustryAllocation[i].Percentage > finalProcessData.EquityMfIndustryAllocation[j].Percentage
-	})
-
-	for group, data := range finalProcessData.EquityMfIndustryAllocation {
-		fmt.Println(group, data)
-	}
+	ProcessExecutinveSummary(&FinalData)
+	// sortingRecords(&FinalData)
 	// parsedDate, err := DateFormatter("2022-10-04", "02 Jan 2006")
 	// fmt.Println(parsedDate, err)
 
@@ -134,4 +71,98 @@ func MapToStruct(data interface{}, result interface{}) error {
 		return fmt.Errorf("failed to unmarshal into struct: %w", err)
 	}
 	return nil
+}
+
+func ProcessExecutinveSummary(data *[]BasicInfo) {
+	var temp BasicInfo
+	var finalProcessData []BasicInfo
+
+	for _, data := range *data {
+		temp.Value = data.Value
+		temp.Date = data.Date
+		temp.Color = "black"
+		temp.Description = data.Description
+		if data.Description == "MARKET_VALUE" {
+			temp.Description = "CURRENT VALUE"
+			temp.StrigValue = ConvertToFormattedNumberWithoutDecimalPointer(&data.Value)
+			temp.Images = "/assets/images/three.png"
+		}
+		if data.Description == "ACQU_COST" {
+			temp.Description = "HOLDING COST"
+			temp.StrigValue = ConvertToFormattedNumberWithoutDecimalPointer(&data.Value)
+			temp.Images = "./assets/images/two.png"
+		}
+		if data.Description == "NetContribution" {
+			temp.Description = "INFLOW MINUS OUTFLOW"
+			temp.StrigValue = ConvertToFormattedNumberWithoutDecimalPointer(&data.Value)
+			temp.Images = "./assets/images/one.png"
+		}
+		if data.Description == "XIRR" {
+			temp.Description = "PORTFOLIO RETURN(IRR)"
+			temp.StrigValue = strconv.FormatFloat(data.Value, 'f', 2, 64) + "%"
+			temp.Images = "./assets/images/one.png"
+			if data.Value < 0 {
+				temp.Color = "red"
+			} else {
+				temp.Color = "green"
+			}
+		}
+
+		if data.Description == "BMXIRR" {
+			temp.Description = "BENCHMARK RETURN(IRR)"
+			temp.StrigValue = strconv.FormatFloat(data.Value, 'f', 2, 64) + "%"
+			temp.Images = "./assets/images/one.png"
+			if data.Value < 0 {
+				temp.Color = "red"
+			} else {
+				temp.Color = "green"
+			}
+		}
+		if strings.Contains(data.Description, "BenchmarkInfo_") {
+			temp.StrigValue = strconv.FormatFloat(data.Value, 'f', 2, 64) + "%"
+			if data.Value < 0 {
+				temp.Color = "red"
+			} else {
+				temp.Color = "green"
+			}
+		}
+
+		finalProcessData = append(finalProcessData, temp)
+	}
+	for _, data := range finalProcessData {
+		fmt.Println(data.Description)
+
+	}
+
+}
+
+func ConvertToFormattedNumberWithoutDecimalPointer(amount *float64) string {
+	if amount == nil {
+		return "--"
+	}
+	if *amount == 0.0 {
+		return "0"
+	}
+
+	intPart := fmt.Sprintf("%.0f", *amount)
+	n := len(intPart)
+
+	if n <= 3 {
+		return intPart
+	}
+
+	result := intPart[n-3:]
+	for i := n - 3; i > 0; i -= 2 {
+		start := i - 2
+		if start < 0 {
+			start = 0
+		}
+		separator := ","
+		if intPart[start] == '-' && i-start <= 1 {
+			separator = ""
+		}
+		result = intPart[start:i] + separator + result
+	}
+
+	return result
 }
