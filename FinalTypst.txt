@@ -31,7 +31,7 @@
     )
   ]
 ])
-#set text(size: 14pt, font: "Bai Jamjuree",weight: "bold")
+#set text(size: 16pt, font: "Bai Jamjuree",weight: "bold")
 #set page(
   paper: "a2",
   flipped: true,
@@ -314,46 +314,74 @@ header: context{
  
   ( value: 15,
      name: "Alternative Investment Fund",
-     total: 0
   ),
 
   ( value: 0,
      name: "Commodities",
-     total: 0.71
   ),
 
   ( value: 5,
      name: "Commodity",
-     total: 0
   ),
 
   ( value: 20,
      name: "Debt",
-     total: 0
   ),
 
   ( value: 0,
      name: "Equities",
-     total: 96.4
   ),
 
   ( value: 60,
      name: "Equity",
-     total: 0
   ),
 
   ( value: 0,
      name: "Fixed Income",
-     total: 2.88
   ),
 
   ( value: 0,
      name: "Liquid",
-     total: 0.01
   ),
 
 )
 
+#let targetData = (
+
+ 
+  ( value: 0,
+     name: "Alternative Investment Fund",
+  ),
+
+  ( value: 0.71,
+     name: "Commodities",
+  ),
+
+  ( value: 0,
+     name: "Commodity",
+  ),
+
+  ( value: 0,
+     name: "Debt",
+  ),
+
+  ( value: 96.4,
+     name: "Equities",
+  ),
+
+  ( value: 0,
+     name: "Equity",
+  ),
+
+  ( value: 2.88,
+     name: "Fixed Income",
+  ),
+
+  ( value: 0.01,
+     name: "Liquid",
+  ),
+
+)
 // Page and header settings
 #let NexedgeHeaderColor = "#353535"
 #let headersize_xs = 18pt
@@ -402,7 +430,7 @@ header: context{
   ),
   
   (
-    description: "BenchmarkInfo_CRISILCBI",
+    description: "BenchmarkInfo_CRISIL Comp IDX",
     Value: "2.75%",
     Date: "",
     Colors :"#15ff00de",
@@ -410,7 +438,7 @@ header: context{
   ),
   
   (
-    description: "BenchmarkInfo_NIFTY500",
+    description: "BenchmarkInfo_NIFTY 500",
     Value: "-17.21%",
     Date: "",
     Colors :"#ff0000de",
@@ -513,13 +541,12 @@ header: context{
   )
 ]
 
-
 // Place donut chart on the right
 #place(top + right, dy: 20pt)[
   #box(
     inset: (y: 14pt, x: 10pt),
     width: 49.5%,
-    height: 485pt,
+    height: 49.5%,
     radius: 8pt,
     fill: white,
     stroke: (2.8pt + luma(88%)),
@@ -565,7 +592,7 @@ header: context{
       box(width: 60%, height: 60%, stroke: none)[
         #echarm.render(width: 100%, height: 100%, options: (
           series: (
-            name: "Current Allocation",
+            name: "Target Allocation",
             type: "pie",
             radius: ("60%", "70%"),
             avoidLabelOverlap: false,
@@ -577,7 +604,7 @@ header: context{
             labelLine: (
               //  show: true,
             ),
-            data: currentData,
+            data: targetData,
           ),
         ))
       ],
@@ -626,7 +653,7 @@ header: context{
     inset: 15pt,
     align: left,
     // Dynamically generate legend items
-    ..currentData.enumerate().map(((i, item)) => {
+    ..targetData.enumerate().map(((i, item)) => {
       let value = str(item.value) + "%"
       let name = item.name
       // Dynamically wrap long names
@@ -654,9 +681,9 @@ header: context{
 #place(bottom + left)[
   #box(
     fill:white,
-    inset: (y: 20pt, x: 10pt),
+    inset: (y: 14pt, x: 10pt),
     width: 49.5%,
-    height: 490pt,
+    height:49.5%,
     radius: 8pt,
     stroke: (2.8pt + luma(88%)),
   )[
@@ -734,52 +761,215 @@ header: context{
 ]
 #place(bottom + right)[
   #box(
-    inset: (y: 60pt, x: 10pt),
-
-    width: 49.5%,
-    height: 490pt,
+    fill:white,
+     inset: (y: 14pt, x: 10pt),
+     width: 49.5%,
+    height: 49.5%,
     radius: 8pt,
-    stroke: (2.8pt + luma(88%)),
+    stroke: (2.8pt + luma(88%))
   )[
     // Main header
-    #place(dx: 10pt, dy: -10pt, pad(..titlePadding, text(
-      "Quarterly Asset Allocation Trends",
-      size: 30pt,
-      fill: rgb("0e496e"),
-      weight: "extrabold",
-    )))
+    #place(dx: 0pt, dy: -0pt,
+      pad(
+        top: 10pt,
+        bottom: 10pt,
+        left: 10pt,
+        right: 10pt,
+        text("Quarterly Asset Allocation Trends", size: 30pt, fill: rgb("0e496e"), weight: "extrabold")
+      )
+    )
 
-
-    // Chart placement
-    // Define color scheme to match your image
+    // Define color scheme for up to 6 categories
     #let chartColors = (
-      rgb("#00c896"), // Hybrid (green)
-      rgb("#f39c12"), // Equity (orange)
-      rgb("#1295b8"), // Debt (teal)
-      rgb("#e74c3c"), // Commodities (red)
+      rgb("#00c896"), // First asset (green)
+      rgb("#f39c12"), // Second asset (orange)
+      rgb("#1295b8"), // Third asset (teal)
+      rgb("#e74c3c"), // Fourth asset (red)
+      rgb("#8e44ad"), // Fifth asset (purple)
+      rgb("#2ecc71")  // Sixth asset (light green)
     )
 
-    // Data for quarterly asset allocation
-    #let quarterData = (
-      (quarter: "Jun 2024", Category: "Hybrid", values: 19.51),
-      (quarter: "Jun 2024", Category: "Equtity", values: 1.51),
-      (quarter: "Jun 2024", Category: "Debt", values: 9.51),
-      (quarter: "Jun 2024", Category: "Commodities", values: -19.51),
-      (quarter: "Jun 2024", Category: "Equtity", values: 10.51),
-      (quarter: "Apr 2024", Category: "Hybrid", values: 19.51),
-      (quarter: "Apr 2024", Category: "Equtity", values: 1.51),
-      (quarter: "Apr 2024", Category: "Debt", values: 9.51),
-      (quarter: "Apr 2024", Category: "Commodities", values: -19.51),
-      (quarter: "Apr 2024", Category: "Equtity", values: 10.51),
+    // Chart container function with dynamic data
+    #let allocation_chart(quarterData, legendData) = {
+      // Chart height calculation
+      let rowHeight = 40pt
+      let totalHeight = quarterData.len() * rowHeight + 100pt // Increased height for legend
+
+      box(
+        width: 100%,
+        height: totalHeight,
+        inset: (x: 10pt, y: 15pt),
+        radius: 8pt,
+        stroke: none
+      )[
+        // X-axis labels
+
+
+        #place(dx:100pt)[
+        #for i in range(0, 11) {
+          let value = i * 10
+          let xPos = 90pt + (i * 50pt)
+          place(
+            dx: xPos,
+            dy: rowHeight * quarterData.len() + 60pt,
+            text(str(value), size: 9pt)
+          )
+        }
+        ]
+
+        // Draw bars
+        #for (i, row) in quarterData.enumerate() {
+          let yPos = 65pt + i * rowHeight
+
+          // Quarter label
+          place(
+            dx: 60pt,
+            dy: yPos,
+            text(size: 15pt, weight: "medium", row.quarter)
+          )
+
+
+          // Draw bar segments
+          let xRunning = 190pt
+          let totalWidth = 515pt // Total width of the bar (representing 100%)
+          for (j, value) in row.values.enumerate() {
+            if value > 0{
+              let segmentWidth = value * totalWidth / 100
+
+              place(
+                dx: xRunning,
+                dy: yPos - 15pt,
+                box(
+                  width: segmentWidth,
+                  height: 39pt,
+                  fill: chartColors.at(j, default: rgb("#000000")), // Fallback color if index exceeds chartColors
+                  radius: (
+                    top-left: if j == 0 { 4pt } else { 0pt },
+                    bottom-left: if j == 0 { 4pt } else { 0pt },
+                    top-right: if j == row.values.len() - 1 or j == row.values.enumerate().find(((_, v)) => v > 0).last() { 7pt } else { 0pt },
+                    bottom-right: if j == row.values.len() - 1 or j == row.values.enumerate().find(((_, v)) => v > 0).last() { 7pt } else { 0pt }
+                  )
+                )
+              )
+
+              // Add percentage label if segment is wide enough
+              if value >= 5 {
+                place(
+                  dx: xRunning + segmentWidth / 2 - 12pt,
+                  dy: yPos,
+                  text(
+                    fill: white,
+                    weight: "medium",
+                    size: 10pt,
+                    str(calc.round(value, digits: 1)) + "%"
+                  )
+                )
+              }
+
+              xRunning += segmentWidth
+            }
+          }
+        }
+
+        // Legend with dynamic asset names and values
+        #place(
+          dy: 270pt
+        )[
+          #pad(left: 20pt, top: 1pt,
+          grid(
+            columns: (1fr,) * legendData.len(), // Dynamic number of columns
+            column-gutter: -80pt,
+            gutter: 40pt,
+            inset: 20pt,
+            align: left,
+            ..legendData.enumerate().map(((i, item)) => {
+              let name = item.name
+              stack(
+                dir: ttb,
+                spacing: 10pt,
+                stack(
+                  dir: ltr,
+                  spacing: 15pt,
+                  rect(width: 12pt, height: 10pt, radius: 50%, fill: chartColors.at(i, default: rgb("#000000"))),
+                  text(name, size: 15pt)
+                ),
+
+              )
+            })
+          )
+          )
+        ]
+      ]
+    }
+
+    // JSON data
+    #let jsonData = (
+      (
+        Date: "May 2024",
+        allocations: (
+          (asset_group_name: "Commodities", value: 20.0),
+          (asset_group_name: "Equities", value: 40.0),
+          (asset_group_name: "Fixed Income", value: 10.0),
+          (asset_group_name: "Liquid", value: 10.0),
+          (asset_group_name: "new", value: 20.0),
+
+        )
+      ),
+      (
+        Date: "June 2024",
+        allocations: (
+          (asset_group_name: "Commodities", value: 1.76),
+          (asset_group_name: "Equities", value: 88.24),
+          (asset_group_name: "Fixed Income", value: 0.0),
+          (asset_group_name: "Liquid", value: 0.0),
+          (asset_group_name: "new", value: 10.0),
+        )
+      ),
+      (
+        Date: "September 2024",
+        allocations: (
+          (asset_group_name: "Commodities", value: 1.15),
+          (asset_group_name: "Equities", value: 88.84),
+          (asset_group_name: "Fixed Income", value: 0.0),
+          (asset_group_name: "Liquid", value: 0.01),
+          (asset_group_name: "new", value: 10.0),
+        )
+      ),
+      (
+        Date: "December 2024",
+        allocations: (
+          (asset_group_name: "Commodities", value: 0.62),
+          (asset_group_name: "Equities", value: 88.26),
+          (asset_group_name: "Fixed Income", value: 1.11),
+          (asset_group_name: "Liquid", value: 0.01),
+          (asset_group_name: "new", value: 10.0),
+        )
+      )
     )
 
-    #let assetClasses = (
-      "Hybrid",
-      "Equity",
-      "Debt",
-      "Commodities",
-    )
+    // Extract legend data (asset names and values from the latest quarter)
+    #let legendData = jsonData.at(-1).allocations.map(allocation => (
+      name: allocation.asset_group_name,
+      value: allocation.value
+    ))
 
+    // Determine the number of categories
+    #let maxCategories = jsonData.map(quarter => quarter.allocations.len()).fold(0, (a, b) => calc.max(a, b))
+
+    // Transform JSON data into the format expected by allocation_chart
+    #let dynamicQuarterData = jsonData.map(quarter => {
+      let values = array.range(maxCategories).map(_ => 0.0) // Initialize dynamic values array
+      for (i, allocation) in quarter.allocations.enumerate() {
+        if i < maxCategories { // Map up to maxCategories
+          values.at(i) = allocation.value
+        }
+      }
+      (quarter: quarter.Date, values: values)
+    })
+
+    // Generate the chart with transformed data and legend data
+
+    #place()[#allocation_chart(dynamicQuarterData, legendData)]
   ]
 ]#pagebreak()
 #let customHeader =box(
@@ -807,7 +997,6 @@ header: context{
 ]
 
 
-#let titlePadding = (top: 15pt, bottom: 15pt, left: 20pt, right: 20pt)
 
 #let primaryColors = (
   "#1e90ff",
@@ -873,28 +1062,19 @@ header: context{
 #place(top+left,dy: 10pt)[
   #box(
     fill:white,
-    inset: 20pt,
+    inset: (top: 30pt, left: 20pt, right: 20pt, bottom: 30pt),
     width: 49.5%,
-    height: 1000pt,
+    height:100%,
     radius: 8pt,
     stroke: (2.8pt + luma(88%))
   )[
-    // Chart titles
-    //  #place(dx: 500pt, dy: 150pt, text(weight: "extrabold", size: 15pt, " Ending Allocation
-    //  30-Jun-2024"))
+      #place(dx: 130pt, dy: 210pt, text(weight: "extrabold", size: 15pt, "Beginning Allocation"))
+      #place(dx: 150pt, dy: 230pt, text(weight: "extrabold", size: 15pt,  ReportBeginDate))
 
-      #place(dx: 130pt, dy: 150pt, text(weight: "extrabold", size: 15pt, "Beginning Allocation"))
-      #place(dx: 150pt, dy: 170pt, text(weight: "extrabold", size: 15pt,  ReportBeginDate))
+      #place(dx: 530pt, dy: 210pt, text(weight: "extrabold", size: 15pt, "Ending Allocation"))
+      #place(dx: 540pt, dy: 230pt, text(weight: "extrabold", size: 15pt,  ReportEndDate))
 
-      #place(dx: 500pt, dy: 150pt, text(weight: "extrabold", size: 15pt, "Ending Allocation"))
-      #place(dx: 520pt, dy: 170pt, text(weight: "extrabold", size: 15pt,  ReportEndDate))
-
-
-
-
-   #place(dx: 10pt, dy: -15pt,
-  pad(..titlePadding, text("Portfolio Allocation by  Asset Class", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold"))
-)
+      #text("Portfolio Allocation by  Asset Class", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")
     // Main header
         #pad(left: 5pt,top: -150pt,
     // Grid for the two charts
@@ -1011,79 +1191,59 @@ grid(
     )
   )
 #place(dy: -138pt)[
-  #set table(
-    fill:(x,y) =>
-    if y==0 or y==1{
-      rgb("#f1f1f1")
-    }
 
-  )
 
 #set table(stroke: stroke(thickness:01pt,paint: rgb("#cdcdcd")))
 
-  #table(
-     columns: (1.5fr,1fr,.5fr,1fr,.5fr),
+  #box(width:100%,stroke: stroke(thickness:01pt,paint: rgb("#cdcdcd")),radius: 20pt,clip: true)[
+ #table(
+    columns: (1.5fr,1fr,.7fr,1fr,.7fr),
     stroke: none,
     align: center+horizon,
-    inset: 20pt,
-    // stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))
-      table.hline(stroke: rgb("#cdcdcd")
-),
-  table.vline(
-stroke: rgb("#cdcdcd")
-),
-    table.cell(rowspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold", [Asset Class])),
-     table.vline(start: 0,
-end: 2,
-stroke: rgb("#cdcdcd")
-),
-    table.cell(colspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [Beginning Value])),
-    table.cell(colspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [Ending Value])),
-      table.hline(stroke: rgb("#cdcdcd")),
-    table.cell(text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [Amount(₹)])),
-    table.cell(text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [%])),
-     table.vline(start: 0,
-end: 2,
-stroke: rgb("#cdcdcd")
-),
-    table.cell(text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [Amount(₹)])),
-    table.cell(text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [%])),
-
-    table.vline(
-stroke: rgb("#cdcdcd")
-),
-
+    inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
+    table.header(
+    table.cell(fill:rgb("#ebebeb"),rowspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold", [Product Type])),
+    table.vline(start: 0,end: 2,stroke: 0.3pt+rgb("#00000070")),
+    table.cell(fill:rgb("#ebebeb"),colspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "Beginning Value")),
+    table.cell(fill:rgb("#ebebeb"),colspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "Ending Value")),
+    table.hline(stroke: 0.3pt+rgb("#00000070")),
+    table.cell(fill:rgb("#ebebeb"),align(right)[#text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "Amount (₹)")]),
+    table.cell(fill:rgb("#ebebeb"),align(right)[#text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "%")]),
+    table.vline(start: 0,end: 2,stroke: 0.3pt+rgb("#00000070")),
+    table.cell(fill:rgb("#ebebeb"),align(right)[#text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "Amount (₹)")]),
+    table.cell(fill:rgb("#ebebeb"),align(right)[#text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "%")]),
+  ),
   
-    align(left)[#text(size: 18pt, "Commodities")],
-    align(right)[#text(size: 18pt, "13,20,001")],
-    align(center)[#text(size: 18pt, "27.39"+"%")],
-    align(right)[#text(size: 18pt, "21,37,536")],
-    align(center)[#text(size: 18pt, "0.71"+"%")],
+    table.cell(align(left)[#text(size: 18pt, "Commodities")]),
+    table.cell(align(right)[#text(size: 18pt, "13,20,001")]),
+    table.cell(align(right)[#text(size: 18pt, "27.39"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "21,37,536")]),
+    table.cell(align(right)[#text(size: 18pt, "0.71"+"%")]),
     table.hline(stroke: rgb("#cdcdcd")),
 
-    align(left)[#text(size: 18pt, "Equities")],
-    align(right)[#text(size: 18pt, "35,00,001")],
-    align(center)[#text(size: 18pt, "72.61"+"%")],
-    align(right)[#text(size: 18pt, "28,99,27,837")],
-    align(center)[#text(size: 18pt, "96.40"+"%")],
+    table.cell(align(left)[#text(size: 18pt, "Equities")]),
+    table.cell(align(right)[#text(size: 18pt, "35,00,001")]),
+    table.cell(align(right)[#text(size: 18pt, "72.61"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "28,99,27,837")]),
+    table.cell(align(right)[#text(size: 18pt, "96.40"+"%")]),
     table.hline(stroke: rgb("#cdcdcd")),
 
-    align(left)[#text(size: 18pt, "Fixed Income")],
-    align(right)[#text(size: 18pt, "0")],
-    align(center)[#text(size: 18pt, "0"+"%")],
-    align(right)[#text(size: 18pt, "86,64,073")],
-    align(center)[#text(size: 18pt, "2.88"+"%")],
+    table.cell(align(left)[#text(size: 18pt, "Fixed Income")]),
+    table.cell(align(right)[#text(size: 18pt, "0")]),
+    table.cell(align(right)[#text(size: 18pt, "0"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "86,64,073")]),
+    table.cell(align(right)[#text(size: 18pt, "2.88"+"%")]),
     table.hline(stroke: rgb("#cdcdcd")),
 
-    align(left)[#text(size: 18pt, "Liquid")],
-    align(right)[#text(size: 18pt, "0")],
-    align(center)[#text(size: 18pt, "0"+"%")],
-    align(right)[#text(size: 18pt, "22,467")],
-    align(center)[#text(size: 18pt, "0.01"+"%")],
+    table.cell(align(left)[#text(size: 18pt, "Liquid")]),
+    table.cell(align(right)[#text(size: 18pt, "0")]),
+    table.cell(align(right)[#text(size: 18pt, "0"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "22,467")]),
+    table.cell(align(right)[#text(size: 18pt, "0.01"+"%")]),
     table.hline(stroke: rgb("#cdcdcd")),
 
 
-  )
+  )]
   ]
 ]
 ]
@@ -1091,239 +1251,130 @@ stroke: rgb("#cdcdcd")
 #place(top+right,dy: 10pt)[
  #box(
   fill:white,
-    inset: (y: 14pt, x: 50pt),
+  inset: (left:20pt,right:20pt,top:40pt),
     width: 49.5%,
-    height: 1000pt,
+    height: 100%,
     radius: 8pt,
     stroke: (2.8pt + luma(88%))
   )[
-    #place(dx: 10pt, dy: -15pt,
-  pad(..titlePadding, text("Portfolio Breakup by Product Type", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold"))
-)
-#place(top+right, dy: 50pt, dx: -700pt)[
-
+    #place(dx: 10pt, dy: -15pt,pad(..titlePadding, text("Portfolio Breakup by Product Type", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")))
+#place(top+left, dy: 20pt, dx: 0pt)[
   // Simulate the data structure from the template
   #let data = (
-    
-(SecurityCategory: "AIF", StartExposure: 0, EndExposure: 24.75),
-
-(SecurityCategory: "Bonds", StartExposure: 0, EndExposure: 2.88),
-
-(SecurityCategory: "Direct Equities", StartExposure: 0, EndExposure: 1.13),
-
-(SecurityCategory: "Liquid/Overnight Funds", StartExposure: 0, EndExposure: 0.01),
-
-(SecurityCategory: "Mutual Funds/ETFs", StartExposure: 100, EndExposure: 57.67),
-
-(SecurityCategory: "PMS", StartExposure: 0, EndExposure: 13.56),
-
-  )
-
-  // Extract arrays from the data
-  #let categories = data.map(item => item.SecurityCategory)
-  #let beginning = data.map(item => item.StartExposure)
-  #let ending = data.map(item => item.EndExposure)
-
-  #let max-value = 1500
-
-  // Chart dimensions
-  #let bar-width = 50pt
-  #let bar-spacing = 4pt
-  #let group-spacing = 10pt
-  #let chart-height = 330pt
-   #let chart-width = 300pt
-
-  // Draw the entire chart
-  #block(width: auto, height: auto, inset: 0pt, {
-    v(20pt)
-
-    // Main chart area with Y-axis and bars
-    box(width: auto, height: auto, {
-      // Y-axis with values and grid lines
-      place(
-        box(width: chart-width, height: chart-height, {
-          // Y-axis vertical line
-          place(dx: 34pt, dy: 0pt, line(start: (0pt, 0pt), end: (0pt, chart-height), stroke: 1pt))
-
-          // Y-axis values and horizontal grid lines - increments of 250
-          for i in range(7) {
-            let y-value = max-value - i * 250
-            let y-pos = chart-height * float(i * 250) / float(max-value)
-            // Y-axis value
-
-            place(dx: -10pt, dy: y-pos, align(right, text(size: 12pt,[#y-value]+"M")))
-            // Horizontal grid line (light gray)
-
-          }
-        })
-      )
-
-      // Chart with bars
-      place(dx: 35pt, dy: 0pt, {
-        box(width: auto, height: chart-height, {
-          // Calculate total width to use for x-axis line
-          let total-width = categories.len() * (2 * bar-width + bar-spacing + group-spacing)
-
-          // X-axis line
-          place(dx: 0pt, dy: chart-height, line(start: (0pt, 0pt), end: (total-width, 0pt), stroke: 1pt))
-
-          // Draw bars for each category
-          let x-pos = 0pt
-          for i in range(categories.len()) {
-            let cat = categories.at(i)
-            let beg = beginning.at(i)
-            let end = ending.at(i)
-
-            // Calculate bar heights
-            let beg-height = float(beg) / float(max-value) * chart-height
-            let end-height = float(end) / float(max-value) * chart-height
-
-            // Draw group
-            place(dx: x-pos, dy: 0pt, {
-              // Beginning value bar (green)
-              place(dx: 0pt, dy: chart-height - beg-height,
-                rect(width: bar-width, height: beg-height, fill: rgb("#39b97d"), radius: (top: 15pt))
+                (SecurityCategory: "AIF", StartExposure: 0, EndExposure: 7.443764767e+07),
+              
+                (SecurityCategory: "Bonds", StartExposure: 0, EndExposure: 8.66407299e+06),
+              
+                (SecurityCategory: "Direct Equities", StartExposure: 0, EndExposure: 3.40426374e+06),
+              
+                (SecurityCategory: "Liquid/Overnight Funds", StartExposure: 0, EndExposure: 22466.84),
+              
+                (SecurityCategory: "Mutual Funds/ETFs", StartExposure: 4.82000156e+06, EndExposure: 1.7343870791e+08),
+              
+                (SecurityCategory: "PMS", StartExposure: 0, EndExposure: 4.07847538e+07),
               )
-              // Ending value bar (blue)
-              place(dx: bar-width + bar-spacing, dy: chart-height - end-height,
-                rect(width: bar-width, height: end-height, fill: rgb("#4886c6"
- ), radius: (top: 15pt))
-              )
-              // Category label
-              place(dx: 0pt, dy: chart-height + 7pt,
-                box(width: 2*bar-width + bar-spacing, {
-                  align(center, text(size: 15pt)[#cat])
-                })
-              )
-              // Tick mark on x-axis
-              place(dx: bar-width, dy: chart-height,
-                line(start: (0pt, 0pt), end: (0pt, 5pt), stroke: 1pt)
-              )
-            })
-
-            // Move to next group position
-            x-pos += 2 * bar-width + bar-spacing + group-spacing
-          }
-        })
-      })
-    })
-
-    // Y-axis label (commented out in original code)
-    // place(dx: -30pt, dy: chart-height/2, rotate(90deg, text(size: 12pt)[Value]))
-
-    // Legend
-    v(0pt)
-    place(dx: 450pt, [
-      #align(center, {
-        box(width: 15pt, height: 15pt, fill: rgb("#39b97d"))
-        h(5pt)
-        text(size: 12pt)[Beginning Value]
-        h(30pt)
-        box(width: 15pt, height: 15pt, fill: rgb("#4886c6"))
-        h(5pt)
-        text(size: 12pt)[Ending Value]
-      })
-    ])
-  })
+  #box()[
+#echarm.render(width: 100%, height: 450pt, options: (
+    xAxis: (
+    type: "category",
+    data: ("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
+    axisLine: (
+      "show": true,
+    ),
+      axisTick: (
+      "show": false
+    ),
+  ),
+  yAxis: (
+    type: "value",
+    axisLine: (
+      "show": true,
+    ),
+  ),
+  series: (
+    (data: (120, 20, 150, 80, 70, 110, 130),
+    type: "bar",
+    stack:"a",
+    name:"a"
+  ),
+  (data: (12, 0, 15, 8, 7, 10, 30),
+    type: "bar",
+    name:"b",
+    stack:"b",
+  ))
+))]
 ]
 
-
-
 #place(dy: 500pt)[
-  #set table(
-    fill:(x,y) =>
-    if y==0 or y==1{
-      rgb("#f1f1f1")
-    }
-  )
-
-  #table(
-    columns: (1.5fr,1fr,.5fr,1fr,.5fr),
+  #box(width:100%,stroke: stroke(thickness:01pt,paint: rgb("#cdcdcd")),radius: 20pt,clip: true)[
+ #table(
+    columns: (1.5fr,1fr,.7fr,1fr,.7fr),
     stroke: none,
-align: center+horizon,
-    inset: 20pt,
-    table.hline(stroke: rgb("#cdcdcd")),
-       table.vline(
-stroke: rgb("#cdcdcd")
-),
-     table.cell(rowspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold", [Product Type])),
-     table.vline(start: 0,
-end: 2,
-stroke: rgb("#cdcdcd")
-),
-    table.cell(colspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [Beginning Value])),
-
-    table.cell(colspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [Ending Value])),
-    table.hline(stroke: rgb("#cdcdcd")),
-    table.cell(text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [Amount(₹)])),
-    table.cell(text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [%])),
-       table.vline(start: 0,
-end: 2,
-stroke: rgb("#cdcdcd")
-),
-
-    table.cell(text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [Amount(₹)])),
-    table.cell(text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [%])),
-
-
-    table.vline(
-stroke: rgb("#cdcdcd")
-),
+    align: center+horizon,
+    inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
+    table.header(
+    table.cell(fill:rgb("#ebebeb"),rowspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold", [Product Type])),
+    table.vline(start: 0,end: 2,stroke: 0.3pt+rgb("#00000070")),
+    table.cell(fill:rgb("#ebebeb"),colspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "Beginning Value")),
+    table.cell(fill:rgb("#ebebeb"),colspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "Ending Value")),
+    table.hline(stroke: 0.3pt+rgb("#00000070")),
+    table.cell(fill:rgb("#ebebeb"),align(right)[#text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "Amount (₹)")]),
+    table.cell(fill:rgb("#ebebeb"),align(right)[#text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "%")]),
+    table.vline(start: 0,end: 2,stroke: 0.3pt+rgb("#00000070")),
+    table.cell(fill:rgb("#ebebeb"),align(right)[#text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "Amount (₹)")]),
+    table.cell(fill:rgb("#ebebeb"),align(right)[#text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "%")]),
+  ),
   
-    align(left)[#text(size: 18pt, "AIF")],
-    align(right)[#text(size: 18pt, "0")],
-    align(center)[#text(size: 18pt, "0"+"%")],
-    align(right)[#text(size: 18pt, "7,44,37,648")],
-    align(center)[#text(size: 18pt, "24.75"+"%")],
+    table.cell(align(left)[#text(size: 18pt, "AIF")]),
+    table.cell(align(right)[#text(size: 18pt, "0")]),
+    table.cell(align(right)[#text(size: 18pt, "0"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "7,44,37,648")]),
+    table.cell(align(right)[#text(size: 18pt, "24.75"+"%")]),
     table.hline(stroke: rgb("#cdcdcd")),
 
-    align(left)[#text(size: 18pt, "Bonds")],
-    align(right)[#text(size: 18pt, "0")],
-    align(center)[#text(size: 18pt, "0"+"%")],
-    align(right)[#text(size: 18pt, "86,64,073")],
-    align(center)[#text(size: 18pt, "2.88"+"%")],
+    table.cell(align(left)[#text(size: 18pt, "Bonds")]),
+    table.cell(align(right)[#text(size: 18pt, "0")]),
+    table.cell(align(right)[#text(size: 18pt, "0"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "86,64,073")]),
+    table.cell(align(right)[#text(size: 18pt, "2.88"+"%")]),
     table.hline(stroke: rgb("#cdcdcd")),
 
-    align(left)[#text(size: 18pt, "Direct Equities")],
-    align(right)[#text(size: 18pt, "0")],
-    align(center)[#text(size: 18pt, "0"+"%")],
-    align(right)[#text(size: 18pt, "34,04,264")],
-    align(center)[#text(size: 18pt, "1.13"+"%")],
+    table.cell(align(left)[#text(size: 18pt, "Direct Equities")]),
+    table.cell(align(right)[#text(size: 18pt, "0")]),
+    table.cell(align(right)[#text(size: 18pt, "0"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "34,04,264")]),
+    table.cell(align(right)[#text(size: 18pt, "1.13"+"%")]),
     table.hline(stroke: rgb("#cdcdcd")),
 
-    align(left)[#text(size: 18pt, "Liquid/Overnight Funds")],
-    align(right)[#text(size: 18pt, "0")],
-    align(center)[#text(size: 18pt, "0"+"%")],
-    align(right)[#text(size: 18pt, "22,467")],
-    align(center)[#text(size: 18pt, "0.01"+"%")],
+    table.cell(align(left)[#text(size: 18pt, "Liquid/Overnight Funds")]),
+    table.cell(align(right)[#text(size: 18pt, "0")]),
+    table.cell(align(right)[#text(size: 18pt, "0"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "22,467")]),
+    table.cell(align(right)[#text(size: 18pt, "0.01"+"%")]),
     table.hline(stroke: rgb("#cdcdcd")),
 
-    align(left)[#text(size: 18pt, "Mutual Funds/ETFs")],
-    align(right)[#text(size: 18pt, "48,20,002")],
-    align(center)[#text(size: 18pt, "100.00"+"%")],
-    align(right)[#text(size: 18pt, "17,34,38,708")],
-    align(center)[#text(size: 18pt, "57.67"+"%")],
+    table.cell(align(left)[#text(size: 18pt, "Mutual Funds/ETFs")]),
+    table.cell(align(right)[#text(size: 18pt, "48,20,002")]),
+    table.cell(align(right)[#text(size: 18pt, "100.00"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "17,34,38,708")]),
+    table.cell(align(right)[#text(size: 18pt, "57.67"+"%")]),
     table.hline(stroke: rgb("#cdcdcd")),
 
-    align(left)[#text(size: 18pt, "PMS")],
-    align(right)[#text(size: 18pt, "0")],
-    align(center)[#text(size: 18pt, "0"+"%")],
-    align(right)[#text(size: 18pt, "4,07,84,754")],
-    align(center)[#text(size: 18pt, "13.56"+"%")],
+    table.cell(align(left)[#text(size: 18pt, "PMS")]),
+    table.cell(align(right)[#text(size: 18pt, "0")]),
+    table.cell(align(right)[#text(size: 18pt, "0"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "4,07,84,754")]),
+    table.cell(align(right)[#text(size: 18pt, "13.56"+"%")]),
     table.hline(stroke: rgb("#cdcdcd")),
 
 
-  )
+  )]
   ]
 ]
 ]
 // #place(dy: -75pt)[
 //    #custom-footer
 // ]
-
-
-
-
 
 
 
@@ -1356,6 +1407,37 @@ header: none)
 //     }
 //   )
 #hide[ #heading(outlined: true)[#text([Asset Class Summary],fill:rgb("#0d3c6a"))]]
+#place(dx: -15pt,dy:-80pt,
+  image(width:101% ,height: 109.7%,"./assets/images/Holding_Report2.0.png")
+)
+#place(
+  dx:720pt,dy:-80pt,
+  box(height: 109.7%,width: 70%,fill: rgb(0, 0, 0,60%))
+)
+
+#place(
+  horizon+center,
+  dx:-10pt,
+  dy:-10pt,
+  stack(
+    dir: ltr,
+    spacing: 2em,
+     stack(
+      dir: ttb,
+      circle(fill: rgb("#40c1fd"),radius: 1.5em),
+      line(
+        angle: 90deg,
+        length: 35em,
+        stroke: (
+          paint:rgb("#40c1fd"),
+          thickness:1em,
+        )
+      ),
+      circle(fill: rgb("#40c1fd"),radius: 1.5em),
+    ),
+  )
+)
+
   #place(
     dx:20%,
     dy:30%,
@@ -1366,11 +1448,13 @@ header: none)
         if entry.body.text.contains("Asset Class Summary -"){
           link(
             entry.location(),
-            [/*#text(weight: "bold", entry.body.text.split("- ").at(-1))            #entry.location().page() \*/
-               #box(
+            [
+            #pad(left: 550pt,
+               box(
                  // stroke: 1pt+green,
                   width: 60%,
-                  inset: (top: 20pt,bottom: 20pt),
+                  inset: 10pt,
+                  // inset: (top: 0pt,bottom: 0pt),
                     stack(
                       dir: ltr,
                       spacing: 10%,
@@ -1378,13 +1462,14 @@ header: none)
                         #stack(
                           dir: ltr,
                           spacing: 20pt,
-                          circle(radius:7pt,fill: black),
-                          text(weight: "bold",size:20pt,entry.body.text.split("- ").at(-1)),
+                          circle(radius:7pt,fill: white),
+                          text(weight: "bold",fill: white,size:24pt,entry.body.text.split("- ").at(-1)),
                         )
                       ],
-                      align(right,text(weight: "bold",size:20pt)[#entry.location().page()])
+                      align(right,text(weight: "bold",fill: white,size:24pt)[#entry.location().page()])
                   )
                 )
+          )
             ]
           )
         }
@@ -1448,7 +1533,7 @@ header: context{
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Mutual Funds/ETFs" )] ),
     table.cell(align(right)[#text("21,37,536.07")]),
-    table.cell(align(right)[#text("100")]),
+    table.cell(align(right)[#text("100.00")]),
     table.cell(align(right)[#text("13,20,000.93")]),
     table.cell(align(right)[#text("0")]),
     table.cell(align(right)[#text("0")]),
@@ -1461,7 +1546,7 @@ header: context{
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Commodities" )],fill: highlightBlue),
     table.cell(align(right)[#text("21,37,536.07")],fill: highlightBlue),
-    table.cell(align(right)[#text("100")],fill: highlightBlue),
+    table.cell(align(right)[#text("100.00")],fill: highlightBlue),
     table.cell(align(right)[#text("13,20,000.93")],fill: highlightBlue),
     table.cell(align(right)[#text("0")],fill: highlightBlue),
     table.cell(align(right)[#text("0")],fill: highlightBlue),
@@ -1526,7 +1611,7 @@ header: context{
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities" )],fill: highlightBlue),
     table.cell(align(right)[#text("28,99,27,837.05")],fill: highlightBlue),
-    table.cell(align(right)[#text("100")],fill: highlightBlue),
+    table.cell(align(right)[#text("100.00")],fill: highlightBlue),
     table.cell(align(right)[#text("28,39,70,572.64")],fill: highlightBlue),
     table.cell(align(right)[#text("0")],fill: highlightBlue),
     table.cell(align(right)[#text("0")],fill: highlightBlue),
@@ -1539,7 +1624,7 @@ header: context{
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Bonds" )] ),
     table.cell(align(right)[#text("86,64,072.99")]),
-    table.cell(align(right)[#text("100")]),
+    table.cell(align(right)[#text("100.00")]),
     table.cell(align(right)[#text("86,64,072.99")]),
     table.cell(align(right)[#text("0")]),
     table.cell(align(right)[#text("0")]),
@@ -1552,7 +1637,7 @@ header: context{
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Fixed Income" )],fill: highlightBlue),
     table.cell(align(right)[#text("86,64,072.99")],fill: highlightBlue),
-    table.cell(align(right)[#text("100")],fill: highlightBlue),
+    table.cell(align(right)[#text("100.00")],fill: highlightBlue),
     table.cell(align(right)[#text("86,64,072.99")],fill: highlightBlue),
     table.cell(align(right)[#text("0")],fill: highlightBlue),
     table.cell(align(right)[#text("0")],fill: highlightBlue),
@@ -1565,7 +1650,7 @@ header: context{
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Liquid/Overnight Funds" )] ),
     table.cell(align(right)[#text("22,466.84")]),
-    table.cell(align(right)[#text("100")]),
+    table.cell(align(right)[#text("100.00")]),
     table.cell(align(right)[#text("21,430.27")]),
     table.cell(align(right)[#text("88,245.26")]),
     table.cell(align(right)[#text("0")]),
@@ -1578,7 +1663,7 @@ header: context{
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Liquid" )],fill: highlightBlue),
     table.cell(align(right)[#text("22,466.84")],fill: highlightBlue),
-    table.cell(align(right)[#text("100")],fill: highlightBlue),
+    table.cell(align(right)[#text("100.00")],fill: highlightBlue),
     table.cell(align(right)[#text("21,430.27")],fill: highlightBlue),
     table.cell(align(right)[#text("88,245.26")],fill: highlightBlue),
     table.cell(align(right)[#text("0")],fill: highlightBlue),
@@ -1591,326 +1676,6 @@ header: context{
   )
 
 
-
-  #pagebreak()
-#let customHeader =box(
-      width: 100%,
-      height: 30pt,
-      stack(
-     place(dx: 10pt,dy: 15pt)[
-        #text("Product Wise Exposure - Advisors / Distributors", size: 38pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
-        #text("as on "+ReportDate,size: 14pt, fill: rgb("#585858"))
-        #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
-      ],
-       place(top+right,dx: -15pt,dy: 12pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
-
-)
-)
-#set page(paper: "a2", flipped: true,
-margin: (top:80pt,left:15pt,right:15pt),
-header: context{
-  if counter(page).get().first() >= 1 {
-    align(top)[#customHeader]
-  }
-})
-#hide[
-  #place()[== #text("Asset Class Summary - Product wise Exposure")]
-]
-  #table(
-    columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
-    stroke: none,
-    inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
-    // Header
-    table.header(
-    table.cell(rowspan: 2, colspan: 8, align: left + horizon, [#text(fill: heading0,size: 15pt, weight: "bold", [ Portfolio Analysis Report])]),
-    table.hline(stroke: rgb(gray)),
-
-    // Column headers
-    table.cell(align(left)[#text(fill: heading0,weight: "black", "Asset Class")]),
-    table.cell(align(right)[#text(fill: heading0,weight: "black", "Purchase Value")]),
-    table.cell(align(right)[#text(fill: heading0, weight: "black","Market Value")]),
-    table.cell(align(right)[#text(fill: heading0,weight: "black", "Unrealised Gain/Loss")]),
-    table.cell(align(right)[#text(fill: heading0,weight: "black", "Dividend Interest")]),
-    table.cell(align(right)[#text(fill: heading0,weight: "black", "Realised Gain/Loss")]),
-    table.cell(align(right)[#text(fill: heading0,weight: "black", "IRR %")]),
-    table.cell(align(right)[#text(fill: heading0,weight: "black", "Exposure %")]),
-  ),
- 
-
-  
-    
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(colspan: 8, align(left)[#text("AIF" )],fill: highlightBlue ),
-      
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Equities: MID_CAP" )] ),
-      table.cell(align(right)[#text("1,47,38,777.00" )],),
-      table.cell(align(right)[#text("1,55,96,383.76" )],),
-      table.cell(align(right)[#text("8,57,606.76" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("4.81" )],),
-      table.cell(align(right)[#text("20.95" )],),
-    
-  
-    
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Equities: NA" )] ),
-      table.cell(align(right)[#text("1,00,00,000.00" )],),
-      table.cell(align(right)[#text("93,75,531.20" )],),
-      table.cell(align(right)[#text("-6,24,468.80" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("-10.37" )],),
-      table.cell(align(right)[#text("12.6" )],),
-    
-  
-    
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Equities: SMALL_CAP" )] ),
-      table.cell(align(right)[#text("5,24,98,184.00" )],),
-      table.cell(align(right)[#text("4,94,65,732.71" )],),
-      table.cell(align(right)[#text("-,30,32,451.29" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("-21.03" )],),
-      table.cell(align(right)[#text("66.45" )],),
-    
-  
-    
-       
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Total" ,fill: heading0)],),
-      table.cell(align(right)[#text("7,72,36,961.00" ,fill: heading0)],),
-      table.cell(align(right)[#text("7,44,37,647.67" ,fill: heading0)],),
-      table.cell(align(right)[#text("-,27,99,313.33" ,fill: heading0)],),
-      table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("-7.55" ,fill: heading0)],),
-      table.cell(align(right)[#text("100" ,fill: heading0)],),
-    
-  
-    
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(colspan: 8, align(left)[#text("Bonds" )],fill: highlightBlue ),
-      
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Fixed Income: NA" )] ),
-      table.cell(align(right)[#text("86,64,072.99" )],),
-      table.cell(align(right)[#text("86,64,072.99" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("100" )],),
-    
-  
-    
-       
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Total" ,fill: heading0)],),
-      table.cell(align(right)[#text("86,64,072.99" ,fill: heading0)],),
-      table.cell(align(right)[#text("86,64,072.99" ,fill: heading0)],),
-      table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("100" ,fill: heading0)],),
-    
-  
-    
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(colspan: 8, align(left)[#text("Direct Equities" )],fill: highlightBlue ),
-      
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Equities: NA" )] ),
-      table.cell(align(right)[#text("32,95,955.82" )],),
-      table.cell(align(right)[#text("34,04,263.74" )],),
-      table.cell(align(right)[#text("1,08,307.92" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("2.74" )],),
-      table.cell(align(right)[#text("100" )],),
-    
-  
-    
-       
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Total" ,fill: heading0)],),
-      table.cell(align(right)[#text("32,95,955.82" ,fill: heading0)],),
-      table.cell(align(right)[#text("34,04,263.74" ,fill: heading0)],),
-      table.cell(align(right)[#text("1,08,307.92" ,fill: heading0)],),
-      table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("2.74" ,fill: heading0)],),
-      table.cell(align(right)[#text("100" ,fill: heading0)],),
-    
-  
-    
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(colspan: 8, align(left)[#text("Liquid/Overnight Funds" )],fill: highlightBlue ),
-      
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Liquid: Liquid/Overnight Funds" )] ),
-      table.cell(align(right)[#text("21,430.27" )],),
-      table.cell(align(right)[#text("22,466.84" )],),
-      table.cell(align(right)[#text("1,036.57" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("88,245.26" )],),
-      table.cell(align(right)[#text("7.13" )],),
-      table.cell(align(right)[#text("100" )],),
-    
-  
-    
-       
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Total" ,fill: heading0)],),
-      table.cell(align(right)[#text("21,430.27" ,fill: heading0)],),
-      table.cell(align(right)[#text("22,466.84" ,fill: heading0)],),
-      table.cell(align(right)[#text("1,036.57" ,fill: heading0)],),
-      table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("88,245.26" ,fill: heading0)],),
-      table.cell(align(right)[#text("7.13" ,fill: heading0)],),
-      table.cell(align(right)[#text("100" ,fill: heading0)],),
-    
-  
-    
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(colspan: 8, align(left)[#text("Mutual Funds/ETFs" )],fill: highlightBlue ),
-      
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Commodities: Mutual Funds/ETFs" )] ),
-      table.cell(align(right)[#text("13,20,000.93" )],),
-      table.cell(align(right)[#text("21,37,536.07" )],),
-      table.cell(align(right)[#text("8,17,535.14" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("11.39" )],),
-      table.cell(align(right)[#text("1.23" )],),
-    
-  
-    
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Equities: Factor" )] ),
-      table.cell(align(right)[#text("4,39,00,006.54" )],),
-      table.cell(align(right)[#text("3,87,00,526.87" )],),
-      table.cell(align(right)[#text("-,51,99,479.67" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("-24.23" )],),
-      table.cell(align(right)[#text("22.31" )],),
-    
-  
-    
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Equities: Large Cap" )] ),
-      table.cell(align(right)[#text("2,10,00,000.54" )],),
-      table.cell(align(right)[#text("1,99,46,514.01" )],),
-      table.cell(align(right)[#text("-,10,53,486.53" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("-15.52" )],),
-      table.cell(align(right)[#text("11.5" )],),
-    
-  
-    
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Equities: Mid Cap" )] ),
-      table.cell(align(right)[#text("2,40,54,013.82" )],),
-      table.cell(align(right)[#text("2,60,17,021.50" )],),
-      table.cell(align(right)[#text("19,63,007.68" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("7.52" )],),
-      table.cell(align(right)[#text("15" )],),
-    
-  
-    
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Equities: Multi/Flexi cap" )] ),
-      table.cell(align(right)[#text("5,14,97,712.92" )],),
-      table.cell(align(right)[#text("5,96,02,335.27" )],),
-      table.cell(align(right)[#text("81,04,622.35" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("15.08" )],),
-      table.cell(align(right)[#text("34.37" )],),
-    
-  
-    
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Equities: Thematic" )] ),
-      table.cell(align(right)[#text("2,51,52,038.00" )],),
-      table.cell(align(right)[#text("2,70,34,774.19" )],),
-      table.cell(align(right)[#text("18,82,736.19" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("9.7" )],),
-      table.cell(align(right)[#text("15.59" )],),
-    
-  
-    
-       
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Total" ,fill: heading0)],),
-      table.cell(align(right)[#text("16,69,23,772.75" ,fill: heading0)],),
-      table.cell(align(right)[#text("17,34,38,707.91" ,fill: heading0)],),
-      table.cell(align(right)[#text("65,14,935.16" ,fill: heading0)],),
-      table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("4.16" ,fill: heading0)],),
-      table.cell(align(right)[#text("100" ,fill: heading0)],),
-    
-  
-    
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(colspan: 8, align(left)[#text("PMS" )],fill: highlightBlue ),
-      
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Equities: NA" )] ),
-      table.cell(align(right)[#text("3,78,33,884.00" )],),
-      table.cell(align(right)[#text("4,07,84,753.80" )],),
-      table.cell(align(right)[#text("29,50,869.80" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("6.07" )],),
-      table.cell(align(right)[#text("100" )],),
-    
-  
-    
-       
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Total" ,fill: heading0)],),
-      table.cell(align(right)[#text("3,78,33,884.00" ,fill: heading0)],),
-      table.cell(align(right)[#text("4,07,84,753.80" ,fill: heading0)],),
-      table.cell(align(right)[#text("29,50,869.80" ,fill: heading0)],),
-      table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("6.07" ,fill: heading0)],),
-      table.cell(align(right)[#text("100" ,fill: heading0)],),
-    
-  
-  )
 
 
     #pagebreak()
@@ -2161,12 +1926,6 @@ header: context{
 // 
 // 
 // 
-// "PMS - Investment Summary",
-// 
-// 
-// 
-// "Direct Equity Holding - Advisor Wise",
-// 
 // 
 // )
 
@@ -2199,7 +1958,7 @@ header: context{
 inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
 )
  #hide[
-  #place()[== #text("Asset Class Summary - Mutual Fund Analysis")]
+  #place()[== #text("Asset Class Summary - MF Investment Summary")]
 ]
 #table(
     columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1.3fr, 1fr,1fr,.5fr,1fr),
@@ -2610,224 +2369,6 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
 )
 
 
-#pagebreak()
-#let customHeader =box(
-      width: 100%,
-      height: 30pt,
-      stack(
-     place(dx: 10pt,dy: 15pt)[
-        #text("PMS - Investment Summary", size: 38pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
-        #text("as on "+ReportDate,size: 14pt, fill: rgb("#585858"))
-        #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
-      ],
-       place(top+right,dx: -15pt,dy: 12pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
-
-)
-)
-#set page(paper: "a2", flipped: true,
-margin: (top:80pt,left:15pt,right:15pt),
-header: context{
-  if counter(page).get().first() >= 1 {
-    align(top)[#customHeader]
-  }
-})
- #hide[
-  #place()[== #text("Asset Class Summary - PMS Investment Summary")]
-]
-#table(
-    columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr,1fr),
-
-    // Header
-    table.header(
-    table.cell(rowspan: 2, colspan: 8, align: left + horizon, [#text(fill: heading0,size: 15pt, weight: "bold", [ Portfolio Analysis Report])]),
-    table.hline(stroke: rgb(gray)),
-
-    // Column headers
-    table.cell([#text(fill: heading0, weight: "black", "Provider name")]),
-    table.cell(align(left)[#text(fill: heading0, weight: "black", "Folio Number")]),
-    table.cell(align(right)[#text(fill: heading0, weight: "black", "Inflow")]),
-    table.cell(align(right)[#text(fill: heading0, weight: "black", "Outflow")]),
-    table.cell(align(center)[#text(fill: heading0, weight: "black", "Market Value")]),
-    table.cell(align(right)[#text(fill: heading0, weight: "black", "Market Value date")]),
-    table.cell(align(right)[#text(fill: heading0, weight: "black", "XIRR %")]),
-    table.cell(align(right)[#text(fill: heading0, weight: "black", "Asset Exposure %")]),
-  ),
-
-   
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Abakkus All Cap Approach")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("1,00,01,962.00")]),
-    table.cell(align(right)[#text("86,80,761.06")]),
-    table.cell(align(right)[#text("")]),
-    table.cell(align(right)[#text("-21.14")]),
-    table.cell(align(right)[#text("21.28")]),
-  
-
-   
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("CARNELIAN SHIFT STRATEGY")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(right)[#text("6,520.00")]),
-    table.cell(align(right)[#text("1,47,81,432.00")]),
-    table.cell(align(right)[#text("1,69,82,491.71")]),
-    table.cell(align(right)[#text("")]),
-    table.cell(align(right)[#text("12.52")]),
-    table.cell(align(right)[#text("41.64")]),
-  
-
-   
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("UNIFI CAPTIAL - BLENDED RANGOLI")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(right)[#text("22,668.00")]),
-    table.cell(align(right)[#text("1,30,79,678.00")]),
-    table.cell(align(right)[#text("1,51,21,501.03")]),
-    table.cell(align(right)[#text("")]),
-    table.cell(align(right)[#text("8.06")]),
-    table.cell(align(right)[#text("37.08")]),
-  
-
-   
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Total",fill :heading0)]),
-    table.cell(align(left)[#text("-",fill :heading0)]),
-    table.cell(align(right)[#text("29,188.00",fill :heading0)]),
-    table.cell(align(right)[#text("3,78,63,072.00",fill :heading0)]),
-    table.cell(align(right)[#text("4,07,84,753.80",fill :heading0)]),
-    table.cell(align(right)[#text("",fill :heading0)]),
-    table.cell(align(right)[#text("6.07",fill :heading0)]),
-    table.cell(align(right)[#text("100.00",fill :heading0)]),
-  
-
-)
-
-
-#pagebreak()
-#let customHeader =box(
-      width: 100%,
-      height: 30pt,
-      stack(
-     place(dx: 10pt,dy: 15pt)[
-        #text("Direct Equity Holding - Advisor Wise", size: 38pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
-        #text("as on "+ReportDate,size: 14pt, fill: rgb("#585858"))
-        #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
-      ],
-       place(top+right,dx: -15pt,dy: 12pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
-
-)
-)
-#set page(paper: "a2", flipped: true,
-margin: (top:80pt,left:15pt,right:15pt),
-header: context{
-  if counter(page).get().first() >= 1 {
-    align(top)[#customHeader]
-  }
-})
- #hide[
-  #place()[== #text("Asset Class Summary - Direct Equity Holding Advisor Wise")]
-]
-#table(
-    columns: (1.5fr, .7fr, .7fr, 1fr, 1fr, .7fr, .7fr,.7fr,1.2fr,1fr,1fr),
-
-    // Header
-    table.header(
-    table.cell(rowspan: 2, colspan: 11, align: left + horizon, [#text(fill: heading0,size: 15pt, weight: "bold", [ Portfolio Analysis Report])]),
-    table.hline(stroke: rgb(gray)),
-
-    // Column headers
-    table.cell([#text(fill: heading0, weight: "black", "Name")]),
-    table.cell(align(left)[#text(fill: heading0, weight: "black", "Code")]),
-    table.cell(align(right)[#text(fill: heading0, weight: "black", "No. of shares")]),
-    table.cell(align(right)[#text(fill: heading0, weight: "black", "Purchase Price")]),
-    table.cell(align(right)[#text(fill: heading0, weight: "black", "Purchase Value")]),
-    table.cell(align(right)[#text(fill: heading0, weight: "black", "Dividend")]),
-    table.cell(align(right)[#text(fill: heading0, weight: "black", "Market Price")]),
-    table.cell(align(right)[#text(fill: heading0, weight: "black", "Market Value")]),
-    table.cell(align(right)[#text(fill: heading0, weight: "black", "Unrealized Gain/Loss")]),
-    table.cell(align(right)[#text(fill: heading0, weight: "black", "Gain/Loss %")]),
-    table.cell(align(right)[#text(fill: heading0, weight: "black", "Asset Exposure %")]),
-  ),
-
-   
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Adani Green Energy Ltd")]),
-    table.cell(align(left)[#text("INE364U01010")]),
-    table.cell(align(right)[#text("553.00")]),
-    table.cell(align(right)[#text("1,800.24")]),
-    table.cell(align(right)[#text("9,95,531.53")]),
-    table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("848.70")]),
-    table.cell(align(right)[#text("4,69,331.10")]),
-    table.cell(align(right)[#text("-5,26,200.43")]),
-    table.cell(align(right)[#text("-52.86")]),
-    table.cell(align(right)[#text("13.79")]),
-  
-
-   
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Adani Ports & Special Economic Zone Ltd")]),
-    table.cell(align(left)[#text("INE742F01042")]),
-    table.cell(align(right)[#text("1,059.00")]),
-    table.cell(align(right)[#text("566.75")]),
-    table.cell(align(right)[#text("6,00,187.61")]),
-    table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("1,112.70")]),
-    table.cell(align(right)[#text("11,78,349.30")]),
-    table.cell(align(right)[#text("5,78,161.69")]),
-    table.cell(align(right)[#text("96.33")]),
-    table.cell(align(right)[#text("34.61")]),
-  
-
-   
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Aditya Birla Fashion & Retail Ltd")]),
-    table.cell(align(left)[#text("INE647O01011")]),
-    table.cell(align(right)[#text("3,098.00")]),
-    table.cell(align(right)[#text("323.01")]),
-    table.cell(align(right)[#text("10,00,693.92")]),
-    table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("243.78")]),
-    table.cell(align(right)[#text("7,55,230.44")]),
-    table.cell(align(right)[#text("-2,45,463.48")]),
-    table.cell(align(right)[#text("-24.53")]),
-    table.cell(align(right)[#text("22.18")]),
-  
-
-   
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Ambuja Cements Ltd")]),
-    table.cell(align(left)[#text("INE079A01024")]),
-    table.cell(align(right)[#text("2,039.00")]),
-    table.cell(align(right)[#text("343.08")]),
-    table.cell(align(right)[#text("6,99,542.76")]),
-    table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("491.10")]),
-    table.cell(align(right)[#text("10,01,352.90")]),
-    table.cell(align(right)[#text("3,01,810.14")]),
-    table.cell(align(right)[#text("43.14")]),
-    table.cell(align(right)[#text("29.41")]),
-  
-
-   
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Total",fill :heading0)]),
-    table.cell(align(left)[#text("-",fill :heading0)]),
-    table.cell(align(right)[#text("0",fill :heading0)]),
-    table.cell(align(right)[#text("0",fill :heading0)]),
-    table.cell(align(right)[#text("32,95,955.82",fill :heading0)]),
-    table.cell(align(right)[#text("0",fill :heading0)]),
-    table.cell(align(right)[#text("0",fill :heading0)]),
-    table.cell(align(right)[#text("34,04,263.74",fill :heading0)]),
-    table.cell(align(right)[#text("1,08,307.92",fill :heading0)]),
-     table.cell(align(right)[#text("3.29",fill :heading0)]),
-      table.cell(align(right)[#text("100.00",fill :heading0)]),
-  
-
-)
 
 // 
 
@@ -2841,21 +2382,37 @@ header: none
 )
 #pagebreak()
 #hide[ #heading(outlined: true)[#text([Mutual Fund Analysis],fill:rgb("#0d3c6a"))]]
-// #place(
-//     context {
-//       let outline_data = query(heading.where(level:2))
-//       for entry in outline_data {
-//         // entry
-//         if entry.body.text.contains("Mutual Fund Analysis -"){
-//           link(
-//             entry.location(),
-//             [#text(weight: "bold", entry.body.text.split("- ").at(-1))            #entry.location().page() \
-//             ]
-//           )
-//         }
-//       }
-//     }
-//   )
+#place(dx: -15pt,dy:-80pt,
+  image(width:101% ,height: 109.7%,"./assets/images/Holding_Report2.0.png")
+)
+#place(
+  dx:720pt,dy:-80pt,
+  box(height: 109.7%,width: 70%,fill: rgb(0, 0, 0,60%))
+)
+
+#place(
+  horizon+center,
+  dx:-10pt,
+  dy:-10pt,
+  stack(
+    dir: ltr,
+    spacing: 2em,
+     stack(
+      dir: ttb,
+      circle(fill: rgb("#40c1fd"),radius: 1.5em),
+      line(
+        angle: 90deg,
+        length: 35em,
+        stroke: (
+          paint:rgb("#40c1fd"),
+          thickness:1em,
+        )
+      ),
+      circle(fill: rgb("#40c1fd"),radius: 1.5em),
+    ),
+  )
+)
+
   #place(
     dx:20%,
     dy:30%,
@@ -2866,11 +2423,13 @@ header: none
         if entry.body.text.contains("Mutual Fund Analysis -"){
           link(
             entry.location(),
-            [/*#text(weight: "bold", entry.body.text.split("- ").at(-1))            #entry.location().page() \*/
-               #box(
+            [
+            #pad(left: 550pt,
+               box(
                  // stroke: 1pt+green,
                   width: 60%,
-                  inset: (top: 20pt,bottom: 20pt),
+                  inset: 10pt,
+                  // inset: (top: 0pt,bottom: 0pt),
                     stack(
                       dir: ltr,
                       spacing: 10%,
@@ -2878,13 +2437,14 @@ header: none
                         #stack(
                           dir: ltr,
                           spacing: 20pt,
-                          circle(radius:7pt,fill: black),
-                          text(weight: "bold",size:20pt,entry.body.text.split("- ").at(-1)),
+                          circle(radius:7pt,fill: white),
+                          text(weight: "bold",fill: white,size:24pt,entry.body.text.split("- ").at(-1)),
                         )
                       ],
-                      align(right,text(weight: "bold",size:20pt)[#entry.location().page()])
+                      align(right,text(weight: "bold",fill: white,size:24pt)[#entry.location().page()])
                   )
                 )
+          )
             ]
           )
         }
@@ -4166,8 +3726,8 @@ dx: 0pt,dy:20pt)[
       height: 30pt,
       stack(
      place(dx: 10pt,dy: 15pt)[
-        #text("Mutual Fund - Sector Wise Exposurer", size: 38pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
-        #text("as on "+ReportDate,size: 14pt, fill: rgb("#585858"))
+        #text("Mutual Fund - Sector Wise Exposure", size: 38pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
+        #text("as on "+ReportDate, fill: rgb("#585858"))
         #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
        place(top+right,dx: -15pt,dy: 12pt,

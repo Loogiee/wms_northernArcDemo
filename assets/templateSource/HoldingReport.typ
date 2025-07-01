@@ -43,7 +43,7 @@ header: context{
 inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
 )
  #hide[
-  #place()[== #text("Asset Class Summary - Mutual Fund Analysis")]
+  #place()[== #text("Asset Class Summary - MF Investment Summary")]
 ]
 #table(
     columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1.3fr, 1fr,1fr,.5fr,1fr),

@@ -34,6 +34,37 @@ header: none)
 //     }
 //   )
 #hide[ #heading(outlined: true)[#text([Asset Class Summary],fill:rgb("#0d3c6a"))]]
+#place(dx: -15pt,dy:-80pt,
+  image(width:101% ,height: 109.7%,"./assets/images/Holding_Report2.0.png")
+)
+#place(
+  dx:720pt,dy:-80pt,
+  box(height: 109.7%,width: 70%,fill: rgb(0, 0, 0,60%))
+)
+
+#place(
+  horizon+center,
+  dx:-10pt,
+  dy:-10pt,
+  stack(
+    dir: ltr,
+    spacing: 2em,
+     stack(
+      dir: ttb,
+      circle(fill: rgb("#40c1fd"),radius: 1.5em),
+      line(
+        angle: 90deg,
+        length: 35em,
+        stroke: (
+          paint:rgb("#40c1fd"),
+          thickness:1em,
+        )
+      ),
+      circle(fill: rgb("#40c1fd"),radius: 1.5em),
+    ),
+  )
+)
+
   #place(
     dx:20%,
     dy:30%,
@@ -44,11 +75,13 @@ header: none)
         if entry.body.text.contains("Asset Class Summary -"){
           link(
             entry.location(),
-            [/*#text(weight: "bold", entry.body.text.split("- ").at(-1))            #entry.location().page() \*/
-               #box(
+            [
+            #pad(left: 550pt,
+               box(
                  // stroke: 1pt+green,
                   width: 60%,
-                  inset: (top: 20pt,bottom: 20pt),
+                  inset: 10pt,
+                  // inset: (top: 0pt,bottom: 0pt),
                     stack(
                       dir: ltr,
                       spacing: 10%,
@@ -56,13 +89,14 @@ header: none)
                         #stack(
                           dir: ltr,
                           spacing: 20pt,
-                          circle(radius:7pt,fill: black),
-                          text(weight: "bold",size:20pt,entry.body.text.split("- ").at(-1)),
+                          circle(radius:7pt,fill: white),
+                          text(weight: "bold",fill: white,size:24pt,entry.body.text.split("- ").at(-1)),
                         )
                       ],
-                      align(right,text(weight: "bold",size:20pt)[#entry.location().page()])
+                      align(right,text(weight: "bold",fill: white,size:24pt)[#entry.location().page()])
                   )
                 )
+          )
             ]
           )
         }
@@ -126,7 +160,7 @@ header: context{
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("{{.AssetGroupName}}" )],fill: highlightBlue),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}")],fill: highlightBlue),
-    table.cell(align(right)[#text("{{ .AssetExposure}}")],fill: highlightBlue),
+    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AssetExposure}}")],fill: highlightBlue),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}")],fill: highlightBlue),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .RealGainLoss}}")],fill: highlightBlue),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Dividend}}")],fill: highlightBlue),
@@ -137,7 +171,7 @@ header: context{
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("{{.SecurityCategory}}" )] ),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}")]),
-    table.cell(align(right)[#text("{{ .AssetExposure}}")]),
+    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AssetExposure}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .RealGainLoss}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Dividend}}")]),

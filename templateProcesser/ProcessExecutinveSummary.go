@@ -98,6 +98,12 @@ func mapBasicInfoSec(value interface{}, parsingData *ExecutiveSummary) {
 		}
 		if strings.Contains(data.Description, "BenchmarkInfo_") {
 			temp.StrigValue = strconv.FormatFloat(data.Value, 'f', 2, 64) + "%"
+			if data.Description == "BenchmarkInfo_NIFTY500"{
+				temp.Description ="BenchmarkInfo_NIFTY 500"
+			}
+			if data.Description == "BenchmarkInfo_CRISILCBI"{
+				temp.Description ="BenchmarkInfo_CRISIL Comp IDX"
+			}
 			if data.Value < 0 {
 				temp.Color = "#ff0000de"
 			} else {

@@ -16,11 +16,11 @@ func ProcessHolding(sqlData *[]map[string]interface{}) (string, error) {
 	for _, obj := range *sqlData {
 		for key, value := range obj {
 			switch key {
-			case "mutuals_funds_holding_section":
+			case "mutuals_funds_holding_section": // Mutual Funds - Investment Summary
 				mapMutualFund(value, &finalProcessData)
-			case "pms_holding_section":
+			case "pms_holding_section#IGNORED": //PMS - Investment Summary
 				mapPMSHolding(value, &finalProcessData)
-			case "direct_equities_holding_section":
+			case "direct_equities_holding_section#IGNORED": //Direct Equity Holding - Advisor Wise
 				mapDirectEquHolding(value, &finalProcessData)
 			}
 		}

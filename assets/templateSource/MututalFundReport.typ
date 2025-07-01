@@ -10,21 +10,37 @@ header: none
 )
 #pagebreak()
 #hide[ #heading(outlined: true)[#text([Mutual Fund Analysis],fill:rgb("#0d3c6a"))]]
-// #place(
-//     context {
-//       let outline_data = query(heading.where(level:2))
-//       for entry in outline_data {
-//         // entry
-//         if entry.body.text.contains("Mutual Fund Analysis -"){
-//           link(
-//             entry.location(),
-//             [#text(weight: "bold", entry.body.text.split("- ").at(-1))            #entry.location().page() \
-//             ]
-//           )
-//         }
-//       }
-//     }
-//   )
+#place(dx: -15pt,dy:-80pt,
+  image(width:101% ,height: 109.7%,"./assets/images/Holding_Report2.0.png")
+)
+#place(
+  dx:720pt,dy:-80pt,
+  box(height: 109.7%,width: 70%,fill: rgb(0, 0, 0,60%))
+)
+
+#place(
+  horizon+center,
+  dx:-10pt,
+  dy:-10pt,
+  stack(
+    dir: ltr,
+    spacing: 2em,
+     stack(
+      dir: ttb,
+      circle(fill: rgb("#40c1fd"),radius: 1.5em),
+      line(
+        angle: 90deg,
+        length: 35em,
+        stroke: (
+          paint:rgb("#40c1fd"),
+          thickness:1em,
+        )
+      ),
+      circle(fill: rgb("#40c1fd"),radius: 1.5em),
+    ),
+  )
+)
+
   #place(
     dx:20%,
     dy:30%,
@@ -35,11 +51,13 @@ header: none
         if entry.body.text.contains("Mutual Fund Analysis -"){
           link(
             entry.location(),
-            [/*#text(weight: "bold", entry.body.text.split("- ").at(-1))            #entry.location().page() \*/
-               #box(
+            [
+            #pad(left: 550pt,
+               box(
                  // stroke: 1pt+green,
                   width: 60%,
-                  inset: (top: 20pt,bottom: 20pt),
+                  inset: 10pt,
+                  // inset: (top: 0pt,bottom: 0pt),
                     stack(
                       dir: ltr,
                       spacing: 10%,
@@ -47,13 +65,14 @@ header: none
                         #stack(
                           dir: ltr,
                           spacing: 20pt,
-                          circle(radius:7pt,fill: black),
-                          text(weight: "bold",size:20pt,entry.body.text.split("- ").at(-1)),
+                          circle(radius:7pt,fill: white),
+                          text(weight: "bold",fill: white,size:24pt,entry.body.text.split("- ").at(-1)),
                         )
                       ],
-                      align(right,text(weight: "bold",size:20pt)[#entry.location().page()])
+                      align(right,text(weight: "bold",fill: white,size:24pt)[#entry.location().page()])
                   )
                 )
+          )
             ]
           )
         }
@@ -518,8 +537,8 @@ dx: 0pt,dy:20pt)[
       height: 30pt,
       stack(
      place(dx: 10pt,dy: 15pt)[
-        #text("Mutual Fund - Sector Wise Exposurer", size: 38pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
-        #text("as on "+ReportDate,size: 14pt, fill: rgb("#585858"))
+        #text("Mutual Fund - Sector Wise Exposure", size: 38pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
+        #text("as on "+ReportDate, fill: rgb("#585858"))
         #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
        place(top+right,dx: -15pt,dy: 12pt,

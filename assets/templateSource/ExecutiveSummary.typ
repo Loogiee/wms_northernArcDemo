@@ -40,11 +40,18 @@ header: context{
  {{range .AllocationComparisonSection}}
   ( value: {{ .StrategicPercentage}},
      name: "{{ .AssetGroupName}}",
-     total: {{ .TotalExposurePercentage}}
   ),
 {{end}}
 )
 
+#let targetData = (
+
+ {{range .AllocationComparisonSection}}
+  ( value: {{ .TotalExposurePercentage}},
+     name: "{{ .AssetGroupName}}",
+  ),
+{{end}}
+)
 // Page and header settings
 #let NexedgeHeaderColor = "#353535"
 #let headersize_xs = 18pt
@@ -156,13 +163,12 @@ header: context{
   )
 ]
 
-
 // Place donut chart on the right
 #place(top + right, dy: 20pt)[
   #box(
     inset: (y: 14pt, x: 10pt),
     width: 49.5%,
-    height: 485pt,
+    height: 49.5%,
     radius: 8pt,
     fill: white,
     stroke: (2.8pt + luma(88%)),
@@ -208,7 +214,7 @@ header: context{
       box(width: 60%, height: 60%, stroke: none)[
         #echarm.render(width: 100%, height: 100%, options: (
           series: (
-            name: "Current Allocation",
+            name: "Target Allocation",
             type: "pie",
             radius: ("60%", "70%"),
             avoidLabelOverlap: false,
@@ -220,7 +226,7 @@ header: context{
             labelLine: (
               //  show: true,
             ),
-            data: currentData,
+            data: targetData,
           ),
         ))
       ],
@@ -269,7 +275,7 @@ header: context{
     inset: 15pt,
     align: left,
     // Dynamically generate legend items
-    ..currentData.enumerate().map(((i, item)) => {
+    ..targetData.enumerate().map(((i, item)) => {
       let value = str(item.value) + "%"
       let name = item.name
       // Dynamically wrap long names
@@ -297,9 +303,9 @@ header: context{
 #place(bottom + left)[
   #box(
     fill:white,
-    inset: (y: 20pt, x: 10pt),
+    inset: (y: 14pt, x: 10pt),
     width: 49.5%,
-    height: 490pt,
+    height:49.5%,
     radius: 8pt,
     stroke: (2.8pt + luma(88%)),
   )[
@@ -353,51 +359,214 @@ header: context{
 ]
 #place(bottom + right)[
   #box(
-    inset: (y: 60pt, x: 10pt),
-
-    width: 49.5%,
-    height: 490pt,
+    fill:white,
+     inset: (y: 14pt, x: 10pt),
+     width: 49.5%,
+    height: 49.5%,
     radius: 8pt,
-    stroke: (2.8pt + luma(88%)),
+    stroke: (2.8pt + luma(88%))
   )[
     // Main header
-    #place(dx: 10pt, dy: -10pt, pad(..titlePadding, text(
-      "Quarterly Asset Allocation Trends",
-      size: 30pt,
-      fill: rgb("0e496e"),
-      weight: "extrabold",
-    )))
+    #place(dx: 0pt, dy: -0pt,
+      pad(
+        top: 10pt,
+        bottom: 10pt,
+        left: 10pt,
+        right: 10pt,
+        text("Quarterly Asset Allocation Trends", size: 30pt, fill: rgb("0e496e"), weight: "extrabold")
+      )
+    )
 
-
-    // Chart placement
-    // Define color scheme to match your image
+    // Define color scheme for up to 6 categories
     #let chartColors = (
-      rgb("#00c896"), // Hybrid (green)
-      rgb("#f39c12"), // Equity (orange)
-      rgb("#1295b8"), // Debt (teal)
-      rgb("#e74c3c"), // Commodities (red)
+      rgb("#00c896"), // First asset (green)
+      rgb("#f39c12"), // Second asset (orange)
+      rgb("#1295b8"), // Third asset (teal)
+      rgb("#e74c3c"), // Fourth asset (red)
+      rgb("#8e44ad"), // Fifth asset (purple)
+      rgb("#2ecc71")  // Sixth asset (light green)
     )
 
-    // Data for quarterly asset allocation
-    #let quarterData = (
-      (quarter: "Jun 2024", Category: "Hybrid", values: 19.51),
-      (quarter: "Jun 2024", Category: "Equtity", values: 1.51),
-      (quarter: "Jun 2024", Category: "Debt", values: 9.51),
-      (quarter: "Jun 2024", Category: "Commodities", values: -19.51),
-      (quarter: "Jun 2024", Category: "Equtity", values: 10.51),
-      (quarter: "Apr 2024", Category: "Hybrid", values: 19.51),
-      (quarter: "Apr 2024", Category: "Equtity", values: 1.51),
-      (quarter: "Apr 2024", Category: "Debt", values: 9.51),
-      (quarter: "Apr 2024", Category: "Commodities", values: -19.51),
-      (quarter: "Apr 2024", Category: "Equtity", values: 10.51),
+    // Chart container function with dynamic data
+    #let allocation_chart(quarterData, legendData) = {
+      // Chart height calculation
+      let rowHeight = 40pt
+      let totalHeight = quarterData.len() * rowHeight + 100pt // Increased height for legend
+
+      box(
+        width: 100%,
+        height: totalHeight,
+        inset: (x: 10pt, y: 15pt),
+        radius: 8pt,
+        stroke: none
+      )[
+        // X-axis labels
+
+
+        #place(dx:100pt)[
+        #for i in range(0, 11) {
+          let value = i * 10
+          let xPos = 90pt + (i * 50pt)
+          place(
+            dx: xPos,
+            dy: rowHeight * quarterData.len() + 60pt,
+            text(str(value), size: 9pt)
+          )
+        }
+        ]
+
+        // Draw bars
+        #for (i, row) in quarterData.enumerate() {
+          let yPos = 65pt + i * rowHeight
+
+          // Quarter label
+          place(
+            dx: 60pt,
+            dy: yPos,
+            text(size: 15pt, weight: "medium", row.quarter)
+          )
+
+
+          // Draw bar segments
+          let xRunning = 190pt
+          let totalWidth = 515pt // Total width of the bar (representing 100%)
+          for (j, value) in row.values.enumerate() {
+            if value > 0{
+              let segmentWidth = value * totalWidth / 100
+
+              place(
+                dx: xRunning,
+                dy: yPos - 15pt,
+                box(
+                  width: segmentWidth,
+                  height: 39pt,
+                  fill: chartColors.at(j, default: rgb("#000000")), // Fallback color if index exceeds chartColors
+                  radius: (
+                    top-left: if j == 0 { 4pt } else { 0pt },
+                    bottom-left: if j == 0 { 4pt } else { 0pt },
+                    top-right: if j == row.values.len() - 1 or j == row.values.enumerate().find(((_, v)) => v > 0).last() { 7pt } else { 0pt },
+                    bottom-right: if j == row.values.len() - 1 or j == row.values.enumerate().find(((_, v)) => v > 0).last() { 7pt } else { 0pt }
+                  )
+                )
+              )
+
+              // Add percentage label if segment is wide enough
+              if value >= 5 {
+                place(
+                  dx: xRunning + segmentWidth / 2 - 12pt,
+                  dy: yPos,
+                  text(
+                    fill: white,
+                    weight: "medium",
+                    size: 10pt,
+                    str(calc.round(value, digits: 1)) + "%"
+                  )
+                )
+              }
+
+              xRunning += segmentWidth
+            }
+          }
+        }
+
+        // Legend with dynamic asset names and values
+        #place(
+          dy: 270pt
+        )[
+          #pad(left: 20pt, top: 1pt,
+          grid(
+            columns: (1fr,) * legendData.len(), // Dynamic number of columns
+            column-gutter: -80pt,
+            gutter: 40pt,
+            inset: 20pt,
+            align: left,
+            ..legendData.enumerate().map(((i, item)) => {
+              let name = item.name
+              stack(
+                dir: ttb,
+                spacing: 10pt,
+                stack(
+                  dir: ltr,
+                  spacing: 15pt,
+                  rect(width: 12pt, height: 10pt, radius: 50%, fill: chartColors.at(i, default: rgb("#000000"))),
+                  text(name, size: 15pt)
+                ),
+
+              )
+            })
+          )
+          )
+        ]
+      ]
+    }
+
+    // JSON data
+    #let jsonData = (
+      (
+        Date: "May 2024",
+        allocations: (
+          (asset_group_name: "Commodities", value: 20.0),
+          (asset_group_name: "Equities", value: 40.0),
+          (asset_group_name: "Fixed Income", value: 10.0),
+          (asset_group_name: "Liquid", value: 10.0),
+          (asset_group_name: "new", value: 20.0),
+
+        )
+      ),
+      (
+        Date: "June 2024",
+        allocations: (
+          (asset_group_name: "Commodities", value: 1.76),
+          (asset_group_name: "Equities", value: 88.24),
+          (asset_group_name: "Fixed Income", value: 0.0),
+          (asset_group_name: "Liquid", value: 0.0),
+          (asset_group_name: "new", value: 10.0),
+        )
+      ),
+      (
+        Date: "September 2024",
+        allocations: (
+          (asset_group_name: "Commodities", value: 1.15),
+          (asset_group_name: "Equities", value: 88.84),
+          (asset_group_name: "Fixed Income", value: 0.0),
+          (asset_group_name: "Liquid", value: 0.01),
+          (asset_group_name: "new", value: 10.0),
+        )
+      ),
+      (
+        Date: "December 2024",
+        allocations: (
+          (asset_group_name: "Commodities", value: 0.62),
+          (asset_group_name: "Equities", value: 88.26),
+          (asset_group_name: "Fixed Income", value: 1.11),
+          (asset_group_name: "Liquid", value: 0.01),
+          (asset_group_name: "new", value: 10.0),
+        )
+      )
     )
 
-    #let assetClasses = (
-      "Hybrid",
-      "Equity",
-      "Debt",
-      "Commodities",
-    )
+    // Extract legend data (asset names and values from the latest quarter)
+    #let legendData = jsonData.at(-1).allocations.map(allocation => (
+      name: allocation.asset_group_name,
+      value: allocation.value
+    ))
 
+    // Determine the number of categories
+    #let maxCategories = jsonData.map(quarter => quarter.allocations.len()).fold(0, (a, b) => calc.max(a, b))
+
+    // Transform JSON data into the format expected by allocation_chart
+    #let dynamicQuarterData = jsonData.map(quarter => {
+      let values = array.range(maxCategories).map(_ => 0.0) // Initialize dynamic values array
+      for (i, allocation) in quarter.allocations.enumerate() {
+        if i < maxCategories { // Map up to maxCategories
+          values.at(i) = allocation.value
+        }
+      }
+      (quarter: quarter.Date, values: values)
+    })
+
+    // Generate the chart with transformed data and legend data
+
+    #place()[#allocation_chart(dynamicQuarterData, legendData)]
   ]
 ]

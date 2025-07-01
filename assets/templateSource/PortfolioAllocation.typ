@@ -24,7 +24,6 @@ header: context{
 ]
 
 
-#let titlePadding = (top: 15pt, bottom: 15pt, left: 20pt, right: 20pt)
 
 #let primaryColors = (
   "#1e90ff",
@@ -60,28 +59,19 @@ header: context{
 #place(top+left,dy: 10pt)[
   #box(
     fill:white,
-    inset: 20pt,
+    inset: (top: 30pt, left: 20pt, right: 20pt, bottom: 30pt),
     width: 49.5%,
-    height: 1000pt,
+    height:100%,
     radius: 8pt,
     stroke: (2.8pt + luma(88%))
   )[
-    // Chart titles
-    //  #place(dx: 500pt, dy: 150pt, text(weight: "extrabold", size: 15pt, " Ending Allocation
-    //  30-Jun-2024"))
+      #place(dx: 130pt, dy: 210pt, text(weight: "extrabold", size: 15pt, "Beginning Allocation"))
+      #place(dx: 150pt, dy: 230pt, text(weight: "extrabold", size: 15pt,  ReportBeginDate))
 
-      #place(dx: 130pt, dy: 150pt, text(weight: "extrabold", size: 15pt, "Beginning Allocation"))
-      #place(dx: 150pt, dy: 170pt, text(weight: "extrabold", size: 15pt,  ReportBeginDate))
+      #place(dx: 530pt, dy: 210pt, text(weight: "extrabold", size: 15pt, "Ending Allocation"))
+      #place(dx: 540pt, dy: 230pt, text(weight: "extrabold", size: 15pt,  ReportEndDate))
 
-      #place(dx: 500pt, dy: 150pt, text(weight: "extrabold", size: 15pt, "Ending Allocation"))
-      #place(dx: 520pt, dy: 170pt, text(weight: "extrabold", size: 15pt,  ReportEndDate))
-
-
-
-
-   #place(dx: 10pt, dy: -15pt,
-  pad(..titlePadding, text("Portfolio Allocation by  Asset Class", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold"))
-)
+      #text("Portfolio Allocation by  Asset Class", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")
     // Main header
         #pad(left: 5pt,top: -150pt,
     // Grid for the two charts
@@ -198,58 +188,38 @@ grid(
     )
   )
 #place(dy: -138pt)[
-  #set table(
-    fill:(x,y) =>
-    if y==0 or y==1{
-      rgb("#f1f1f1")
-    }
 
-  )
 
 #set table(stroke: stroke(thickness:01pt,paint: rgb("#cdcdcd")))
 
-  #table(
-     columns: (1.5fr,1fr,.5fr,1fr,.5fr),
+  #box(width:100%,stroke: stroke(thickness:01pt,paint: rgb("#cdcdcd")),radius: 20pt,clip: true)[
+ #table(
+    columns: (1.5fr,1fr,.7fr,1fr,.7fr),
     stroke: none,
     align: center+horizon,
-    inset: 20pt,
-    // stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))
-      table.hline(stroke: rgb("#cdcdcd")
-),
-  table.vline(
-stroke: rgb("#cdcdcd")
-),
-    table.cell(rowspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold", [Asset Class])),
-     table.vline(start: 0,
-end: 2,
-stroke: rgb("#cdcdcd")
-),
-    table.cell(colspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [Beginning Value])),
-    table.cell(colspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [Ending Value])),
-      table.hline(stroke: rgb("#cdcdcd")),
-    table.cell(text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [Amount(₹)])),
-    table.cell(text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [%])),
-     table.vline(start: 0,
-end: 2,
-stroke: rgb("#cdcdcd")
-),
-    table.cell(text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [Amount(₹)])),
-    table.cell(text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [%])),
-
-    table.vline(
-stroke: rgb("#cdcdcd")
-),
-
+    inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
+    table.header(
+    table.cell(fill:rgb("#ebebeb"),rowspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold", [Product Type])),
+    table.vline(start: 0,end: 2,stroke: 0.3pt+rgb("#00000070")),
+    table.cell(fill:rgb("#ebebeb"),colspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "Beginning Value")),
+    table.cell(fill:rgb("#ebebeb"),colspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "Ending Value")),
+    table.hline(stroke: 0.3pt+rgb("#00000070")),
+    table.cell(fill:rgb("#ebebeb"),align(right)[#text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "Amount (₹)")]),
+    table.cell(fill:rgb("#ebebeb"),align(right)[#text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "%")]),
+    table.vline(start: 0,end: 2,stroke: 0.3pt+rgb("#00000070")),
+    table.cell(fill:rgb("#ebebeb"),align(right)[#text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "Amount (₹)")]),
+    table.cell(fill:rgb("#ebebeb"),align(right)[#text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "%")]),
+  ),
   {{range .AssetwiseAllocation}}
-    align(left)[#text(size: 18pt, "{{.AssetGroupName}}")],
-    align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberWithoutDecimalPointer .StartMarketValue}}")],
-    align(center)[#text(size: 18pt, "{{ConvertToFormattedNumberPointer .StartExposure}}"+"%")],
-    align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberWithoutDecimalPointer .EndMarketValue}}")],
-    align(center)[#text(size: 18pt, "{{ConvertToFormattedNumberPointer .EndExposure}}"+"%")],
+    table.cell(align(left)[#text(size: 18pt, "{{.AssetGroupName}}")]),
+    table.cell(align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberWithoutDecimalPointer .StartMarketValue}}")]),
+    table.cell(align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberPointer .StartExposure}}"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberWithoutDecimalPointer .EndMarketValue}}")]),
+    table.cell(align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberPointer .EndExposure}}"+"%")]),
     table.hline(stroke: rgb("#cdcdcd")),
 {{end}}
 
-  )
+  )]
   ]
 ]
 ]
@@ -257,184 +227,79 @@ stroke: rgb("#cdcdcd")
 #place(top+right,dy: 10pt)[
  #box(
   fill:white,
-    inset: (y: 14pt, x: 50pt),
+  inset: (left:20pt,right:20pt,top:40pt),
     width: 49.5%,
-    height: 1000pt,
+    height: 100%,
     radius: 8pt,
     stroke: (2.8pt + luma(88%))
   )[
-    #place(dx: 10pt, dy: -15pt,
-  pad(..titlePadding, text("Portfolio Breakup by Product Type", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold"))
-)
-#place(top+right, dy: 50pt, dx: -700pt)[
-
+    #place(dx: 10pt, dy: -15pt,pad(..titlePadding, text("Portfolio Breakup by Product Type", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")))
+#place(top+left, dy: 20pt, dx: 0pt)[
   // Simulate the data structure from the template
-  #let data = (
-    {{range .SecurityCategoryAllocation}}
-(SecurityCategory: "{{ .SecurityCategory}}", StartExposure: {{ .StartExposure}}, EndExposure: {{ .EndExposure}}),
-{{end}}
-  )
-
-  // Extract arrays from the data
-  #let categories = data.map(item => item.SecurityCategory)
-  #let beginning = data.map(item => item.StartExposure)
-  #let ending = data.map(item => item.EndExposure)
-
-  #let max-value = 1500
-
-  // Chart dimensions
-  #let bar-width = 50pt
-  #let bar-spacing = 4pt
-  #let group-spacing = 10pt
-  #let chart-height = 330pt
-   #let chart-width = 300pt
-
-  // Draw the entire chart
-  #block(width: auto, height: auto, inset: 0pt, {
-    v(20pt)
-
-    // Main chart area with Y-axis and bars
-    box(width: auto, height: auto, {
-      // Y-axis with values and grid lines
-      place(
-        box(width: chart-width, height: chart-height, {
-          // Y-axis vertical line
-          place(dx: 34pt, dy: 0pt, line(start: (0pt, 0pt), end: (0pt, chart-height), stroke: 1pt))
-
-          // Y-axis values and horizontal grid lines - increments of 250
-          for i in range(7) {
-            let y-value = max-value - i * 250
-            let y-pos = chart-height * float(i * 250) / float(max-value)
-            // Y-axis value
-
-            place(dx: -10pt, dy: y-pos, align(right, text(size: 12pt,[#y-value]+"M")))
-            // Horizontal grid line (light gray)
-
-          }
-        })
-      )
-
-      // Chart with bars
-      place(dx: 35pt, dy: 0pt, {
-        box(width: auto, height: chart-height, {
-          // Calculate total width to use for x-axis line
-          let total-width = categories.len() * (2 * bar-width + bar-spacing + group-spacing)
-
-          // X-axis line
-          place(dx: 0pt, dy: chart-height, line(start: (0pt, 0pt), end: (total-width, 0pt), stroke: 1pt))
-
-          // Draw bars for each category
-          let x-pos = 0pt
-          for i in range(categories.len()) {
-            let cat = categories.at(i)
-            let beg = beginning.at(i)
-            let end = ending.at(i)
-
-            // Calculate bar heights
-            let beg-height = float(beg) / float(max-value) * chart-height
-            let end-height = float(end) / float(max-value) * chart-height
-
-            // Draw group
-            place(dx: x-pos, dy: 0pt, {
-              // Beginning value bar (green)
-              place(dx: 0pt, dy: chart-height - beg-height,
-                rect(width: bar-width, height: beg-height, fill: rgb("#39b97d"), radius: (top: 15pt))
-              )
-              // Ending value bar (blue)
-              place(dx: bar-width + bar-spacing, dy: chart-height - end-height,
-                rect(width: bar-width, height: end-height, fill: rgb("#4886c6"
- ), radius: (top: 15pt))
-              )
-              // Category label
-              place(dx: 0pt, dy: chart-height + 7pt,
-                box(width: 2*bar-width + bar-spacing, {
-                  align(center, text(size: 15pt)[#cat])
-                })
-              )
-              // Tick mark on x-axis
-              place(dx: bar-width, dy: chart-height,
-                line(start: (0pt, 0pt), end: (0pt, 5pt), stroke: 1pt)
-              )
-            })
-
-            // Move to next group position
-            x-pos += 2 * bar-width + bar-spacing + group-spacing
-          }
-        })
-      })
-    })
-
-    // Y-axis label (commented out in original code)
-    // place(dx: -30pt, dy: chart-height/2, rotate(90deg, text(size: 12pt)[Value]))
-
-    // Legend
-    v(0pt)
-    place(dx: 450pt, [
-      #align(center, {
-        box(width: 15pt, height: 15pt, fill: rgb("#39b97d"))
-        h(5pt)
-        text(size: 12pt)[Beginning Value]
-        h(30pt)
-        box(width: 15pt, height: 15pt, fill: rgb("#4886c6"))
-        h(5pt)
-        text(size: 12pt)[Ending Value]
-      })
-    ])
-  })
+  #let data = ({{range .SecurityCategoryAllocation}}
+                (SecurityCategory: "{{ .SecurityCategory}}", StartExposure: {{ .StartMarketValue}}, EndExposure: {{ .EndMarketValue}}),
+              {{end}})
+  #box()[
+#echarm.render(width: 100%, height: 450pt, options: (
+    xAxis: (
+    type: "category",
+    data: ("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
+    axisLine: (
+      "show": true,
+    ),
+      axisTick: (
+      "show": false
+    ),
+  ),
+  yAxis: (
+    type: "value",
+    axisLine: (
+      "show": true,
+    ),
+  ),
+  series: (
+    (data: (120, 20, 150, 80, 70, 110, 130),
+    type: "bar",
+    stack:"a",
+    name:"a"
+  ),
+  (data: (12, 0, 15, 8, 7, 10, 30),
+    type: "bar",
+    name:"b",
+    stack:"b",
+  ))
+))]
 ]
 
-
-
 #place(dy: 500pt)[
-  #set table(
-    fill:(x,y) =>
-    if y==0 or y==1{
-      rgb("#f1f1f1")
-    }
-  )
-
-  #table(
-    columns: (1.5fr,1fr,.5fr,1fr,.5fr),
+  #box(width:100%,stroke: stroke(thickness:01pt,paint: rgb("#cdcdcd")),radius: 20pt,clip: true)[
+ #table(
+    columns: (1.5fr,1fr,.7fr,1fr,.7fr),
     stroke: none,
-align: center+horizon,
-    inset: 20pt,
-    table.hline(stroke: rgb("#cdcdcd")),
-       table.vline(
-stroke: rgb("#cdcdcd")
-),
-     table.cell(rowspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold", [Product Type])),
-     table.vline(start: 0,
-end: 2,
-stroke: rgb("#cdcdcd")
-),
-    table.cell(colspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [Beginning Value])),
-
-    table.cell(colspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [Ending Value])),
-    table.hline(stroke: rgb("#cdcdcd")),
-    table.cell(text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [Amount(₹)])),
-    table.cell(text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [%])),
-       table.vline(start: 0,
-end: 2,
-stroke: rgb("#cdcdcd")
-),
-
-    table.cell(text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [Amount(₹)])),
-    table.cell(text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  [%])),
-
-
-    table.vline(
-stroke: rgb("#cdcdcd")
-),
+    align: center+horizon,
+    inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
+    table.header(
+    table.cell(fill:rgb("#ebebeb"),rowspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold", [Product Type])),
+    table.vline(start: 0,end: 2,stroke: 0.3pt+rgb("#00000070")),
+    table.cell(fill:rgb("#ebebeb"),colspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "Beginning Value")),
+    table.cell(fill:rgb("#ebebeb"),colspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "Ending Value")),
+    table.hline(stroke: 0.3pt+rgb("#00000070")),
+    table.cell(fill:rgb("#ebebeb"),align(right)[#text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "Amount (₹)")]),
+    table.cell(fill:rgb("#ebebeb"),align(right)[#text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "%")]),
+    table.vline(start: 0,end: 2,stroke: 0.3pt+rgb("#00000070")),
+    table.cell(fill:rgb("#ebebeb"),align(right)[#text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "Amount (₹)")]),
+    table.cell(fill:rgb("#ebebeb"),align(right)[#text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "%")]),
+  ),
   {{range .SecurityCategoryAllocation}}
-    align(left)[#text(size: 18pt, "{{.SecurityCategory}}")],
-    align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberWithoutDecimalPointer .StartMarketValue}}")],
-    align(center)[#text(size: 18pt, "{{ConvertToFormattedNumberPointer .StartExposure}}"+"%")],
-    align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberWithoutDecimalPointer .EndMarketValue}}")],
-    align(center)[#text(size: 18pt, "{{ConvertToFormattedNumberPointer .EndExposure}}"+"%")],
+    table.cell(align(left)[#text(size: 18pt, "{{.SecurityCategory}}")]),
+    table.cell(align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberWithoutDecimalPointer .StartMarketValue}}")]),
+    table.cell(align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberPointer .StartExposure}}"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberWithoutDecimalPointer .EndMarketValue}}")]),
+    table.cell(align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberPointer .EndExposure}}"+"%")]),
     table.hline(stroke: rgb("#cdcdcd")),
 {{end}}
 
-  )
+  )]
   ]
 ]
 ]

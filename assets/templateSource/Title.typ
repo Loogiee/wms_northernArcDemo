@@ -31,7 +31,7 @@
     )
   ]
 ])
-#set text(size: 14pt, font: "Bai Jamjuree",weight: "bold")
+#set text(size: 16pt, font: "Bai Jamjuree",weight: "bold")
 #set page(
   paper: "a2",
   flipped: true,
