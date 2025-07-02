@@ -19,13 +19,13 @@ func ProcessExecutinveSummary(sqlData *[]map[string]interface{}) (string, error)
 		for key, value := range obj {
 			switch key {
 			case "allocation_comparison_section":
-				mapAllocationCompSec(value, &finalProcessData)
+				mapAllocationCompSec(value, &finalProcessData) //Asset Allocation (%)
 			case "basic_information_section":
 				mapBasicInfoSec(value, &finalProcessData)
 			case "quarterly_allocation_section":
-				mapQtrAllocSec(value, &finalProcessData)
+				mapQtrAllocSec(value, &finalProcessData) // Quarterly Asset Allocation Trends
 			case "relative_performance_over_quarters":
-				mapRelativePerOvrQtr(value, &finalProcessData)
+				mapRelativePerOvrQtr(value, &finalProcessData) // Relative Performance
 			}
 		}
 
@@ -98,11 +98,11 @@ func mapBasicInfoSec(value interface{}, parsingData *ExecutiveSummary) {
 		}
 		if strings.Contains(data.Description, "BenchmarkInfo_") {
 			temp.StrigValue = strconv.FormatFloat(data.Value, 'f', 2, 64) + "%"
-			if data.Description == "BenchmarkInfo_NIFTY500"{
-				temp.Description ="BenchmarkInfo_NIFTY 500"
+			if data.Description == "BenchmarkInfo_NIFTY500" {
+				temp.Description = "BenchmarkInfo_NIFTY 500"
 			}
-			if data.Description == "BenchmarkInfo_CRISILCBI"{
-				temp.Description ="BenchmarkInfo_CRISIL Comp IDX"
+			if data.Description == "BenchmarkInfo_CRISILCBI" {
+				temp.Description = "BenchmarkInfo_CRISIL Comp IDX"
 			}
 			if data.Value < 0 {
 				temp.Color = "#ff0000de"
@@ -117,7 +117,7 @@ func mapBasicInfoSec(value interface{}, parsingData *ExecutiveSummary) {
 }
 
 func mapQtrAllocSec(value interface{}, parsingData *ExecutiveSummary) {
-	var processData []QuarterlyAlloc
+	var processData []FinalQuarterlyAllocation
 	MapToStruct(value, &processData)
 	parsingData.QuarterlyAllocationSection = processData
 }

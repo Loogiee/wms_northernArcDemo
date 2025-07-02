@@ -798,38 +798,6 @@ header: context{
           table.cell(align(right)[#text(fill: rgb("#0d3b6b"), weight: "black", "Excess Returns")]),
         ),
         
-        table.cell(align(center)[#text("Dec 2024")]),
-        table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("9.71"+"%")]),
-                table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("8.72"+"%")]),
-                table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("0.99"+"%")]),
-        
-        table.cell(align(center)[#text("Jun 2024")]),
-        table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("20.08"+"%")]),
-                table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("2.20"+"%")]),
-                table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("17.88"+"%")]),
-        
-        table.cell(align(center)[#text("Mar 2024")]),
-        table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("17.04"+"%")]),
-                table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("-3.88"+"%")]),
-                table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("20.92"+"%")]),
-        
-        table.cell(align(center)[#text("Sep 2024")]),
-        table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("20.76"+"%")]),
-                table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("21.43"+"%")]),
-                table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("-0.67"+"%")]),
-        
       ),
     )
     // Grid for the two chart
@@ -838,88 +806,69 @@ header: context{
 ]
 #place(bottom + right)[
   #let jsonData = (
+
+  (
+    Date: "March 2024",
+    allocations: (
+      
+      (asset_group_name: "Commodities", value: 1.92),
+      
+      (asset_group_name: "Equities", value: 98.08),
+      
+      (asset_group_name: "Fixed Income", value: 0),
+      
+      (asset_group_name: "Liquid", value: 0),
+      
+    )
+  ),
+ 
   (
     Date: "June 2024",
     allocations: (
+      
       (asset_group_name: "Commodities", value: 1.76),
-      (asset_group_name: "Equities", value: 88.24),
-      (asset_group_name: "Fixed Income", value: 0.0),
-      (asset_group_name: "Liquid", value: 0.0),
-      (asset_group_name: "new", value: 10.0),
+      
+      (asset_group_name: "Equities", value: 98.24),
+      
+      (asset_group_name: "Fixed Income", value: 0),
+      
+      (asset_group_name: "Liquid", value: 0),
+      
     )
   ),
+ 
   (
     Date: "September 2024",
-
     allocations: (
-            (asset_group_name: "Commodities", value: 1.15),
-          (asset_group_name: "Equities", value: 88.84),
-          (asset_group_name: "Fixed Income", value: 0.0),
-          (asset_group_name: "Liquid", value: 0.01),
-          (asset_group_name: "new", value: 10.0),
-        )
-      ),
+      
+      (asset_group_name: "Commodities", value: 1.15),
+      
+      (asset_group_name: "Equities", value: 98.84),
+      
+      (asset_group_name: "Fixed Income", value: 0),
+      
+      (asset_group_name: "Liquid", value: 0.01),
+      
+    )
+  ),
+ 
   (
     Date: "December 2024",
     allocations: (
+      
       (asset_group_name: "Commodities", value: 0.62),
-      (asset_group_name: "Equities", value: 88.26),
+      
+      (asset_group_name: "Equities", value: 98.26),
+      
       (asset_group_name: "Fixed Income", value: 1.11),
+      
       (asset_group_name: "Liquid", value: 0.01),
-      (asset_group_name: "new", value: 10.0),
+      
     )
   ),
-  (
-    Date: "December 2024",
-   allocations: (
-      (asset_group_name: "Commodities", value: 0.62),
-      (asset_group_name: "Equities", value: 88.26),
-      (asset_group_name: "Fixed Income", value: 1.11),
-      (asset_group_name: "Liquid", value: 0.01),
-      (asset_group_name: "new", value: 10.0),
-    )
-  ),
-  (
-    Date: "December 2024",
-    allocations: (
-      (asset_group_name: "Commodities", value: 0.62),
-      (asset_group_name: "Equities", value: 88.26),
-      (asset_group_name: "Fixed Income", value: 1.11),
-      (asset_group_name: "Liquid", value: 0.01),
-      (asset_group_name: "new", value: 10.0),
-    )
-  ),
-  (
-    Date: "December 2024",
-    allocations: (
-      (asset_group_name: "Commodities", value: 0.62),
-      (asset_group_name: "Equities", value: 88.26),
-      (asset_group_name: "Fixed Income", value: 1.11),
-      (asset_group_name: "Liquid", value: 0.01),
-      (asset_group_name: "new", value: 10.0),
-    )
-  ),
-  (
-    Date: "December 2024",
-    allocations: (
-      (asset_group_name: "Commodities", value: 0.62),
-      (asset_group_name: "Equities", value: 88.26),
-      (asset_group_name: "Fixed Income", value: 1.11),
-      (asset_group_name: "Liquid", value: 0.01),
-      (asset_group_name: "new", value: 10.0),
-    )
-  ),
-(
-    Date: "December 2024",
-    allocations: (
-      (asset_group_name: "Commodities", value: 0.62),
-      (asset_group_name: "Equities", value: 88.26),
-      (asset_group_name: "Fixed Income", value: 1.11),
-      (asset_group_name: "Liquid", value: 0.01),
-      (asset_group_name: "new", value: 10.0),
-    )
-  ),
+ 
 )
+
 #box(width: 49.5%,height: 49.5%,radius: 20pt,fill: white,stroke: (2.8pt + luma(88%)))[
 #place(dx: 15pt, dy:20pt, pad(..titlePadding, text(
     "Quarterly Asset Allocation Trends",

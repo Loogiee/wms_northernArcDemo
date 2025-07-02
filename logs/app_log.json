@@ -1746,3 +1746,9 @@ Key: relative_performance_over_quarters, Value: [map[Dec 2024: -13.69 Jun 2025: 
 {"time":"2025-07-02T13:20:42.904579279+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-03-19"}
 {"time":"2025-07-02T13:20:54.009430936+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-03-19"}
 {"time":"2025-07-02T13:21:11.757822787+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-03-19"}
+{"time":"2025-07-02T14:51:13.841320318+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-07-02T14:51:13.841651411+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-07-02T14:51:56.329219229+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-03-19"}
+{"time":"2025-07-02T14:53:58.472518615+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-07-02T14:53:58.472720188+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-07-02T14:54:49.564054225+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-03-19"}

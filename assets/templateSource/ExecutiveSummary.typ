@@ -365,88 +365,18 @@ header: context{
 ]
 #place(bottom + right)[
   #let jsonData = (
+{{range .QuarterlyAllocationSection}}
   (
-    Date: "June 2024",
+    Date: "{{.Date}}",
     allocations: (
-      (asset_group_name: "Commodities", value: 1.76),
-      (asset_group_name: "Equities", value: 88.24),
-      (asset_group_name: "Fixed Income", value: 0.0),
-      (asset_group_name: "Liquid", value: 0.0),
-      (asset_group_name: "new", value: 10.0),
+      {{range .QuarterlyAllocation}}
+      (asset_group_name: "{{.AssetGroupName}}", value: {{.Value}}),
+      {{end}}
     )
   ),
-  (
-    Date: "September 2024",
-
-    allocations: (
-            (asset_group_name: "Commodities", value: 1.15),
-          (asset_group_name: "Equities", value: 88.84),
-          (asset_group_name: "Fixed Income", value: 0.0),
-          (asset_group_name: "Liquid", value: 0.01),
-          (asset_group_name: "new", value: 10.0),
-        )
-      ),
-  (
-    Date: "December 2024",
-    allocations: (
-      (asset_group_name: "Commodities", value: 0.62),
-      (asset_group_name: "Equities", value: 88.26),
-      (asset_group_name: "Fixed Income", value: 1.11),
-      (asset_group_name: "Liquid", value: 0.01),
-      (asset_group_name: "new", value: 10.0),
-    )
-  ),
-  (
-    Date: "December 2024",
-   allocations: (
-      (asset_group_name: "Commodities", value: 0.62),
-      (asset_group_name: "Equities", value: 88.26),
-      (asset_group_name: "Fixed Income", value: 1.11),
-      (asset_group_name: "Liquid", value: 0.01),
-      (asset_group_name: "new", value: 10.0),
-    )
-  ),
-  (
-    Date: "December 2024",
-    allocations: (
-      (asset_group_name: "Commodities", value: 0.62),
-      (asset_group_name: "Equities", value: 88.26),
-      (asset_group_name: "Fixed Income", value: 1.11),
-      (asset_group_name: "Liquid", value: 0.01),
-      (asset_group_name: "new", value: 10.0),
-    )
-  ),
-  (
-    Date: "December 2024",
-    allocations: (
-      (asset_group_name: "Commodities", value: 0.62),
-      (asset_group_name: "Equities", value: 88.26),
-      (asset_group_name: "Fixed Income", value: 1.11),
-      (asset_group_name: "Liquid", value: 0.01),
-      (asset_group_name: "new", value: 10.0),
-    )
-  ),
-  (
-    Date: "December 2024",
-    allocations: (
-      (asset_group_name: "Commodities", value: 0.62),
-      (asset_group_name: "Equities", value: 88.26),
-      (asset_group_name: "Fixed Income", value: 1.11),
-      (asset_group_name: "Liquid", value: 0.01),
-      (asset_group_name: "new", value: 10.0),
-    )
-  ),
-(
-    Date: "December 2024",
-    allocations: (
-      (asset_group_name: "Commodities", value: 0.62),
-      (asset_group_name: "Equities", value: 88.26),
-      (asset_group_name: "Fixed Income", value: 1.11),
-      (asset_group_name: "Liquid", value: 0.01),
-      (asset_group_name: "new", value: 10.0),
-    )
-  ),
+ {{end}}
 )
+
 #box(width: 49.5%,height: 49.5%,radius: 20pt,fill: white,stroke: (2.8pt + luma(88%)))[
 #place(dx: 15pt, dy:20pt, pad(..titlePadding, text(
     "Quarterly Asset Allocation Trends",

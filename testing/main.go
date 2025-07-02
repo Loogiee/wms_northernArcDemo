@@ -6,43 +6,38 @@ import (
 	"time"
 )
 
-type BasicInfo struct {
-	Description string  `json:"Description"`
-	Value       float64 `json:"Value"`
-	Date        string  `json:"Date"`
-	StrigValue  string
-	Images      string
-	Color       string
+type QuarterlyAllocationData struct {
+	QuarterlyAllocationSection []QuarterlyAllocation `json:"quarterly_allocation_section"`
 }
-type AssetSubassetSection struct {
-	AssetGroupName   string  `json:"ASSET_GROUP_NAME"`
-	SecurityCategory string  `json:"SECURITY_CATEGORY"`
-	MarketValue      float64 `json:"MARKET_VALUE"`
-	AcquisitionCost  float64 `json:"ACQU_COST"`
-	RealGainLoss     float64 `json:"REAL_GAIN_LOSS"`
-	Appreciation     float64 `json:"APPRE_DEPRE"`
-	Dividend         float64 `json:"DIVIDEND"`
-	XIRR             float64 `json:"XIRR"`
-	AssetExposure    float64 `json:"ASSET_EXPOSURE%"`
-	BenchmarkName    string  `json:"BENCHMARK_NAME"`
-	GroupLabel       string  `json:"GROUP_LABEL"`
-	OrderNumber      int
+
+type QuarterlyAllocation struct {
+	Date        string       `json:"Date"` // You can use time.Time if you want to parse the date
+	Allocations []Allocation `json:"allocations"`
+}
+
+type Allocation struct {
+	AssetGroupName string  `json:"asset_group_name"`
+	Value          float64 `json:"value"`
 }
 
 func main() {
 	// struct mapping and data manuplate testing
-	var FinalData []BasicInfo
+	var FinalData []QuarterlyAllocation
 	var parsedData []map[string]interface{}
-	jsonData := `[{"basic_information_section":[{"Description":"ACQU_COST","Value":293976076.83,"Date":"As on 19 Mar 2025"},{"Description":"MARKET_VALUE","Value":300751912.95,"Date":"As on 19 Mar 2025"},{"Description":"NetContribution","Value":290254594.11,"Date":"Since Inception"},{"Description":"XIRR","Value":-14.36,"Date":"Since Inception"},{"Description":"BMXIRR","Value":-3.15,"Date":"Since Inception"},{"Description":"BenchmarkInfo_CRISILCBI","Value":2.75,"Date":""},{"Description":"BenchmarkInfo_NIFTY500","Value":-17.21,"Date":""}]}]`
+	jsonData := `[{"quarterly_allocation_section":[{"Date":"March 2024","allocations":[{"asset_group_name":"Commodities","value":1.92},{"asset_group_name":"Equities","value":98.08},{"asset_group_name":"Fixed Income","value":0},{"asset_group_name":"Liquid","value":0}]},{"Date":"June 2024","allocations":[{"asset_group_name":"Commodities","value":1.76},{"asset_group_name":"Equities","value":98.24},{"asset_group_name":"Fixed Income","value":0},{"asset_group_name":"Liquid","value":0}]},{"Date":"September 2024","allocations":[{"asset_group_name":"Commodities","value":1.15},{"asset_group_name":"Equities","value":98.84},{"asset_group_name":"Fixed Income","value":0},{"asset_group_name":"Liquid","value":0.01}]},{"Date":"December 2024","allocations":[{"asset_group_name":"Commodities","value":0.62},{"asset_group_name":"Equities","value":98.26},{"asset_group_name":"Fixed Income","value":1.11},{"asset_group_name":"Liquid","value":0.01}]}]}]`
 
 	if err := json.Unmarshal([]byte(jsonData), &parsedData); err != nil {
 		fmt.Println("failed to unmarshal JSON_DATA:", err)
 	}
-	for _, group := range parsedData {
-		for _, data := range group {
+	for _, mainGroup := range parsedData {
+		fmt.Println("mainGroup: ", mainGroup)
+		for group, data := range mainGroup {
+			fmt.Println("Group:", group, "Data:", data)
 			MapToStruct(data, &FinalData)
 		}
 	}
+	fmt.Println("FinalData:", FinalData)
+	fmt.Println()
 
 	/* // date formatting testing
 	parsedDate, err := DateFormatter("2022-10-04", "02 Jan 2006")

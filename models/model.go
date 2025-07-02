@@ -36,10 +36,10 @@ type Overview struct {
 
 //  Executive Summary page Start
 type ExecutiveSummary struct {
-	BasicInformationSection         []BasicInfo           `json:"basic_information_section"`
-	AllocationComparisonSection     []Allocation          `json:"allocation_comparison_section"`
-	QuarterlyAllocationSection      []QuarterlyAlloc      `json:"quarterly_allocation_section"`
-	RelativePerformanceOverQuarters []RelativePerformance `json:"relative_performance_over_quarters"`
+	BasicInformationSection         []BasicInfo                `json:"basic_information_section"`
+	AllocationComparisonSection     []Allocation               `json:"allocation_comparison_section"`
+	QuarterlyAllocationSection      []FinalQuarterlyAllocation `json:"quarterly_allocation_section"`
+	RelativePerformanceOverQuarters []RelativePerformance      `json:"relative_performance_over_quarters"`
 }
 
 type BasicInfo struct {
@@ -57,12 +57,15 @@ type Allocation struct {
 	StrategicPercentage     float64 `json:"Strategic_Percentage"`
 }
 
-type QuarterlyAlloc struct {
-	Commodities float64 `json:"Commodities"`
-	Equities    float64 `json:"Equities"`
-	FixedIncome float64 `json:"Fixed Income"`
-	Liquid      float64 `json:"Liquid"`
-	Date        string  `json:"Date"`
+// Quarterly Asset Allocation Trends
+type FinalQuarterlyAllocation struct {
+	Date                string                `json:"Date"` // You can use time.Time if you want to parse the date
+	QuarterlyAllocation []QuarterlyAllocation `json:"allocations"`
+}
+
+type QuarterlyAllocation struct {
+	AssetGroupName string  `json:"asset_group_name"`
+	Value          float64 `json:"value"`
 }
 
 type RelativePerformance struct {
