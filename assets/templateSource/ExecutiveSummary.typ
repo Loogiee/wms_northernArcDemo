@@ -21,19 +21,6 @@ header: context{
 })
 
 #let headerBg = rgb("#f4f5f6")
-// Define colors and data
-#let primaryColors = (
-  "#5470c6", // Equities
-  "#91cc75", // Alternatives
-  "#fac858", // Fixed Income
-  "#ee6666", // Commodities
-  "#73c0de", // Liq & Eqv.
-  "#5470c6", // Equities
-  "#91cc75", // Alternatives
-  "#fac858", // Fixed Income
-  "#ee6666", // Commodities
-  "#73c0de", // Liq & Eqv.
-)
 // Current asset allocation data
 #let currentData = (
 
@@ -320,7 +307,7 @@ header: context{
   ]
 ]
 #place(bottom + left)[
-  #box(
+#box(
     fill:white,
     inset: (y: 14pt, x: 10pt),
     width: 49.5%,
@@ -377,215 +364,170 @@ header: context{
   ]
 ]
 #place(bottom + right)[
-  #box(
-    fill:white,
-     inset: (y: 14pt, x: 10pt),
-     width: 49.5%,
-    height: 49.5%,
-    radius: 8pt,
-    stroke: (2.8pt + luma(88%))
-  )[
-    // Main header
-    #place(dx: 0pt, dy: -0pt,
-      pad(
-        top: 10pt,
-        bottom: 10pt,
-        left: 10pt,
-        right: 10pt,
-        text("Quarterly Asset Allocation Trends", size: 30pt, fill: rgb("0e496e"), weight: "extrabold")
-      )
+  #let jsonData = (
+  (
+    Date: "June 2024",
+    allocations: (
+      (asset_group_name: "Commodities", value: 1.76),
+      (asset_group_name: "Equities", value: 88.24),
+      (asset_group_name: "Fixed Income", value: 0.0),
+      (asset_group_name: "Liquid", value: 0.0),
+      (asset_group_name: "new", value: 10.0),
     )
+  ),
+  (
+    Date: "September 2024",
 
-    // Define color scheme for up to 6 categories
-    #let chartColors = (
-      rgb("#00c896"), // First asset (green)
-      rgb("#f39c12"), // Second asset (orange)
-      rgb("#1295b8"), // Third asset (teal)
-      rgb("#e74c3c"), // Fourth asset (red)
-      rgb("#8e44ad"), // Fifth asset (purple)
-      rgb("#2ecc71")  // Sixth asset (light green)
-    )
-
-    // Chart container function with dynamic data
-    #let allocation_chart(quarterData, legendData) = {
-      // Chart height calculation
-      let rowHeight = 40pt
-      let totalHeight = quarterData.len() * rowHeight + 100pt // Increased height for legend
-
-      box(
-        width: 100%,
-        height: totalHeight,
-        inset: (x: 10pt, y: 15pt),
-        radius: 8pt,
-        stroke: none
-      )[
-        // X-axis labels
-
-
-        #place(dx:100pt)[
-        #for i in range(0, 11) {
-          let value = i * 10
-          let xPos = 90pt + (i * 50pt)
-          place(
-            dx: xPos,
-            dy: rowHeight * quarterData.len() + 60pt,
-            text(str(value), size: 9pt)
-          )
-        }
-        ]
-
-        // Draw bars
-        #for (i, row) in quarterData.enumerate() {
-          let yPos = 65pt + i * rowHeight
-
-          // Quarter label
-          place(
-            dx: 60pt,
-            dy: yPos,
-            text(size: 15pt, weight: "medium", row.quarter)
-          )
-
-
-          // Draw bar segments
-          let xRunning = 190pt
-          let totalWidth = 515pt // Total width of the bar (representing 100%)
-          for (j, value) in row.values.enumerate() {
-            if value > 0{
-              let segmentWidth = value * totalWidth / 100
-
-              place(
-                dx: xRunning,
-                dy: yPos - 15pt,
-                box(
-                  width: segmentWidth,
-                  height: 39pt,
-                  fill: chartColors.at(j, default: rgb("#000000")), // Fallback color if index exceeds chartColors
-                  radius: (
-                    top-left: if j == 0 { 4pt } else { 0pt },
-                    bottom-left: if j == 0 { 4pt } else { 0pt },
-                    top-right: if j == row.values.len() - 1 or j == row.values.enumerate().find(((_, v)) => v > 0).last() { 7pt } else { 0pt },
-                    bottom-right: if j == row.values.len() - 1 or j == row.values.enumerate().find(((_, v)) => v > 0).last() { 7pt } else { 0pt }
-                  )
-                )
-              )
-
-              // Add percentage label if segment is wide enough
-              if value >= 5 {
-                place(
-                  dx: xRunning + segmentWidth / 2 - 12pt,
-                  dy: yPos,
-                  text(
-                    fill: white,
-                    weight: "medium",
-                    size: 10pt,
-                    str(calc.round(value, digits: 1)) + "%"
-                  )
-                )
-              }
-
-              xRunning += segmentWidth
-            }
-          }
-        }
-
-        // Legend with dynamic asset names and values
-        #place(
-          dy: 270pt
-        )[
-          #pad(left: 20pt, top: 1pt,
-          grid(
-            columns: (1fr,) * legendData.len(), // Dynamic number of columns
-            column-gutter: -80pt,
-            gutter: 40pt,
-            inset: 20pt,
-            align: left,
-            ..legendData.enumerate().map(((i, item)) => {
-              let name = item.name
-              stack(
-                dir: ttb,
-                spacing: 10pt,
-                stack(
-                  dir: ltr,
-                  spacing: 15pt,
-                  rect(width: 12pt, height: 10pt, radius: 50%, fill: chartColors.at(i, default: rgb("#000000"))),
-                  text(name, size: 15pt)
-                ),
-
-              )
-            })
-          )
-          )
-        ]
-      ]
-    }
-
-    // JSON data
-    #let jsonData = (
-      (
-        Date: "May 2024",
-        allocations: (
-          (asset_group_name: "Commodities", value: 20.0),
-          (asset_group_name: "Equities", value: 40.0),
-          (asset_group_name: "Fixed Income", value: 10.0),
-          (asset_group_name: "Liquid", value: 10.0),
-          (asset_group_name: "new", value: 20.0),
-
-        )
-      ),
-      (
-        Date: "June 2024",
-        allocations: (
-          (asset_group_name: "Commodities", value: 1.76),
-          (asset_group_name: "Equities", value: 88.24),
-          (asset_group_name: "Fixed Income", value: 0.0),
-          (asset_group_name: "Liquid", value: 0.0),
-          (asset_group_name: "new", value: 10.0),
-        )
-      ),
-      (
-        Date: "September 2024",
-        allocations: (
-          (asset_group_name: "Commodities", value: 1.15),
+    allocations: (
+            (asset_group_name: "Commodities", value: 1.15),
           (asset_group_name: "Equities", value: 88.84),
           (asset_group_name: "Fixed Income", value: 0.0),
           (asset_group_name: "Liquid", value: 0.01),
           (asset_group_name: "new", value: 10.0),
         )
       ),
-      (
-        Date: "December 2024",
-        allocations: (
-          (asset_group_name: "Commodities", value: 0.62),
-          (asset_group_name: "Equities", value: 88.26),
-          (asset_group_name: "Fixed Income", value: 1.11),
-          (asset_group_name: "Liquid", value: 0.01),
-          (asset_group_name: "new", value: 10.0),
-        )
+  (
+    Date: "December 2024",
+    allocations: (
+      (asset_group_name: "Commodities", value: 0.62),
+      (asset_group_name: "Equities", value: 88.26),
+      (asset_group_name: "Fixed Income", value: 1.11),
+      (asset_group_name: "Liquid", value: 0.01),
+      (asset_group_name: "new", value: 10.0),
+    )
+  ),
+  (
+    Date: "December 2024",
+   allocations: (
+      (asset_group_name: "Commodities", value: 0.62),
+      (asset_group_name: "Equities", value: 88.26),
+      (asset_group_name: "Fixed Income", value: 1.11),
+      (asset_group_name: "Liquid", value: 0.01),
+      (asset_group_name: "new", value: 10.0),
+    )
+  ),
+  (
+    Date: "December 2024",
+    allocations: (
+      (asset_group_name: "Commodities", value: 0.62),
+      (asset_group_name: "Equities", value: 88.26),
+      (asset_group_name: "Fixed Income", value: 1.11),
+      (asset_group_name: "Liquid", value: 0.01),
+      (asset_group_name: "new", value: 10.0),
+    )
+  ),
+  (
+    Date: "December 2024",
+    allocations: (
+      (asset_group_name: "Commodities", value: 0.62),
+      (asset_group_name: "Equities", value: 88.26),
+      (asset_group_name: "Fixed Income", value: 1.11),
+      (asset_group_name: "Liquid", value: 0.01),
+      (asset_group_name: "new", value: 10.0),
+    )
+  ),
+  (
+    Date: "December 2024",
+    allocations: (
+      (asset_group_name: "Commodities", value: 0.62),
+      (asset_group_name: "Equities", value: 88.26),
+      (asset_group_name: "Fixed Income", value: 1.11),
+      (asset_group_name: "Liquid", value: 0.01),
+      (asset_group_name: "new", value: 10.0),
+    )
+  ),
+(
+    Date: "December 2024",
+    allocations: (
+      (asset_group_name: "Commodities", value: 0.62),
+      (asset_group_name: "Equities", value: 88.26),
+      (asset_group_name: "Fixed Income", value: 1.11),
+      (asset_group_name: "Liquid", value: 0.01),
+      (asset_group_name: "new", value: 10.0),
+    )
+  ),
+)
+#box(width: 49.5%,height: 49.5%,radius: 20pt,fill: white,stroke: (2.8pt + luma(88%)))[
+#place(dx: 15pt, dy:20pt, pad(..titlePadding, text(
+    "Quarterly Asset Allocation Trends",
+    size: 25pt,
+    fill: rgb("0e496e"),
+    weight: "extrabold",
+  )))
+  #place(dx:-50pt,dy:80pt)[
+  #echarm.render(
+  width: 100%,
+  height: 450pt,
+  options: (
+    grid: (
+      left: "10%",
+      right: "5%",
+      bottom: "25%", // Minimize space below x-axis
+      containLabel: true,
+      // top: "1%",
+    ),
+    xAxis: (
+      type: "value",
+      min: 0,
+      max: 100, // Assuming percentages
+      interval: 10, // Set ticks at 0, 10, 20, ..., 100
+      axisLine: (
+        "show": false,
+      ),
+      axisLabel: (
+        fontWeight:"bold",
+        // fontSize: 20, // Smaller font size for labels
+        margin: 4, // Reduce label margin
+      ),
+      axisTick: (
+        "show": false // Hide ticks to save space
+      ),
+      splitLine: (
+        "show": false // Hide grid lines for cleaner look
+      ),
+    ),
+   yAxis: (
+      type: "category",
+      data: jsonData.map(item => item.Date),
+      axisLine: (
+        "show": false,
+      ),
+      axisTick: (
+        "show": false
+      ),
+      axisLabel: (
+        fontWeight:"bold",
+        // fontSize: 18,
+        margin: 5
+      ),
+    ),
+    series: {
+      // Get unique asset_group_name values from the first allocations array
+      let assetGroups = jsonData.at(0).allocations.map(a => a.asset_group_name)
+      // Generate series dynamically
+      assetGroups.enumerate().map(((index, name)) => (
+        name: name,
+        type: "bar",
+        stack: "assetStack",
+        data: jsonData.map(item => item.allocations.at(index).value),
+        color: primaryColors.at(index)
+      ))
+    },
+    legend: (
+      "show": true,
+      top: "80%",
+      left: "center",
+      right: "center",
+       icon: "circle"
+
+    ),
+    tooltip: (
+      trigger: "axis",
+     axisPointer: (
+        type: "shadow"
       )
     )
-
-    // Extract legend data (asset names and values from the latest quarter)
-    #let legendData = jsonData.at(-1).allocations.map(allocation => (
-      name: allocation.asset_group_name,
-      value: allocation.value
-    ))
-
-    // Determine the number of categories
-    #let maxCategories = jsonData.map(quarter => quarter.allocations.len()).fold(0, (a, b) => calc.max(a, b))
-
-    // Transform JSON data into the format expected by allocation_chart
-    #let dynamicQuarterData = jsonData.map(quarter => {
-      let values = array.range(maxCategories).map(_ => 0.0) // Initialize dynamic values array
-      for (i, allocation) in quarter.allocations.enumerate() {
-        if i < maxCategories { // Map up to maxCategories
-          values.at(i) = allocation.value
-        }
-      }
-      (quarter: quarter.Date, values: values)
-    })
-
-    // Generate the chart with transformed data and legend data
-
-    #place()[#allocation_chart(dynamicQuarterData, legendData)]
-  ]
+  )
+)]
+]
 ]

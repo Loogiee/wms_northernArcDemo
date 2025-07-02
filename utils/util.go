@@ -114,7 +114,6 @@ func ConvertToFormattedPercentagePointer(amount *float64) string {
 	stringVal := fmt.Sprintf("%.2f", *amount)
 	if *amount >= 100.0 {
 		stringVal = fmt.Sprintf("%.0f", *amount)
-		fmt.Println("amount >=100")
 	}
 
 	return stringVal

@@ -1,5 +1,20 @@
 #import "@preview/echarm:0.2.0"
+// Define colors and data
 
+#let primaryColors = (
+  "#1e90ff",
+  "#0ecb81",
+  "#f79009",
+  "#f14366",
+  "#73c0de",
+  "#EA342C",
+  "#FE9900",
+  "#060270",
+  "#E3a2",
+  "#aEF702",
+  "#ec02",
+  "#702"
+)
 #let customFooter = box(width: 100%, height: 30pt,  align(center + bottom)[
   #place(dy: -20pt,[#line(length: 100%,stroke: 0.5pt + rgb("#cdcdcd"))])
 

@@ -17,7 +17,22 @@ header: none
   dx:720pt,dy:-80pt,
   box(height: 109.7%,width: 70%,fill: rgb(0, 0, 0,60%))
 )
+#place(dx:519pt,dy:400pt,
+   box(
+      inset: 2em,
+      fill: rgb("#75bbd4"),
 
+      align(
+        left,
+        text(
+          "Mutual Fund\n  Analysis",
+          fill: white,
+          size:40pt,
+          weight: "black"
+        )
+      )
+    ),
+)
 #place(
   horizon+center,
   dx:-10pt,
@@ -27,16 +42,16 @@ header: none
     spacing: 2em,
      stack(
       dir: ttb,
-      circle(fill: rgb("#40c1fd"),radius: 1.5em),
+      circle(fill: rgb("#75bbd4"),radius: 1.5em),
       line(
         angle: 90deg,
         length: 35em,
         stroke: (
-          paint:rgb("#40c1fd"),
+          paint:rgb("#75bbd4"),
           thickness:1em,
         )
       ),
-      circle(fill: rgb("#40c1fd"),radius: 1.5em),
+      circle(fill: rgb("#75bbd4"),radius: 1.5em),
     ),
   )
 )
@@ -261,23 +276,6 @@ header: context{
 #hide[
   #place()[== #text("Mutual Fund Analysis - Equity Mutual Fund Quants")]
 ]
-
-
-#let primaryColors = (
-  "#1e90ff",
-  "#0ecb81",
-  "#f79009",
-  "#f14366",
-  "#73c0de",
-  "#EA342C",
-  "#FE9900",
-  "#060270",
-  "#E3a2",
-  "#aEF702",
-  "#ec02",
-  "#702"
-)
-
 
 #let currentData1 = (
  {{range .EquityMfMarketCapitalization}}

@@ -24,19 +24,6 @@ header: context{
 ]
 
 
-
-#let primaryColors = (
-  "#1e90ff",
-  "#0ecb81",
-  "#f79009",
-  "#f14366",
-  "#73c0de",
-  "#EA342C",
-  "#FE9900",
-  "#060270",
-  "#EEF702"
-)
-
 #let currentData1 = (
 {{range .AssetwiseAllocation}}
   ( value: {{ .StartExposure}},
@@ -233,42 +220,71 @@ header: context{
     radius: 20pt,
     stroke: (2.8pt + luma(88%))
   )[
-    #place(dx: 10pt, dy: -15pt,pad(..titlePadding, text("Portfolio Breakup by Product Type", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")))
+#place(dx: 10pt, dy: -15pt,pad(..titlePadding, text("Portfolio Breakup by Product Type", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")))
 #place(top+left, dy: 20pt, dx: 0pt)[
   // Simulate the data structure from the template
-  #let data = ({{range .SecurityCategoryAllocation}}
-                (SecurityCategory: "{{ .SecurityCategory}}", StartExposure: {{ .StartMarketValue}}, EndExposure: {{ .EndMarketValue}}),
+
+  #let portBrkupdata = ({{range .SecurityCategoryAllocation}}
+                (SecurityCategory: "{{ .SecurityCategory}}", StartExposure: {{ .StartMarketValue}}/1000000, EndExposure: {{ .EndMarketValue}}/1000000),
               {{end}})
-  #box()[
-#echarm.render(width: 100%, height: 450pt, options: (
+
+#place(dx:460pt,dy: 30pt)[
+  #table(
+    stroke: none,
+    columns: (.1fr,.3fr,.1fr,1.6fr),
+    table.cell(align(right+horizon)[#circle(fill: rgb(primaryColors.at(1)),radius: .4em)]),
+    table.cell(align(left+horizon)[#text("Beginning Value",size: .8em)]),
+    table.cell(align(right+horizon)[#circle(fill: rgb(primaryColors.at(0)),radius: .4em)]),
+    table.cell(align(left+horizon)[#text("Ending Value",size: .8em)]),
+
+  )
+]
+#place(dy:40pt,dx:-40pt)[
+#let wrapped_name =(name)=> {if name.len() > 10 {
+        let words = name.split(" ")
+        let mid = calc.floor(words.len() / 2)
+        words.slice(0, mid).join(" ") + "\n" + words.slice(mid).join(" ")
+      } else {
+        name
+}
+}
+#echarm.render(width: 110%, height: 450pt, options: (
     xAxis: (
     type: "category",
-    data: ("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
-    axisLine: (
-      "show": true,
+    data: portBrkupdata.map((items)=> wrapped_name((items.SecurityCategory))),
+    axisLabel:(formatter: "{value}",color: "#000000",fontWeight: "bold"),
+    axisLine: ("show": true),
+    axisTick: ("show": false),
+    nameTruncate: (maxWidth :10)
     ),
-      axisTick: (
-      "show": false
-    ),
-  ),
+    calculable: true,
   yAxis: (
     type: "value",
-    axisLine: (
-      "show": true,
-    ),
+
+    axisLine: ("show": true),
+     axisLabel:(formatter: "{value}m",color: "#000000",fontWeight: "bold"),
   ),
   series: (
-    (data: (120, 20, 150, 80, 70, 110, 130),
+    (data: portBrkupdata.map((items)=> items.StartExposure),
     type: "bar",
-    stack:"a",
-    name:"a"
-  ),
-  (data: (12, 0, 15, 8, 7, 10, 30),
+    stack:"startExposure",
+    name:"startExposure",
+    barWidth: 23,
+     // barGap: "10%",
+     barCategoryGap: "1%",
+    color:primaryColors.at(1)),
+  (data: portBrkupdata.map((items)=> items.EndExposure),
     type: "bar",
-    name:"b",
-    stack:"b",
-  ))
-))]
+    name:"endExposure",
+    stack:"endExposure",
+    barWidth: 23,
+     // barGap: "10%",
+     barCategoryGap: "1%",
+    color:primaryColors.at(0))
+  )
+)
+)
+]
 ]
 
 #place(dy: 500pt)[

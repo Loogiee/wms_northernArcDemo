@@ -41,7 +41,22 @@ header: none)
   dx:720pt,dy:-80pt,
   box(height: 109.7%,width: 70%,fill: rgb(0, 0, 0,60%))
 )
+#place(dx:519pt,dy:400pt,
+   box(
+      inset: 2em,
+      fill: rgb("#75bbd4"),
 
+      align(
+        left,
+        text(
+          "Asset Class\n  Summary",
+          fill: white,
+          size:40pt,
+          weight: "black"
+        )
+      )
+    ),
+)
 #place(
   horizon+center,
   dx:-10pt,
@@ -51,16 +66,16 @@ header: none)
     spacing: 2em,
      stack(
       dir: ttb,
-      circle(fill: rgb("#40c1fd"),radius: 1.5em),
+      circle(fill: rgb("#75bbd4"),radius: 1.5em),
       line(
         angle: 90deg,
         length: 35em,
         stroke: (
-          paint:rgb("#40c1fd"),
+          paint:rgb("#75bbd4"),
           thickness:1em,
         )
       ),
-      circle(fill: rgb("#40c1fd"),radius: 1.5em),
+      circle(fill: rgb("#75bbd4"),radius: 1.5em),
     ),
   )
 )
