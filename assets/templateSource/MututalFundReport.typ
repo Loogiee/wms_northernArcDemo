@@ -285,6 +285,33 @@ header: context{
 {{end}}
  )
  //top left
+ #let amcBar = (width, label: "100%", color: rgb("#2caffe")) => {
+  // Convert width to a ratio if it's a float (assuming width is a percentage like 16.52)
+  let widthRatio = if type(width) == "float" { calc.min(width / 100, 1.0) } else { width }
+
+  // Apply a scaling factor to increase the standard width (e.g., 1.5x)
+  let scaledWidthRatio = calc.min(widthRatio * 1.0, 1.0) // Scale width by 1.5, cap at 1.0
+
+  if (scaledWidthRatio <= 0.0) {
+    return rect(
+      width: 20%,
+      fill: white,
+      height: 17.2pt,
+      align(left + horizon, text(size: 15pt, label, fill: black)) // Left-align label
+    )
+  }
+  return stack(
+    dir: ltr,
+    spacing: 5pt,
+    rect(
+      width: scaledWidthRatio * 100%, // Use scaled width
+      fill: color,
+      height: 35pt,
+      radius: (right: 5pt)
+    ),
+    align(left + horizon, text(size: 15pt, label, baseline: 3pt)) // Left-align label outside bar
+  )
+}
 #place(top+left,
   dx: 0pt, dy: 20pt
 )[
@@ -300,24 +327,6 @@ header: context{
     #text("Industry Allocation(%)", size: 25pt, fill: rgb("0e496e"), weight: "bold")
     #v(10pt)
 
-#let amcBar = (width, label: "100%", color: rgb("#2caffe")) => {
-  let widthRatio = if type(width) == "float" { calc.min(width / 100, 1.0) } else { width }
-  if (widthRatio <= 0.0) {
-    return rect(
-      width: 20%,
-      fill: white,
-      height: 17.2pt,
-      align(left + horizon, text(size: 15pt, label, fill: black)) // Left-align label
-    )
-  }
-  return stack(
-    dir: ltr,
-    spacing: 5pt,
-    rect(width: widthRatio * 100%, fill: color, height: 30pt, radius: (right: 5pt)),
-    align(left + horizon, text(size: 15pt, label, baseline: 3pt)) // Left-align label outside bar
-  )
-}
-
 #set table(
   align: (x, y) => {
     if x == 0 {
@@ -329,14 +338,14 @@ header: context{
   inset: 2pt
 )
 
-#place(dx: 80pt, dy: 20pt)[
+#place(dx: -100pt, dy: 20pt)[
   #table(
-    columns: (150pt, 300pt),
+    columns: (1fr, 1fr),
     stroke: none,
     column-gutter: 10pt,
     {{range .EquityMfIndustryAllocation}}
-    box(align(top, text(size: 15pt, "{{.IndustryName}}"))),
-    amcBar({{ConvertToFormattedPercentagePointer .Percentage}}, label: text(size: 15pt, "{{ConvertToFormattedPercentagePointer .Percentage}}%")),
+    box(align(top, text("{{.IndustryName}}"))),
+    amcBar({{ConvertToFormattedPercentagePointer .Percentage}}, label: text("{{ConvertToFormattedPercentagePointer .Percentage}}%")),
     {{end}}
   )
 ]  ]
@@ -361,28 +370,6 @@ header: context{
     #text("AMC Allocation(%)",  size: 25pt, fill: rgb("0e496e"), weight: "bold")
 
     #v(10pt)
-
-  #let amcBar = (width, label: "100%", color: rgb("#2caffe")) => {
-  // Convert width to a ratio if it's a float (assuming width is a percentage like 16.52)
-  let widthRatio = if type(width) == "float" { calc.min(width / 100, 1.0) } else { width }
-
-
-  if (widthRatio <= 0.0) {
-    return rect(
-      width: 20%,
-      fill: white,
-      height: 17.2pt,
-      align(left + horizon, text(size: 15pt, label, fill: black)) // Left-align label
-    )
-  }
-  return stack(
-    dir: ltr,
-    spacing: 5pt,
-    rect(width: widthRatio * 100%, fill: color, height: 30pt, radius: (right: 5pt)),
-    align(left + horizon, text(size: 15pt, label, baseline: 3pt)) // Left-align label outside bar
-  )
-}
-
 #set table(
   align: (x, y) => {
     if x == 0 {
@@ -394,14 +381,14 @@ header: context{
   inset: 2pt
 )
 
-#place(dx: 250pt, dy: 40pt)[
+#place(dx: -100pt, dy: 20pt)[
   #table(
-    columns: (150pt, 300pt),
+    columns: (1fr, 1fr),
     stroke: none,
     column-gutter: 10pt,
     {{range .EquityMfAmcAllocation}}
-    box(width: 250pt,align(top, text(size: 15pt, "{{.IssuerName}}"))),
-    amcBar({{ConvertToFormattedPercentagePointer .Percentage}}, label: text(size: 15pt, "{{ConvertToFormattedPercentagePointer .Percentage}}%")),
+    box(width: 250pt,align(top, text("{{.IssuerName}}"))),
+    amcBar({{ConvertToFormattedPercentagePointer .Percentage}}, label: text("{{ConvertToFormattedPercentagePointer .Percentage}}%")),
     {{end}}
   )
 ]
@@ -475,7 +462,7 @@ dx: 0pt,dy:20pt)[
 )
 ]
 ]
-],
+]
 
 
  //bottom right
@@ -567,18 +554,22 @@ header: context{
     table.cell(align(right)[#text(fill: heading0, weight: "black", "Amount")]),
     table.cell(align(right)[#text(fill: heading0, weight: "black", "Exposure %")]),
   ),
-
-{{range  .SectorWiseSection}}
-   {{if Contains .SectorName "TOTAL"}}
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Total",fill :heading0)]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}",fill :heading0)]),
-    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .TotAssetExposure}}",fill :heading0)]),
-  {{else}}
+  {{range  .SectorWiseSection}}
+  {{$isTotalRow := Contains .SectorName "TOTAL"}}
+  {{if not $isTotalRow}}
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("{{.SectorName}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .TotAssetExposure}}")]),
+  {{end}}
+{{end}}
+{{range  .SectorWiseSection}}
+  {{$isTotalRow := Contains .SectorName "TOTAL"}}
+  {{if $isTotalRow}}
+    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Total",fill :heading0)]),
+    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}",fill :heading0)]),
+    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .TotAssetExposure}}",fill :heading0)]),
   {{end}}
 {{end}}
 )
@@ -647,3 +638,532 @@ header: context{
 {{end}}
 )
 {{end}}
+
+
+// #pagebreak()
+#let customHeader =box(
+      width: 100%,
+      height: 30pt,
+      stack(
+     place(dx: 10pt,dy: 15pt)[
+        #text("Debt Mutual Fund - Quants", size: 38pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
+        // #text(" ")
+       #text("as on "+ReportDate,size: 14pt, fill: rgb("#585858"))
+        #place(dy: 14pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
+      ],
+       place(top+right,dx: -15pt,dy: 15pt,
+          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+
+)
+)
+#set page(paper: "a2", flipped: true,
+margin: (top:80pt,left:15pt,right:15pt),
+header: context{
+  if counter(page).get().first() >= 1 {
+    align(top)[#customHeader]
+  }
+})
+#hide[
+  #place()[== #text("Mutual Fund Analysis - Debt Mutual Fund Quants")]
+]
+
+#let currentData1 = (
+  {{range .EquityMfMarketCapitalization}}
+  ( value: {{ConvertToFormattedPercentagePointer .Percentage}},
+     name: "{{ .MarketCapType}}"
+  ),
+{{end}}
+
+
+ )
+
+
+
+ //top left
+
+#place(top+left,
+dx: 0pt,dy:20pt)[
+
+#place(
+dx: 20pt,dy:30pt)[#text(" Rating Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")]
+
+
+  #box(width: 32%,height: 48%,stroke: rgb("#cecece"),radius: 20pt)[
+
+
+  #pad(left: 150pt,top: -650pt,
+
+
+    grid(
+      columns: (1fr, 1fr),
+      align: (center),
+      // Current allocation chart
+      box(
+        width: 130%, height: 150%, stroke: none)[
+        #echarm.render(width: 100%, height: 100%, options: (
+          series: (
+            name: "Current Allocation",
+            type: "pie",
+            radius: ("60%", "70%"),
+            avoidLabelOverlap: false,
+            color: primaryColors,
+            itemStyle: (
+              borderColor: "#fff",
+              borderWidth: 0,
+            ),
+            labelLine: (
+              //show: true,
+            ),
+            data: currentData1
+          ),
+        )
+      ),
+    ]
+  )
+)
+
+#place(
+ dx: 80pt, dy: -180pt
+)[
+   #grid(
+  columns: (1fr, 1fr, 1fr),
+  column-gutter: -120pt,
+  gutter: 10pt,
+  inset: 20pt,
+  align: left,
+  // Dynamically generate legend items
+  ..currentData1.enumerate().map(((i, item)) => {
+    let value = str(item.value) + "%"
+    let name = item.name
+    stack(
+      dir: ttb, // Stack vertically
+      spacing: 5pt, // Space between color-value and name
+      stack(
+        dir: ltr, // Horizontal stack for color and value
+        spacing: 15pt,
+        rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(i))),
+        text(value, size: 15pt)
+      ),
+      place(
+        dx: 27pt, // Offset to align name under value (12pt for rect width + 15pt for spacing)
+        text(name, size: 15pt)
+      )
+    )
+  })
+)
+]
+
+
+]
+  ]
+
+
+#let currentData2 = (
+  {{range .EquityMfMarketCapitalization}}
+  ( value: {{ConvertToFormattedPercentagePointer .Percentage}},
+     name: "{{ .MarketCapType}}"
+  ),
+{{end}}
+ )
+
+
+
+//  //top mid
+
+#place(top+left,
+dx: 550pt,dy:20pt)[
+
+#place(
+dx: 20pt,dy:30pt)[#text(" Instrument Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")]
+
+
+  #box(width: 32%,height: 48%,stroke: rgb("#cecece"),radius: 20pt)[
+
+
+  #pad(left: 150pt,top: -650pt,
+
+
+    grid(
+      columns: (1fr, 1fr),
+      align: (center),
+      // Current allocation chart
+      box(
+        width: 130%, height: 150%, stroke: none)[
+        #echarm.render(width: 100%, height: 100%, options: (
+          series: (
+            name: "Current Allocation",
+            type: "pie",
+            radius: ("60%", "70%"),
+            avoidLabelOverlap: false,
+            color: primaryColors,
+            itemStyle: (
+              borderColor: "#fff",
+              borderWidth: 0,
+            ),
+            labelLine: (
+            //  show: true,
+            ),
+            data: currentData2
+          ),
+        )
+      ),
+    ]
+  )
+)
+
+
+#place(
+ dx: 80pt, dy: -180pt
+)[
+  #grid(
+  columns: (1fr, 1fr, 1fr),
+  column-gutter: -120pt,
+  gutter: 10pt,
+  inset: 20pt,
+  align: left,
+  // Dynamically generate legend items
+  ..currentData2.enumerate().map(((i, item)) => {
+    let value = str(item.value) + "%"
+    let name = item.name
+    stack(
+      dir: ttb, // Stack vertically
+      spacing: 5pt, // Space between color-value and name
+      stack(
+        dir: ltr, // Horizontal stack for color and value
+        spacing: 15pt,
+        rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(i))),
+        text(value, size: 15pt)
+      ),
+      place(
+        dx: 27pt, // Offset to align name under value (12pt for rect width + 15pt for spacing)
+        text(name, size: 15pt)
+      )
+    )
+  })
+)
+]
+
+
+]
+  ]
+
+ //top right
+
+#place(top+right,
+  dx: 0pt, dy: 20pt
+)[
+  #box(
+    width: 32%,
+    height:48%,
+   stroke: rgb("#cecece"),
+    radius: 20pt,
+    clip: true,
+    inset: 20pt
+  )[
+    // Title
+    #place(dx: 0pt,dy: 5pt)[
+    #text("Industry Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")
+
+
+
+     #v(10pt)
+
+  #let amcBar = (width, label: "100%", color: rgb("#2caffe")) => {
+  // Convert width to a ratio if it's a float (assuming width is a percentage like 16.52)
+  let widthRatio = if type(width) == "float" { calc.min(width / 100, 1.0) } else { width }
+
+
+  if (widthRatio <= 0.0) {
+    return rect(
+      width: 20%,
+      fill: white,
+      height: 17.2pt,
+      align(left + horizon, text(size: 15pt, label, fill: black)) // Left-align label
+    )
+  }
+  return stack(
+    dir: ltr,
+    spacing: 5pt,
+    rect(width: widthRatio * 100%, fill: color, height: 30pt, radius: (right: 5pt)),
+    align(left + horizon, text(size: 15pt, label, baseline: 3pt)) // Left-align label outside bar
+  )
+}
+
+#set table(
+  align: (x, y) => {
+    if x == 0 {
+      (right + horizon)
+    } else {
+      (left + horizon)
+    }
+  },
+  inset: 2pt
+)
+
+#place(dx: 80pt, dy: 40pt)[
+  #table(
+    columns: (150pt, 240pt),
+    stroke: none,
+    column-gutter: 10pt,
+    {{range .EquityMfAmcAllocation}}
+    box(width: 250pt,align(top, text(size: 15pt, "{{.IssuerName}}"))),
+    amcBar({{ConvertToFormattedPercentagePointer .Percentage}}, label: text(size: 15pt, "{{ConvertToFormattedPercentagePointer .Percentage}}%")),
+    {{end}}
+  )
+]
+
+  ]
+  ]
+]
+
+#let currentData2 = (
+  (value:  100, name: "Upto 12 Months"),
+ )
+
+#place(bottom+left,
+dx: 0pt,dy:20pt)[
+
+#place(
+dx: 20pt,dy:30pt)[#text("Avg Maturity Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")]
+
+
+  #box(width: 32%,height: 48%,stroke: rgb("#cecece"),radius: 20pt)[
+
+
+  #pad(left: 150pt,top: 100pt,
+
+
+    grid(
+      columns: (1fr, 1fr),
+      align: (center),
+      // Current allocation chart
+      box(
+        width: 130%, height: 150%, stroke: none)[
+        #echarm.render(width: 100%, height: 100%, options: (
+          series: (
+            name: "Current Allocation",
+            type: "pie",
+            radius: ("60%", "70%"),
+            avoidLabelOverlap: false,
+            color: primaryColors,
+            itemStyle: (
+              borderColor: "#fff",
+              borderWidth: 0,
+            ),
+            labelLine: (
+            //  show: true,
+            ),
+            data: currentData1
+          ),
+        )
+      ),
+    ]
+  )
+)
+#place(
+ dx: 80pt, dy: -180pt
+)[
+  #grid(
+  columns: (1fr, 1fr, 1fr),
+  column-gutter: -120pt,
+  gutter: 10pt,
+  inset: 20pt,
+  align: left,
+  // Dynamically generate legend items
+  ..currentData1.enumerate().map(((i, item)) => {
+    let value = str(item.value) + "%"
+    let name = item.name
+    stack(
+      dir: ttb, // Stack vertically
+      spacing: 5pt, // Space between color-value and name
+      stack(
+        dir: ltr, // Horizontal stack for color and value
+        spacing: 15pt,
+        rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(i))),
+        text(value, size: 15pt)
+      ),
+      place(
+        dx: 27pt, // Offset to align name under value (12pt for rect width + 15pt for spacing)
+        text(name, size: 15pt)
+      )
+    )
+  })
+)
+]
+]
+  ]
+//top left
+#place(top+left,
+dx: 0pt,dy:20pt)[
+
+
+
+  #box(width: 32%,height: 48%,stroke: rgb("#cecece"),radius: 20pt)[
+
+
+  #pad(left: 150pt,top: -650pt,
+
+
+    grid(
+      columns: (1fr, 1fr),
+      align: (center),
+      // Current allocation chart
+      box(
+        width: 130%, height: 150%, stroke: none)[
+        #echarm.render(width: 100%, height: 100%, options: (
+          series: (
+            name: "Current Allocation",
+            type: "pie",
+            radius: ("60%", "70%"),
+            avoidLabelOverlap: false,
+            color: primaryColors,
+            itemStyle: (
+              borderColor: "#fff",
+              borderWidth: 0,
+            ),
+            labelLine: (
+            //  show: true,
+            ),
+            data: currentData1
+          ),
+        )
+      ),
+    ]
+  )
+)
+
+
+
+
+
+]
+  ]
+
+
+
+
+//  //bottom mid
+
+#place(bottom+left,
+  dx: 550pt, dy: 20pt
+)[
+  #let bottomdata = (
+    (Metric: " AverageMaturity", Values: [4.9]),
+    (Metric: "Duration", Values: [3.2]),
+    (Metric: "YTM", Values: [0.6]),
+
+  )
+
+  // Create a bordered box containing the table
+  #box(
+    width: 32%,
+    height: 48%,
+    stroke: rgb("#cecece") ,
+    radius: 20pt,
+    inset: 20pt
+  )[
+    #place(
+dx: 20pt,dy:30pt)[#text("Debt Quants", size: 30pt,  fill: rgb("0e496e"),font: "Bai Jamjuree", weight: "extrabold")]
+
+
+
+//table
+#set table(
+      fill: (x, y) =>
+      if y == 0 {
+        rgb("#f1f1f1")
+      },
+    )
+#table(
+      columns: (2fr, 1fr),
+      stroke: (x, y) => {
+        if y == 0 {
+          (bottom: 1pt + gray)
+        } else {
+          (bottom: 0.5pt + gray.lighten(50%))
+        }
+      },
+      inset: 40pt,
+      align: (left, right),
+   // Header row
+      table.cell(fill: rgb("#f1f1f1"))[*Metric*],
+      table.cell(fill: rgb("#f1f1f1"), align: right)[*Value(yr)*],
+      // Data rows
+      ..bottomdata.map(row => {
+        (
+          text(size: 14pt, row.Metric),
+          text(size: 14pt, row.Values),
+        )
+      }).flatten()
+    )
+  ]
+  ]
+
+
+//bottom right
+
+#place(bottom+right,
+  dx: 0pt, dy: 20pt
+)[
+
+  #box(
+    width: 33%,
+    height: 48%,
+    clip: true,
+    stroke: rgb("#cecece"),
+    radius: 20pt,
+    inset: 20pt
+  )[
+    // Title
+    #place(dx: 0pt,dy: 5pt)[
+    #text("AMC Allocation(%)", font: "Bai Jamjuree", size: 18pt, fill: rgb("0e496e"), weight: "bold")
+
+   #v(10pt)
+
+  #let amcBar = (width, label: "100%", color: rgb("#2caffe")) => {
+  // Convert width to a ratio if it's a float (assuming width is a percentage like 16.52)
+  let widthRatio = if type(width) == "float" { calc.min(width / 100, 1.0) } else { width }
+
+
+  if (widthRatio <= 0.0) {
+    return rect(
+      width: 20%,
+      fill: white,
+      height: 17.2pt,
+      align(left + horizon, text(size: 15pt, label, fill: black)) // Left-align label
+    )
+  }
+  return stack(
+    dir: ltr,
+    spacing: 5pt,
+    rect(width: widthRatio * 100%, fill: color, height: 30pt, radius: (right: 5pt)),
+    align(left + horizon, text(size: 15pt, label, baseline: 3pt)) // Left-align label outside bar
+  )
+}
+
+#set table(
+  align: (x, y) => {
+    if x == 0 {
+      (right + horizon)
+    } else {
+      (left + horizon)
+    }
+  },
+  inset: 2pt
+)
+
+#place(dx: 100pt, dy: 40pt)[
+  #table(
+    columns: (150pt, 240pt),
+    stroke: none,
+    column-gutter: 10pt,
+    {{range .EquityMfIndustryAllocation}}
+    box(width: 250pt,align(top, text(size: 15pt, "{{.IndustryName}}"))),
+    amcBar({{ConvertToFormattedPercentagePointer .Percentage}}, label: text(size: 15pt, "{{ConvertToFormattedPercentagePointer .Percentage}}%")),
+    {{end}}
+  )
+]
+  ]
+  ]
+]
+

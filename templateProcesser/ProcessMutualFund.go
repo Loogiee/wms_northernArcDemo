@@ -17,22 +17,22 @@ func ProcessMutualFund(sqlData *[]map[string]interface{}) (string, error) {
 	for _, obj := range *sqlData {
 		for key, value := range obj {
 			switch key {
-			case "amc_wise_section":
+			case "amc_wise_section": //AMC Wise Exposure - All Advisors
 				mapAmcWiseSection(value, &FinalProcessData)
 			case "fund_manager_wise_section": //Fund Manager Wise Exposure - All Advisor
 				mapFundManagerWiseSection(value, &FinalProcessData)
 			case "mf_sector_wise_section":
-				mapSectorWiseSection(value, &FinalProcessData)
+				mapSectorWiseSection(value, &FinalProcessData) //Fund Manager Wise Exposure - All Advisor
 			case "mutual_fund_transaction_section":
-				mapMututalFundTransSection(value, &FinalProcessData)
+				mapMututalFundTransSection(value, &FinalProcessData) //Transaction History - Mutual Funds
 			case "equity_mf_market_capitalization_allocation%":
-				mapEqMktCapSection(value, &FinalProcessData)
+				mapEqMktCapSection(value, &FinalProcessData) //Market Capitalization Allocation(%)
 			case "equity_mf_amc_allocation%":
-				mapEqAmcAllocSection(value, &FinalProcessData)
+				mapEqAmcAllocSection(value, &FinalProcessData) //AMC Allocation(%)
 			case "equity_quants":
-				mapEqQuantsSection(value, &FinalProcessData)
+				mapEqQuantsSection(value, &FinalProcessData) //Equity Quants
 			case "equity_mf_industry_allocation%":
-				mapEqIndAllocSection(value, &FinalProcessData)
+				mapEqIndAllocSection(value, &FinalProcessData) //Industry Allocation(%)
 			}
 		}
 	}
@@ -64,6 +64,9 @@ func mapFundManagerWiseSection(value interface{}, parsingData *MutualFundSection
 func mapSectorWiseSection(value interface{}, parsingData *MutualFundSection) {
 	var processData []SectorWiseSection
 	MapToStruct(value, &processData)
+	sort.Slice(processData, func(i, j int) bool {
+		return processData[i].TotAssetExposure > processData[j].TotAssetExposure
+	})
 	parsingData.SectorWiseSection = processData
 }
 
