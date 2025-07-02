@@ -155,19 +155,26 @@ header: context{
     table.cell(align(right)[#text(fill: heading0,weight: "black", "IRR %")]),
     table.cell(align(left)[#text(fill: heading0,weight: "black", "Benchmark")]),
   ),
+{{$ShowOnce := true}}
  {{range  .AssetSubassetSection}}
     {{if Contains .SecurityCategory "TOTAL"}}
+    {{$ShowOnce = true}}
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("{{.AssetGroupName}}" )],fill: highlightBlue),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}")],fill: highlightBlue),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AssetExposure}}")],fill: highlightBlue),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}")],fill: highlightBlue),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .RealGainLoss}}")],fill: highlightBlue),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Dividend}}")],fill: highlightBlue),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}")],fill: highlightBlue),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .XIRR}}")],fill: highlightBlue),
-    table.cell(align(left)[#text("{{.BenchmarkName}}")],fill: highlightBlue),
+    table.cell(align(left)[#text("Total" ,fill: heading0)],),
+    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}",fill:heading0)]),
+    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .AssetExposure}}",fill:heading0)]),
+    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}",fill:heading0)]),
+    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .RealGainLoss}}",fill:heading0)]),
+    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Dividend}}",fill:heading0)]),
+    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}",fill:heading0)]),
+    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .XIRR}}",fill:heading0)]),
+    table.cell(align(left)[#text("{{.BenchmarkName}}",fill:heading0)]),
     {{else}}
+    {{if $ShowOnce}}
+    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(colspan: 9, align(left)[#text("{{.AssetGroupName}}" )],fill: highlightBlue),
+    {{$ShowOnce = false}}
+    {{end}}
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("{{.SecurityCategory}}" )] ),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}")]),
@@ -176,7 +183,7 @@ header: context{
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .RealGainLoss}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Dividend}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}")]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .XIRR}}")]),
+    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .XIRR}}")]),
     table.cell(align(left)[#text("{{.BenchmarkName}}")]),
     {{end}}
   {{end}}
@@ -241,8 +248,8 @@ header: context{
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}" ,fill: heading0)],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .DistributedIncome}}" ,fill: heading0)],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .RealGainLoss}}" ,fill: heading0)],),
-      table.cell(align(right)[#text("{{.XIRR}}" ,fill: heading0)],),
-      table.cell(align(right)[#text("{{.AssetExposure}}" ,fill: heading0)],),
+      table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .XIRR}}" ,fill: heading0)],),
+      table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .AssetExposure}}" ,fill: heading0)],),
     {{else}}
       {{if $ShowOnce}}
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -256,8 +263,8 @@ header: context{
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}" )],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .DistributedIncome}}" )],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .RealGainLoss}}" )],),
-      table.cell(align(right)[#text("{{.XIRR}}" )],),
-      table.cell(align(right)[#text("{{.AssetExposure}}" )],),
+      table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .XIRR}}" )],),
+      table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .AssetExposure}}" )],),
     {{end}}
   {{end}}
   )
@@ -317,8 +324,8 @@ header: context{
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}" ,fill: heading0)],),
       table.cell(align(right)[#text("-" ,fill: heading0)],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .RealGainLoss}}" ,fill: heading0)],),
-      table.cell(align(right)[#text("{{.XIRR}}" ,fill: heading0)],),
-      table.cell(align(right)[#text("{{.AssetExposure}}" ,fill: heading0)],),
+      table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .XIRR}}" ,fill: heading0)],),
+      table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .AssetExposure}}" ,fill: heading0)],),
     {{else}}
       {{if $ShowOnce}}
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -332,8 +339,8 @@ header: context{
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}" )],),
       table.cell(align(right)[#text("-" )],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .RealGainLoss}}" )],),
-      table.cell(align(right)[#text("{{.XIRR}}" )],),
-      table.cell(align(right)[#text("{{.AssetExposure}}" )],),
+      table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .XIRR}}" )],),
+      table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .AssetExposure}}" )],),
     {{end}}
   {{end}}
   )

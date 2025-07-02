@@ -62,7 +62,7 @@ header: context{
     inset: (top: 30pt, left: 20pt, right: 20pt, bottom: 30pt),
     width: 49.5%,
     height:100%,
-    radius: 8pt,
+    radius: 20pt,
     stroke: (2.8pt + luma(88%))
   )[
       #place(dx: 130pt, dy: 210pt, text(weight: "extrabold", size: 15pt, "Beginning Allocation"))
@@ -199,7 +199,7 @@ header: context{
     align: center+horizon,
     inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     table.header(
-    table.cell(fill:rgb("#ebebeb"),rowspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold", [Product Type])),
+    table.cell(fill:rgb("#ebebeb"),rowspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold", "Product Type")),
     table.vline(start: 0,end: 2,stroke: 0.3pt+rgb("#00000070")),
     table.cell(fill:rgb("#ebebeb"),colspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "Beginning Value")),
     table.cell(fill:rgb("#ebebeb"),colspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "Ending Value")),
@@ -213,9 +213,9 @@ header: context{
   {{range .AssetwiseAllocation}}
     table.cell(align(left)[#text(size: 18pt, "{{.AssetGroupName}}")]),
     table.cell(align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberWithoutDecimalPointer .StartMarketValue}}")]),
-    table.cell(align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberPointer .StartExposure}}"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "{{ConvertToFormattedPercentagePointer .StartExposure}}"+"%")]),
     table.cell(align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberWithoutDecimalPointer .EndMarketValue}}")]),
-    table.cell(align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberPointer .EndExposure}}"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "{{ConvertToFormattedPercentagePointer .EndExposure}}"+"%")]),
     table.hline(stroke: rgb("#cdcdcd")),
 {{end}}
 
@@ -230,7 +230,7 @@ header: context{
   inset: (left:20pt,right:20pt,top:40pt),
     width: 49.5%,
     height: 100%,
-    radius: 8pt,
+    radius: 20pt,
     stroke: (2.8pt + luma(88%))
   )[
     #place(dx: 10pt, dy: -15pt,pad(..titlePadding, text("Portfolio Breakup by Product Type", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")))
@@ -293,9 +293,9 @@ header: context{
   {{range .SecurityCategoryAllocation}}
     table.cell(align(left)[#text(size: 18pt, "{{.SecurityCategory}}")]),
     table.cell(align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberWithoutDecimalPointer .StartMarketValue}}")]),
-    table.cell(align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberPointer .StartExposure}}"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "{{ConvertToFormattedPercentagePointer .StartExposure}}"+"%")]),
     table.cell(align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberWithoutDecimalPointer .EndMarketValue}}")]),
-    table.cell(align(right)[#text(size: 18pt, "{{ConvertToFormattedNumberPointer .EndExposure}}"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "{{ConvertToFormattedPercentagePointer .EndExposure}}"+"%")]),
     table.hline(stroke: rgb("#cdcdcd")),
 {{end}}
 

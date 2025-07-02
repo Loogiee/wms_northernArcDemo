@@ -133,8 +133,8 @@ header: context{
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}",fill :heading0)]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .XIRR}}",fill :heading0)]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AssetExposure}}",fill :heading0)]),
+    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .XIRR}}",fill :heading0)]),
+    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .AssetExposure}}",fill :heading0)]),
   {{else}}
   {{if $ShowOnce}}
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -146,8 +146,8 @@ header: context{
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}")]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .XIRR}}")]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AssetExposure}}")]),
+    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .XIRR}}")]),
+    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .AssetExposure}}")]),
   {{end}}
 {{end}}
 )
@@ -203,7 +203,7 @@ header: context{
     table.cell(align(left)[#text("{{.FundManagerName}}")]),
     table.cell(align(left)[#text("{{.IssuerName}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}")]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .TotAssetExposure}}")]),
+    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .TotAssetExposure}}")]),
   {{end}}
 {{end}}
 {{range  .FundManagerSection}}
@@ -213,7 +213,7 @@ header: context{
     table.cell(align(left)[#text("Total",fill :heading0)]),
     table.cell(align(left)[#text("{{.IssuerName}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}",fill :heading0)]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .TotAssetExposure}}",fill :heading0)]),
+    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .TotAssetExposure}}",fill :heading0)]),
   {{end}}
 {{end}}
 )
@@ -281,7 +281,7 @@ header: context{
 
 #let currentData1 = (
  {{range .EquityMfMarketCapitalization}}
-  ( value: {{ConvertToFormattedNumberPointer .Percentage}},
+  ( value: {{ConvertToFormattedPercentagePointer .Percentage}},
      name: "{{ .MarketCapType}}"
   ),
 {{end}}
@@ -338,7 +338,7 @@ header: context{
     column-gutter: 10pt,
     {{range .EquityMfIndustryAllocation}}
     box(align(top, text(size: 15pt, "{{.IndustryName}}"))),
-    amcBar({{ConvertToFormattedNumberPointer .Percentage}}, label: text(size: 15pt, "{{ConvertToFormattedNumberPointer .Percentage}}%")),
+    amcBar({{ConvertToFormattedPercentagePointer .Percentage}}, label: text(size: 15pt, "{{ConvertToFormattedPercentagePointer .Percentage}}%")),
     {{end}}
   )
 ]  ]
@@ -403,7 +403,7 @@ header: context{
     column-gutter: 10pt,
     {{range .EquityMfAmcAllocation}}
     box(width: 250pt,align(top, text(size: 15pt, "{{.IssuerName}}"))),
-    amcBar({{ConvertToFormattedNumberPointer .Percentage}}, label: text(size: 15pt, "{{ConvertToFormattedNumberPointer .Percentage}}%")),
+    amcBar({{ConvertToFormattedPercentagePointer .Percentage}}, label: text(size: 15pt, "{{ConvertToFormattedPercentagePointer .Percentage}}%")),
     {{end}}
   )
 ]
@@ -575,12 +575,12 @@ header: context{
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Total",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}",fill :heading0)]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .TotAssetExposure}}",fill :heading0)]),
+    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .TotAssetExposure}}",fill :heading0)]),
   {{else}}
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("{{.SectorName}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}")]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .TotAssetExposure}}")]),
+    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .TotAssetExposure}}")]),
   {{end}}
 {{end}}
 )

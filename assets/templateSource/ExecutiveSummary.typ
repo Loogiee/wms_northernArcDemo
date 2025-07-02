@@ -164,18 +164,18 @@ header: context{
 ]
 
 // Place donut chart on the right
-#place(top + right, dy: 20pt)[
+#place(top + right)[
   #box(
     inset: (y: 14pt, x: 10pt),
     width: 49.5%,
-    height:46.5%,
-    radius: 8pt,
+    height:49%,
+    radius: 20pt,
     fill: white,
     stroke: (2.8pt + luma(88%)),
   )[
     // Chart titles
-    #place(dx: 120pt, dy: 130pt, text(weight: "extrabold", size: 25pt, "Current"))
-    #place(dx: 530pt, dy: 130pt, text(weight: "extrabold", size: 22pt, "Target"))
+      #place(dx:20%, dy: 28%, text(weight: "extrabold", size: 22pt, "Current"))
+    #place(dx:71%, dy: 28%, text(weight: "extrabold", size: 22pt, "Target"))
 
     #place(dx: 10pt, dy: -15pt, pad(..titlePadding, text(
       "Asset Allocation (%)",
@@ -208,7 +208,7 @@ header: context{
       // Current allocation chart
       box(
         width: 100%, height: 100%, stroke: none)[
-          #place(dy:-50pt)[
+           #place(dy:-10%,dx:10%)[
         #echarm.render(width: 80%, height:80%, options: (
           series: (
             name: "Current Allocation",
@@ -233,9 +233,8 @@ header: context{
       )[
   #grid(
   columns: (1fr, 1fr, 1fr),
-  column-gutter: -25pt,
   gutter: 10pt,
-  inset: 15pt,
+  inset: (left:10pt,top:20pt,right:10pt,bottom:10pt),
   align: left,
   // Dynamically generate legend items
   ..currentData1.enumerate().map(((i, item)) => {
@@ -262,7 +261,7 @@ header: context{
       ],
       box(
          width: 100%, height: 100%, stroke: none)[
-           #place(dy:-50pt)[
+          #place(dy:-10%,dx:10%)[
         #echarm.render(width: 80%, height: 80%, options: (
           series: (
             name: "Current Allocation",
@@ -286,10 +285,9 @@ header: context{
         dy: 250pt
       )[
     #grid(
-  columns: (1fr, 1fr, 1fr),
-  column-gutter: -25pt,
+   columns: (1fr, 1fr, 1fr),
   gutter: 10pt,
-  inset: 15pt,
+  inset: (left:10pt,top:20pt,right:10pt,bottom:10pt),
   align: left,
   // Dynamically generate legend items
   ..currentData2.enumerate().map(((i, item)) => {
@@ -364,13 +362,13 @@ header: context{
           table.cell(align(right)[#text(fill: rgb("#0d3b6b"), weight: "black", "Excess Returns")]),
         ),
         {{range .RelativePerformanceOverQuarters}}
-        table.cell(align(center)[#text(size: 16pt,"{{.Date}}")]),
+        table.cell(align(center)[#text("{{.Date}}")]),
         table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text(size: 16pt,"{{.XIRR}}"+"%")]),
+        table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .XIRR}}"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text(size: 16pt,"{{.ExcessReturns}}"+"%")]),
+        table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .ExcessReturns}}"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text(size: 16pt,"{{.BMXIRR}}"+"%")]),
+        table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .BMXIRR}}"+"%")]),
         {{end}}
       ),
     )

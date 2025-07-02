@@ -542,18 +542,18 @@ header: context{
 ]
 
 // Place donut chart on the right
-#place(top + right, dy: 20pt)[
+#place(top + right)[
   #box(
     inset: (y: 14pt, x: 10pt),
     width: 49.5%,
-    height:46.5%,
-    radius: 8pt,
+    height:49%,
+    radius: 20pt,
     fill: white,
     stroke: (2.8pt + luma(88%)),
   )[
     // Chart titles
-    #place(dx: 120pt, dy: 130pt, text(weight: "extrabold", size: 25pt, "Current"))
-    #place(dx: 530pt, dy: 130pt, text(weight: "extrabold", size: 22pt, "Target"))
+      #place(dx:20%, dy: 28%, text(weight: "extrabold", size: 22pt, "Current"))
+    #place(dx:71%, dy: 28%, text(weight: "extrabold", size: 22pt, "Target"))
 
     #place(dx: 10pt, dy: -15pt, pad(..titlePadding, text(
       "Asset Allocation (%)",
@@ -642,7 +642,7 @@ header: context{
       // Current allocation chart
       box(
         width: 100%, height: 100%, stroke: none)[
-          #place(dy:-50pt)[
+           #place(dy:-10%,dx:10%)[
         #echarm.render(width: 80%, height:80%, options: (
           series: (
             name: "Current Allocation",
@@ -667,9 +667,8 @@ header: context{
       )[
   #grid(
   columns: (1fr, 1fr, 1fr),
-  column-gutter: -25pt,
   gutter: 10pt,
-  inset: 15pt,
+  inset: (left:10pt,top:20pt,right:10pt,bottom:10pt),
   align: left,
   // Dynamically generate legend items
   ..currentData1.enumerate().map(((i, item)) => {
@@ -696,7 +695,7 @@ header: context{
       ],
       box(
          width: 100%, height: 100%, stroke: none)[
-           #place(dy:-50pt)[
+          #place(dy:-10%,dx:10%)[
         #echarm.render(width: 80%, height: 80%, options: (
           series: (
             name: "Current Allocation",
@@ -720,10 +719,9 @@ header: context{
         dy: 250pt
       )[
     #grid(
-  columns: (1fr, 1fr, 1fr),
-  column-gutter: -25pt,
+   columns: (1fr, 1fr, 1fr),
   gutter: 10pt,
-  inset: 15pt,
+  inset: (left:10pt,top:20pt,right:10pt,bottom:10pt),
   align: left,
   // Dynamically generate legend items
   ..currentData2.enumerate().map(((i, item)) => {
@@ -798,37 +796,37 @@ header: context{
           table.cell(align(right)[#text(fill: rgb("#0d3b6b"), weight: "black", "Excess Returns")]),
         ),
         
-        table.cell(align(center)[#text(size: 16pt,"Dec 2024")]),
+        table.cell(align(center)[#text("Dec 2024")]),
         table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text(size: 16pt,"9.71"+"%")]),
+        table.cell(align(right)[#text("9.71"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text(size: 16pt,"8.72"+"%")]),
+        table.cell(align(right)[#text("8.72"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text(size: 16pt,"0.99"+"%")]),
+        table.cell(align(right)[#text("0.99"+"%")]),
         
-        table.cell(align(center)[#text(size: 16pt,"Jun 2024")]),
+        table.cell(align(center)[#text("Jun 2024")]),
         table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text(size: 16pt,"20.08"+"%")]),
+        table.cell(align(right)[#text("20.08"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text(size: 16pt,"2.2"+"%")]),
+        table.cell(align(right)[#text("2.20"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text(size: 16pt,"17.88"+"%")]),
+        table.cell(align(right)[#text("17.88"+"%")]),
         
-        table.cell(align(center)[#text(size: 16pt,"Mar 2024")]),
+        table.cell(align(center)[#text("Mar 2024")]),
         table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text(size: 16pt,"17.04"+"%")]),
+        table.cell(align(right)[#text("17.04"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text(size: 16pt,"-3.88"+"%")]),
+        table.cell(align(right)[#text("-3.88"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text(size: 16pt,"20.92"+"%")]),
+        table.cell(align(right)[#text("20.92"+"%")]),
         
-        table.cell(align(center)[#text(size: 16pt,"Sep 2024")]),
+        table.cell(align(center)[#text("Sep 2024")]),
         table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text(size: 16pt,"20.76"+"%")]),
+        table.cell(align(right)[#text("20.76"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text(size: 16pt,"21.43"+"%")]),
+        table.cell(align(right)[#text("21.43"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text(size: 16pt,"-0.67"+"%")]),
+        table.cell(align(right)[#text("-0.67"+"%")]),
         
       ),
     )
@@ -1142,7 +1140,7 @@ header: context{
     inset: (top: 30pt, left: 20pt, right: 20pt, bottom: 30pt),
     width: 49.5%,
     height:100%,
-    radius: 8pt,
+    radius: 20pt,
     stroke: (2.8pt + luma(88%))
   )[
       #place(dx: 130pt, dy: 210pt, text(weight: "extrabold", size: 15pt, "Beginning Allocation"))
@@ -1279,7 +1277,7 @@ header: context{
     align: center+horizon,
     inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     table.header(
-    table.cell(fill:rgb("#ebebeb"),rowspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold", [Product Type])),
+    table.cell(fill:rgb("#ebebeb"),rowspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold", "Product Type")),
     table.vline(start: 0,end: 2,stroke: 0.3pt+rgb("#00000070")),
     table.cell(fill:rgb("#ebebeb"),colspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "Beginning Value")),
     table.cell(fill:rgb("#ebebeb"),colspan: 2,text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "Ending Value")),
@@ -1331,7 +1329,7 @@ header: context{
   inset: (left:20pt,right:20pt,top:40pt),
     width: 49.5%,
     height: 100%,
-    radius: 8pt,
+    radius: 20pt,
     stroke: (2.8pt + luma(88%))
   )[
     #place(dx: 10pt, dy: -15pt,pad(..titlePadding, text("Portfolio Breakup by Product Type", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")))
@@ -1432,7 +1430,7 @@ header: context{
 
     table.cell(align(left)[#text(size: 18pt, "Mutual Funds/ETFs")]),
     table.cell(align(right)[#text(size: 18pt, "48,20,002")]),
-    table.cell(align(right)[#text(size: 18pt, "100.00"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "100"+"%")]),
     table.cell(align(right)[#text(size: 18pt, "17,34,38,708")]),
     table.cell(align(right)[#text(size: 18pt, "57.67"+"%")]),
     table.hline(stroke: rgb("#cdcdcd")),
@@ -1605,12 +1603,18 @@ header: context{
     table.cell(align(right)[#text(fill: heading0,weight: "black", "IRR %")]),
     table.cell(align(left)[#text(fill: heading0,weight: "black", "Benchmark")]),
   ),
+
  
+    
+    
+    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(colspan: 9, align(left)[#text("Commodities" )],fill: highlightBlue),
+    
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Mutual Funds/ETFs" )] ),
     table.cell(align(right)[#text("21,37,536.07")]),
-    table.cell(align(right)[#text("100.00")]),
+    table.cell(align(right)[#text("100")]),
     table.cell(align(right)[#text("13,20,000.93")]),
     table.cell(align(right)[#text("0")]),
     table.cell(align(right)[#text("0")]),
@@ -1620,36 +1624,43 @@ header: context{
     
   
     
+    
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Commodities" )],fill: highlightBlue),
-    table.cell(align(right)[#text("21,37,536.07")],fill: highlightBlue),
-    table.cell(align(right)[#text("100.00")],fill: highlightBlue),
-    table.cell(align(right)[#text("13,20,000.93")],fill: highlightBlue),
-    table.cell(align(right)[#text("0")],fill: highlightBlue),
-    table.cell(align(right)[#text("0")],fill: highlightBlue),
-    table.cell(align(right)[#text("8,17,535.14")],fill: highlightBlue),
-    table.cell(align(right)[#text("11.39")],fill: highlightBlue),
-    table.cell(align(left)[#text("-")],fill: highlightBlue),
+    table.cell(align(left)[#text("Total" ,fill: heading0)],),
+    table.cell(align(right)[#text("21,37,536.07",fill:heading0)]),
+    table.cell(align(right)[#text("100",fill:heading0)]),
+    table.cell(align(right)[#text("13,20,000.93",fill:heading0)]),
+    table.cell(align(right)[#text("0",fill:heading0)]),
+    table.cell(align(right)[#text("0",fill:heading0)]),
+    table.cell(align(right)[#text("8,17,535.14",fill:heading0)]),
+    table.cell(align(right)[#text("11.39",fill:heading0)]),
+    table.cell(align(left)[#text("-",fill:heading0)]),
     
   
+    
+    
+    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(colspan: 9, align(left)[#text("Equities" )],fill: highlightBlue),
+    
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("AIF" )] ),
     table.cell(align(right)[#text("7,44,37,647.67")]),
-    table.cell(align(right)[#text("25.67")]),
+    table.cell(align(right)[#text("25")]),
     table.cell(align(right)[#text("7,72,36,961.00")]),
     table.cell(align(right)[#text("0")]),
     table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("-,27,99,313.33")]),
+    table.cell(align(right)[#text("-27,99,313.33")]),
     table.cell(align(right)[#text("-7.55")]),
     table.cell(align(left)[#text("NIFTY 200 TRI")]),
     
   
     
+    
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Direct Equities" )] ),
     table.cell(align(right)[#text("34,04,263.74")]),
-    table.cell(align(right)[#text("1.17")]),
+    table.cell(align(right)[#text("1")]),
     table.cell(align(right)[#text("32,95,955.82")]),
     table.cell(align(right)[#text("0")]),
     table.cell(align(right)[#text("0")]),
@@ -1659,10 +1670,11 @@ header: context{
     
   
     
+    
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Mutual Funds/ETFs" )] ),
     table.cell(align(right)[#text("17,13,01,171.84")]),
-    table.cell(align(right)[#text("59.08")]),
+    table.cell(align(right)[#text("59")]),
     table.cell(align(right)[#text("16,56,03,771.82")]),
     table.cell(align(right)[#text("0")]),
     table.cell(align(right)[#text("0")]),
@@ -1672,10 +1684,11 @@ header: context{
     
   
     
+    
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("PMS" )] ),
     table.cell(align(right)[#text("4,07,84,753.80")]),
-    table.cell(align(right)[#text("14.07")]),
+    table.cell(align(right)[#text("14")]),
     table.cell(align(right)[#text("3,78,33,884.00")]),
     table.cell(align(right)[#text("0")]),
     table.cell(align(right)[#text("0")]),
@@ -1685,23 +1698,29 @@ header: context{
     
   
     
+    
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities" )],fill: highlightBlue),
-    table.cell(align(right)[#text("28,99,27,837.05")],fill: highlightBlue),
-    table.cell(align(right)[#text("100.00")],fill: highlightBlue),
-    table.cell(align(right)[#text("28,39,70,572.64")],fill: highlightBlue),
-    table.cell(align(right)[#text("0")],fill: highlightBlue),
-    table.cell(align(right)[#text("0")],fill: highlightBlue),
-    table.cell(align(right)[#text("59,57,264.41")],fill: highlightBlue),
-    table.cell(align(right)[#text("2.31")],fill: highlightBlue),
-    table.cell(align(left)[#text("-")],fill: highlightBlue),
+    table.cell(align(left)[#text("Total" ,fill: heading0)],),
+    table.cell(align(right)[#text("28,99,27,837.05",fill:heading0)]),
+    table.cell(align(right)[#text("100",fill:heading0)]),
+    table.cell(align(right)[#text("28,39,70,572.64",fill:heading0)]),
+    table.cell(align(right)[#text("0",fill:heading0)]),
+    table.cell(align(right)[#text("0",fill:heading0)]),
+    table.cell(align(right)[#text("59,57,264.41",fill:heading0)]),
+    table.cell(align(right)[#text("2.31",fill:heading0)]),
+    table.cell(align(left)[#text("-",fill:heading0)]),
     
   
+    
+    
+    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(colspan: 9, align(left)[#text("Fixed Income" )],fill: highlightBlue),
+    
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Bonds" )] ),
     table.cell(align(right)[#text("86,64,072.99")]),
-    table.cell(align(right)[#text("100.00")]),
+    table.cell(align(right)[#text("100")]),
     table.cell(align(right)[#text("86,64,072.99")]),
     table.cell(align(right)[#text("0")]),
     table.cell(align(right)[#text("0")]),
@@ -1711,23 +1730,29 @@ header: context{
     
   
     
+    
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Fixed Income" )],fill: highlightBlue),
-    table.cell(align(right)[#text("86,64,072.99")],fill: highlightBlue),
-    table.cell(align(right)[#text("100.00")],fill: highlightBlue),
-    table.cell(align(right)[#text("86,64,072.99")],fill: highlightBlue),
-    table.cell(align(right)[#text("0")],fill: highlightBlue),
-    table.cell(align(right)[#text("0")],fill: highlightBlue),
-    table.cell(align(right)[#text("0")],fill: highlightBlue),
-    table.cell(align(right)[#text("0")],fill: highlightBlue),
-    table.cell(align(left)[#text("-")],fill: highlightBlue),
+    table.cell(align(left)[#text("Total" ,fill: heading0)],),
+    table.cell(align(right)[#text("86,64,072.99",fill:heading0)]),
+    table.cell(align(right)[#text("100",fill:heading0)]),
+    table.cell(align(right)[#text("86,64,072.99",fill:heading0)]),
+    table.cell(align(right)[#text("0",fill:heading0)]),
+    table.cell(align(right)[#text("0",fill:heading0)]),
+    table.cell(align(right)[#text("0",fill:heading0)]),
+    table.cell(align(right)[#text("0",fill:heading0)]),
+    table.cell(align(left)[#text("-",fill:heading0)]),
     
   
+    
+    
+    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(colspan: 9, align(left)[#text("Liquid" )],fill: highlightBlue),
+    
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Liquid/Overnight Funds" )] ),
     table.cell(align(right)[#text("22,466.84")]),
-    table.cell(align(right)[#text("100.00")]),
+    table.cell(align(right)[#text("100")]),
     table.cell(align(right)[#text("21,430.27")]),
     table.cell(align(right)[#text("88,245.26")]),
     table.cell(align(right)[#text("0")]),
@@ -1737,16 +1762,17 @@ header: context{
     
   
     
+    
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Liquid" )],fill: highlightBlue),
-    table.cell(align(right)[#text("22,466.84")],fill: highlightBlue),
-    table.cell(align(right)[#text("100.00")],fill: highlightBlue),
-    table.cell(align(right)[#text("21,430.27")],fill: highlightBlue),
-    table.cell(align(right)[#text("88,245.26")],fill: highlightBlue),
-    table.cell(align(right)[#text("0")],fill: highlightBlue),
-    table.cell(align(right)[#text("1,036.57")],fill: highlightBlue),
-    table.cell(align(right)[#text("7.13")],fill: highlightBlue),
-    table.cell(align(left)[#text("-")],fill: highlightBlue),
+    table.cell(align(left)[#text("Total" ,fill: heading0)],),
+    table.cell(align(right)[#text("22,466.84",fill:heading0)]),
+    table.cell(align(right)[#text("100",fill:heading0)]),
+    table.cell(align(right)[#text("21,430.27",fill:heading0)]),
+    table.cell(align(right)[#text("88,245.26",fill:heading0)]),
+    table.cell(align(right)[#text("0",fill:heading0)]),
+    table.cell(align(right)[#text("1,036.57",fill:heading0)]),
+    table.cell(align(right)[#text("7.13",fill:heading0)]),
+    table.cell(align(left)[#text("-",fill:heading0)]),
     
   
 
@@ -1810,7 +1836,7 @@ header: context{
       table.cell(align(left)[#text("Equities" )] ),
       table.cell(align(right)[#text("7,72,36,961.00" )],),
       table.cell(align(right)[#text("7,44,37,647.67" )],),
-      table.cell(align(right)[#text("-,27,99,313.33" )],),
+      table.cell(align(right)[#text("-27,99,313.33" )],),
       table.cell(align(right)[#text("-" )],),
       table.cell(align(right)[#text("0" )],),
       table.cell(align(right)[#text("-7.55" )],),
@@ -1823,7 +1849,7 @@ header: context{
       table.cell(align(left)[#text("Total" ,fill: heading0)],),
       table.cell(align(right)[#text("7,72,36,961.00" ,fill: heading0)],),
       table.cell(align(right)[#text("7,44,37,647.67" ,fill: heading0)],),
-      table.cell(align(right)[#text("-,27,99,313.33" ,fill: heading0)],),
+      table.cell(align(right)[#text("-27,99,313.33" ,fill: heading0)],),
       table.cell(align(right)[#text("-" ,fill: heading0)],),
       table.cell(align(right)[#text("0" ,fill: heading0)],),
       table.cell(align(right)[#text("-7.55" ,fill: heading0)],),
@@ -2105,7 +2131,7 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     table.cell(align(right)[#text("7,96,432.72")]),
     table.cell(align(right)[#text("1,59,00,001.44")]),
     table.cell(align(right)[#text("1,43,53,310.46")]),
-    table.cell(align(right)[#text("-,15,46,690.98")]),
+    table.cell(align(right)[#text("-15,46,690.98")]),
     table.cell(align(right)[#text("0")]),
     table.cell(align(right)[#text("-23.92")]),
     table.cell(align(center)[#text("2024-1004")]),
@@ -2150,7 +2176,7 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     table.cell(align(right)[#text("6,53,372.50")]),
     table.cell(align(right)[#text("1,59,00,006.84")]),
     table.cell(align(right)[#text("1,25,57,296.66")]),
-    table.cell(align(right)[#text("-,33,42,710.18")]),
+    table.cell(align(right)[#text("-33,42,710.18")]),
     table.cell(align(right)[#text("0")]),
     table.cell(align(right)[#text("-48.18")]),
     table.cell(align(center)[#text("2024-1004")]),
@@ -2165,7 +2191,7 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     table.cell(align(right)[#text("21,37,336.99",fill :heading0)]),
     table.cell(align(right)[#text("4,39,00,006.54",fill :heading0)]),
     table.cell(align(right)[#text("3,87,00,526.87",fill :heading0)]),
-    table.cell(align(right)[#text("-,51,99,479.67",fill :heading0)]),
+    table.cell(align(right)[#text("-51,99,479.67",fill :heading0)]),
     table.cell(align(right)[#text("0",fill :heading0)]),
     table.cell(align(right)[#text("-24.23",fill :heading0)]),
     table.cell(align(center)[#text("2024-0322",fill :heading0)]),
@@ -2184,7 +2210,7 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     table.cell(align(right)[#text("1,81,513.46")]),
     table.cell(align(right)[#text("2,10,00,000.54")]),
     table.cell(align(right)[#text("1,99,46,514.01")]),
-    table.cell(align(right)[#text("-,10,53,486.53")]),
+    table.cell(align(right)[#text("-10,53,486.53")]),
     table.cell(align(right)[#text("0")]),
     table.cell(align(right)[#text("-35.63")]),
     table.cell(align(center)[#text("2024-1004")]),
@@ -2199,7 +2225,7 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     table.cell(align(right)[#text("1,81,513.46",fill :heading0)]),
     table.cell(align(right)[#text("2,10,00,000.54",fill :heading0)]),
     table.cell(align(right)[#text("1,99,46,514.01",fill :heading0)]),
-    table.cell(align(right)[#text("-,10,53,486.53",fill :heading0)]),
+    table.cell(align(right)[#text("-10,53,486.53",fill :heading0)]),
     table.cell(align(right)[#text("0",fill :heading0)]),
     table.cell(align(right)[#text("-15.52",fill :heading0)]),
     table.cell(align(center)[#text("2024-1004",fill :heading0)]),
@@ -2587,7 +2613,7 @@ header: context{
     table.cell(align(right)[#text("21,37,536.07")]),
     table.cell(align(right)[#text("8,17,535.14")]),
     table.cell(align(right)[#text("11.39")]),
-    table.cell(align(right)[#text("100.00")]),
+    table.cell(align(right)[#text("100")]),
   
 
    
@@ -2598,7 +2624,7 @@ header: context{
     table.cell(align(right)[#text("21,37,536.07",fill :heading0)]),
     table.cell(align(right)[#text("8,17,535.14",fill :heading0)]),
     table.cell(align(right)[#text("11.39",fill :heading0)]),
-    table.cell(align(right)[#text("100.00",fill :heading0)]),
+    table.cell(align(right)[#text("100",fill :heading0)]),
   
 
    
@@ -2611,7 +2637,7 @@ header: context{
     table.cell(align(left)[#text("360 ONE Mutual Fund")]),
     table.cell(align(right)[#text("2,60,00,001.29")]),
     table.cell(align(right)[#text("2,41,26,426.33")]),
-    table.cell(align(right)[#text("-,18,73,574.96")]),
+    table.cell(align(right)[#text("-18,73,574.96")]),
     table.cell(align(right)[#text("-12.89")]),
     table.cell(align(right)[#text("8.32")]),
   
@@ -2721,7 +2747,7 @@ header: context{
     table.cell(align(left)[#text("Nippon India Mutual Fund")]),
     table.cell(align(right)[#text("3,39,03,426.47")]),
     table.cell(align(right)[#text("3,13,83,507.77")]),
-    table.cell(align(right)[#text("-,25,19,918.70")]),
+    table.cell(align(right)[#text("-25,19,918.70")]),
     table.cell(align(right)[#text("-16.30")]),
     table.cell(align(right)[#text("10.82")]),
   
@@ -2765,7 +2791,7 @@ header: context{
     table.cell(align(left)[#text("UTI Mutual Fund")]),
     table.cell(align(right)[#text("1,59,00,006.84")]),
     table.cell(align(right)[#text("1,25,57,296.66")]),
-    table.cell(align(right)[#text("-,33,42,710.18")]),
+    table.cell(align(right)[#text("-33,42,710.18")]),
     table.cell(align(right)[#text("-44.81")]),
     table.cell(align(right)[#text("4.33")]),
   
@@ -2776,7 +2802,7 @@ header: context{
     table.cell(align(left)[#text("VALUEQUEST INVESTMENT ADVISORS PRIVATE LIMITED")]),
     table.cell(align(right)[#text("5,24,98,184.00")]),
     table.cell(align(right)[#text("4,94,65,732.71")]),
-    table.cell(align(right)[#text("-,30,32,451.29")]),
+    table.cell(align(right)[#text("-30,32,451.29")]),
     table.cell(align(right)[#text("-21.03")]),
     table.cell(align(right)[#text("17.06")]),
   
@@ -2789,7 +2815,7 @@ header: context{
     table.cell(align(right)[#text("28,99,27,837.05",fill :heading0)]),
     table.cell(align(right)[#text("59,57,264.41",fill :heading0)]),
     table.cell(align(right)[#text("2.31",fill :heading0)]),
-    table.cell(align(right)[#text("100.00",fill :heading0)]),
+    table.cell(align(right)[#text("100",fill :heading0)]),
   
 
    
@@ -2837,7 +2863,7 @@ header: context{
     table.cell(align(right)[#text("86,64,072.99",fill :heading0)]),
     table.cell(align(right)[#text("0",fill :heading0)]),
     table.cell(align(right)[#text("0",fill :heading0)]),
-    table.cell(align(right)[#text("100.00",fill :heading0)]),
+    table.cell(align(right)[#text("100",fill :heading0)]),
   
 
    
@@ -2852,7 +2878,7 @@ header: context{
     table.cell(align(right)[#text("22,466.84")]),
     table.cell(align(right)[#text("1,036.57")]),
     table.cell(align(right)[#text("7.13")]),
-    table.cell(align(right)[#text("100.00")]),
+    table.cell(align(right)[#text("100")]),
   
 
    
@@ -2863,7 +2889,7 @@ header: context{
     table.cell(align(right)[#text("22,466.84",fill :heading0)]),
     table.cell(align(right)[#text("1,036.57",fill :heading0)]),
     table.cell(align(right)[#text("7.13",fill :heading0)]),
-    table.cell(align(right)[#text("100.00",fill :heading0)]),
+    table.cell(align(right)[#text("100",fill :heading0)]),
   
 
 )
@@ -3292,7 +3318,7 @@ header: context{
     table.cell(align(left)[#text("Total",fill :heading0)]),
     table.cell(align(left)[#text("-",fill :heading0)]),
     table.cell(align(right)[#text("30,07,51,912.95",fill :heading0)]),
-    table.cell(align(right)[#text("100.00",fill :heading0)]),
+    table.cell(align(right)[#text("100",fill :heading0)]),
   
 
 
@@ -3981,7 +4007,7 @@ header: context{
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Total",fill :heading0)]),
     table.cell(align(right)[#text("17,34,56,76,024.29",fill :heading0)]),
-    table.cell(align(right)[#text("100.00",fill :heading0)]),
+    table.cell(align(right)[#text("100",fill :heading0)]),
   
 
 )
@@ -4045,7 +4071,7 @@ header: context{
     table.cell(align(center)[#text("22 Mar 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("30,956.86")]),
-    table.cell(align(right)[#text("16.15")]),
+    table.cell(align(right)[#text("16")]),
     table.cell(align(right)[#text("4,99,999.77")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4056,7 +4082,7 @@ header: context{
     table.cell(align(center)[#text("22 Apr 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("31,527.06")]),
-    table.cell(align(right)[#text("15.86")]),
+    table.cell(align(right)[#text("15")]),
     table.cell(align(right)[#text("5,00,000.22")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4067,7 +4093,7 @@ header: context{
     table.cell(align(center)[#text("25 Apr 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("9,824.64")]),
-    table.cell(align(right)[#text("71.25")]),
+    table.cell(align(right)[#text("71")]),
     table.cell(align(right)[#text("7,00,000.40")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4078,7 +4104,7 @@ header: context{
     table.cell(align(center)[#text("25 Apr 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("41,975.15")]),
-    table.cell(align(right)[#text("16.68")]),
+    table.cell(align(right)[#text("16")]),
     table.cell(align(right)[#text("6,99,998.57")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4089,7 +4115,7 @@ header: context{
     table.cell(align(center)[#text("25 Apr 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("23,169.98")]),
-    table.cell(align(right)[#text("30.21")]),
+    table.cell(align(right)[#text("30")]),
     table.cell(align(right)[#text("6,99,999.76")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4100,7 +4126,7 @@ header: context{
     table.cell(align(center)[#text("22 May 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("30,836.77")]),
-    table.cell(align(right)[#text("16.21")]),
+    table.cell(align(right)[#text("16")]),
     table.cell(align(right)[#text("4,99,999.67")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4111,7 +4137,7 @@ header: context{
     table.cell(align(center)[#text("28 May 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("6,480.56")]),
-    table.cell(align(right)[#text("30.86")]),
+    table.cell(align(right)[#text("30")]),
     table.cell(align(right)[#text("1,99,999.71")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4122,7 +4148,7 @@ header: context{
     table.cell(align(center)[#text("28 May 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("2,749.35")]),
-    table.cell(align(right)[#text("72.74")]),
+    table.cell(align(right)[#text("72")]),
     table.cell(align(right)[#text("1,99,999.87")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4132,8 +4158,8 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("28 May 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("925.03")]),
-    table.cell(align(right)[#text("216.21")]),
+    table.cell(align(right)[#text("925")]),
+    table.cell(align(right)[#text("216")]),
     table.cell(align(right)[#text("2,00,000.00")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4144,7 +4170,7 @@ header: context{
     table.cell(align(center)[#text("28 May 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("11,216.68")]),
-    table.cell(align(right)[#text("17.83")]),
+    table.cell(align(right)[#text("17")]),
     table.cell(align(right)[#text("2,00,000.10")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4155,7 +4181,7 @@ header: context{
     table.cell(align(center)[#text("29 May 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("3,259.29")]),
-    table.cell(align(right)[#text("30.68")]),
+    table.cell(align(right)[#text("30")]),
     table.cell(align(right)[#text("99,999.88")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4166,7 +4192,7 @@ header: context{
     table.cell(align(center)[#text("29 May 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("1,379.53")]),
-    table.cell(align(right)[#text("72.49")]),
+    table.cell(align(right)[#text("72")]),
     table.cell(align(right)[#text("1,00,000.00")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4176,8 +4202,8 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("29 May 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("463.56")]),
-    table.cell(align(right)[#text("215.72")]),
+    table.cell(align(right)[#text("463")]),
+    table.cell(align(right)[#text("215")]),
     table.cell(align(right)[#text("99,999.98")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4188,7 +4214,7 @@ header: context{
     table.cell(align(center)[#text("29 May 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("5,647.27")]),
-    table.cell(align(right)[#text("17.71")]),
+    table.cell(align(right)[#text("17")]),
     table.cell(align(right)[#text("1,00,000.07")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4199,7 +4225,7 @@ header: context{
     table.cell(align(center)[#text("30 May 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("11,475.74")]),
-    table.cell(align(right)[#text("17.43")]),
+    table.cell(align(right)[#text("17")]),
     table.cell(align(right)[#text("2,00,000.33")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4210,7 +4236,7 @@ header: context{
     table.cell(align(center)[#text("30 May 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("2,782.40")]),
-    table.cell(align(right)[#text("71.88")]),
+    table.cell(align(right)[#text("71")]),
     table.cell(align(right)[#text("2,00,000.03")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4221,7 +4247,7 @@ header: context{
     table.cell(align(center)[#text("30 May 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("6,572.13")]),
-    table.cell(align(right)[#text("30.43")]),
+    table.cell(align(right)[#text("30")]),
     table.cell(align(right)[#text("1,99,999.87")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4231,8 +4257,8 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("30 May 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("935.13")]),
-    table.cell(align(right)[#text("213.87")]),
+    table.cell(align(right)[#text("935")]),
+    table.cell(align(right)[#text("213")]),
     table.cell(align(right)[#text("1,99,999.98")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4243,7 +4269,7 @@ header: context{
     table.cell(align(center)[#text("19 Jun 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("16,194.05")]),
-    table.cell(align(right)[#text("18.53")]),
+    table.cell(align(right)[#text("18")]),
     table.cell(align(right)[#text("2,99,999.58")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4253,7 +4279,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("19 Jun 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("78.07")]),
+    table.cell(align(right)[#text("78")]),
     table.cell(align(right)[#text("3,842.66")]),
     table.cell(align(right)[#text("3,00,000.00")]),
 
@@ -4265,7 +4291,7 @@ header: context{
     table.cell(align(center)[#text("24 Jun 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("29,676.16")]),
-    table.cell(align(right)[#text("16.85")]),
+    table.cell(align(right)[#text("16")]),
     table.cell(align(right)[#text("4,99,998.75")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4275,7 +4301,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("02 Jul 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("76.93")]),
+    table.cell(align(right)[#text("76")]),
     table.cell(align(right)[#text("3,899.45")]),
     table.cell(align(right)[#text("3,00,000.00")]),
 
@@ -4287,7 +4313,7 @@ header: context{
     table.cell(align(center)[#text("02 Jul 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("15,958.52")]),
-    table.cell(align(right)[#text("18.80")]),
+    table.cell(align(right)[#text("18")]),
     table.cell(align(right)[#text("2,99,999.35")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4298,7 +4324,7 @@ header: context{
     table.cell(align(center)[#text("10 Jul 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("1,28,780.54")]),
-    table.cell(align(right)[#text("19.41")]),
+    table.cell(align(right)[#text("19")]),
     table.cell(align(right)[#text("25,00,003.78")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4308,7 +4334,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("23 Jul 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("356.87")]),
+    table.cell(align(right)[#text("356")]),
     table.cell(align(right)[#text("1,401.08")]),
     table.cell(align(right)[#text("5,00,000.01")]),
 
@@ -4331,7 +4357,7 @@ header: context{
     table.cell(align(center)[#text("23 Jul 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("41,998.16")]),
-    table.cell(align(right)[#text("19.05")]),
+    table.cell(align(right)[#text("19")]),
     table.cell(align(right)[#text("8,00,001.99")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4341,7 +4367,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("23 Jul 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("127.56")]),
+    table.cell(align(right)[#text("127")]),
     table.cell(align(right)[#text("3,919.82")]),
     table.cell(align(right)[#text("5,00,000.00")]),
 
@@ -4352,7 +4378,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("23 Jul 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("382.67")]),
+    table.cell(align(right)[#text("382")]),
     table.cell(align(right)[#text("3,919.81")]),
     table.cell(align(right)[#text("15,00,000.00")]),
 
@@ -4363,7 +4389,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("25 Jul 2024")]),
     table.cell(align(left)[#text("SWIN")]),
-    table.cell(align(right)[#text("177.72")]),
+    table.cell(align(right)[#text("177")]),
     table.cell(align(right)[#text("1,406.71")]),
     table.cell(align(right)[#text("2,50,000.00")]),
 
@@ -4374,7 +4400,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("01 Aug 2024")]),
     table.cell(align(left)[#text("SWIN")]),
-    table.cell(align(right)[#text("174.30")]),
+    table.cell(align(right)[#text("174")]),
     table.cell(align(right)[#text("1,434.28")]),
     table.cell(align(right)[#text("2,49,999.99")]),
 
@@ -4386,7 +4412,7 @@ header: context{
     table.cell(align(center)[#text("02 Aug 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("25,585.29")]),
-    table.cell(align(right)[#text("19.54")]),
+    table.cell(align(right)[#text("19")]),
     table.cell(align(right)[#text("5,00,000.59")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4396,7 +4422,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("02 Aug 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("352.10")]),
+    table.cell(align(right)[#text("352")]),
     table.cell(align(right)[#text("1,420.05")]),
     table.cell(align(right)[#text("5,00,000.00")]),
 
@@ -4407,7 +4433,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("02 Aug 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("124.11")]),
+    table.cell(align(right)[#text("124")]),
     table.cell(align(right)[#text("4,028.55")]),
     table.cell(align(right)[#text("5,00,000.00")]),
 
@@ -4419,7 +4445,7 @@ header: context{
     table.cell(align(center)[#text("05 Aug 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("1,06,688.65")]),
-    table.cell(align(right)[#text("23.43")]),
+    table.cell(align(right)[#text("23")]),
     table.cell(align(right)[#text("25,00,003.04")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4430,7 +4456,7 @@ header: context{
     table.cell(align(center)[#text("05 Aug 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("79,112.05")]),
-    table.cell(align(right)[#text("18.96")]),
+    table.cell(align(right)[#text("18")]),
     table.cell(align(right)[#text("14,99,996.21")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4440,7 +4466,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("05 Aug 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("487.70")]),
+    table.cell(align(right)[#text("487")]),
     table.cell(align(right)[#text("3,895.82")]),
     table.cell(align(right)[#text("18,99,999.99")]),
 
@@ -4452,7 +4478,7 @@ header: context{
     table.cell(align(center)[#text("07 Aug 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("41,753.31")]),
-    table.cell(align(right)[#text("23.95")]),
+    table.cell(align(right)[#text("23")]),
     table.cell(align(right)[#text("10,00,000.10")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4462,7 +4488,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("08 Aug 2024")]),
     table.cell(align(left)[#text("SWIN")]),
-    table.cell(align(right)[#text("180.08")]),
+    table.cell(align(right)[#text("180")]),
     table.cell(align(right)[#text("1,388.27")]),
     table.cell(align(right)[#text("2,50,000.00")]),
 
@@ -4474,7 +4500,7 @@ header: context{
     table.cell(align(center)[#text("13 Aug 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("20,929.61")]),
-    table.cell(align(right)[#text("23.89")]),
+    table.cell(align(right)[#text("23")]),
     table.cell(align(right)[#text("5,00,000.11")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4485,7 +4511,7 @@ header: context{
     table.cell(align(center)[#text("16 Aug 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("20,561.65")]),
-    table.cell(align(right)[#text("24.32")]),
+    table.cell(align(right)[#text("24")]),
     table.cell(align(right)[#text("4,99,999.67")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4495,7 +4521,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("16 Aug 2024")]),
     table.cell(align(left)[#text("SWIN")]),
-    table.cell(align(right)[#text("177.31")]),
+    table.cell(align(right)[#text("177")]),
     table.cell(align(right)[#text("1,409.93")]),
     table.cell(align(right)[#text("2,50,000.01")]),
 
@@ -4507,7 +4533,7 @@ header: context{
     table.cell(align(center)[#text("21 Aug 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("20,289.22")]),
-    table.cell(align(right)[#text("24.64")]),
+    table.cell(align(right)[#text("24")]),
     table.cell(align(right)[#text("4,99,999.35")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4517,7 +4543,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("22 Aug 2024")]),
     table.cell(align(left)[#text("SWIN")]),
-    table.cell(align(right)[#text("174.37")]),
+    table.cell(align(right)[#text("174")]),
     table.cell(align(right)[#text("1,433.73")]),
     table.cell(align(right)[#text("2,50,000.01")]),
 
@@ -4529,7 +4555,7 @@ header: context{
     table.cell(align(center)[#text("29 Aug 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("19,999.80")]),
-    table.cell(align(right)[#text("25.00")]),
+    table.cell(align(right)[#text("25")]),
     table.cell(align(right)[#text("4,99,999.00")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4539,7 +4565,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("29 Aug 2024")]),
     table.cell(align(left)[#text("SWIN")]),
-    table.cell(align(right)[#text("172.58")]),
+    table.cell(align(right)[#text("172")]),
     table.cell(align(right)[#text("1,448.60")]),
     table.cell(align(right)[#text("2,49,999.99")]),
 
@@ -4550,7 +4576,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("02 Sep 2024")]),
     table.cell(align(left)[#text("SWIN")]),
-    table.cell(align(right)[#text("553.60")]),
+    table.cell(align(right)[#text("553")]),
     table.cell(align(right)[#text("1,451.28")]),
     table.cell(align(right)[#text("8,03,426.59")]),
 
@@ -4561,7 +4587,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("05 Sep 2024")]),
     table.cell(align(left)[#text("SWIN")]),
-    table.cell(align(right)[#text("171.75")]),
+    table.cell(align(right)[#text("171")]),
     table.cell(align(right)[#text("1,455.60")]),
     table.cell(align(right)[#text("2,50,000.00")]),
 
@@ -4572,7 +4598,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("12 Sep 2024")]),
     table.cell(align(left)[#text("SWIN")]),
-    table.cell(align(right)[#text("169.65")]),
+    table.cell(align(right)[#text("169")]),
     table.cell(align(right)[#text("1,473.59")]),
     table.cell(align(right)[#text("2,50,000.00")]),
 
@@ -4583,7 +4609,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("20 Sep 2024")]),
     table.cell(align(left)[#text("SWIN")]),
-    table.cell(align(right)[#text("167.90")]),
+    table.cell(align(right)[#text("167")]),
     table.cell(align(right)[#text("1,489.01")]),
     table.cell(align(right)[#text("2,49,999.99")]),
 
@@ -4594,7 +4620,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("26 Sep 2024")]),
     table.cell(align(left)[#text("SWIN")]),
-    table.cell(align(right)[#text("166.23")]),
+    table.cell(align(right)[#text("166")]),
     table.cell(align(right)[#text("1,503.98")]),
     table.cell(align(right)[#text("2,50,000.00")]),
 
@@ -4606,7 +4632,7 @@ header: context{
     table.cell(align(center)[#text("04 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("98,161.35")]),
-    table.cell(align(right)[#text("20.37")]),
+    table.cell(align(right)[#text("20")]),
     table.cell(align(right)[#text("19,99,998.16")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4616,7 +4642,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("04 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("443.80")]),
+    table.cell(align(right)[#text("443")]),
     table.cell(align(right)[#text("4,506.54")]),
     table.cell(align(right)[#text("19,99,999.99")]),
 
@@ -4627,7 +4653,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("04 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("965.44")]),
+    table.cell(align(right)[#text("965")]),
     table.cell(align(right)[#text("2,071.59")]),
     table.cell(align(right)[#text("19,99,999.98")]),
 
@@ -4639,7 +4665,7 @@ header: context{
     table.cell(align(center)[#text("04 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("16,765.03")]),
-    table.cell(align(right)[#text("119.30")]),
+    table.cell(align(right)[#text("119")]),
     table.cell(align(right)[#text("20,00,000.54")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4650,7 +4676,7 @@ header: context{
     table.cell(align(center)[#text("04 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("52,615.10")]),
-    table.cell(align(right)[#text("38.01")]),
+    table.cell(align(right)[#text("38")]),
     table.cell(align(right)[#text("19,99,999.96")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4661,7 +4687,7 @@ header: context{
     table.cell(align(center)[#text("04 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("79,692.53")]),
-    table.cell(align(right)[#text("25.10")]),
+    table.cell(align(right)[#text("25")]),
     table.cell(align(right)[#text("20,00,003.60")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4683,7 +4709,7 @@ header: context{
     table.cell(align(center)[#text("07 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("40,628.22")]),
-    table.cell(align(right)[#text("24.61")]),
+    table.cell(align(right)[#text("24")]),
     table.cell(align(right)[#text("9,99,998.75")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4694,7 +4720,7 @@ header: context{
     table.cell(align(center)[#text("07 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("8,463.39")]),
-    table.cell(align(right)[#text("118.16")]),
+    table.cell(align(right)[#text("118")]),
     table.cell(align(right)[#text("9,99,999.94")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4704,7 +4730,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("07 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("226.30")]),
+    table.cell(align(right)[#text("226")]),
     table.cell(align(right)[#text("4,418.87")]),
     table.cell(align(right)[#text("10,00,000.00")]),
 
@@ -4716,7 +4742,7 @@ header: context{
     table.cell(align(center)[#text("07 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("50,019.51")]),
-    table.cell(align(right)[#text("19.99")]),
+    table.cell(align(right)[#text("19")]),
     table.cell(align(right)[#text("10,00,000.03")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4726,7 +4752,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("07 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("487.52")]),
+    table.cell(align(right)[#text("487")]),
     table.cell(align(right)[#text("2,051.19")]),
     table.cell(align(right)[#text("10,00,000.01")]),
 
@@ -4737,7 +4763,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("07 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("654.25")]),
+    table.cell(align(right)[#text("654")]),
     table.cell(align(right)[#text("1,528.47")]),
     table.cell(align(right)[#text("9,99,999.97")]),
 
@@ -4749,7 +4775,7 @@ header: context{
     table.cell(align(center)[#text("07 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("26,679.56")]),
-    table.cell(align(right)[#text("37.48")]),
+    table.cell(align(right)[#text("37")]),
     table.cell(align(right)[#text("10,00,000.67")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4760,7 +4786,7 @@ header: context{
     table.cell(align(center)[#text("11 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("16,784.72")]),
-    table.cell(align(right)[#text("119.16")]),
+    table.cell(align(right)[#text("119")]),
     table.cell(align(right)[#text("20,00,000.69")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4771,7 +4797,7 @@ header: context{
     table.cell(align(center)[#text("11 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("97,283.23")]),
-    table.cell(align(right)[#text("20.56")]),
+    table.cell(align(right)[#text("20")]),
     table.cell(align(right)[#text("19,99,997.28")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4782,7 +4808,7 @@ header: context{
     table.cell(align(center)[#text("16 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("96,382.12")]),
-    table.cell(align(right)[#text("20.75")]),
+    table.cell(align(right)[#text("20")]),
     table.cell(align(right)[#text("19,99,996.37")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4804,7 +4830,7 @@ header: context{
     table.cell(align(center)[#text("16 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("77,695.89")]),
-    table.cell(align(right)[#text("25.74")]),
+    table.cell(align(right)[#text("25")]),
     table.cell(align(right)[#text("20,00,001.01")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4815,7 +4841,7 @@ header: context{
     table.cell(align(center)[#text("16 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("52,893.41")]),
-    table.cell(align(right)[#text("37.81")]),
+    table.cell(align(right)[#text("37")]),
     table.cell(align(right)[#text("20,00,000.48")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4825,7 +4851,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("16 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("959.08")]),
+    table.cell(align(right)[#text("959")]),
     table.cell(align(right)[#text("2,085.34")]),
     table.cell(align(right)[#text("20,00,000.00")]),
 
@@ -4837,7 +4863,7 @@ header: context{
     table.cell(align(center)[#text("16 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("16,734.17")]),
-    table.cell(align(right)[#text("119.52")]),
+    table.cell(align(right)[#text("119")]),
     table.cell(align(right)[#text("20,00,000.46")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4848,7 +4874,7 @@ header: context{
     table.cell(align(center)[#text("17 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("12,671.50")]),
-    table.cell(align(right)[#text("118.38")]),
+    table.cell(align(right)[#text("118")]),
     table.cell(align(right)[#text("14,99,999.74")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4858,7 +4884,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("17 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("329.80")]),
+    table.cell(align(right)[#text("329")]),
     table.cell(align(right)[#text("4,548.22")]),
     table.cell(align(right)[#text("14,99,999.99")]),
 
@@ -4870,7 +4896,7 @@ header: context{
     table.cell(align(center)[#text("17 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("40,019.34")]),
-    table.cell(align(right)[#text("37.48")]),
+    table.cell(align(right)[#text("37")]),
     table.cell(align(right)[#text("15,00,001.05")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4881,7 +4907,7 @@ header: context{
     table.cell(align(center)[#text("17 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("59,837.59")]),
-    table.cell(align(right)[#text("25.07")]),
+    table.cell(align(right)[#text("25")]),
     table.cell(align(right)[#text("15,00,002.80")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4891,7 +4917,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("17 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("727.08")]),
+    table.cell(align(right)[#text("727")]),
     table.cell(align(right)[#text("2,063.05")]),
     table.cell(align(right)[#text("14,99,999.97")]),
 
@@ -4903,7 +4929,7 @@ header: context{
     table.cell(align(center)[#text("17 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("73,863.19")]),
-    table.cell(align(right)[#text("20.31")]),
+    table.cell(align(right)[#text("20")]),
     table.cell(align(right)[#text("14,99,998.87")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4913,7 +4939,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("17 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("965.54")]),
+    table.cell(align(right)[#text("965")]),
     table.cell(align(right)[#text("1,553.54")]),
     table.cell(align(right)[#text("14,99,999.97")]),
 
@@ -4924,7 +4950,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("25 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("344.92")]),
+    table.cell(align(right)[#text("344")]),
     table.cell(align(right)[#text("4,348.81")]),
     table.cell(align(right)[#text("15,00,000.00")]),
 
@@ -4935,7 +4961,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("25 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("734.66")]),
+    table.cell(align(right)[#text("734")]),
     table.cell(align(right)[#text("1,497.30")]),
     table.cell(align(right)[#text("10,99,999.99")]),
 
@@ -4947,7 +4973,7 @@ header: context{
     table.cell(align(center)[#text("25 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("29,995.77")]),
-    table.cell(align(right)[#text("36.67")]),
+    table.cell(align(right)[#text("36")]),
     table.cell(align(right)[#text("10,99,998.99")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4957,7 +4983,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("25 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("538.99")]),
+    table.cell(align(right)[#text("538")]),
     table.cell(align(right)[#text("2,040.85")]),
     table.cell(align(right)[#text("11,00,000.00")]),
 
@@ -4969,7 +4995,7 @@ header: context{
     table.cell(align(center)[#text("25 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("46,566.01")]),
-    table.cell(align(right)[#text("23.62")]),
+    table.cell(align(right)[#text("23")]),
     table.cell(align(right)[#text("11,00,000.89")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4980,7 +5006,7 @@ header: context{
     table.cell(align(center)[#text("25 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("57,487.91")]),
-    table.cell(align(right)[#text("19.13")]),
+    table.cell(align(right)[#text("19")]),
     table.cell(align(right)[#text("11,00,002.49")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -4991,7 +5017,7 @@ header: context{
     table.cell(align(center)[#text("25 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("9,490.47")]),
-    table.cell(align(right)[#text("115.91")]),
+    table.cell(align(right)[#text("115")]),
     table.cell(align(right)[#text("11,00,000.05")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5002,7 +5028,7 @@ header: context{
     table.cell(align(center)[#text("05 Nov 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("41,857.74")]),
-    table.cell(align(right)[#text("19.11")]),
+    table.cell(align(right)[#text("19")]),
     table.cell(align(right)[#text("8,00,001.85")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5013,7 +5039,7 @@ header: context{
     table.cell(align(center)[#text("05 Nov 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("21,004.26")]),
-    table.cell(align(right)[#text("23.80")]),
+    table.cell(align(right)[#text("23")]),
     table.cell(align(right)[#text("5,00,000.20")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5023,7 +5049,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("05 Nov 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("531.96")]),
+    table.cell(align(right)[#text("531")]),
     table.cell(align(right)[#text("1,503.89")]),
     table.cell(align(right)[#text("8,00,000.00")]),
 
@@ -5035,7 +5061,7 @@ header: context{
     table.cell(align(center)[#text("05 Nov 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("13,527.46")]),
-    table.cell(align(right)[#text("36.96")]),
+    table.cell(align(right)[#text("36")]),
     table.cell(align(right)[#text("4,99,999.34")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5045,7 +5071,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("08 Nov 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("594.99")]),
+    table.cell(align(right)[#text("594")]),
     table.cell(align(right)[#text("1,512.64")]),
     table.cell(align(right)[#text("8,99,999.97")]),
 
@@ -5056,7 +5082,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("08 Nov 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("438.85")]),
+    table.cell(align(right)[#text("438")]),
     table.cell(align(right)[#text("2,050.83")]),
     table.cell(align(right)[#text("8,99,999.98")]),
 
@@ -5068,7 +5094,7 @@ header: context{
     table.cell(align(center)[#text("08 Nov 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("24,488.57")]),
-    table.cell(align(right)[#text("36.75")]),
+    table.cell(align(right)[#text("36")]),
     table.cell(align(right)[#text("8,99,999.06")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5079,7 +5105,7 @@ header: context{
     table.cell(align(center)[#text("08 Nov 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("37,958.05")]),
-    table.cell(align(right)[#text("23.71")]),
+    table.cell(align(right)[#text("23")]),
     table.cell(align(right)[#text("9,00,000.55")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5090,7 +5116,7 @@ header: context{
     table.cell(align(center)[#text("08 Nov 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("7,795.87")]),
-    table.cell(align(right)[#text("115.45")]),
+    table.cell(align(right)[#text("115")]),
     table.cell(align(right)[#text("9,00,000.22")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5101,7 +5127,7 @@ header: context{
     table.cell(align(center)[#text("18 Nov 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("39,690.18")]),
-    table.cell(align(right)[#text("22.68")]),
+    table.cell(align(right)[#text("22")]),
     table.cell(align(right)[#text("8,99,998.67")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5111,7 +5137,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("18 Nov 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("612.57")]),
+    table.cell(align(right)[#text("612")]),
     table.cell(align(right)[#text("1,469.22")]),
     table.cell(align(right)[#text("8,99,999.97")]),
 
@@ -5122,7 +5148,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("18 Nov 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("211.29")]),
+    table.cell(align(right)[#text("211")]),
     table.cell(align(right)[#text("4,259.55")]),
     table.cell(align(right)[#text("9,00,000.00")]),
 
@@ -5133,7 +5159,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("18 Nov 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("450.65")]),
+    table.cell(align(right)[#text("450")]),
     table.cell(align(right)[#text("1,997.13")]),
     table.cell(align(right)[#text("9,00,000.00")]),
 
@@ -5145,7 +5171,7 @@ header: context{
     table.cell(align(center)[#text("18 Nov 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("25,145.43")]),
-    table.cell(align(right)[#text("35.79")]),
+    table.cell(align(right)[#text("35")]),
     table.cell(align(right)[#text("9,00,000.27")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5155,7 +5181,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("25 Nov 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("975.12")]),
+    table.cell(align(right)[#text("975")]),
     table.cell(align(right)[#text("2,051.03")]),
     table.cell(align(right)[#text("19,99,999.99")]),
 
@@ -5167,7 +5193,7 @@ header: context{
     table.cell(align(center)[#text("25 Nov 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("54,686.90")]),
-    table.cell(align(right)[#text("36.57")]),
+    table.cell(align(right)[#text("36")]),
     table.cell(align(right)[#text("19,99,998.44")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5178,7 +5204,7 @@ header: context{
     table.cell(align(center)[#text("25 Nov 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("17,206.40")]),
-    table.cell(align(right)[#text("116.24")]),
+    table.cell(align(right)[#text("116")]),
     table.cell(align(right)[#text("19,99,999.79")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5189,7 +5215,7 @@ header: context{
     table.cell(align(center)[#text("25 Nov 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("1,04,373.47")]),
-    table.cell(align(right)[#text("19.16")]),
+    table.cell(align(right)[#text("19")]),
     table.cell(align(right)[#text("20,00,004.37")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5211,7 +5237,7 @@ header: context{
     table.cell(align(center)[#text("25 Nov 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("85,304.32")]),
-    table.cell(align(right)[#text("23.45")]),
+    table.cell(align(right)[#text("23")]),
     table.cell(align(right)[#text("20,00,002.36")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5222,7 +5248,7 @@ header: context{
     table.cell(align(center)[#text("13 Dec 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("1,26,247.39")]),
-    table.cell(align(right)[#text("19.80")]),
+    table.cell(align(right)[#text("19")]),
     table.cell(align(right)[#text("25,00,001.26")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5233,7 +5259,7 @@ header: context{
     table.cell(align(center)[#text("13 Dec 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("1,23,385.12")]),
-    table.cell(align(right)[#text("24.31")]),
+    table.cell(align(right)[#text("24")]),
     table.cell(align(right)[#text("29,99,998.07")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5244,7 +5270,7 @@ header: context{
     table.cell(align(center)[#text("13 Dec 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("21,065.77")]),
-    table.cell(align(right)[#text("118.68")]),
+    table.cell(align(right)[#text("118")]),
     table.cell(align(right)[#text("24,99,999.33")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5255,7 +5281,7 @@ header: context{
     table.cell(align(center)[#text("17 Dec 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("50,756.82")]),
-    table.cell(align(right)[#text("19.70")]),
+    table.cell(align(right)[#text("19")]),
     table.cell(align(right)[#text("10,00,000.76")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5266,7 +5292,7 @@ header: context{
     table.cell(align(center)[#text("17 Dec 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("8,553.16")]),
-    table.cell(align(right)[#text("116.92")]),
+    table.cell(align(right)[#text("116")]),
     table.cell(align(right)[#text("9,99,999.66")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5277,7 +5303,7 @@ header: context{
     table.cell(align(center)[#text("17 Dec 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("41,610.32")]),
-    table.cell(align(right)[#text("24.03")]),
+    table.cell(align(right)[#text("24")]),
     table.cell(align(right)[#text("9,99,999.94")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5288,7 +5314,7 @@ header: context{
     table.cell(align(center)[#text("28 Jan 2025")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("18,245.60")]),
-    table.cell(align(right)[#text("109.62")]),
+    table.cell(align(right)[#text("109")]),
     table.cell(align(right)[#text("20,00,000.35")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5299,7 +5325,7 @@ header: context{
     table.cell(align(center)[#text("28 Jan 2025")]),
     table.cell(align(left)[#text("MFRED")]),
     table.cell(align(right)[#text("1,06,688.65")]),
-    table.cell(align(right)[#text("19.45")]),
+    table.cell(align(right)[#text("19")]),
     table.cell(align(right)[#text("25,96,558.48")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5310,7 +5336,7 @@ header: context{
     table.cell(align(center)[#text("28 Jan 2025")]),
     table.cell(align(left)[#text("MFRED")]),
     table.cell(align(right)[#text("19,999.80")]),
-    table.cell(align(right)[#text("19.45")]),
+    table.cell(align(right)[#text("19")]),
     table.cell(align(right)[#text("4,77,366.57")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5321,7 +5347,7 @@ header: context{
     table.cell(align(center)[#text("28 Jan 2025")]),
     table.cell(align(left)[#text("MFRED")]),
     table.cell(align(right)[#text("20,289.22")]),
-    table.cell(align(right)[#text("19.45")]),
+    table.cell(align(right)[#text("19")]),
     table.cell(align(right)[#text("4,75,431.13")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5332,7 +5358,7 @@ header: context{
     table.cell(align(center)[#text("28 Jan 2025")]),
     table.cell(align(left)[#text("MFRED")]),
     table.cell(align(right)[#text("20,561.65")]),
-    table.cell(align(right)[#text("19.45")]),
+    table.cell(align(right)[#text("19")]),
     table.cell(align(right)[#text("4,81,814.95")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5343,7 +5369,7 @@ header: context{
     table.cell(align(center)[#text("28 Jan 2025")]),
     table.cell(align(left)[#text("MFRED")]),
     table.cell(align(right)[#text("20,929.61")]),
-    table.cell(align(right)[#text("19.45")]),
+    table.cell(align(right)[#text("19")]),
     table.cell(align(right)[#text("4,90,437.37")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5354,7 +5380,7 @@ header: context{
     table.cell(align(center)[#text("28 Jan 2025")]),
     table.cell(align(left)[#text("MFRED")]),
     table.cell(align(right)[#text("41,753.31")]),
-    table.cell(align(right)[#text("19.45")]),
+    table.cell(align(right)[#text("19")]),
     table.cell(align(right)[#text("9,78,392.77")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5375,7 +5401,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("11 Feb 2025")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("708.79")]),
+    table.cell(align(right)[#text("708")]),
     table.cell(align(right)[#text("1,410.86")]),
     table.cell(align(right)[#text("9,99,999.99")]),
 
@@ -5387,7 +5413,7 @@ header: context{
     table.cell(align(center)[#text("11 Feb 2025")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("28,263.14")]),
-    table.cell(align(right)[#text("35.38")]),
+    table.cell(align(right)[#text("35")]),
     table.cell(align(right)[#text("10,00,000.87")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5398,7 +5424,7 @@ header: context{
     table.cell(align(center)[#text("11 Feb 2025")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("9,083.85")]),
-    table.cell(align(right)[#text("110.09")]),
+    table.cell(align(right)[#text("110")]),
     table.cell(align(right)[#text("9,99,999.95")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5408,7 +5434,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("05 Mar 2025")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("729.49")]),
+    table.cell(align(right)[#text("729")]),
     table.cell(align(right)[#text("1,370.81")]),
     table.cell(align(right)[#text("10,00,000.00")]),
 
@@ -5420,7 +5446,7 @@ header: context{
     table.cell(align(center)[#text("05 Mar 2025")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("29,042.99")]),
-    table.cell(align(right)[#text("34.43")]),
+    table.cell(align(right)[#text("34")]),
     table.cell(align(right)[#text("9,99,999.38")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5431,7 +5457,7 @@ header: context{
     table.cell(align(center)[#text("05 Mar 2025")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("11,941.80")]),
-    table.cell(align(right)[#text("83.74")]),
+    table.cell(align(right)[#text("83")]),
     table.cell(align(right)[#text("10,00,000.19")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5442,7 +5468,7 @@ header: context{
     table.cell(align(center)[#text("05 Mar 2025")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("9,368.09")]),
-    table.cell(align(right)[#text("106.75")]),
+    table.cell(align(right)[#text("106")]),
     table.cell(align(right)[#text("9,99,999.68")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5453,7 +5479,7 @@ header: context{
     table.cell(align(center)[#text("06 Mar 2025")]),
     table.cell(align(left)[#text("MFSUB")]),
     table.cell(align(right)[#text("9,285.45")]),
-    table.cell(align(right)[#text("107.70")]),
+    table.cell(align(right)[#text("107")]),
     table.cell(align(right)[#text("10,00,000.14")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -5463,7 +5489,7 @@ header: context{
     table.cell(align(left)[#text("0")]),
     table.cell(align(center)[#text("06 Mar 2025")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("518.91")]),
+    table.cell(align(right)[#text("518")]),
     table.cell(align(right)[#text("1,927.12")]),
     table.cell(align(right)[#text("10,00,000.02")]),
 

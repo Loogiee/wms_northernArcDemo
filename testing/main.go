@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -32,6 +31,7 @@ type AssetSubassetSection struct {
 }
 
 func main() {
+	/* // struct mapping and data manuplate testing
 	var FinalData []BasicInfo
 	var parsedData []map[string]interface{}
 	jsonData := `[{"basic_information_section":[{"Description":"ACQU_COST","Value":293976076.83,"Date":"As on 19 Mar 2025"},{"Description":"MARKET_VALUE","Value":300751912.95,"Date":"As on 19 Mar 2025"},{"Description":"NetContribution","Value":290254594.11,"Date":"Since Inception"},{"Description":"XIRR","Value":-14.36,"Date":"Since Inception"},{"Description":"BMXIRR","Value":-3.15,"Date":"Since Inception"},{"Description":"BenchmarkInfo_CRISILCBI","Value":2.75,"Date":""},{"Description":"BenchmarkInfo_NIFTY500","Value":-17.21,"Date":""}]}]`
@@ -44,11 +44,15 @@ func main() {
 			MapToStruct(data, &FinalData)
 		}
 	}
-	ProcessExecutinveSummary(&FinalData)
-	// sortingRecords(&FinalData)
-	// parsedDate, err := DateFormatter("2022-10-04", "02 Jan 2006")
-	// fmt.Println(parsedDate, err)
+	*/
 
+	/* // date formatting testing
+	parsedDate, err := DateFormatter("2022-10-04", "02 Jan 2006")
+	fmt.Println(parsedDate, err)
+	*/
+	number := -27993443313.33
+	formattedNumber := ConvertToFormattedNumberPointer(&number)
+	fmt.Println(formattedNumber)
 }
 
 func DateFormatter(dateStr string, format string) (string, error) {
@@ -71,69 +75,6 @@ func MapToStruct(data interface{}, result interface{}) error {
 		return fmt.Errorf("failed to unmarshal into struct: %w", err)
 	}
 	return nil
-}
-
-func ProcessExecutinveSummary(data *[]BasicInfo) {
-	var temp BasicInfo
-	var finalProcessData []BasicInfo
-
-	for _, data := range *data {
-		temp.Value = data.Value
-		temp.Date = data.Date
-		temp.Color = "black"
-		temp.Description = data.Description
-		if data.Description == "MARKET_VALUE" {
-			temp.Description = "CURRENT VALUE"
-			temp.StrigValue = ConvertToFormattedNumberWithoutDecimalPointer(&data.Value)
-			temp.Images = "/assets/images/three.png"
-		}
-		if data.Description == "ACQU_COST" {
-			temp.Description = "HOLDING COST"
-			temp.StrigValue = ConvertToFormattedNumberWithoutDecimalPointer(&data.Value)
-			temp.Images = "./assets/images/two.png"
-		}
-		if data.Description == "NetContribution" {
-			temp.Description = "INFLOW MINUS OUTFLOW"
-			temp.StrigValue = ConvertToFormattedNumberWithoutDecimalPointer(&data.Value)
-			temp.Images = "./assets/images/one.png"
-		}
-		if data.Description == "XIRR" {
-			temp.Description = "PORTFOLIO RETURN(IRR)"
-			temp.StrigValue = strconv.FormatFloat(data.Value, 'f', 2, 64) + "%"
-			temp.Images = "./assets/images/one.png"
-			if data.Value < 0 {
-				temp.Color = "red"
-			} else {
-				temp.Color = "green"
-			}
-		}
-
-		if data.Description == "BMXIRR" {
-			temp.Description = "BENCHMARK RETURN(IRR)"
-			temp.StrigValue = strconv.FormatFloat(data.Value, 'f', 2, 64) + "%"
-			temp.Images = "./assets/images/one.png"
-			if data.Value < 0 {
-				temp.Color = "red"
-			} else {
-				temp.Color = "green"
-			}
-		}
-		if strings.Contains(data.Description, "BenchmarkInfo_") {
-			temp.StrigValue = strconv.FormatFloat(data.Value, 'f', 2, 64) + "%"
-			if data.Value < 0 {
-				temp.Color = "red"
-			} else {
-				temp.Color = "green"
-			}
-		}
-
-		finalProcessData = append(finalProcessData, temp)
-	}
-	for _, data := range finalProcessData {
-		fmt.Println(data.Description)
-
-	}
-
 }
 
 func ConvertToFormattedNumberWithoutDecimalPointer(amount *float64) string {
@@ -165,4 +106,36 @@ func ConvertToFormattedNumberWithoutDecimalPointer(amount *float64) string {
 	}
 
 	return result
+}
+
+func ConvertToFormattedNumberPointer(amount *float64) string {
+	if amount == nil {
+		return "--"
+	}
+
+	// Ensure amount is a float64
+	value := *amount
+
+	if value == 0.0 {
+		return "0"
+	}
+
+	strVal := fmt.Sprintf("%.2f", value)
+	isNegtiveNo := strings.Contains(strVal, "-")
+	parts := strings.Split(strVal, ".")
+	intPart := parts[0]
+	decimalPart := parts[1]
+	intSeparatedPart := ""
+
+	for i, digit := range intPart {
+		revIndex := len(intPart) - 1 - i
+
+		if revIndex > 0 && ((revIndex == 3 && revIndex%3 == 0) || (revIndex > 3 && revIndex%2 != 0)) {
+			intSeparatedPart += string(digit) + ","
+		} else {
+			intSeparatedPart += string(digit)
+		}
+	}
+
+	return intSeparatedPart + "." + decimalPart
 }

@@ -77,7 +77,7 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .RealGainLoss}}",fill :heading0)]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .XIRR}}",fill :heading0)]),
+    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .XIRR}}",fill :heading0)]),
     table.cell(align(center)[#text("{{.PurchaseDate}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberWithoutDecimalPointer .HoldingDays}}",fill :heading0)]),
   {{else}}
@@ -94,7 +94,7 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .RealGainLoss}}")]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .XIRR}}")]),
+    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .XIRR}}")]),
     table.cell(align(center)[#text("{{.PurchaseDate}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberWithoutDecimalPointer .HoldingDays}}")]),
   {{end}}
@@ -154,8 +154,8 @@ header: context{
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Outflow}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}",fill :heading0)]),
     table.cell(align(right)[#text("",fill :heading0)]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .XIRR}}",fill :heading0)]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AssetExposure}}",fill :heading0)]),
+    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .XIRR}}",fill :heading0)]),
+    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .AssetExposure}}",fill :heading0)]),
   {{else}}
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell([#text("{{.SecurityName}}")]),
@@ -164,8 +164,8 @@ header: context{
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Outflow}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}")]),
     table.cell(align(right)[#text("")]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .XIRR}}")]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AssetExposure}}")]),
+    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .XIRR}}")]),
+    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .AssetExposure}}")]),
   {{end}}
 {{end}}
 )
@@ -230,7 +230,7 @@ header: context{
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AppreDepre}}",fill :heading0)]),
      table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AbsoluteReturn}}",fill :heading0)]),
-      table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AssetExposurePct}}",fill :heading0)]),
+      table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .AssetExposurePct}}",fill :heading0)]),
   {{else}}
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell([#text("{{.SecurityName}}")]),
@@ -243,7 +243,7 @@ header: context{
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AppreDepre}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AbsoluteReturn}}")]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AssetExposurePct}}")]),
+    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .AssetExposurePct}}")]),
   {{end}}
 {{end}}
 )
