@@ -115,7 +115,7 @@ type AssetSubassetSection struct {
 	GroupLabel       string  `json:"GROUP_LABEL"`
 }
 
-// --> Product Wise Exposure - Advisors / Distributors
+// --> Sub Asset Class Wise Exposure - Advisors / Distributors
 type SubassetMarketCapTypeSection struct {
 	SecurityCategory  string  `json:"SECURITY_CATEGORY"`
 	AssetGroupName    string  `json:"ASSET_GROUP_NAME"`
@@ -130,7 +130,7 @@ type SubassetMarketCapTypeSection struct {
 	GroupLabel        string  `json:"GROUP_LABEL"`
 }
 
-// --> Sub Asset Class Wise Exposure - Advisors / Distributors
+// --> Product Wise Exposure - Advisors / Distributors
 type SubAssetSection struct {
 	AssetGroupName   string  `json:"ASSET_GROUP_NAME"`
 	SecurityCategory string  `json:"SECURITY_CATEGORY"`

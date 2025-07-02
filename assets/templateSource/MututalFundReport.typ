@@ -197,7 +197,7 @@ header: context{
   #place()[== #text("Mutual Fund Analysis - Fund Manager wise Exposure")]
 ]
 #table(
-    columns: (2fr, 1fr, 1fr, 1fr),
+    columns: (1fr, 1.5fr, 1fr, 1fr),
 
     // Header
     table.header(

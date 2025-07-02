@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"strings"
 	"time"
 )
 
@@ -31,7 +30,7 @@ type AssetSubassetSection struct {
 }
 
 func main() {
-	/* // struct mapping and data manuplate testing
+	// struct mapping and data manuplate testing
 	var FinalData []BasicInfo
 	var parsedData []map[string]interface{}
 	jsonData := `[{"basic_information_section":[{"Description":"ACQU_COST","Value":293976076.83,"Date":"As on 19 Mar 2025"},{"Description":"MARKET_VALUE","Value":300751912.95,"Date":"As on 19 Mar 2025"},{"Description":"NetContribution","Value":290254594.11,"Date":"Since Inception"},{"Description":"XIRR","Value":-14.36,"Date":"Since Inception"},{"Description":"BMXIRR","Value":-3.15,"Date":"Since Inception"},{"Description":"BenchmarkInfo_CRISILCBI","Value":2.75,"Date":""},{"Description":"BenchmarkInfo_NIFTY500","Value":-17.21,"Date":""}]}]`
@@ -44,15 +43,11 @@ func main() {
 			MapToStruct(data, &FinalData)
 		}
 	}
-	*/
 
 	/* // date formatting testing
 	parsedDate, err := DateFormatter("2022-10-04", "02 Jan 2006")
 	fmt.Println(parsedDate, err)
 	*/
-	number := -27993443313.33
-	formattedNumber := ConvertToFormattedNumberPointer(&number)
-	fmt.Println(formattedNumber)
 }
 
 func DateFormatter(dateStr string, format string) (string, error) {
@@ -75,67 +70,4 @@ func MapToStruct(data interface{}, result interface{}) error {
 		return fmt.Errorf("failed to unmarshal into struct: %w", err)
 	}
 	return nil
-}
-
-func ConvertToFormattedNumberWithoutDecimalPointer(amount *float64) string {
-	if amount == nil {
-		return "--"
-	}
-	if *amount == 0.0 {
-		return "0"
-	}
-
-	intPart := fmt.Sprintf("%.0f", *amount)
-	n := len(intPart)
-
-	if n <= 3 {
-		return intPart
-	}
-
-	result := intPart[n-3:]
-	for i := n - 3; i > 0; i -= 2 {
-		start := i - 2
-		if start < 0 {
-			start = 0
-		}
-		separator := ","
-		if intPart[start] == '-' && i-start <= 1 {
-			separator = ""
-		}
-		result = intPart[start:i] + separator + result
-	}
-
-	return result
-}
-
-func ConvertToFormattedNumberPointer(amount *float64) string {
-	if amount == nil {
-		return "--"
-	}
-
-	// Ensure amount is a float64
-	value := *amount
-
-	if value == 0.0 {
-		return "0"
-	}
-
-	strVal := fmt.Sprintf("%.2f", value)
-	isNegtiveNo := strings.Contains(strVal, "-")
-	parts := strings.Split(strVal, ".")
-	intPart := parts[0]
-	decimalPart := parts[1]
-	intSeparatedPart := ""
-
-	for i, digit := range intPart {
-		revIndex := len(intPart) - 1 - i
-
-		if revIndex > 0 && ((revIndex == 3 && revIndex%3 == 0) || (revIndex > 3 && revIndex%2 != 0)) {
-			intSeparatedPart += string(digit) + ","
-		} else {
-			intSeparatedPart += string(digit)
-		}
-	}
-
-	return intSeparatedPart + "." + decimalPart
 }
