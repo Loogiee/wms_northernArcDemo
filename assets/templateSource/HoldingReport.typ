@@ -70,7 +70,9 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
    {{if Contains .SecurityName "TOTAL"}}
     {{$ShowOnce = true}}
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Total",fill :heading0)]),
+    {{$TotalLable:="Sub Total"}}
+      {{if Contains .SecurityName "GRAND_TOTAL"}}{{$TotalLable ="Grand Total"}}{{end}}
+    table.cell([#text("{{$TotalLable}}",fill :heading0)]),
     table.cell(align(left)[#text("{{.FolioNo}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Quantity}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}",fill :heading0)]),
@@ -148,7 +150,9 @@ header: context{
 {{range  .PmsHoldingSection}}
    {{if Contains .SecurityName "TOTAL"}}
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Total",fill :heading0)]),
+    {{$TotalLable:="Sub Total"}}
+      {{if Contains .SecurityName "GRAND_TOTAL"}}{{$TotalLable ="Grand Total"}}{{end}}
+    table.cell([#text("{{$TotalLable}}",fill :heading0)]),
     table.cell(align(left)[#text("{{.FolioNo}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Inflow}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Outflow}}",fill :heading0)]),
@@ -220,7 +224,9 @@ header: context{
 {{range  .DirectEquHoldingSection}}
    {{if Contains .SecurityName "TOTAL"}}
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Total",fill :heading0)]),
+    {{$TotalLable:="Sub Total"}}
+      {{if Contains .SecurityName "GRAND_TOTAL"}}{{$TotalLable ="Grand Total"}}{{end}}
+    table.cell([#text("{{$TotalLable}}",fill :heading0)]),
     table.cell(align(left)[#text("{{.ISIN}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Quantity}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AveragePrice}}",fill :heading0)]),

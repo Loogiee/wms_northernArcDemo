@@ -1508,7 +1508,9 @@ header: context{
     
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Total" ,fill: heading0)],),
+    
+    
+    table.cell(align(left)[#text("Sub Total",fill: heading0)],),
     table.cell(align(right)[#text("21,37,536.07",fill:heading0)]),
     table.cell(align(right)[#text("100",fill:heading0)]),
     table.cell(align(right)[#text("13,20,000.93",fill:heading0)]),
@@ -1528,7 +1530,7 @@ header: context{
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("AIF" )] ),
     table.cell(align(right)[#text("7,44,37,647.67")]),
-    table.cell(align(right)[#text("25")]),
+    table.cell(align(right)[#text("25.67")]),
     table.cell(align(right)[#text("7,72,36,961.00")]),
     table.cell(align(right)[#text("0")]),
     table.cell(align(right)[#text("0")]),
@@ -1542,7 +1544,7 @@ header: context{
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Direct Equities" )] ),
     table.cell(align(right)[#text("34,04,263.74")]),
-    table.cell(align(right)[#text("1")]),
+    table.cell(align(right)[#text("1.17")]),
     table.cell(align(right)[#text("32,95,955.82")]),
     table.cell(align(right)[#text("0")]),
     table.cell(align(right)[#text("0")]),
@@ -1556,7 +1558,7 @@ header: context{
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Mutual Funds/ETFs" )] ),
     table.cell(align(right)[#text("17,13,01,171.84")]),
-    table.cell(align(right)[#text("59")]),
+    table.cell(align(right)[#text("59.08")]),
     table.cell(align(right)[#text("16,56,03,771.82")]),
     table.cell(align(right)[#text("0")]),
     table.cell(align(right)[#text("0")]),
@@ -1570,7 +1572,7 @@ header: context{
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("PMS" )] ),
     table.cell(align(right)[#text("4,07,84,753.80")]),
-    table.cell(align(right)[#text("14")]),
+    table.cell(align(right)[#text("14.07")]),
     table.cell(align(right)[#text("3,78,33,884.00")]),
     table.cell(align(right)[#text("0")]),
     table.cell(align(right)[#text("0")]),
@@ -1582,7 +1584,9 @@ header: context{
     
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Total" ,fill: heading0)],),
+    
+    
+    table.cell(align(left)[#text("Sub Total",fill: heading0)],),
     table.cell(align(right)[#text("28,99,27,837.05",fill:heading0)]),
     table.cell(align(right)[#text("100",fill:heading0)]),
     table.cell(align(right)[#text("28,39,70,572.64",fill:heading0)]),
@@ -1614,7 +1618,9 @@ header: context{
     
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Total" ,fill: heading0)],),
+    
+    
+    table.cell(align(left)[#text("Sub Total",fill: heading0)],),
     table.cell(align(right)[#text("86,64,072.99",fill:heading0)]),
     table.cell(align(right)[#text("100",fill:heading0)]),
     table.cell(align(right)[#text("86,64,072.99",fill:heading0)]),
@@ -1646,7 +1652,9 @@ header: context{
     
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Total" ,fill: heading0)],),
+    
+    
+    table.cell(align(left)[#text("Sub Total",fill: heading0)],),
     table.cell(align(right)[#text("22,466.84",fill:heading0)]),
     table.cell(align(right)[#text("100",fill:heading0)]),
     table.cell(align(right)[#text("21,430.27",fill:heading0)]),
@@ -1660,7 +1668,9 @@ header: context{
     
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Total" ,fill: heading0)],),
+    
+    
+    table.cell(align(left)[#text("Grand Total",fill: heading0)],),
     table.cell(align(right)[#text("30,07,51,912.95",fill:heading0)]),
     table.cell(align(right)[#text("0",fill:heading0)]),
     table.cell(align(right)[#text("29,39,76,076.83",fill:heading0)]),
@@ -1773,7 +1783,9 @@ header: context{
     
        
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Total" ,fill: heading0)],),
+      
+      
+      table.cell(align(left)[#text("Sub Total" ,fill: heading0)],),
       table.cell(align(right)[#text("7,72,36,961.00" ,fill: heading0)],),
       table.cell(align(right)[#text("7,44,37,647.67" ,fill: heading0)],),
       table.cell(align(right)[#text("-27,99,313.33" ,fill: heading0)],),
@@ -1803,7 +1815,9 @@ header: context{
     
        
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Total" ,fill: heading0)],),
+      
+      
+      table.cell(align(left)[#text("Sub Total" ,fill: heading0)],),
       table.cell(align(right)[#text("86,64,072.99" ,fill: heading0)],),
       table.cell(align(right)[#text("86,64,072.99" ,fill: heading0)],),
       table.cell(align(right)[#text("0" ,fill: heading0)],),
@@ -1833,7 +1847,9 @@ header: context{
     
        
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Total" ,fill: heading0)],),
+      
+      
+      table.cell(align(left)[#text("Sub Total" ,fill: heading0)],),
       table.cell(align(right)[#text("32,95,955.82" ,fill: heading0)],),
       table.cell(align(right)[#text("34,04,263.74" ,fill: heading0)],),
       table.cell(align(right)[#text("1,08,307.92" ,fill: heading0)],),
@@ -1863,7 +1879,9 @@ header: context{
     
        
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Total" ,fill: heading0)],),
+      
+      
+      table.cell(align(left)[#text("Sub Total" ,fill: heading0)],),
       table.cell(align(right)[#text("21,430.27" ,fill: heading0)],),
       table.cell(align(right)[#text("22,466.84" ,fill: heading0)],),
       table.cell(align(right)[#text("1,036.57" ,fill: heading0)],),
@@ -1958,7 +1976,9 @@ header: context{
     
        
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Total" ,fill: heading0)],),
+      
+      
+      table.cell(align(left)[#text("Sub Total" ,fill: heading0)],),
       table.cell(align(right)[#text("16,69,23,772.75" ,fill: heading0)],),
       table.cell(align(right)[#text("17,34,38,707.91" ,fill: heading0)],),
       table.cell(align(right)[#text("65,14,935.16" ,fill: heading0)],),
@@ -1988,7 +2008,9 @@ header: context{
     
        
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Total" ,fill: heading0)],),
+      
+      
+      table.cell(align(left)[#text("Sub Total" ,fill: heading0)],),
       table.cell(align(right)[#text("3,78,33,884.00" ,fill: heading0)],),
       table.cell(align(right)[#text("4,07,84,753.80" ,fill: heading0)],),
       table.cell(align(right)[#text("29,50,869.80" ,fill: heading0)],),
@@ -2001,7 +2023,9 @@ header: context{
     
        
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Total" ,fill: heading0)],),
+      
+      
+      table.cell(align(left)[#text("Grand Total" ,fill: heading0)],),
       table.cell(align(right)[#text("29,39,76,076.83" ,fill: heading0)],),
       table.cell(align(right)[#text("30,07,51,912.95" ,fill: heading0)],),
       table.cell(align(right)[#text("67,75,836.12" ,fill: heading0)],),
@@ -2097,7 +2121,9 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
    
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Total",fill :heading0)]),
+    
+      
+    table.cell([#text("Sub Total",fill :heading0)]),
     table.cell(align(left)[#text("0",fill :heading0)]),
     table.cell(align(right)[#text("62,277.98",fill :heading0)]),
     table.cell(align(right)[#text("13,20,000.93",fill :heading0)]),
@@ -2176,7 +2202,9 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
    
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Total",fill :heading0)]),
+    
+      
+    table.cell([#text("Sub Total",fill :heading0)]),
     table.cell(align(left)[#text("0",fill :heading0)]),
     table.cell(align(right)[#text("21,37,336.99",fill :heading0)]),
     table.cell(align(right)[#text("4,39,00,006.54",fill :heading0)]),
@@ -2210,7 +2238,9 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
    
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Total",fill :heading0)]),
+    
+      
+    table.cell([#text("Sub Total",fill :heading0)]),
     table.cell(align(left)[#text("0",fill :heading0)]),
     table.cell(align(right)[#text("1,81,513.46",fill :heading0)]),
     table.cell(align(right)[#text("2,10,00,000.54",fill :heading0)]),
@@ -2274,7 +2304,9 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
    
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Total",fill :heading0)]),
+    
+      
+    table.cell([#text("Sub Total",fill :heading0)]),
     table.cell(align(left)[#text("0",fill :heading0)]),
     table.cell(align(right)[#text("73,283.83",fill :heading0)]),
     table.cell(align(right)[#text("2,40,54,013.82",fill :heading0)]),
@@ -2383,7 +2415,9 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
    
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Total",fill :heading0)]),
+    
+      
+    table.cell([#text("Sub Total",fill :heading0)]),
     table.cell(align(left)[#text("0",fill :heading0)]),
     table.cell(align(right)[#text("2,54,891.64",fill :heading0)]),
     table.cell(align(right)[#text("5,14,97,712.92",fill :heading0)]),
@@ -2432,7 +2466,9 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
    
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Total",fill :heading0)]),
+    
+      
+    table.cell([#text("Sub Total",fill :heading0)]),
     table.cell(align(left)[#text("0",fill :heading0)]),
     table.cell(align(right)[#text("8,03,136.38",fill :heading0)]),
     table.cell(align(right)[#text("2,51,52,038.00",fill :heading0)]),
@@ -2447,7 +2483,9 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
    
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Total",fill :heading0)]),
+    
+      
+    table.cell([#text("Grand Total",fill :heading0)]),
     table.cell(align(left)[#text("-",fill :heading0)]),
     table.cell(align(right)[#text("35,12,440.29",fill :heading0)]),
     table.cell(align(right)[#text("16,69,23,772.75",fill :heading0)]),
@@ -2624,7 +2662,9 @@ header: context{
    
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Total",fill :heading0)]),
+    
+    
+    table.cell(align(left)[#text("Sub Total",fill :heading0)]),
     table.cell(align(right)[#text("13,20,000.93",fill :heading0)]),
     table.cell(align(right)[#text("21,37,536.07",fill :heading0)]),
     table.cell(align(right)[#text("8,17,535.14",fill :heading0)]),
@@ -2815,7 +2855,9 @@ header: context{
    
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Total",fill :heading0)]),
+    
+    
+    table.cell(align(left)[#text("Sub Total",fill :heading0)]),
     table.cell(align(right)[#text("28,39,70,572.64",fill :heading0)]),
     table.cell(align(right)[#text("28,99,27,837.05",fill :heading0)]),
     table.cell(align(right)[#text("59,57,264.41",fill :heading0)]),
@@ -2863,7 +2905,9 @@ header: context{
    
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Total",fill :heading0)]),
+    
+    
+    table.cell(align(left)[#text("Sub Total",fill :heading0)]),
     table.cell(align(right)[#text("86,64,072.99",fill :heading0)]),
     table.cell(align(right)[#text("86,64,072.99",fill :heading0)]),
     table.cell(align(right)[#text("0",fill :heading0)]),
@@ -2889,7 +2933,9 @@ header: context{
    
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Total",fill :heading0)]),
+    
+    
+    table.cell(align(left)[#text("Sub Total",fill :heading0)]),
     table.cell(align(right)[#text("21,430.27",fill :heading0)]),
     table.cell(align(right)[#text("22,466.84",fill :heading0)]),
     table.cell(align(right)[#text("1,036.57",fill :heading0)]),
@@ -3320,7 +3366,7 @@ header: context{
 
   
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Total",fill :heading0)]),
+    table.cell(align(left)[#text("Grand Total",fill :heading0)]),
     table.cell(align(left)[#text("-",fill :heading0)]),
     table.cell(align(right)[#text("30,07,51,912.95",fill :heading0)]),
     table.cell(align(right)[#text("100",fill :heading0)]),
@@ -4009,11 +4055,6 @@ header: context{
 
 
   
-  
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Total",fill :heading0)]),
-    table.cell(align(right)[#text("17,34,56,76,024.29",fill :heading0)]),
-    table.cell(align(right)[#text("100",fill :heading0)]),
   
 
   

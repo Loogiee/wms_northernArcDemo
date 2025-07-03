@@ -144,7 +144,9 @@ header: context{
    {{if Contains .IssuerName "TOTAL"}}
     {{$ShowOnce = true}}
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Total",fill :heading0)]),
+    {{$TotalLable:="Sub Total"}}
+    {{if Contains .IssuerName "GRAND_TOTAL"}}{{$TotalLable ="Grand Total"}}{{end}}
+    table.cell(align(left)[#text("{{$TotalLable}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}",fill :heading0)]),
@@ -225,7 +227,7 @@ header: context{
 {{$isTotalRow := Contains .FundManagerName "TOTAL"}}
   {{if $isTotalRow}}
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Total",fill :heading0)]),
+    table.cell(align(left)[#text("Grand Total",fill :heading0)]),
     table.cell(align(left)[#text("{{.IssuerName}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .TotAssetExposure}}",fill :heading0)]),
@@ -561,7 +563,7 @@ header: context{
   {{end}}
 {{end}}
 {{range  .SectorWiseSection}}
-  {{$isTotalRow := Contains .SectorName "TOTAL"}}
+  {{$isTotalRow := Contains .SectorName "Grand Total"}}
   {{if $isTotalRow}}
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Total",fill :heading0)]),

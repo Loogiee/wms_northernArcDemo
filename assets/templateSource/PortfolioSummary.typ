@@ -177,7 +177,9 @@ header: context{
     {{if Contains .SecurityCategory "TOTAL"}}
     {{$ShowOnce = true}}
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Total" ,fill: heading0)],),
+    {{$TotalLable:="Sub Total"}}
+    {{if Contains .SecurityCategory "GRAND_TOTAL"}}{{$TotalLable ="Grand Total"}}{{end}}
+    table.cell(align(left)[#text("{{$TotalLable}}",fill: heading0)],),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}",fill:heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .AssetExposure}}",fill:heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}",fill:heading0)]),
@@ -195,7 +197,7 @@ header: context{
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("{{.SecurityCategory}}" )] ),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}")]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AssetExposure}}")]),
+    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .AssetExposure}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .RealGainLoss}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Dividend}}")]),
@@ -258,7 +260,9 @@ header: context{
     {{if Contains .AssetGroupName "TOTAL"}}
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
        {{$ShowOnce = true}}
-      table.cell(align(left)[#text("Total" ,fill: heading0)],),
+      {{$TotalLable:="Sub Total"}}
+      {{if Contains .SecurityCategory "GRAND_TOTAL"}}{{$TotalLable ="Grand Total"}}{{end}}
+      table.cell(align(left)[#text("{{$TotalLable}}" ,fill: heading0)],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}" ,fill: heading0)],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}" ,fill: heading0)],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}" ,fill: heading0)],),
@@ -338,7 +342,9 @@ header: context{
     {{if Contains .AssetGroupName "TOTAL"}}
        {{$ShowOnce = true}}
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Total" ,fill: heading0)],),
+      {{$TotalLable:="Sub Total"}}
+      {{if Contains .SecurityCategory "GRAND_TOTAL"}}{{$TotalLable ="Grand Total"}}{{end}}
+      table.cell(align(left)[#text("{{$TotalLable}}" ,fill: heading0)],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}" ,fill: heading0)],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}" ,fill: heading0)],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}" ,fill: heading0)],),
