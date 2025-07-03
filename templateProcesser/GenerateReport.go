@@ -75,20 +75,6 @@ func CreatePDFByte(requestedReports []int, customer string, portfolio string, re
 					return
 				}
 				allReportsData.Store(reportId, portSumResult)
-			case 5: //Asset Class Summary
-				holdData, err := FetchDataForReport(customer, portfolio, reportDate, db, "Asset Class Summary")
-				if err != nil {
-					logger.Error("Failed to fetch Asset Class Wise Summary report data", "Category", "DB", "Error", err.Error(), "Origin", GetErrorOrigin(err))
-					errCh <- err
-					return
-				}
-				holdResult, err := ProcessHolding(&holdData)
-				if err != nil {
-					logger.Error("Failed to Holding report data", "Category", "PROCESS", "Error", err.Error(), "Origin", GetErrorOrigin(err))
-					errCh <- err
-					return
-				}
-				allReportsData.Store(reportId, holdResult)
 			case 6: // Mutual Fund Analysis
 				mutualFundData, err := FetchDataForReport(customer, portfolio, reportDate, db, "Mutual Fund Analysis")
 				if err != nil {

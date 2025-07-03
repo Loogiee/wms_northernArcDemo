@@ -134,18 +134,18 @@ header: context{
 ]
 
 // Place donut chart on the right
-#place(top + right)[
+#place(top + right,dy:17pt)[
   #box(
     inset: (y: 14pt, x: 10pt),
     width: 49.5%,
-    height:49%,
+    height:46.7%,
     radius: 20pt,
     fill: white,
     stroke: (2.8pt + luma(88%)),
   )[
     // Chart titles
-      #place(dx:20%, dy: 28%, text(weight: "extrabold", size: 22pt, "Current"))
-    #place(dx:71%, dy: 28%, text(weight: "extrabold", size: 22pt, "Target"))
+      #place(dx:20%, dy: 35%, text(weight: "extrabold", size: 22pt, "Current"))
+    #place(dx:71%, dy: 35%, text(weight: "extrabold", size: 22pt, "Target"))
 
     #place(dx: 10pt, dy: -15pt, pad(..titlePadding, text(
       "Asset Allocation (%)",
@@ -177,7 +177,7 @@ header: context{
 {{end}}
 )
     // Main header
- #pad(left: 5pt,top: 0pt,
+ #pad(left: 5pt,top: 40pt,
     // Grid for the two charts
     grid(
       columns: (1fr, 1fr),
@@ -203,7 +203,7 @@ header: context{
             data: currentData
           ),
         )
-      )],
+      )]
       #place(
        dx: 0pt,
         dy: 250pt
@@ -211,7 +211,7 @@ header: context{
   #grid(
   columns: (1fr, 1fr, 1fr),
   gutter: 10pt,
-  inset: (left:10pt,top:20pt,right:10pt,bottom:10pt),
+  inset: (left:10pt,top:20pt,right:0pt,bottom:10pt),
   align: left,
   // Dynamically generate legend items
   ..currentData.enumerate().map(((i, item)) => {
@@ -224,21 +224,21 @@ header: context{
         dir: ltr, // Horizontal stack for color and value
         spacing: 15pt,
         rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(i))),
-        text(value, size: 15pt)
+        text(value, size: 14pt)
       ),
       place(
         dx: 27pt, // Offset to align name under value (12pt for rect width + 15pt for spacing)
-        text(name, size: 15pt)
+        text(name, size: 14pt)
       )
     )
   })
 )
 ]
-
+#place(dx:408pt,dy:40pt)[#line(length: 80%,angle: 90deg,stroke: (2.8pt + luma(88%)))]
 
       ],
       box(
-         width: 100%, height: 100%, stroke: none)[
+         width: 100%, height: 100%, stroke: none,clip: true)[
           #place(dy:-10%,dx:10%)[
         #echarm.render(width: 80%, height: 80%, options: (
           series: (
@@ -259,13 +259,13 @@ header: context{
         )
       )]
       #place(
-     dx: 0pt,
-        dy: 250pt
+     dx: 15pt,
+        dy: 260pt
       )[
     #grid(
    columns: (1fr, 1fr, 1fr),
   gutter: 10pt,
-  inset: (left:10pt,top:20pt,right:10pt,bottom:10pt),
+  inset: (left:10pt,top:20pt,right:0pt,bottom:10pt),
   align: left,
   // Dynamically generate legend items
   ..targetData.enumerate().map(((i, item)) => {
@@ -278,11 +278,11 @@ header: context{
         dir: ltr, // Horizontal stack for color and value
         spacing: 15pt,
         rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(i))),
-        text(value, size: 15pt)
+        text(value, size: 14pt)
       ),
       place(
         dx: 27pt, // Offset to align name under value (12pt for rect width + 15pt for spacing)
-        text(name, size: 15pt)
+        text(name, size: 14pt)
       )
     )
   })
@@ -375,7 +375,7 @@ header: context{
     fill: rgb("0e496e"),
     weight: "extrabold",
   )))
-  #place(dx:-50pt,dy:80pt)[
+  #place(dx:-50pt,dy:50pt)[
   #echarm.render(
   width: 100%,
   height: 450pt,
@@ -410,6 +410,7 @@ header: context{
    yAxis: (
       type: "category",
       data: jsonData.map(item => item.Date),
+      inverse:true,
       axisLine: (
         "show": false,
       ),

@@ -104,6 +104,42 @@ func ConvertToFormattedNumberPointer(amount *float64) string {
 
 	return result + "." + decimalPart
 }
+
+func ConvertToFormattedNumber4Pointer(amount *float64) string {
+	if amount == nil {
+		return "--"
+	}
+	if *amount == 0.0 {
+		return "0"
+	}
+
+	stringVal := fmt.Sprintf("%.4f", *amount)
+	parts := strings.Split(stringVal, ".")
+	intPart := parts[0]
+	decimalPart := parts[1]
+
+	n := len(intPart)
+
+	if n <= 3 {
+		return intPart+"."+decimalPart
+	}
+
+	result := intPart[n-3:]
+	for i := n - 3; i > 0; i -= 2 {
+		start := i - 2
+		if start < 0 {
+			start = 0
+		}
+		separator := ","
+		if intPart[start] == '-' && i-start <= 1 {
+			separator = ""
+		}
+		result = intPart[start:i] + separator + result
+	}
+
+	return result + "." + decimalPart
+}
+
 func ConvertToFormattedPercentagePointer(amount *float64) string {
 	if amount == nil {
 		return "--"
@@ -127,6 +163,7 @@ var FuncMap = template.FuncMap{
 	"ConvertToFormattedNumberWithoutDecimalPointer": ConvertToFormattedNumberWithoutDecimalPointer,
 	"ConvertToFormattedNumberPointer":               ConvertToFormattedNumberPointer,
 	"ConvertToFormattedPercentagePointer":           ConvertToFormattedPercentagePointer,
+	"ConvertToFormattedNumber4Pointer":              ConvertToFormattedNumber4Pointer,
 	"DateFormatter":                                 DateFormatter,
 	"Contains":                                      Contains,
 }

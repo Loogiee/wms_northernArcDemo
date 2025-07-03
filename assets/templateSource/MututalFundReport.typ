@@ -631,8 +631,8 @@ header: context{
     table.cell(align(left)[#text("{{.FolioNo}}")]),
     table.cell(align(center)[#text("{{DateFormatter .TransDate $RequredDateFormat}}")]),
     table.cell(align(left)[#text("{{.TransCode}}")]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Quantity}}")]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Price}}")]),
+    table.cell(align(right)[#text("{{ConvertToFormattedNumber4Pointer .Quantity}}")]),
+    table.cell(align(right)[#text("{{ConvertToFormattedNumber4Pointer .Price}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquCost}}")]),
 {{end}}
 )

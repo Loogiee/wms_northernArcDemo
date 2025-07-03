@@ -23,6 +23,12 @@ func ProcessPortfolioSummary(sqlData *[]map[string]interface{}) (string, error) 
 				MapSubAssetSection(value, &finalProcessData) // Product Wise Exposure - Advisors / Distributors
 			case "subasset_asset_marketcaptype_section":
 				MapSubassetMarketCapTypeSection(value, &finalProcessData) // Sub Asset Class Wise Exposure - Advisors / Distributors
+			case "mutuals_funds_holding_section":
+				mapMutualFund(value, &finalProcessData) // Mutual Funds - Investment Summary
+			case "pms_holding_section#IGNORED":
+				mapPMSHolding(value, &finalProcessData) //PMS - Investment Summary
+			case "direct_equities_holding_section#IGNORED":
+				mapDirectEquHolding(value, &finalProcessData) //Direct Equity Holding - Advisor Wise
 			}
 		}
 	}
@@ -54,4 +60,21 @@ func MapSubassetMarketCapTypeSection(value interface{}, parsingData *FinalPortfo
 	var processData []SubassetMarketCapTypeSection
 	MapToStruct(value, &processData)
 	parsingData.SubassetMarketCapTypeSection = processData
+}
+
+func mapMutualFund(value interface{}, parsingData *FinalPortfolioSummary) {
+	var processData []MututalFundHoldingSection
+	MapToStruct(value, &processData)
+	parsingData.MututalFundHoldingSection = processData
+}
+
+func mapPMSHolding(value interface{}, parsingData *FinalPortfolioSummary) {
+	var processData []PmsHoldingSection
+	MapToStruct(value, &processData)
+	parsingData.PmsHoldingSection = processData
+}
+func mapDirectEquHolding(value interface{}, parsingData *FinalPortfolioSummary) {
+	var processData []DirectEquHoldingSection
+	MapToStruct(value, &processData)
+	parsingData.DirectEquHoldingSection = processData
 }

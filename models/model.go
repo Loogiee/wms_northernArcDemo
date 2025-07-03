@@ -104,6 +104,9 @@ type FinalPortfolioSummary struct {
 	AssetSubassetSection         []AssetSubassetSection
 	SubassetMarketCapTypeSection []SubassetMarketCapTypeSection
 	SubAssetSection              []SubAssetSection
+	MututalFundHoldingSection    []MututalFundHoldingSection
+	PmsHoldingSection            []PmsHoldingSection
+	DirectEquHoldingSection      []DirectEquHoldingSection
 }
 
 // Portfolio Analysis Report
@@ -197,13 +200,6 @@ type DirectEquHoldingSection struct {
 	AppreDepre       float64 `json:"APPRE_DEPRE"`
 	AbsoluteReturn   float64 `json:"ABSOLUTE_RETURN"`
 	AssetExposurePct float64 `json:"ASSET_EXPOSURE%"`
-}
-
-// amc_wise_report
-type HoldingSection struct {
-	MututalFundHoldingSection []MututalFundHoldingSection
-	PmsHoldingSection         []PmsHoldingSection
-	DirectEquHoldingSection   []DirectEquHoldingSection
 }
 
 type MutualFundSection struct {

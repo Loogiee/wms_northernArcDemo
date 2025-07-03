@@ -42,7 +42,7 @@ header: context{
 {{end}}
 )
 
-
+#place(dx:408pt,dy:266pt)[#line(length: 45%,angle: 90deg,stroke: (2.8pt + luma(88%)))]
 #place(top+left,dy: 10pt)[
   #box(
     fill:white,
@@ -210,6 +210,7 @@ header: context{
   ]
 ]
 ]
+#place(dx:408pt,dy:100pt)[#line(length: 45%,angle: 90deg,stroke: (2.8pt + luma(88%)))]
 
 #place(top+right,dy: 10pt)[
  #box(
