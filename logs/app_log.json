@@ -1890,3 +1890,32 @@ Key: relative_performance_over_quarters, Value: [map[Dec 2024: -13.69 Jun 2025: 
 {"time":"2025-07-03T18:45:07.456489577+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
 {"time":"2025-07-03T18:45:16.270227414+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
 {"time":"2025-07-03T18:52:46.74081746+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-03T20:53:17.9824047+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-07-03T20:53:17.9850531+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-07-03T20:53:34.0581318+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-03T20:53:34.4006949+05:30","level":"ERROR","msg":"Failed to fetch Title report data","Category":"DB","Error":"failed to scan row for report Overview. No Data Available:: sql: Scan error on column index 0, name \"JSON_DATA\": converting NULL to string is unsupported","Origin":"connectDB.go:65 <-- GenerateReport.go:19 <-- main.go:111 <-- context.go:185 <-- recovery.go:102 <-- context.go:185 <-- logger.go:249 <-- context.go:185 <-- gin.go:644 <-- gin.go:600 <-- server.go:3301 <-- server.go:2102"}
+{"time":"2025-07-03T20:53:34.4018419+05:30","level":"ERROR","msg":"Error wile populating data in template","Err:":"failed to scan row for report Overview. No Data Available:: sql: Scan error on column index 0, name \"JSON_DATA\": converting NULL to string is unsupported"}
+{"time":"2025-07-03T20:54:30.1724374+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-03T20:54:30.5823399+05:30","level":"ERROR","msg":"Failed to fetch Title report data","Category":"DB","Error":"failed to scan row for report Overview. No Data Available:: sql: Scan error on column index 0, name \"JSON_DATA\": converting NULL to string is unsupported","Origin":"connectDB.go:65 <-- GenerateReport.go:19 <-- main.go:111 <-- context.go:185 <-- recovery.go:102 <-- context.go:185 <-- logger.go:249 <-- context.go:185 <-- gin.go:644 <-- gin.go:600 <-- server.go:3301 <-- server.go:2102"}
+{"time":"2025-07-03T20:54:30.5831026+05:30","level":"ERROR","msg":"Error wile populating data in template","Err:":"failed to scan row for report Overview. No Data Available:: sql: Scan error on column index 0, name \"JSON_DATA\": converting NULL to string is unsupported"}
+{"time":"2025-07-03T20:55:22.8204169+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-03T20:56:26.8091786+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-03T20:57:07.4889566+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,5],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-03T20:57:54.3576963+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,4],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-03T20:58:04.2422074+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,4],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-03T20:58:59.587703+05:30","level":"INFO","msg":"Generating report","ReportID:":[],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-03T21:01:24.2680858+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-07-03T21:01:24.2710143+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-07-03T21:01:31.8500461+05:30","level":"INFO","msg":"Generating report","ReportID:":[],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-03T21:03:16.6134958+05:30","level":"INFO","msg":"Generating report","ReportID:":[],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-03T21:04:39.899789+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-07-03T21:04:39.904855+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-07-03T21:05:29.6317954+05:30","level":"INFO","msg":"Generating report","ReportID:":[],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-03T21:07:44.2906229+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-07-03T21:07:44.2924572+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-07-03T21:08:01.2872246+05:30","level":"INFO","msg":"Generating report","ReportID:":[],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-03T21:14:38.7062456+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-07-03T21:14:38.708391+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-07-03T21:14:48.9027123+05:30","level":"INFO","msg":"Generating report","ReportID:":[],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-03T21:17:19.3802364+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-07-03T21:17:19.3829165+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}

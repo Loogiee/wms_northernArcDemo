@@ -75,7 +75,7 @@ func CreatePDFByte(requestedReports []int, customer string, portfolio string, re
 					return
 				}
 				allReportsData.Store(reportId, portSumResult)
-			case 6: // Mutual Fund Analysis
+			case 5: // Mutual Fund Analysis
 				mutualFundData, err := FetchDataForReport(customer, portfolio, reportDate, db, "Mutual Fund Analysis")
 				if err != nil {
 					logger.Error("Failed to fetch mututal fund report data", "Category", "DB", "Error", err.Error(), "Origin", GetErrorOrigin(err))
@@ -84,13 +84,12 @@ func CreatePDFByte(requestedReports []int, customer string, portfolio string, re
 				}
 				mutualFundResult, err := ProcessMutualFund(&mutualFundData)
 				if err != nil {
-					logger.Error("Failed to mututal fund report data", "Category", "PROCESS", "Error", err.Error(), "Origin", GetErrorOrigin(err))
+					logger.Error("Failed to process mututal fund report data", "Category", "PROCESS", "Error", err.Error(), "Origin", GetErrorOrigin(err))
 					errCh <- err
 					return
 				}
-				allReportsData.Store(6, mutualFundResult)
+				allReportsData.Store(reportId, mutualFundResult)
 			}
-
 		}(reportId)
 	}
 	wg.Wait()
@@ -141,7 +140,7 @@ func CreatePDFByte(requestedReports []int, customer string, portfolio string, re
 	default:
 		log.Printf("All reports generated successfully!")
 	}
-	FinalTemp = append(FinalTemp,DisclaimerText)
+	FinalTemp = append(FinalTemp, DisclaimerText)
 	return []byte(strings.Join(FinalTemp, "")), nil
 
 }

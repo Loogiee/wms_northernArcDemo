@@ -114,8 +114,7 @@ func reportHandler(c *gin.Context) {
 		c.JSON(500, gin.H{"message": "Error while populating data in template", "error": err.Error(), "traceId": traceId})
 		return
 	}
-	os.WriteFile("./FinalTypst.txt", pdfByte, 0777)
-	pdfData, err := ConvertToPdfLocal(pdfByte, "./GeneratedOutput/", "output.pdf")
+	pdfData, err := ConvertToPdfLocal(pdfByte, portfolio)
 	if err != nil {
 		c.JSON(500, gin.H{"message": "Error while genrating PDF file", "Error": err.Error(), "traceId": traceId})
 		return
@@ -125,12 +124,12 @@ func reportHandler(c *gin.Context) {
 	c.Data(200, "application/pdf", pdfData)
 }
 
-func reportConfig() {
-	var SlideMap map[int]string = map[int]string{
-		2: "executive_summary",
-		3: "portfolio_allocation_summary",
-		4: "Asset Class Summary",
-		5: "Mutual Fund Analysis",
-		6: "Capital Gain/Loss",
-	}
-}
+// func reportConfig() {
+// 	var SlideMap map[int]string = map[int]string{
+// 		2: "executive_summary",
+// 		3: "portfolio_allocation_summary",
+// 		4: "Asset Class Summary",
+// 		5: "Mutual Fund Analysis",
+// 		6: "Capital Gain/Loss",
+// 	}
+// }

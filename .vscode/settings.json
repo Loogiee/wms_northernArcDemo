@@ -27,8 +27,8 @@
     "workbench.settings.openDefaultSettings": false,
     "window.density.editorTabHeight": "compact",
     "postman.settings.dotenv-detection-notification-visibility": false,
-    "go.gopath": "//home//lkc//go",
-    // "go.gopath": "C://Users//8001206//go",
-    // "go.GOROOT": "C://Go",
+    // "go.gopath": "//home//lkc//go",
+    "go.gopath": "C://Users//8001206//go",
+    "go.GOROOT": "C://Go",
     "liveServer.settings.port": 5501,
 }

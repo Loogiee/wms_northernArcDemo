@@ -58,8 +58,11 @@ func ConvertToPdfBuffer(finalString string, customerName string, filePath string
 
 }
 
-func ConvertToPdfLocal(finalString []byte, filePath string, fileName string) ([]byte, error) {
-
+func ConvertToPdfLocal(finalString []byte, portfolio string) ([]byte, error) {
+	processedPath := "./GeneratedOutput/"
+	processedFileName := processedPath + portfolio + ".pdf"
+	failedPath := "./FaildOutput/"
+	faildFileName := failedPath + portfolio + ".typ"
 	// export TYPST_FONT_PATHS=fonts/
 	cmd := exec.Command("typst", "compile", "-", "-")
 
@@ -74,17 +77,19 @@ func ConvertToPdfLocal(finalString []byte, filePath string, fileName string) ([]
 
 	// Run the command
 	if err := cmd.Run(); err != nil {
+		if err := os.MkdirAll(failedPath, os.ModePerm); err != nil {
+			fmt.Println("Error creating faild directory ", portfolio, ":", err)
+		}
 		fmt.Println("Error generating PDF :", stderr.String(), err)
+		os.WriteFile(faildFileName, finalString, 0777)
 		return nil, err
 	}
 	// creating dir if not exit to store output file
-	if err := os.MkdirAll(filePath, os.ModePerm); err != nil {
-		fmt.Println("Error creating directory ", fileName, ":", err)
+	if err := os.MkdirAll(processedPath, os.ModePerm); err != nil {
+		fmt.Println("Error creating directory ", portfolio, ":", err)
 	}
-	filePathName := filePath + fileName
-
 	// creating output pdf
-	errr := os.WriteFile(filePathName, pdfBuffer.Bytes(), 0777)
+	errr := os.WriteFile(processedFileName, pdfBuffer.Bytes(), 0777)
 	if errr != nil {
 		fmt.Println("Error writing Typst file:", errr)
 	}
