@@ -124,3 +124,13 @@ func reportHandler(c *gin.Context) {
 	c.Header("Content-Disposition", "attachment; filename=report.pdf")
 	c.Data(200, "application/pdf", pdfData)
 }
+
+// func reportConfig() {
+// 	var SlideMap map[int]string = map[int]string{
+// 		2:  "executive_summary",
+// 		3:  "portfolio_allocation_summary",
+// 		4:  "Asset Class Summary",
+// 		5:  "Mutual Fund Analysis",
+// 		6:  "Changes Over Previous Month",
+// 	}
+// }

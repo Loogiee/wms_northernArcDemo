@@ -470,13 +470,10 @@ dx: 0pt,dy:20pt)[
   dx: 0pt, dy: -10pt
 )[
 
-  #let bottomdata = (
-    (Metric: "P/E", Values: [0.0]),
-    (Metric: "P/B", Values: [0.0]),
-    (Metric: "Weighted Avg. Market Cap(Cr)", Values: [0.0]),
-    (Metric: "Portfolio Beta", Values: [0.0]),
-    (Metric: "Sharpe Ratio", Values: [0.0]),
-    (Metric: "Standard Deviation", Values: [0.0]),
+  #let EquityQuantsData = (
+{{range .EquityQuants}}
+    (Metric: "{{.Metric}}", Values: [{{ConvertToFormattedPercentagePointer .ValueYear}}]),
+{{end}}
   )
 
   // Create a bordered box containing the table
@@ -502,10 +499,10 @@ dx: 0pt,dy:20pt)[
       table.cell(fill: rgb("#dadada"))[Metric],
       table.cell(fill: rgb("#dadada"), align: right)[*Value(yr)*],
       // Data rows
-      ..bottomdata.map(row => {
+      ..EquityQuantsData.map(row => {
         (
-          text(size: 14pt, row.Metric),
-          text(size: 14pt, row.Values),
+          text(row.Metric),
+          text(row.Values),
         )
       }).flatten()
     )

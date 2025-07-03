@@ -19,7 +19,7 @@ func ProcessPortfolioSummary(sqlData *[]map[string]interface{}) (string, error) 
 			switch key {
 			case "asset_subasset_section":
 				MapAssetSubassetSection(value, &finalProcessData) // Asset Class Wise Summary
-			case "subasset_asset_section":
+			case "subasset_asset_section#IGNORE":
 				MapSubAssetSection(value, &finalProcessData) // Product Wise Exposure - Advisors / Distributors
 			case "subasset_asset_marketcaptype_section":
 				MapSubassetMarketCapTypeSection(value, &finalProcessData) // Sub Asset Class Wise Exposure - Advisors / Distributors

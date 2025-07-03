@@ -23,7 +23,7 @@ type Overview struct {
 	Portfolio         string `json:"portfolio"`
 	ConsolidatedLevel string `json:"consolidated_level"`
 	RM                string `json:"RM"`
-	RMMobile          int64  `json:"RMMobile"`
+	RMMobile          string `json:"RMMobile"`
 	RMEmail           string `json:"RMEmail"`
 	SM                string `json:"SM"`
 	SMMobile          string `json:"SMMobile"`
@@ -37,7 +37,7 @@ type Overview struct {
 //  Executive Summary page Start
 type ExecutiveSummary struct {
 	BasicInformationSection         []BasicInfo                `json:"basic_information_section"`
-	AllocationComparisonSection     []Allocation               `json:"allocation_comparison_section"`
+	AllocationComparisonSection     []AllocationComparison     `json:"allocation_comparison_section"`
 	QuarterlyAllocationSection      []FinalQuarterlyAllocation `json:"quarterly_allocation_section"`
 	RelativePerformanceOverQuarters []RelativePerformance      `json:"relative_performance_over_quarters"`
 }
@@ -51,10 +51,14 @@ type BasicInfo struct {
 	Color       string
 }
 
-type Allocation struct {
-	AssetGroupName          string  `json:"ASSET_GROUP_NAME"`
-	TotalExposurePercentage float64 `json:"Total_Exposure_Percentage"`
-	StrategicPercentage     float64 `json:"Strategic_Percentage"`
+type AllocationComparison struct {
+	Description string            `json:"Description"`
+	Value       []AssetAllocation `json:"Value"`
+}
+
+type AssetAllocation struct {
+	AssetGroupName string  `json:"ASSET_GROUP_NAME"`
+	Value          float64 `json:"Value"`
 }
 
 // Quarterly Asset Allocation Trends
@@ -267,10 +271,6 @@ type EquityMfMarketCapitalization struct {
 }
 
 type EquityQuants struct {
-	Peratio           float64 `json:"PE_RATIO"`
-	Pbratio           float64 `json:"PB_RATIO"`
-	MarketCap         float64 `json:"MARKET_CAP"`
-	SharpeRatio       float64 `json:"SHARPE_RATIO"`
-	Beta              float64 `json:"BETA"`
-	StandardDeviation float64 `json:"STANDARD_DEVIATION"`
+	Metric    string  `json:"Metric"`
+	ValueYear float64 `json:"Value(yr)"`
 }

@@ -36,7 +36,7 @@ func ProcessCapGainLoss(sqlData *[]map[string]interface{}) (string, error) {
 }
 
 func mapCapGainLoss(value interface{}, parsingData *ExecutiveSummary) {
-	var processData []Allocation
+	var processData []AllocationComparison
 	MapToStruct(value, &processData)
 	parsingData.AllocationComparisonSection = processData
 }

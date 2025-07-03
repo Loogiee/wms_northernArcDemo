@@ -21,24 +21,7 @@ header: context{
 })
 
 #let headerBg = rgb("#f4f5f6")
-// Current asset allocation data
-#let currentData = (
 
- {{range .AllocationComparisonSection}}
-  ( value: {{ .StrategicPercentage}},
-     name: "{{ .AssetGroupName}}",
-  ),
-{{end}}
-)
-
-#let targetData = (
-
- {{range .AllocationComparisonSection}}
-  ( value: {{ .TotalExposurePercentage}},
-     name: "{{ .AssetGroupName}}",
-  ),
-{{end}}
-)
 // Page and header settings
 #let NexedgeHeaderColor = "#353535"
 #let headersize_xs = 18pt
@@ -170,22 +153,29 @@ header: context{
       fill: rgb("0e496e"),
       weight: "extrabold",
     )))
-#let currentData1 = (
-{{range .AllocationComparisonSection}}
-  ( value: {{ .TotalExposurePercentage}},
-     name: "{{ .AssetGroupName}}",
-  ),
+#let currentData = (
+ {{range .AllocationComparisonSection}}
+ {{if eq .Description "Current"}}
+    {{range .Value}}
+    ( value: {{ .Value}},
+      name: "{{ .AssetGroupName}}",
+    ),
+    {{end}}
+  {{end}}
 {{end}}
 )
 
-#let currentData2 = (
-{{range .AllocationComparisonSection}}
-  ( value: {{ .StrategicPercentage}},
-     name: "{{ .AssetGroupName}}",
-  ),
+#let targetData = (
+ {{range .AllocationComparisonSection}}
+ {{if eq .Description "Risk Profile"}}
+    {{range .Value}}
+    ( value: {{ .Value}},
+      name: "{{ .AssetGroupName}}",
+    ),
+    {{end}}
+  {{end}}
 {{end}}
 )
-
     // Main header
  #pad(left: 5pt,top: 0pt,
     // Grid for the two charts
@@ -210,7 +200,7 @@ header: context{
             labelLine: (
             //  show: true,
             ),
-            data: currentData1
+            data: currentData
           ),
         )
       )],
@@ -224,7 +214,7 @@ header: context{
   inset: (left:10pt,top:20pt,right:10pt,bottom:10pt),
   align: left,
   // Dynamically generate legend items
-  ..currentData1.enumerate().map(((i, item)) => {
+  ..currentData.enumerate().map(((i, item)) => {
     let value = str(item.value) + "%"
     let name = item.name
     stack(
@@ -245,6 +235,7 @@ header: context{
 )
 ]
 
+
       ],
       box(
          width: 100%, height: 100%, stroke: none)[
@@ -263,7 +254,7 @@ header: context{
             labelLine: (
             //  show: true,
             ),
-            data: currentData2
+            data: targetData
           ),
         )
       )]
@@ -277,7 +268,7 @@ header: context{
   inset: (left:10pt,top:20pt,right:10pt,bottom:10pt),
   align: left,
   // Dynamically generate legend items
-  ..currentData2.enumerate().map(((i, item)) => {
+  ..targetData.enumerate().map(((i, item)) => {
     let value = str(item.value) + "%"
     let name = item.name
     stack(

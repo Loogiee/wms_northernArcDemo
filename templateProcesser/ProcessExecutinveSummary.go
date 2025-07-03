@@ -45,7 +45,7 @@ func ProcessExecutinveSummary(sqlData *[]map[string]interface{}) (string, error)
 }
 
 func mapAllocationCompSec(value interface{}, parsingData *ExecutiveSummary) {
-	var processData []Allocation
+	var processData []AllocationComparison
 	MapToStruct(value, &processData)
 	parsingData.AllocationComparisonSection = processData
 }

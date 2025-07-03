@@ -62,7 +62,7 @@ func CreatePDFByte(requestedReports []int, customer string, portfolio string, re
 				}
 				allReportsData.Store(reportId, portAllocResult)
 			case 4: //Asset Class Summary
-				portSumDisData, err := FetchDataForReport(customer, portfolio, reportDate, db, "portfolio_summary")
+				portSumDisData, err := FetchDataForReport(customer, portfolio, reportDate, db, "Asset Class Summary")
 				if err != nil {
 					logger.Error("Failed to fetch Portfolio Summary report data", "Category", "DB", "Error", err.Error(), "Origin", GetErrorOrigin(err))
 					errCh <- err
@@ -76,7 +76,7 @@ func CreatePDFByte(requestedReports []int, customer string, portfolio string, re
 				}
 				allReportsData.Store(reportId, portSumResult)
 			case 5: //Asset Class Summary
-				holdData, err := FetchDataForReport(customer, portfolio, reportDate, db, "holding_report")
+				holdData, err := FetchDataForReport(customer, portfolio, reportDate, db, "Asset Class Summary")
 				if err != nil {
 					logger.Error("Failed to fetch Asset Class Wise Summary report data", "Category", "DB", "Error", err.Error(), "Origin", GetErrorOrigin(err))
 					errCh <- err
@@ -90,7 +90,7 @@ func CreatePDFByte(requestedReports []int, customer string, portfolio string, re
 				}
 				allReportsData.Store(reportId, holdResult)
 			case 6: // Mutual Fund Analysis
-				mutualFundData, err := FetchDataForReport(customer, portfolio, reportDate, db, "mutual_fund_report")
+				mutualFundData, err := FetchDataForReport(customer, portfolio, reportDate, db, "Mutual Fund Analysis")
 				if err != nil {
 					logger.Error("Failed to fetch mututal fund report data", "Category", "DB", "Error", err.Error(), "Origin", GetErrorOrigin(err))
 					errCh <- err
