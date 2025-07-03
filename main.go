@@ -106,7 +106,7 @@ func reportHandler(c *gin.Context) {
 		return
 	}
 	if len(requestedReports) == 0 {
-		requestedReports = []int{1, 2, 3, 4, 5, 6, 7, 8, 16, 21, 22, 23, 24, 25, 26, 27, 28, 29}
+		requestedReports = []int{1, 2, 3, 4, 5, 6}
 	}
 	pdfByte, err := CreatePDFByte(requestedReports, customer, portfolio, reportDate, db, traceId, logger)
 	if err != nil {
@@ -125,12 +125,12 @@ func reportHandler(c *gin.Context) {
 	c.Data(200, "application/pdf", pdfData)
 }
 
-// func reportConfig() {
-// 	var SlideMap map[int]string = map[int]string{
-// 		2:  "executive_summary",
-// 		3:  "portfolio_allocation_summary",
-// 		4:  "Asset Class Summary",
-// 		5:  "Mutual Fund Analysis",
-// 		6:  "Changes Over Previous Month",
-// 	}
-// }
+func reportConfig() {
+	var SlideMap map[int]string = map[int]string{
+		2: "executive_summary",
+		3: "portfolio_allocation_summary",
+		4: "Asset Class Summary",
+		5: "Mutual Fund Analysis",
+		6: "Capital Gain/Loss",
+	}
+}
