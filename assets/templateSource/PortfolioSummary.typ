@@ -139,7 +139,7 @@ header: none)
         #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
        place(top+right,dx: -15pt,dy: 12pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+          [#image("./assets/images/Client_logo.png", width: 250pt,height: 40pt, fit: "contain")])
 )
 )
 #set page(paper: "a2", flipped: true,
@@ -153,7 +153,7 @@ header: context{
   #place()[== #text("Asset Class Summary - Asset Class Wise Summary")]
 ]
   #table(
-    columns: (1.5fr, 1fr, 1fr, 1fr, 1.2fr, 1fr, 1.2fr, .5fr,.5fr, 1.5fr),
+    columns: (1.5fr, 1fr, .7fr, 1fr, 1.2fr, 1fr, 1.2fr, .5fr,.6fr, 1.5fr),
     stroke: none,
     inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     // Header
@@ -226,7 +226,7 @@ header: context{
         #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
        place(top+right,dx: -15pt,dy: 12pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+          [#image("./assets/images/Client_logo.png", width: 250pt,height: 40pt, fit: "contain")])
 
 )
 )
@@ -306,7 +306,7 @@ header: context{
         #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
        place(top+right,dx: -15pt,dy: 12pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+          [#image("./assets/images/Client_logo.png", width: 250pt,height: 40pt, fit: "contain")])
 
 )
 )
@@ -390,7 +390,7 @@ header: context{
         #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
        place(top+right,dx: -15pt,dy: 12pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+          [#image("./assets/images/Client_logo.png", width: 250pt,height: 40pt, fit: "contain")])
 
 )
 )
@@ -478,7 +478,7 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
         #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
        place(top+right,dx: -15pt,dy: 12pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+          [#image("./assets/images/Client_logo.png", width: 250pt,height: 40pt, fit: "contain")])
 
 )
 )
@@ -549,7 +549,7 @@ header: context{
         #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
        place(top+right,dx: -15pt,dy: 12pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+          [#image("./assets/images/Client_logo.png", width: 250pt,height: 40pt, fit: "contain")])
 
 )
 )

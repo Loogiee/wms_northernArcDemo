@@ -76,7 +76,7 @@
 //   #image("./assets/images/bg design2.jpg", width: 100%, height: 100%)
 // ]
 #place(top + right, dx: -90pt)[
-  #image("./assets/images/kfintech-logo.png", width: 300pt)
+  #image("./assets/images/Client_logo.png", width: 300pt)
 ]
 #place(bottom + left, dx: -40pt, dy: -100pt)[
   #image("./assets/images/design.png", width: 480pt)

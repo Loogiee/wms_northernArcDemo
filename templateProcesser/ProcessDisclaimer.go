@@ -12,7 +12,7 @@ var DisclaimerText = `
         #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
        place(top+right,dx: -15pt,dy: 12pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+          [#image("./assets/images/Client_logo.png", width: 250pt,height: 40pt, fit: "contain")])
 )
 )
 #set page(paper: "a2", flipped: true,fill: rgb("#f4f5f6"),

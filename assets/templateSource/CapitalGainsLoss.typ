@@ -12,7 +12,7 @@
         #place(dy: 14pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
        place(top+right,dx: -15pt,dy: 15pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+          [#image("./assets/images/Client_logo.png", width: 250pt,height: 40pt, fit: "contain")])
 
 )
 )
