@@ -120,6 +120,7 @@ type AssetSubassetSection struct {
 	Appreciation     float64 `json:"APPRE_DEPRE"`
 	Dividend         float64 `json:"DIVIDEND"`
 	XIRR             float64 `json:"XIRR"`
+	BMXIRR           float64 `json:"BMXIRR"`
 	AssetExposure    float64 `json:"ASSET_EXPOSURE%"`
 	BenchmarkName    string  `json:"BENCHMARK_NAME"`
 	GroupLabel       string  `json:"GROUP_LABEL"`
@@ -135,6 +136,7 @@ type SubassetMarketCapTypeSection struct {
 	RealGainLoss      float64 `json:"REAL_GAIN_LOSS"`
 	Appreciation      float64 `json:"APPRE_DEPRE"`
 	XIRR              float64 `json:"XIRR"`
+	BMXIRR            float64 `json:"BMXIRR"`
 	AssetExposure     float64 `json:"ASSET_EXPOSURE%"`
 	DistributedIncome float64 `json:"DISTRIBUTED_INCOME"`
 	GroupLabel        string  `json:"GROUP_LABEL"`
@@ -203,14 +205,20 @@ type DirectEquHoldingSection struct {
 }
 
 type MutualFundSection struct {
-	AmcWiseSection               []AmcWiseSection
-	FundManagerSection           []FundManagerSection
-	SectorWiseSection            []SectorWiseSection
-	MututalFundTransSection      []MututalFundTransSection
-	EquityMfAmcAllocation        []EquityMfAmcAllocation
-	EquityMfIndustryAllocation   []EquityMfIndustryAllocation
-	EquityMfMarketCapitalization []EquityMfMarketCapitalization
-	EquityQuants                 []EquityQuants
+	AmcWiseSection                []AmcWiseSection
+	FundManagerSection            []FundManagerSection
+	SectorWiseSection             []SectorWiseSection
+	MututalFundTransSection       []MututalFundTransSection
+	EquityMfAmcAllocation         []EquityMfAmcAllocation
+	EquityMfIndustryAllocation    []EquityMfIndustryAllocation
+	EquityMfMarketCapitalization  []EquityMfMarketCapitalization
+	EquityQuants                  []EquityQuants
+	DebtMfAmcAllocation           []DebtMfAmcAllocation
+	DebtMfSectorAllocation        []DebtMfSectorAllocation
+	DebtMfAvgMatAllocation        []DebtMfAvgMatAllocation
+	DebtQuants                    []DebtQuants
+	DebtMfRatingAllocation        []DebtMfRatingAllocation
+	DebtMfInstrumentSecAllocation []DebtMfInstrumentSecAllocation
 }
 
 // AMC Wise Exposure - All Advisors
@@ -269,4 +277,40 @@ type EquityMfMarketCapitalization struct {
 type EquityQuants struct {
 	Metric    string  `json:"Metric"`
 	ValueYear float64 `json:"Value(yr)"`
+}
+
+// AMC Allocation(%) --> Debt Mutual Fund - Quants
+type DebtMfAmcAllocation struct {
+	IssuerName string  `json:"ISSUER_NAME"`
+	Percentage float64 `json:"Percentage"`
+}
+
+// Sector Allocation(%) --> Debt Mutual Fund - Quants
+type DebtMfSectorAllocation struct {
+	InstrumentName string  `json:"SECTOR_NAME"`
+	Percentage     float64 `json:"Percentage"`
+}
+
+// Avg Maturity Allocation(%) --> Debt Mutual Fund - Quants
+type DebtMfAvgMatAllocation struct {
+	MaturityBucket string `json:"MATURITY_BUCKET"`
+	Percentage     float64    `json:"Percentage"`
+}
+
+// Debt Quants --> Debt Mutual Fund - Quants
+type DebtQuants struct {
+	Metric    string  `json:"Metric"`
+	ValueYear float64 `json:"Value(yr)"`
+}
+
+// Rating Allocation(%) --> Debt Mutual Fund - Quants
+type DebtMfRatingAllocation struct {
+	Rating     string  `json:"RATING"`
+	Percentage float64 `json:"Percentage"`
+}
+
+// Instrument Allocation(%) --> Debt Mutual Fund - Quants
+type DebtMfInstrumentSecAllocation struct {
+	InstrumentName string  `json:"INSTRUMENT_NAME"`
+	Percentage     float64 `json:"Percentage"`
 }

@@ -24,7 +24,7 @@
   ]
     #place(dx: 30%)[
     #text("Customer Name : ", size: 20pt, weight: "medium", fill: blue)
-    #text("GAUTAM GAMBHIR", size: 20pt, weight: "medium", fill: black)
+    #text("BIBI RANI NANGIA", size: 20pt, weight: "medium", fill: black)
   ]
   #place(dx: 65%)[
     #text("RM Name : ", size: 20pt, weight: "medium", fill: blue)
@@ -71,7 +71,7 @@
 #let ReportDate = "19 Mar 2025"
 #let ReportBeginDate = "30 Sep 2020"
 #let ReportEndDate = "19 Mar 2025"
-#let ReportPeriod = "02 Jul 2025"
+#let ReportPeriod = "04 Jul 2025"
 // #place(dx: 1100pt, dy: -50pt)[
 //   #image("./assets/images/bg design2.jpg", width: 100%, height: 100%)
 // ]
@@ -157,8 +157,8 @@
     \
     #text(fill: rgb("#248DDC"), weight: "bold",  size: 50pt, "ANALYSIS REPORT")\
     \
-    #text(fill: rgb("#0B1A24"), weight: "bold",  size: 25pt, "GAUTAM GAMBHIR / ")
-    #text(fill: rgb("#D4567B"), weight: "bold",  size: 25pt, "NX100037")
+    #text(fill: rgb("#0B1A24"), weight: "bold",  size: 25pt, "BIBI RANI NANGIA / ")
+    #text(fill: rgb("#D4567B"), weight: "bold",  size: 25pt, "NX100027")
   ]
 ]
 
@@ -320,7 +320,7 @@ header: context{
   
   (
     description: "HOLDING COST",
-    Value: "₹ 29,39,76,077",
+    Value: "₹ 13,23,78,054",
     Date: "As on 19 Mar 2025",
     Colors :"#000",
     Image: "./assets/images/two.png"
@@ -328,7 +328,7 @@ header: context{
   
   (
     description: "CURRENT VALUE",
-    Value: "₹ 30,07,51,913",
+    Value: "₹ 15,93,14,162",
     Date: "As on 19 Mar 2025",
     Colors :"#000",
     Image: "/assets/images/three.png"
@@ -336,7 +336,7 @@ header: context{
   
   (
     description: "INFLOW MINUS OUTFLOW",
-    Value: "₹ 29,02,54,594",
+    Value: "₹ 13,23,62,307",
     Date: "Since Inception",
     Colors :"#000",
     Image: "./assets/images/one.png"
@@ -344,7 +344,7 @@ header: context{
   
   (
     description: "PORTFOLIO RETURN(IRR)",
-    Value: "2.62%",
+    Value: "10.74%",
     Date: "Since Inception",
     Colors :"#15ff00de",
     Image: "./assets/images/four.png"
@@ -352,15 +352,15 @@ header: context{
   
   (
     description: "BENCHMARK RETURN(IRR)",
-    Value: "-3.15%",
+    Value: "9.05%",
     Date: "Since Inception",
-    Colors :"#ff0000de",
+    Colors :"#15ff00de",
     Image: "./assets/images/six.png"
   ),
   
   (
     description: "BenchmarkInfo_CRISIL Comp IDX",
-    Value: "29.22%",
+    Value: "26.24%",
     Date: "",
     Colors :"#15ff00de",
     Image: "./assets/images/six.png"
@@ -368,7 +368,7 @@ header: context{
   
   (
     description: "BenchmarkInfo_NIFTY 500",
-    Value: "115.98%",
+    Value: "63.85%",
     Date: "",
     Colors :"#15ff00de",
     Image: "./assets/images/six.png"
@@ -494,19 +494,15 @@ header: context{
  
  
     
-    ( value: 0.71,
-      name: "Commodities",
-    ),
-    
-    ( value: 96.4,
+    ( value: 53.99,
       name: "Equities",
     ),
     
-    ( value: 2.88,
+    ( value: 30.29,
       name: "Fixed Income",
     ),
     
-    ( value: 0.01,
+    ( value: 15.73,
       name: "Liquid",
     ),
     
@@ -522,20 +518,16 @@ header: context{
 
  
     
-    ( value: 15,
-      name: "Alternative Investment Fund",
+    ( value: 5,
+      name: "Cash / Cash Equivalents",
     ),
     
     ( value: 5,
       name: "Commodity",
     ),
     
-    ( value: 20,
+    ( value: 90,
       name: "Debt",
-    ),
-    
-    ( value: 60,
-      name: "Equity",
     ),
     
   
@@ -599,7 +591,7 @@ header: context{
   })
 )
 ]
-#place(dx:408pt,dy:40pt)[#line(length: 80%,angle: 90deg,stroke: (2.8pt + luma(88%)))]
+#place(dx:408pt,dy:0pt)[#line(length: 100%,angle: 90deg,stroke: (2.8pt + luma(88%)))]
 
       ],
       box(
@@ -707,35 +699,35 @@ header: context{
         
         table.cell(align(center)[#text("Mar 2024")]),
         table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("17.04"+"%")]),
+        table.cell(align(right)[#text("14.07"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("-3.88"+"%")]),
+        table.cell(align(right)[#text("-1.31"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("20.92"+"%")]),
+        table.cell(align(right)[#text("15.38"+"%")]),
         
         table.cell(align(center)[#text("Jun 2024")]),
         table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("20.08"+"%")]),
+        table.cell(align(right)[#text("16.70"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("2.20"+"%")]),
+        table.cell(align(right)[#text("-0.53"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("17.88"+"%")]),
+        table.cell(align(right)[#text("17.23"+"%")]),
         
         table.cell(align(center)[#text("Sep 2024")]),
         table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("20.76"+"%")]),
+        table.cell(align(right)[#text("17.62"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("21.43"+"%")]),
+        table.cell(align(right)[#text("-0.43"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("-0.67"+"%")]),
+        table.cell(align(right)[#text("18.05"+"%")]),
         
         table.cell(align(center)[#text("Dec 2024")]),
         table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("9.71"+"%")]),
+        table.cell(align(right)[#text("13.99"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("8.72"+"%")]),
+        table.cell(align(right)[#text("1.68"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("0.99"+"%")]),
+        table.cell(align(right)[#text("12.31"+"%")]),
         
       ),
     )
@@ -750,11 +742,9 @@ header: context{
     Date: "Mar 2024",
     allocations: (
       
-      (asset_group_name: "Commodities", value: 1.92),
+      (asset_group_name: "Equities", value: 56.3),
       
-      (asset_group_name: "Equities", value: 98.08),
-      
-      (asset_group_name: "Fixed Income", value: 0),
+      (asset_group_name: "Fixed Income", value: 43.7),
       
       (asset_group_name: "Liquid", value: 0),
       
@@ -765,11 +755,9 @@ header: context{
     Date: "Jun 2024",
     allocations: (
       
-      (asset_group_name: "Commodities", value: 1.76),
+      (asset_group_name: "Equities", value: 60.04),
       
-      (asset_group_name: "Equities", value: 98.24),
-      
-      (asset_group_name: "Fixed Income", value: 0),
+      (asset_group_name: "Fixed Income", value: 39.96),
       
       (asset_group_name: "Liquid", value: 0),
       
@@ -780,13 +768,11 @@ header: context{
     Date: "Sep 2024",
     allocations: (
       
-      (asset_group_name: "Commodities", value: 1.15),
+      (asset_group_name: "Equities", value: 58.98),
       
-      (asset_group_name: "Equities", value: 98.84),
+      (asset_group_name: "Fixed Income", value: 34.03),
       
-      (asset_group_name: "Fixed Income", value: 0),
-      
-      (asset_group_name: "Liquid", value: 0.01),
+      (asset_group_name: "Liquid", value: 6.99),
       
     )
   ),
@@ -795,13 +781,11 @@ header: context{
     Date: "Dec 2024",
     allocations: (
       
-      (asset_group_name: "Commodities", value: 0.62),
+      (asset_group_name: "Equities", value: 59.2),
       
-      (asset_group_name: "Equities", value: 98.26),
+      (asset_group_name: "Fixed Income", value: 31.09),
       
-      (asset_group_name: "Fixed Income", value: 1.11),
-      
-      (asset_group_name: "Liquid", value: 0.01),
+      (asset_group_name: "Liquid", value: 9.71),
       
     )
   ),
@@ -920,14 +904,9 @@ header: context{
 
 #let currentData1 = (
 
-  ( value: 27.39,
-     name: "Commodities",
-     total: 1.32000093e+06
-  ),
-
-  ( value: 72.61,
+  ( value: 0,
      name: "Equities",
-     total: 3.50000063e+06
+     total: 0
   ),
 
   ( value: 0,
@@ -944,24 +923,19 @@ header: context{
 
 #let currentData2 = (
 
-  ( value: 0.71,
-     name: "Commodities",
-     total: 2.13753607e+06
-  ),
-
-  ( value: 96.4,
+  ( value: 53.99,
      name: "Equities",
-     total: 2.8992783705e+08
+     total: 8.601036867e+07
   ),
 
-  ( value: 2.88,
+  ( value: 30.29,
      name: "Fixed Income",
-     total: 8.66407299e+06
+     total: 4.825008826e+07
   ),
 
-  ( value: 0.01,
+  ( value: 15.73,
      name: "Liquid",
-     total: 22466.84
+     total: 2.505370467e+07
   ),
 
 )
@@ -1122,32 +1096,25 @@ header: context{
     table.cell(fill:rgb("#ebebeb"),align(right)[#text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "%")]),
   ),
   
-    table.cell(align(left)[#text(size: 18pt, "Commodities")]),
-    table.cell(align(right)[#text(size: 18pt, "13,20,001")]),
-    table.cell(align(right)[#text(size: 18pt, "27.39"+"%")]),
-    table.cell(align(right)[#text(size: 18pt, "21,37,536")]),
-    table.cell(align(right)[#text(size: 18pt, "0.71"+"%")]),
-    table.hline(stroke: rgb("#cdcdcd")),
-
     table.cell(align(left)[#text(size: 18pt, "Equities")]),
-    table.cell(align(right)[#text(size: 18pt, "35,00,001")]),
-    table.cell(align(right)[#text(size: 18pt, "72.61"+"%")]),
-    table.cell(align(right)[#text(size: 18pt, "28,99,27,837")]),
-    table.cell(align(right)[#text(size: 18pt, "96.40"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "0")]),
+    table.cell(align(right)[#text(size: 18pt, "0"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "8,60,10,369")]),
+    table.cell(align(right)[#text(size: 18pt, "53.99"+"%")]),
     table.hline(stroke: rgb("#cdcdcd")),
 
     table.cell(align(left)[#text(size: 18pt, "Fixed Income")]),
     table.cell(align(right)[#text(size: 18pt, "0")]),
     table.cell(align(right)[#text(size: 18pt, "0"+"%")]),
-    table.cell(align(right)[#text(size: 18pt, "86,64,073")]),
-    table.cell(align(right)[#text(size: 18pt, "2.88"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "4,82,50,088")]),
+    table.cell(align(right)[#text(size: 18pt, "30.29"+"%")]),
     table.hline(stroke: rgb("#cdcdcd")),
 
     table.cell(align(left)[#text(size: 18pt, "Liquid")]),
     table.cell(align(right)[#text(size: 18pt, "0")]),
     table.cell(align(right)[#text(size: 18pt, "0"+"%")]),
-    table.cell(align(right)[#text(size: 18pt, "22,467")]),
-    table.cell(align(right)[#text(size: 18pt, "0.01"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "2,50,53,705")]),
+    table.cell(align(right)[#text(size: 18pt, "15.73"+"%")]),
     table.hline(stroke: rgb("#cdcdcd")),
 
 
@@ -1171,17 +1138,9 @@ header: context{
   // Simulate the data structure from the template
 
   #let portBrkupdata = (
-                (SecurityCategory: "AIF", StartExposure: 0/1000000, EndExposure: 7.443764767e+07/1000000),
+                (SecurityCategory: "Arbitrage Funds", StartExposure: 0/1000000, EndExposure: 2.505370467e+07/1000000),
               
-                (SecurityCategory: "Bonds", StartExposure: 0/1000000, EndExposure: 8.66407299e+06/1000000),
-              
-                (SecurityCategory: "Direct Equities", StartExposure: 0/1000000, EndExposure: 3.40426374e+06/1000000),
-              
-                (SecurityCategory: "Liquid/Overnight Funds", StartExposure: 0/1000000, EndExposure: 22466.84/1000000),
-              
-                (SecurityCategory: "Mutual Funds/ETFs", StartExposure: 4.82000156e+06/1000000, EndExposure: 1.7343870791e+08/1000000),
-              
-                (SecurityCategory: "PMS", StartExposure: 0/1000000, EndExposure: 4.07847538e+07/1000000),
+                (SecurityCategory: "Mutual Funds/ETFs", StartExposure: 0/1000000, EndExposure: 1.3426045693e+08/1000000),
               )
 
 #place(dx:460pt,dy: 30pt)[
@@ -1265,46 +1224,18 @@ header: context{
     table.cell(fill:rgb("#ebebeb"),align(right)[#text(size: 18pt,fill: rgb("#0d3b6b"), weight: "bold",  "%")]),
   ),
   
-    table.cell(align(left)[#text(size: 18pt, "AIF")]),
+    table.cell(align(left)[#text(size: 18pt, "Arbitrage Funds")]),
     table.cell(align(right)[#text(size: 18pt, "0")]),
     table.cell(align(right)[#text(size: 18pt, "0"+"%")]),
-    table.cell(align(right)[#text(size: 18pt, "7,44,37,648")]),
-    table.cell(align(right)[#text(size: 18pt, "24.75"+"%")]),
-    table.hline(stroke: rgb("#cdcdcd")),
-
-    table.cell(align(left)[#text(size: 18pt, "Bonds")]),
-    table.cell(align(right)[#text(size: 18pt, "0")]),
-    table.cell(align(right)[#text(size: 18pt, "0"+"%")]),
-    table.cell(align(right)[#text(size: 18pt, "86,64,073")]),
-    table.cell(align(right)[#text(size: 18pt, "2.88"+"%")]),
-    table.hline(stroke: rgb("#cdcdcd")),
-
-    table.cell(align(left)[#text(size: 18pt, "Direct Equities")]),
-    table.cell(align(right)[#text(size: 18pt, "0")]),
-    table.cell(align(right)[#text(size: 18pt, "0"+"%")]),
-    table.cell(align(right)[#text(size: 18pt, "34,04,264")]),
-    table.cell(align(right)[#text(size: 18pt, "1.13"+"%")]),
-    table.hline(stroke: rgb("#cdcdcd")),
-
-    table.cell(align(left)[#text(size: 18pt, "Liquid/Overnight Funds")]),
-    table.cell(align(right)[#text(size: 18pt, "0")]),
-    table.cell(align(right)[#text(size: 18pt, "0"+"%")]),
-    table.cell(align(right)[#text(size: 18pt, "22,467")]),
-    table.cell(align(right)[#text(size: 18pt, "0.01"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "2,50,53,705")]),
+    table.cell(align(right)[#text(size: 18pt, "15.73"+"%")]),
     table.hline(stroke: rgb("#cdcdcd")),
 
     table.cell(align(left)[#text(size: 18pt, "Mutual Funds/ETFs")]),
-    table.cell(align(right)[#text(size: 18pt, "48,20,002")]),
-    table.cell(align(right)[#text(size: 18pt, "100"+"%")]),
-    table.cell(align(right)[#text(size: 18pt, "17,34,38,708")]),
-    table.cell(align(right)[#text(size: 18pt, "57.67"+"%")]),
-    table.hline(stroke: rgb("#cdcdcd")),
-
-    table.cell(align(left)[#text(size: 18pt, "PMS")]),
     table.cell(align(right)[#text(size: 18pt, "0")]),
     table.cell(align(right)[#text(size: 18pt, "0"+"%")]),
-    table.cell(align(right)[#text(size: 18pt, "4,07,84,754")]),
-    table.cell(align(right)[#text(size: 18pt, "13.56"+"%")]),
+    table.cell(align(right)[#text(size: 18pt, "13,42,60,457")]),
+    table.cell(align(right)[#text(size: 18pt, "84.27"+"%")]),
     table.hline(stroke: rgb("#cdcdcd")),
 
 
@@ -1470,12 +1401,12 @@ header: context{
   #place()[== #text("Asset Class Summary - Asset Class Wise Summary")]
 ]
   #table(
-    columns: (1.5fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, .5fr, 1.5fr),
+    columns: (1.5fr, 1fr, 1fr, 1fr, 1.2fr, 1fr, 1.2fr, .5fr,.5fr, 1.5fr),
     stroke: none,
     inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     // Header
     table.header(
-    table.cell(rowspan: 2, colspan: 9, align: left + horizon, [#text(fill: heading0,size: 20pt, weight: "bold", [ Portfolio Analysis Report])]),
+    table.cell(rowspan: 2, colspan: 10, align: left + horizon, [#text(fill: heading0,size: 20pt, weight: "bold", [ Portfolio Analysis Report])]),
     table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
 
     // Column headers
@@ -1487,6 +1418,7 @@ header: context{
     table.cell(align(right)[#text(fill: heading0,weight: "black", "Dividend Interest")]),
     table.cell(align(right)[#text(fill: heading0,weight: "black", "Gain/Loss Unrealised")]),
     table.cell(align(right)[#text(fill: heading0,weight: "black", "IRR %")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "BMIRR %")]),
     table.cell(align(left)[#text(fill: heading0,weight: "black", "Benchmark")]),
   ),
 
@@ -1494,94 +1426,19 @@ header: context{
     
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(colspan: 9, align(left)[#text("Commodities" )],fill: highlightBlue),
+    table.cell(colspan: 10, align(left)[#text("Equities" )],fill: highlightBlue),
     
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Mutual Funds/ETFs" )] ),
-    table.cell(align(right)[#text("21,37,536.07")]),
+    table.cell(align(right)[#text("8,60,10,368.67")]),
     table.cell(align(right)[#text("100")]),
-    table.cell(align(right)[#text("13,20,000.93")]),
+    table.cell(align(right)[#text("6,78,96,605.06")]),
     table.cell(align(right)[#text("0")]),
     table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("8,17,535.14")]),
-    table.cell(align(right)[#text("11.39")]),
-    table.cell(align(left)[#text("Gold Spot")]),
-    
-  
-    
-    
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    
-    
-    table.cell(align(left)[#text("Sub Total",fill: heading0)],),
-    table.cell(align(right)[#text("21,37,536.07",fill:heading0)]),
-    table.cell(align(right)[#text("100",fill:heading0)]),
-    table.cell(align(right)[#text("13,20,000.93",fill:heading0)]),
-    table.cell(align(right)[#text("0",fill:heading0)]),
-    table.cell(align(right)[#text("0",fill:heading0)]),
-    table.cell(align(right)[#text("8,17,535.14",fill:heading0)]),
-    table.cell(align(right)[#text("11.39",fill:heading0)]),
-    table.cell(align(left)[#text("-",fill:heading0)]),
-    
-  
-    
-    
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(colspan: 9, align(left)[#text("Equities" )],fill: highlightBlue),
-    
-    
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("AIF" )] ),
-    table.cell(align(right)[#text("7,44,37,647.67")]),
-    table.cell(align(right)[#text("25.67")]),
-    table.cell(align(right)[#text("7,72,36,961.00")]),
-    table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("-27,99,313.33")]),
-    table.cell(align(right)[#text("-7.55")]),
-    table.cell(align(left)[#text("NIFTY 200 TRI")]),
-    
-  
-    
-    
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Direct Equities" )] ),
-    table.cell(align(right)[#text("34,04,263.74")]),
-    table.cell(align(right)[#text("1.17")]),
-    table.cell(align(right)[#text("32,95,955.82")]),
-    table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("1,08,307.92")]),
-    table.cell(align(right)[#text("2.74")]),
-    table.cell(align(left)[#text("NIFTY 200 TRI")]),
-    
-  
-    
-    
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Mutual Funds/ETFs" )] ),
-    table.cell(align(right)[#text("17,13,01,171.84")]),
-    table.cell(align(right)[#text("59.08")]),
-    table.cell(align(right)[#text("16,56,03,771.82")]),
-    table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("56,97,400.02")]),
-    table.cell(align(right)[#text("3.72")]),
-    table.cell(align(left)[#text("NIFTY 200 TRI")]),
-    
-  
-    
-    
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("PMS" )] ),
-    table.cell(align(right)[#text("4,07,84,753.80")]),
-    table.cell(align(right)[#text("14.07")]),
-    table.cell(align(right)[#text("3,78,33,884.00")]),
-    table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("29,50,869.80")]),
-    table.cell(align(right)[#text("6.07")]),
+    table.cell(align(right)[#text("1,81,13,763.61")]),
+    table.cell(align(right)[#text("14.17")]),
+    table.cell(align(right)[#text("11.11")]),
     table.cell(align(left)[#text("NIFTY 200 TRI")]),
     
   
@@ -1591,31 +1448,33 @@ header: context{
     
     
     table.cell(align(left)[#text("Sub Total",fill: heading0)],),
-    table.cell(align(right)[#text("28,99,27,837.05",fill:heading0)]),
+    table.cell(align(right)[#text("8,60,10,368.67",fill:heading0)]),
     table.cell(align(right)[#text("100",fill:heading0)]),
-    table.cell(align(right)[#text("28,39,70,572.64",fill:heading0)]),
+    table.cell(align(right)[#text("6,78,96,605.06",fill:heading0)]),
     table.cell(align(right)[#text("0",fill:heading0)]),
     table.cell(align(right)[#text("0",fill:heading0)]),
-    table.cell(align(right)[#text("59,57,264.41",fill:heading0)]),
-    table.cell(align(right)[#text("2.31",fill:heading0)]),
+    table.cell(align(right)[#text("1,81,13,763.61",fill:heading0)]),
+    table.cell(align(right)[#text("14.17",fill:heading0)]),
+    table.cell(align(right)[#text("11.11",fill:heading0)]),
     table.cell(align(left)[#text("-",fill:heading0)]),
     
   
     
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(colspan: 9, align(left)[#text("Fixed Income" )],fill: highlightBlue),
+    table.cell(colspan: 10, align(left)[#text("Fixed Income" )],fill: highlightBlue),
     
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Bonds" )] ),
-    table.cell(align(right)[#text("86,64,072.99")]),
+    table.cell(align(left)[#text("Mutual Funds/ETFs" )] ),
+    table.cell(align(right)[#text("4,82,50,088.26")]),
     table.cell(align(right)[#text("100")]),
-    table.cell(align(right)[#text("86,64,072.99")]),
+    table.cell(align(right)[#text("3,99,98,000.08")]),
     table.cell(align(right)[#text("0")]),
     table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("0")]),
+    table.cell(align(right)[#text("82,52,088.18")]),
+    table.cell(align(right)[#text("7.25")]),
+    table.cell(align(right)[#text("7.90")]),
     table.cell(align(left)[#text("CRISIL Comp. Bond")]),
     
   
@@ -1625,31 +1484,33 @@ header: context{
     
     
     table.cell(align(left)[#text("Sub Total",fill: heading0)],),
-    table.cell(align(right)[#text("86,64,072.99",fill:heading0)]),
+    table.cell(align(right)[#text("4,82,50,088.26",fill:heading0)]),
     table.cell(align(right)[#text("100",fill:heading0)]),
-    table.cell(align(right)[#text("86,64,072.99",fill:heading0)]),
+    table.cell(align(right)[#text("3,99,98,000.08",fill:heading0)]),
     table.cell(align(right)[#text("0",fill:heading0)]),
     table.cell(align(right)[#text("0",fill:heading0)]),
-    table.cell(align(right)[#text("0",fill:heading0)]),
-    table.cell(align(right)[#text("0",fill:heading0)]),
+    table.cell(align(right)[#text("82,52,088.18",fill:heading0)]),
+    table.cell(align(right)[#text("7.25",fill:heading0)]),
+    table.cell(align(right)[#text("7.90",fill:heading0)]),
     table.cell(align(left)[#text("-",fill:heading0)]),
     
   
     
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(colspan: 9, align(left)[#text("Liquid" )],fill: highlightBlue),
+    table.cell(colspan: 10, align(left)[#text("Liquid" )],fill: highlightBlue),
     
     
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Liquid/Overnight Funds" )] ),
-    table.cell(align(right)[#text("22,466.84")]),
+    table.cell(align(left)[#text("Arbitrage Funds" )] ),
+    table.cell(align(right)[#text("2,50,53,704.67")]),
     table.cell(align(right)[#text("100")]),
-    table.cell(align(right)[#text("21,430.27")]),
-    table.cell(align(right)[#text("88,245.26")]),
+    table.cell(align(right)[#text("2,44,83,449.26")]),
+    table.cell(align(right)[#text("15,747.64")]),
     table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("1,036.57")]),
-    table.cell(align(right)[#text("7.13")]),
+    table.cell(align(right)[#text("5,70,255.41")]),
+    table.cell(align(right)[#text("6.68")]),
+    table.cell(align(right)[#text("6.75")]),
     table.cell(align(left)[#text("CRISIL Liquid")]),
     
   
@@ -1659,13 +1520,14 @@ header: context{
     
     
     table.cell(align(left)[#text("Sub Total",fill: heading0)],),
-    table.cell(align(right)[#text("22,466.84",fill:heading0)]),
+    table.cell(align(right)[#text("2,50,53,704.67",fill:heading0)]),
     table.cell(align(right)[#text("100",fill:heading0)]),
-    table.cell(align(right)[#text("21,430.27",fill:heading0)]),
-    table.cell(align(right)[#text("88,245.26",fill:heading0)]),
+    table.cell(align(right)[#text("2,44,83,449.26",fill:heading0)]),
+    table.cell(align(right)[#text("15,747.64",fill:heading0)]),
     table.cell(align(right)[#text("0",fill:heading0)]),
-    table.cell(align(right)[#text("1,036.57",fill:heading0)]),
-    table.cell(align(right)[#text("7.13",fill:heading0)]),
+    table.cell(align(right)[#text("5,70,255.41",fill:heading0)]),
+    table.cell(align(right)[#text("6.68",fill:heading0)]),
+    table.cell(align(right)[#text("6.75",fill:heading0)]),
     table.cell(align(left)[#text("-",fill:heading0)]),
     
   
@@ -1675,13 +1537,14 @@ header: context{
     
     
     table.cell(align(left)[#text("Grand Total",fill: heading0)],),
-    table.cell(align(right)[#text("30,07,51,912.95",fill:heading0)]),
+    table.cell(align(right)[#text("15,93,14,161.60",fill:heading0)]),
     table.cell(align(right)[#text("0",fill:heading0)]),
-    table.cell(align(right)[#text("29,39,76,076.83",fill:heading0)]),
-    table.cell(align(right)[#text("88,245.26",fill:heading0)]),
+    table.cell(align(right)[#text("13,23,78,054.40",fill:heading0)]),
+    table.cell(align(right)[#text("15,747.64",fill:heading0)]),
     table.cell(align(right)[#text("0",fill:heading0)]),
-    table.cell(align(right)[#text("67,75,836.12",fill:heading0)]),
-    table.cell(align(right)[#text("2.62",fill:heading0)]),
+    table.cell(align(right)[#text("2,69,36,107.20",fill:heading0)]),
+    table.cell(align(right)[#text("10.74",fill:heading0)]),
+    table.cell(align(right)[#text("9.45",fill:heading0)]),
     table.cell(align(left)[#text("-",fill:heading0)]),
     
   
@@ -1720,12 +1583,12 @@ header: context{
   #place()[== #text("Asset Class Summary - Sub Asset Class wise Summary")]
 ]
   #table(
-    columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+    columns: (2fr, 1fr, 1fr, 1.3fr, 1fr, 1fr, .5fr,.5fr, .7fr),
     stroke: none,
     inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     // Header
     table.header(
-    table.cell(rowspan: 2, colspan: 8, align: left + horizon, [#text(fill: heading0,size: 15pt, weight: "bold", [ Portfolio Analysis Report])]),
+    table.cell(rowspan: 2, colspan: 9, align: left + horizon, [#text(fill: heading0,size: 15pt, weight: "bold", [ Portfolio Analysis Report])]),
     table.hline(stroke: rgb(gray)),
 
     // Column headers
@@ -1736,6 +1599,7 @@ header: context{
     table.cell(align(right)[#text(fill: heading0,weight: "black", "Dividend Interest")]),
     table.cell(align(right)[#text(fill: heading0,weight: "black", "Realised Gain/Loss")]),
     table.cell(align(right)[#text(fill: heading0,weight: "black", "IRR %")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "BMIRR %")]),
     table.cell(align(right)[#text(fill: heading0,weight: "black", "Exposure %")]),
   ),
  
@@ -1744,74 +1608,17 @@ header: context{
     
       
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(colspan: 8, align(left)[#text("AIF" )],fill: highlightBlue ),
+      table.cell(colspan: 9, align(left)[#text("Arbitrage Funds" )],fill: highlightBlue ),
       
       
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Equities: MID_CAP" )] ),
-      table.cell(align(right)[#text("1,47,38,777.00" )],),
-      table.cell(align(right)[#text("1,55,96,383.76" )],),
-      table.cell(align(right)[#text("8,57,606.76" )],),
+      table.cell(align(left)[#text("Liquid: Arbitrage Funds" )] ),
+      table.cell(align(right)[#text("2,44,83,449.26" )],),
+      table.cell(align(right)[#text("2,50,53,704.67" )],),
+      table.cell(align(right)[#text("5,70,255.41" )],),
       table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("4.81" )],),
-      table.cell(align(right)[#text("20.95" )],),
-    
-  
-    
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Equities: NA" )] ),
-      table.cell(align(right)[#text("1,00,00,000.00" )],),
-      table.cell(align(right)[#text("93,75,531.20" )],),
-      table.cell(align(right)[#text("-6,24,468.80" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("-10.37" )],),
-      table.cell(align(right)[#text("12.60" )],),
-    
-  
-    
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Equities: SMALL_CAP" )] ),
-      table.cell(align(right)[#text("5,24,98,184.00" )],),
-      table.cell(align(right)[#text("4,94,65,732.71" )],),
-      table.cell(align(right)[#text("-30,32,451.29" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("-21.03" )],),
-      table.cell(align(right)[#text("66.45" )],),
-    
-  
-    
-       
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      
-      
-      table.cell(align(left)[#text("Sub Total" ,fill: heading0)],),
-      table.cell(align(right)[#text("7,72,36,961.00" ,fill: heading0)],),
-      table.cell(align(right)[#text("7,44,37,647.67" ,fill: heading0)],),
-      table.cell(align(right)[#text("-27,99,313.33" ,fill: heading0)],),
-      table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("-7.55" ,fill: heading0)],),
-      table.cell(align(right)[#text("100" ,fill: heading0)],),
-    
-  
-    
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(colspan: 8, align(left)[#text("Bonds" )],fill: highlightBlue ),
-      
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Fixed Income: NA" )] ),
-      table.cell(align(right)[#text("86,64,072.99" )],),
-      table.cell(align(right)[#text("86,64,072.99" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
+      table.cell(align(right)[#text("15,747.64" )],),
+      table.cell(align(right)[#text("6.68" )],),
       table.cell(align(right)[#text("0" )],),
       table.cell(align(right)[#text("100" )],),
     
@@ -1822,11 +1629,12 @@ header: context{
       
       
       table.cell(align(left)[#text("Sub Total" ,fill: heading0)],),
-      table.cell(align(right)[#text("86,64,072.99" ,fill: heading0)],),
-      table.cell(align(right)[#text("86,64,072.99" ,fill: heading0)],),
+      table.cell(align(right)[#text("2,44,83,449.26" ,fill: heading0)],),
+      table.cell(align(right)[#text("2,50,53,704.67" ,fill: heading0)],),
+      table.cell(align(right)[#text("5,70,255.41" ,fill: heading0)],),
       table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("0" ,fill: heading0)],),
+      table.cell(align(right)[#text("15,747.64" ,fill: heading0)],),
+      table.cell(align(right)[#text("6.68" ,fill: heading0)],),
       table.cell(align(right)[#text("0" ,fill: heading0)],),
       table.cell(align(right)[#text("100" ,fill: heading0)],),
     
@@ -1834,147 +1642,103 @@ header: context{
     
       
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(colspan: 8, align(left)[#text("Direct Equities" )],fill: highlightBlue ),
+      table.cell(colspan: 9, align(left)[#text("Mutual Funds/ETFs" )],fill: highlightBlue ),
       
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Equities: NA" )] ),
-      table.cell(align(right)[#text("32,95,955.82" )],),
-      table.cell(align(right)[#text("34,04,263.74" )],),
-      table.cell(align(right)[#text("1,08,307.92" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("2.74" )],),
-      table.cell(align(right)[#text("100" )],),
-    
-  
-    
-       
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      
-      
-      table.cell(align(left)[#text("Sub Total" ,fill: heading0)],),
-      table.cell(align(right)[#text("32,95,955.82" ,fill: heading0)],),
-      table.cell(align(right)[#text("34,04,263.74" ,fill: heading0)],),
-      table.cell(align(right)[#text("1,08,307.92" ,fill: heading0)],),
-      table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("2.74" ,fill: heading0)],),
-      table.cell(align(right)[#text("100" ,fill: heading0)],),
-    
-  
-    
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(colspan: 8, align(left)[#text("Liquid/Overnight Funds" )],fill: highlightBlue ),
-      
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Liquid: Liquid/Overnight Funds" )] ),
-      table.cell(align(right)[#text("21,430.27" )],),
-      table.cell(align(right)[#text("22,466.84" )],),
-      table.cell(align(right)[#text("1,036.57" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("88,245.26" )],),
-      table.cell(align(right)[#text("7.13" )],),
-      table.cell(align(right)[#text("100" )],),
-    
-  
-    
-       
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      
-      
-      table.cell(align(left)[#text("Sub Total" ,fill: heading0)],),
-      table.cell(align(right)[#text("21,430.27" ,fill: heading0)],),
-      table.cell(align(right)[#text("22,466.84" ,fill: heading0)],),
-      table.cell(align(right)[#text("1,036.57" ,fill: heading0)],),
-      table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("88,245.26" ,fill: heading0)],),
-      table.cell(align(right)[#text("7.13" ,fill: heading0)],),
-      table.cell(align(right)[#text("100" ,fill: heading0)],),
-    
-  
-    
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(colspan: 8, align(left)[#text("Mutual Funds/ETFs" )],fill: highlightBlue ),
-      
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Commodities: Mutual Funds/ETFs" )] ),
-      table.cell(align(right)[#text("13,20,000.93" )],),
-      table.cell(align(right)[#text("21,37,536.07" )],),
-      table.cell(align(right)[#text("8,17,535.14" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("11.39" )],),
-      table.cell(align(right)[#text("1.23" )],),
-    
-  
-    
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Equities: Factor" )] ),
-      table.cell(align(right)[#text("4,39,00,006.54" )],),
-      table.cell(align(right)[#text("3,87,00,526.87" )],),
-      table.cell(align(right)[#text("-51,99,479.67" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("-24.23" )],),
-      table.cell(align(right)[#text("22.31" )],),
-    
-  
-    
       
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
       table.cell(align(left)[#text("Equities: Large Cap" )] ),
-      table.cell(align(right)[#text("2,10,00,000.54" )],),
-      table.cell(align(right)[#text("1,99,46,514.01" )],),
-      table.cell(align(right)[#text("-10,53,486.53" )],),
+      table.cell(align(right)[#text("1,11,99,440.00" )],),
+      table.cell(align(right)[#text("1,42,81,097.97" )],),
+      table.cell(align(right)[#text("30,81,657.97" )],),
       table.cell(align(right)[#text("0" )],),
       table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("-15.52" )],),
-      table.cell(align(right)[#text("11.50" )],),
+      table.cell(align(right)[#text("11.78" )],),
+      table.cell(align(right)[#text("0" )],),
+      table.cell(align(right)[#text("10.64" )],),
     
   
     
       
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
       table.cell(align(left)[#text("Equities: Mid Cap" )] ),
-      table.cell(align(right)[#text("2,40,54,013.82" )],),
-      table.cell(align(right)[#text("2,60,17,021.50" )],),
-      table.cell(align(right)[#text("19,63,007.68" )],),
+      table.cell(align(right)[#text("66,99,664.99" )],),
+      table.cell(align(right)[#text("93,16,282.91" )],),
+      table.cell(align(right)[#text("26,16,617.92" )],),
       table.cell(align(right)[#text("0" )],),
       table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("7.52" )],),
-      table.cell(align(right)[#text("15.00" )],),
+      table.cell(align(right)[#text("13.76" )],),
+      table.cell(align(right)[#text("0" )],),
+      table.cell(align(right)[#text("6.94" )],),
     
   
     
       
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
       table.cell(align(left)[#text("Equities: Multi/Flexi cap" )] ),
-      table.cell(align(right)[#text("5,14,97,712.92" )],),
-      table.cell(align(right)[#text("5,96,02,335.27" )],),
-      table.cell(align(right)[#text("81,04,622.35" )],),
+      table.cell(align(right)[#text("3,66,98,165.07" )],),
+      table.cell(align(right)[#text("4,57,65,458.17" )],),
+      table.cell(align(right)[#text("90,67,293.10" )],),
       table.cell(align(right)[#text("0" )],),
       table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("15.08" )],),
-      table.cell(align(right)[#text("34.37" )],),
+      table.cell(align(right)[#text("15.04" )],),
+      table.cell(align(right)[#text("0" )],),
+      table.cell(align(right)[#text("34.09" )],),
+    
+  
+    
+      
+      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+      table.cell(align(left)[#text("Equities: Small Cap" )] ),
+      table.cell(align(right)[#text("54,99,725.00" )],),
+      table.cell(align(right)[#text("82,66,947.34" )],),
+      table.cell(align(right)[#text("27,67,222.34" )],),
+      table.cell(align(right)[#text("0" )],),
+      table.cell(align(right)[#text("0" )],),
+      table.cell(align(right)[#text("16.78" )],),
+      table.cell(align(right)[#text("0" )],),
+      table.cell(align(right)[#text("6.16" )],),
     
   
     
       
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
       table.cell(align(left)[#text("Equities: Thematic" )] ),
-      table.cell(align(right)[#text("2,51,52,038.00" )],),
-      table.cell(align(right)[#text("2,70,34,774.19" )],),
-      table.cell(align(right)[#text("18,82,736.19" )],),
+      table.cell(align(right)[#text("77,99,610.00" )],),
+      table.cell(align(right)[#text("83,80,582.28" )],),
+      table.cell(align(right)[#text("5,80,972.28" )],),
       table.cell(align(right)[#text("0" )],),
       table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("9.70" )],),
-      table.cell(align(right)[#text("15.59" )],),
+      table.cell(align(right)[#text("9.67" )],),
+      table.cell(align(right)[#text("0" )],),
+      table.cell(align(right)[#text("6.24" )],),
+    
+  
+    
+      
+      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+      table.cell(align(left)[#text("Fixed Income: Banking & PSU Funds" )] ),
+      table.cell(align(right)[#text("2,99,98,500.07" )],),
+      table.cell(align(right)[#text("3,59,90,321.13" )],),
+      table.cell(align(right)[#text("59,91,821.06" )],),
+      table.cell(align(right)[#text("0" )],),
+      table.cell(align(right)[#text("0" )],),
+      table.cell(align(right)[#text("7.03" )],),
+      table.cell(align(right)[#text("0" )],),
+      table.cell(align(right)[#text("26.81" )],),
+    
+  
+    
+      
+      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+      table.cell(align(left)[#text("Fixed Income: Dynamic Funds" )] ),
+      table.cell(align(right)[#text("99,99,500.01" )],),
+      table.cell(align(right)[#text("1,22,59,767.13" )],),
+      table.cell(align(right)[#text("22,60,267.12" )],),
+      table.cell(align(right)[#text("0" )],),
+      table.cell(align(right)[#text("0" )],),
+      table.cell(align(right)[#text("7.89" )],),
+      table.cell(align(right)[#text("0" )],),
+      table.cell(align(right)[#text("9.13" )],),
     
   
     
@@ -1983,44 +1747,13 @@ header: context{
       
       
       table.cell(align(left)[#text("Sub Total" ,fill: heading0)],),
-      table.cell(align(right)[#text("16,69,23,772.75" ,fill: heading0)],),
-      table.cell(align(right)[#text("17,34,38,707.91" ,fill: heading0)],),
-      table.cell(align(right)[#text("65,14,935.16" ,fill: heading0)],),
+      table.cell(align(right)[#text("10,78,94,605.14" ,fill: heading0)],),
+      table.cell(align(right)[#text("13,42,60,456.93" ,fill: heading0)],),
+      table.cell(align(right)[#text("2,63,65,851.79" ,fill: heading0)],),
       table.cell(align(right)[#text("0" ,fill: heading0)],),
       table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("4.16" ,fill: heading0)],),
-      table.cell(align(right)[#text("100" ,fill: heading0)],),
-    
-  
-    
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(colspan: 8, align(left)[#text("PMS" )],fill: highlightBlue ),
-      
-      
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(align(left)[#text("Equities: NA" )] ),
-      table.cell(align(right)[#text("3,78,33,884.00" )],),
-      table.cell(align(right)[#text("4,07,84,753.80" )],),
-      table.cell(align(right)[#text("29,50,869.80" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("0" )],),
-      table.cell(align(right)[#text("6.07" )],),
-      table.cell(align(right)[#text("100" )],),
-    
-  
-    
-       
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      
-      
-      table.cell(align(left)[#text("Sub Total" ,fill: heading0)],),
-      table.cell(align(right)[#text("3,78,33,884.00" ,fill: heading0)],),
-      table.cell(align(right)[#text("4,07,84,753.80" ,fill: heading0)],),
-      table.cell(align(right)[#text("29,50,869.80" ,fill: heading0)],),
+      table.cell(align(right)[#text("10.87" ,fill: heading0)],),
       table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("6.07" ,fill: heading0)],),
       table.cell(align(right)[#text("100" ,fill: heading0)],),
     
   
@@ -2030,12 +1763,13 @@ header: context{
       
       
       table.cell(align(left)[#text("Grand Total" ,fill: heading0)],),
-      table.cell(align(right)[#text("29,39,76,076.83" ,fill: heading0)],),
-      table.cell(align(right)[#text("30,07,51,912.95" ,fill: heading0)],),
-      table.cell(align(right)[#text("67,75,836.12" ,fill: heading0)],),
+      table.cell(align(right)[#text("13,23,78,054.40" ,fill: heading0)],),
+      table.cell(align(right)[#text("15,93,14,161.60" ,fill: heading0)],),
+      table.cell(align(right)[#text("2,69,36,107.20" ,fill: heading0)],),
       table.cell(align(right)[#text("0" ,fill: heading0)],),
-      table.cell(align(right)[#text("88,245.26" ,fill: heading0)],),
-      table.cell(align(right)[#text("2.62" ,fill: heading0)],),
+      table.cell(align(right)[#text("15,747.64" ,fill: heading0)],),
+      table.cell(align(right)[#text("10.74" ,fill: heading0)],),
+      table.cell(align(right)[#text("0" ,fill: heading0)],),
       table.cell(align(right)[#text("0" ,fill: heading0)],),
     
   
@@ -2097,137 +1831,35 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
    
   
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(colspan: 10, align(left)[#text("Commodities: Mutual Funds/ETFs" )],fill: highlightBlue ),
-      
-      
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Nippon India Gold Savings Fund-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(right)[#text("62,277.98")]),
-    table.cell(align(right)[#text("13,20,000.93")]),
-    table.cell(align(right)[#text("21,37,536.07")]),
-    table.cell(align(right)[#text("8,17,535.14")]),
-    table.cell(align(right)[#text("61.93")]),
-    table.cell(align(right)[#text("11.39")]),
-    table.cell(align(center)[#text("2020-0812")]),
-    table.cell(align(right)[#text("1,656")]),
-  
-
-   
-    
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    
-      
-    table.cell([#text("Sub Total",fill :heading0)]),
-    table.cell(align(left)[#text("0",fill :heading0)]),
-    table.cell(align(right)[#text("62,277.98",fill :heading0)]),
-    table.cell(align(right)[#text("13,20,000.93",fill :heading0)]),
-    table.cell(align(right)[#text("21,37,536.07",fill :heading0)]),
-    table.cell(align(right)[#text("8,17,535.14",fill :heading0)]),
-    table.cell(align(right)[#text("61.93",fill :heading0)]),
-    table.cell(align(right)[#text("11.39",fill :heading0)]),
-    table.cell(align(center)[#text("2020-0812",fill :heading0)]),
-    table.cell(align(right)[#text("1,656",fill :heading0)]),
-  
-
-   
-  
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(colspan: 10, align(left)[#text("Equities: Factor" )],fill: highlightBlue ),
-      
-      
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("360 ONE Quant Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(right)[#text("7,96,432.72")]),
-    table.cell(align(right)[#text("1,59,00,001.44")]),
-    table.cell(align(right)[#text("1,43,53,310.46")]),
-    table.cell(align(right)[#text("-15,46,690.98")]),
-    table.cell(align(right)[#text("-9.73")]),
-    table.cell(align(right)[#text("-23.92")]),
-    table.cell(align(center)[#text("2024-1004")]),
-    table.cell(align(right)[#text("139")]),
-  
-
-   
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("360 ONE Quant Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(right)[#text("5,64,534.93")]),
-    table.cell(align(right)[#text("1,00,99,999.85")]),
-    table.cell(align(right)[#text("97,73,115.87")]),
-    table.cell(align(right)[#text("-3,26,883.98")]),
-    table.cell(align(right)[#text("-3.24")]),
-    table.cell(align(right)[#text("-3.96")]),
-    table.cell(align(center)[#text("2024-0215")]),
-    table.cell(align(right)[#text("282")]),
-  
-
-   
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("ICICI Prudential Nifty 100 Low Volatility 30 ETF FOF - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(right)[#text("1,22,996.85")]),
-    table.cell(align(right)[#text("19,99,998.41")]),
-    table.cell(align(right)[#text("20,16,803.88")]),
-    table.cell(align(right)[#text("16,805.47")]),
-    table.cell(align(right)[#text("0.84")]),
-    table.cell(align(right)[#text("0.97")]),
-    table.cell(align(center)[#text("2024-0322")]),
-    table.cell(align(right)[#text("316")]),
-  
-
-   
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("UTI Nifty200 Momentum 30 Index Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(right)[#text("6,53,372.50")]),
-    table.cell(align(right)[#text("1,59,00,006.84")]),
-    table.cell(align(right)[#text("1,25,57,296.66")]),
-    table.cell(align(right)[#text("-33,42,710.18")]),
-    table.cell(align(right)[#text("-21.02")]),
-    table.cell(align(right)[#text("-48.18")]),
-    table.cell(align(center)[#text("2024-1004")]),
-    table.cell(align(right)[#text("135")]),
-  
-
-   
-    
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    
-      
-    table.cell([#text("Sub Total",fill :heading0)]),
-    table.cell(align(left)[#text("0",fill :heading0)]),
-    table.cell(align(right)[#text("21,37,336.99",fill :heading0)]),
-    table.cell(align(right)[#text("4,39,00,006.54",fill :heading0)]),
-    table.cell(align(right)[#text("3,87,00,526.87",fill :heading0)]),
-    table.cell(align(right)[#text("-51,99,479.67",fill :heading0)]),
-    table.cell(align(right)[#text("-11.84",fill :heading0)]),
-    table.cell(align(right)[#text("-24.23",fill :heading0)]),
-    table.cell(align(center)[#text("2024-0322",fill :heading0)]),
-    table.cell(align(right)[#text("316",fill :heading0)]),
-  
-
-   
-  
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
       table.cell(colspan: 10, align(left)[#text("Equities: Large Cap" )],fill: highlightBlue ),
       
       
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("ICICI Prudential Bluechip Fund Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(right)[#text("1,81,513.46")]),
-    table.cell(align(right)[#text("2,10,00,000.54")]),
-    table.cell(align(right)[#text("1,99,46,514.01")]),
-    table.cell(align(right)[#text("-10,53,486.53")]),
-    table.cell(align(right)[#text("-5.02")]),
-    table.cell(align(right)[#text("-35.63")]),
-    table.cell(align(center)[#text("2024-1004")]),
-    table.cell(align(right)[#text("107")]),
+    table.cell([#text("HDFC Nifty 50 Index Fund -Growth")]),
+    table.cell(align(left)[#text("20036786/57")]),
+    table.cell(align(right)[#text("14,866.37")]),
+    table.cell(align(right)[#text("29,99,850.00")]),
+    table.cell(align(right)[#text("32,12,472.62")]),
+    table.cell(align(right)[#text("2,12,622.62")]),
+    table.cell(align(right)[#text("7.09")]),
+    table.cell(align(right)[#text("6.35")]),
+    table.cell(align(center)[#text("2023-10-12")]),
+    table.cell(align(right)[#text("404")]),
+  
+
+   
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell([#text("Mirae Asset Large Cap Fund Regular- Growth")]),
+    table.cell(align(left)[#text("79958647361")]),
+    table.cell(align(right)[#text("1,08,164.93")]),
+    table.cell(align(right)[#text("81,99,590.00")]),
+    table.cell(align(right)[#text("1,10,68,625.35")]),
+    table.cell(align(right)[#text("28,69,035.35")]),
+    table.cell(align(right)[#text("34.99")]),
+    table.cell(align(right)[#text("12.51")]),
+    table.cell(align(center)[#text("2022-06-24")]),
+    table.cell(align(right)[#text("898")]),
   
 
    
@@ -2236,15 +1868,15 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     
       
     table.cell([#text("Sub Total",fill :heading0)]),
-    table.cell(align(left)[#text("0",fill :heading0)]),
-    table.cell(align(right)[#text("1,81,513.46",fill :heading0)]),
-    table.cell(align(right)[#text("2,10,00,000.54",fill :heading0)]),
-    table.cell(align(right)[#text("1,99,46,514.01",fill :heading0)]),
-    table.cell(align(right)[#text("-10,53,486.53",fill :heading0)]),
-    table.cell(align(right)[#text("-5.02",fill :heading0)]),
-    table.cell(align(right)[#text("-15.52",fill :heading0)]),
-    table.cell(align(center)[#text("2024-1004",fill :heading0)]),
-    table.cell(align(right)[#text("107",fill :heading0)]),
+    table.cell(align(left)[#text("-",fill :heading0)]),
+    table.cell(align(right)[#text("1,23,031.30",fill :heading0)]),
+    table.cell(align(right)[#text("1,11,99,440.00",fill :heading0)]),
+    table.cell(align(right)[#text("1,42,81,097.97",fill :heading0)]),
+    table.cell(align(right)[#text("30,81,657.97",fill :heading0)]),
+    table.cell(align(right)[#text("27.52",fill :heading0)]),
+    table.cell(align(right)[#text("11.78",fill :heading0)]),
+    table.cell(align(center)[#text("-",fill :heading0)]),
+    table.cell(align(right)[#text("0",fill :heading0)]),
   
 
    
@@ -2254,46 +1886,16 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
       
       
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Nippon India Growth Fund - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(right)[#text("1,277.05")]),
-    table.cell(align(right)[#text("49,99,999.99")]),
-    table.cell(align(right)[#text("46,16,836.11")]),
-    table.cell(align(right)[#text("-3,83,163.88")]),
-    table.cell(align(right)[#text("-7.66")]),
-    table.cell(align(right)[#text("-15.52")]),
-    table.cell(align(center)[#text("2024-0619")]),
-    table.cell(align(right)[#text("245")]),
-  
-
-   
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Nippon India Growth Fund Direct- Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(right)[#text("1,556.11")]),
-    table.cell(align(right)[#text("68,99,999.98")]),
-    table.cell(align(right)[#text("61,45,516.55")]),
-    table.cell(align(right)[#text("-7,54,483.43")]),
-    table.cell(align(right)[#text("-10.93")]),
-    table.cell(align(right)[#text("-11.59")]),
-    table.cell(align(center)[#text("2024-1004")]),
-    table.cell(align(right)[#text("151")]),
-  
-
-   
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("SBI Magnum Mid Cap Fund-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(right)[#text("70,450.67")]),
-    table.cell(align(right)[#text("1,21,54,013.85")]),
-    table.cell(align(right)[#text("1,52,54,668.84")]),
-    table.cell(align(right)[#text("31,00,654.99")]),
-    table.cell(align(right)[#text("25.51")]),
-    table.cell(align(right)[#text("-24.24")]),
-    table.cell(align(center)[#text("2022-0829")]),
-    table.cell(align(right)[#text("619")]),
+    table.cell([#text("PGIM India Midcap Opportunities Fund Regular-Growth")]),
+    table.cell(align(left)[#text("91014278746")]),
+    table.cell(align(right)[#text("1,61,432.73")]),
+    table.cell(align(right)[#text("66,99,664.99")]),
+    table.cell(align(right)[#text("93,16,282.91")]),
+    table.cell(align(right)[#text("26,16,617.92")]),
+    table.cell(align(right)[#text("39.06")]),
+    table.cell(align(right)[#text("13.76")]),
+    table.cell(align(center)[#text("2022-06-24")]),
+    table.cell(align(right)[#text("892")]),
   
 
    
@@ -2302,15 +1904,15 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     
       
     table.cell([#text("Sub Total",fill :heading0)]),
-    table.cell(align(left)[#text("0",fill :heading0)]),
-    table.cell(align(right)[#text("73,283.83",fill :heading0)]),
-    table.cell(align(right)[#text("2,40,54,013.82",fill :heading0)]),
-    table.cell(align(right)[#text("2,60,17,021.50",fill :heading0)]),
-    table.cell(align(right)[#text("19,63,007.68",fill :heading0)]),
-    table.cell(align(right)[#text("8.16",fill :heading0)]),
-    table.cell(align(right)[#text("7.52",fill :heading0)]),
-    table.cell(align(center)[#text("2024-0619",fill :heading0)]),
-    table.cell(align(right)[#text("619",fill :heading0)]),
+    table.cell(align(left)[#text("-",fill :heading0)]),
+    table.cell(align(right)[#text("1,61,432.73",fill :heading0)]),
+    table.cell(align(right)[#text("66,99,664.99",fill :heading0)]),
+    table.cell(align(right)[#text("93,16,282.91",fill :heading0)]),
+    table.cell(align(right)[#text("26,16,617.92",fill :heading0)]),
+    table.cell(align(right)[#text("39.06",fill :heading0)]),
+    table.cell(align(right)[#text("13.76",fill :heading0)]),
+    table.cell(align(center)[#text("-",fill :heading0)]),
+    table.cell(align(right)[#text("0",fill :heading0)]),
   
 
    
@@ -2320,91 +1922,61 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
       
       
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("HDFC Flexi Cap Direct Plan-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(right)[#text("6,061.64")]),
-    table.cell(align(right)[#text("1,23,99,999.95")]),
-    table.cell(align(right)[#text("1,19,02,531.46")]),
-    table.cell(align(right)[#text("-4,97,468.49")]),
-    table.cell(align(right)[#text("-4.01")]),
-    table.cell(align(right)[#text("15.03")]),
-    table.cell(align(center)[#text("2024-1004")]),
-    table.cell(align(right)[#text("130")]),
+    table.cell([#text("HDFC Focused 30 Fund-Growth")]),
+    table.cell(align(left)[#text("20036786/57")]),
+    table.cell(align(right)[#text("38,012.32")]),
+    table.cell(align(right)[#text("82,99,585.02")]),
+    table.cell(align(right)[#text("79,53,279.70")]),
+    table.cell(align(right)[#text("-3,46,305.32")]),
+    table.cell(align(right)[#text("-4.17")]),
+    table.cell(align(right)[#text("-8.14")]),
+    table.cell(align(center)[#text("2024-07-16")]),
+    table.cell(align(right)[#text("181")]),
   
 
    
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("HDFC Flexi Cap Fund-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(right)[#text("5,087.81")]),
-    table.cell(align(right)[#text("35,00,000.63")]),
-    table.cell(align(right)[#text("91,57,818.87")]),
-    table.cell(align(right)[#text("56,57,818.24")]),
-    table.cell(align(right)[#text("162")]),
-    table.cell(align(right)[#text("-10.58")]),
-    table.cell(align(center)[#text("2019-0412")]),
-    table.cell(align(right)[#text("2,120")]),
-  
-
-   
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Nippon India Vision Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(right)[#text("10,826.13")]),
-    table.cell(align(right)[#text("1,61,99,999.88")]),
-    table.cell(align(right)[#text("1,52,75,336.41")]),
-    table.cell(align(right)[#text("-9,24,663.47")]),
-    table.cell(align(right)[#text("-5.71")]),
-    table.cell(align(right)[#text("24.02")]),
-    table.cell(align(center)[#text("2024-1004")]),
-    table.cell(align(right)[#text("116")]),
-  
-
-   
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Nippon India Vision-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(right)[#text("4,065.07")]),
-    table.cell(align(right)[#text("58,03,426.62")]),
-    table.cell(align(right)[#text("53,45,818.70")]),
-    table.cell(align(right)[#text("-4,57,607.92")]),
-    table.cell(align(right)[#text("-7.89")]),
-    table.cell(align(right)[#text("-16.76")]),
-    table.cell(align(center)[#text("2024-0723")]),
-    table.cell(align(right)[#text("212")]),
-  
-
-   
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("Parag Parikh Flexi Cap Fund Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(right)[#text("11,941.80")]),
-    table.cell(align(right)[#text("10,00,000.19")]),
-    table.cell(align(right)[#text("10,12,279.94")]),
-    table.cell(align(right)[#text("12,279.75")]),
-    table.cell(align(right)[#text("1.23")]),
-    table.cell(align(right)[#text("-12.85")]),
-    table.cell(align(center)[#text("2025-0305")]),
-    table.cell(align(right)[#text("15")]),
+    table.cell([#text("Invesco India Flexi Cap Fund Regular - Growth")]),
+    table.cell(align(left)[#text("31023974234")]),
+    table.cell(align(right)[#text("3,13,505.44")]),
+    table.cell(align(right)[#text("58,99,705.02")]),
+    table.cell(align(right)[#text("51,50,894.41")]),
+    table.cell(align(right)[#text("-7,48,810.61")]),
+    table.cell(align(right)[#text("-12.69")]),
+    table.cell(align(right)[#text("-27.34")]),
+    table.cell(align(center)[#text("2024-10-11")]),
+    table.cell(align(right)[#text("148")]),
   
 
    
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell([#text("Parag Parikh Flexi Cap Fund Regular-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(right)[#text("2,16,909.21")]),
-    table.cell(align(right)[#text("1,25,94,285.65")]),
-    table.cell(align(right)[#text("1,69,08,549.89")]),
-    table.cell(align(right)[#text("43,14,264.24")]),
-    table.cell(align(right)[#text("34.26")]),
-    table.cell(align(right)[#text("37.65")]),
-    table.cell(align(center)[#text("2022-0829")]),
-    table.cell(align(right)[#text("613")]),
+    table.cell(align(left)[#text("12689762")]),
+    table.cell(align(right)[#text("2,62,306.93")]),
+    table.cell(align(right)[#text("1,41,99,290.02")]),
+    table.cell(align(right)[#text("2,04,47,402.35")]),
+    table.cell(align(right)[#text("62,48,112.33")]),
+    table.cell(align(right)[#text("44.00")]),
+    table.cell(align(right)[#text("20.59")]),
+    table.cell(align(center)[#text("2022-06-24")]),
+    table.cell(align(right)[#text("630")]),
+  
+
+   
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell([#text("SBI Focused Equity Fund-Growth")]),
+    table.cell(align(left)[#text("30372259")]),
+    table.cell(align(right)[#text("38,240.30")]),
+    table.cell(align(right)[#text("82,99,585.01")]),
+    table.cell(align(right)[#text("1,22,13,881.71")]),
+    table.cell(align(right)[#text("39,14,296.70")]),
+    table.cell(align(right)[#text("47.16")]),
+    table.cell(align(right)[#text("15.85")]),
+    table.cell(align(center)[#text("2022-06-24")]),
+    table.cell(align(right)[#text("923")]),
   
 
    
@@ -2413,15 +1985,51 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     
       
     table.cell([#text("Sub Total",fill :heading0)]),
-    table.cell(align(left)[#text("0",fill :heading0)]),
-    table.cell(align(right)[#text("2,54,891.64",fill :heading0)]),
-    table.cell(align(right)[#text("5,14,97,712.92",fill :heading0)]),
-    table.cell(align(right)[#text("5,96,02,335.27",fill :heading0)]),
-    table.cell(align(right)[#text("81,04,622.35",fill :heading0)]),
-    table.cell(align(right)[#text("15.74",fill :heading0)]),
-    table.cell(align(right)[#text("15.08",fill :heading0)]),
-    table.cell(align(center)[#text("2024-0723",fill :heading0)]),
-    table.cell(align(right)[#text("2,120",fill :heading0)]),
+    table.cell(align(left)[#text("-",fill :heading0)]),
+    table.cell(align(right)[#text("6,52,064.99",fill :heading0)]),
+    table.cell(align(right)[#text("3,66,98,165.07",fill :heading0)]),
+    table.cell(align(right)[#text("4,57,65,458.17",fill :heading0)]),
+    table.cell(align(right)[#text("90,67,293.10",fill :heading0)]),
+    table.cell(align(right)[#text("24.71",fill :heading0)]),
+    table.cell(align(right)[#text("15.04",fill :heading0)]),
+    table.cell(align(center)[#text("-",fill :heading0)]),
+    table.cell(align(right)[#text("0",fill :heading0)]),
+  
+
+   
+  
+      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+      table.cell(colspan: 10, align(left)[#text("Equities: Small Cap" )],fill: highlightBlue ),
+      
+      
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell([#text("Kotak Small Cap Fund Regular-Growth")]),
+    table.cell(align(left)[#text("10784222/35")]),
+    table.cell(align(right)[#text("35,680.76")]),
+    table.cell(align(right)[#text("54,99,725.00")]),
+    table.cell(align(right)[#text("82,66,947.34")]),
+    table.cell(align(right)[#text("27,67,222.34")]),
+    table.cell(align(right)[#text("50.32")]),
+    table.cell(align(right)[#text("16.78")]),
+    table.cell(align(center)[#text("2022-06-24")]),
+    table.cell(align(right)[#text("935")]),
+  
+
+   
+    
+    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    
+      
+    table.cell([#text("Sub Total",fill :heading0)]),
+    table.cell(align(left)[#text("-",fill :heading0)]),
+    table.cell(align(right)[#text("35,680.76",fill :heading0)]),
+    table.cell(align(right)[#text("54,99,725.00",fill :heading0)]),
+    table.cell(align(right)[#text("82,66,947.34",fill :heading0)]),
+    table.cell(align(right)[#text("27,67,222.34",fill :heading0)]),
+    table.cell(align(right)[#text("50.32",fill :heading0)]),
+    table.cell(align(right)[#text("16.78",fill :heading0)]),
+    table.cell(align(center)[#text("-",fill :heading0)]),
+    table.cell(align(right)[#text("0",fill :heading0)]),
   
 
    
@@ -2432,30 +2040,15 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
       
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell([#text("ICICI Prudential India Opportunities Fund - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(right)[#text("4,25,778.69")]),
-    table.cell(align(right)[#text("1,12,52,039.49")]),
-    table.cell(align(right)[#text("1,37,78,198.54")]),
-    table.cell(align(right)[#text("25,26,159.05")]),
-    table.cell(align(right)[#text("22.45")]),
-    table.cell(align(right)[#text("20.42")]),
-    table.cell(align(center)[#text("2023-0913")]),
-    table.cell(align(right)[#text("452")]),
-  
-
-   
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell([#text("ICICI Prudential India Opportunities Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(right)[#text("3,77,357.69")]),
-    table.cell(align(right)[#text("1,38,99,998.51")]),
-    table.cell(align(right)[#text("1,32,56,575.65")]),
-    table.cell(align(right)[#text("-6,43,422.86")]),
-    table.cell(align(right)[#text("-4.63")]),
-    table.cell(align(right)[#text("16.98")]),
-    table.cell(align(center)[#text("2024-1004")]),
-    table.cell(align(right)[#text("122")]),
+    table.cell(align(left)[#text("22784851/86")]),
+    table.cell(align(right)[#text("2,58,979.68")]),
+    table.cell(align(right)[#text("77,99,610.00")]),
+    table.cell(align(right)[#text("83,80,582.28")]),
+    table.cell(align(right)[#text("5,80,972.28")]),
+    table.cell(align(right)[#text("7.45")]),
+    table.cell(align(right)[#text("9.67")]),
+    table.cell(align(center)[#text("2023-03-20")]),
+    table.cell(align(right)[#text("312")]),
   
 
    
@@ -2464,15 +2057,102 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     
       
     table.cell([#text("Sub Total",fill :heading0)]),
-    table.cell(align(left)[#text("0",fill :heading0)]),
-    table.cell(align(right)[#text("8,03,136.38",fill :heading0)]),
-    table.cell(align(right)[#text("2,51,52,038.00",fill :heading0)]),
-    table.cell(align(right)[#text("2,70,34,774.19",fill :heading0)]),
-    table.cell(align(right)[#text("18,82,736.19",fill :heading0)]),
-    table.cell(align(right)[#text("7.49",fill :heading0)]),
-    table.cell(align(right)[#text("9.70",fill :heading0)]),
-    table.cell(align(center)[#text("2024-1004",fill :heading0)]),
-    table.cell(align(right)[#text("452",fill :heading0)]),
+    table.cell(align(left)[#text("-",fill :heading0)]),
+    table.cell(align(right)[#text("2,58,979.68",fill :heading0)]),
+    table.cell(align(right)[#text("77,99,610.00",fill :heading0)]),
+    table.cell(align(right)[#text("83,80,582.28",fill :heading0)]),
+    table.cell(align(right)[#text("5,80,972.28",fill :heading0)]),
+    table.cell(align(right)[#text("7.45",fill :heading0)]),
+    table.cell(align(right)[#text("9.67",fill :heading0)]),
+    table.cell(align(center)[#text("-",fill :heading0)]),
+    table.cell(align(right)[#text("0",fill :heading0)]),
+  
+
+   
+  
+      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+      table.cell(colspan: 10, align(left)[#text("Fixed Income: Banking & PSU Funds" )],fill: highlightBlue ),
+      
+      
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell([#text("HSBC Banking and PSU Debt Fund-Growth")]),
+    table.cell(align(left)[#text("5962018/67")]),
+    table.cell(align(right)[#text("7,58,351.45")]),
+    table.cell(align(right)[#text("1,49,99,250.03")]),
+    table.cell(align(right)[#text("1,78,44,237.17")]),
+    table.cell(align(right)[#text("28,44,987.14")]),
+    table.cell(align(right)[#text("18.97")]),
+    table.cell(align(right)[#text("6.62")]),
+    table.cell(align(center)[#text("2022-06-24")]),
+    table.cell(align(right)[#text("973")]),
+  
+
+   
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell([#text("ICICI Prudential Banking & PSU Debt-Growth")]),
+    table.cell(align(left)[#text("22784851/86")]),
+    table.cell(align(right)[#text("5,70,192.27")]),
+    table.cell(align(right)[#text("1,49,99,250.04")]),
+    table.cell(align(right)[#text("1,81,46,083.96")]),
+    table.cell(align(right)[#text("31,46,833.92")]),
+    table.cell(align(right)[#text("20.98")]),
+    table.cell(align(right)[#text("7.45")]),
+    table.cell(align(center)[#text("2022-06-24")]),
+    table.cell(align(right)[#text("973")]),
+  
+
+   
+    
+    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    
+      
+    table.cell([#text("Sub Total",fill :heading0)]),
+    table.cell(align(left)[#text("-",fill :heading0)]),
+    table.cell(align(right)[#text("13,28,543.72",fill :heading0)]),
+    table.cell(align(right)[#text("2,99,98,500.07",fill :heading0)]),
+    table.cell(align(right)[#text("3,59,90,321.13",fill :heading0)]),
+    table.cell(align(right)[#text("59,91,821.06",fill :heading0)]),
+    table.cell(align(right)[#text("19.97",fill :heading0)]),
+    table.cell(align(right)[#text("7.03",fill :heading0)]),
+    table.cell(align(center)[#text("-",fill :heading0)]),
+    table.cell(align(right)[#text("0",fill :heading0)]),
+  
+
+   
+  
+      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+      table.cell(colspan: 10, align(left)[#text("Fixed Income: Dynamic Funds" )],fill: highlightBlue ),
+      
+      
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell([#text("Nippon India Dynamic Bond Fund-Growth")]),
+    table.cell(align(left)[#text("499266492702")]),
+    table.cell(align(right)[#text("3,38,898.84")]),
+    table.cell(align(right)[#text("99,99,500.01")]),
+    table.cell(align(right)[#text("1,22,59,767.13")]),
+    table.cell(align(right)[#text("22,60,267.12")]),
+    table.cell(align(right)[#text("22.60")]),
+    table.cell(align(right)[#text("7.89")]),
+    table.cell(align(center)[#text("2022-06-24")]),
+    table.cell(align(right)[#text("973")]),
+  
+
+   
+    
+    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    
+      
+    table.cell([#text("Sub Total",fill :heading0)]),
+    table.cell(align(left)[#text("-",fill :heading0)]),
+    table.cell(align(right)[#text("3,38,898.84",fill :heading0)]),
+    table.cell(align(right)[#text("99,99,500.01",fill :heading0)]),
+    table.cell(align(right)[#text("1,22,59,767.13",fill :heading0)]),
+    table.cell(align(right)[#text("22,60,267.12",fill :heading0)]),
+    table.cell(align(right)[#text("22.60",fill :heading0)]),
+    table.cell(align(right)[#text("7.89",fill :heading0)]),
+    table.cell(align(center)[#text("-",fill :heading0)]),
+    table.cell(align(right)[#text("0",fill :heading0)]),
   
 
    
@@ -2482,12 +2162,12 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
       
     table.cell([#text("Grand Total",fill :heading0)]),
     table.cell(align(left)[#text("-",fill :heading0)]),
-    table.cell(align(right)[#text("35,12,440.29",fill :heading0)]),
-    table.cell(align(right)[#text("16,69,23,772.75",fill :heading0)]),
-    table.cell(align(right)[#text("17,34,38,707.91",fill :heading0)]),
-    table.cell(align(right)[#text("65,14,935.16",fill :heading0)]),
-    table.cell(align(right)[#text("3.90",fill :heading0)]),
-    table.cell(align(right)[#text("4.16",fill :heading0)]),
+    table.cell(align(right)[#text("28,98,632.02",fill :heading0)]),
+    table.cell(align(right)[#text("10,78,94,605.14",fill :heading0)]),
+    table.cell(align(right)[#text("13,42,60,456.93",fill :heading0)]),
+    table.cell(align(right)[#text("2,63,65,851.79",fill :heading0)]),
+    table.cell(align(right)[#text("24.44",fill :heading0)]),
+    table.cell(align(right)[#text("10.87",fill :heading0)]),
     table.cell(align(center)[#text("-",fill :heading0)]),
     table.cell(align(right)[#text("0",fill :heading0)]),
   
@@ -2641,209 +2321,93 @@ header: context{
    
   
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(colspan: 6, align(left)[#text("Commodities" )],fill: highlightBlue ),
-      
-      
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Nippon India Mutual Fund")]),
-    table.cell(align(right)[#text("13,20,000.93")]),
-    table.cell(align(right)[#text("21,37,536.07")]),
-    table.cell(align(right)[#text("8,17,535.14")]),
-    table.cell(align(right)[#text("11.39")]),
-    table.cell(align(right)[#text("100")]),
-  
-
-   
-    
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    
-    
-    table.cell(align(left)[#text("Sub Total",fill :heading0)]),
-    table.cell(align(right)[#text("13,20,000.93",fill :heading0)]),
-    table.cell(align(right)[#text("21,37,536.07",fill :heading0)]),
-    table.cell(align(right)[#text("8,17,535.14",fill :heading0)]),
-    table.cell(align(right)[#text("11.39",fill :heading0)]),
-    table.cell(align(right)[#text("100",fill :heading0)]),
-  
-
-   
-  
-      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
       table.cell(colspan: 6, align(left)[#text("Equities" )],fill: highlightBlue ),
       
       
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("360 ONE Mutual Fund")]),
-    table.cell(align(right)[#text("2,60,00,001.29")]),
-    table.cell(align(right)[#text("2,41,26,426.33")]),
-    table.cell(align(right)[#text("-18,73,574.96")]),
-    table.cell(align(right)[#text("-12.89")]),
-    table.cell(align(right)[#text("8.32")]),
-  
-
-   
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Abakkus Asset Manager Private Limited")]),
-    table.cell(align(right)[#text("2,47,40,739.00")]),
-    table.cell(align(right)[#text("2,42,77,144.82")]),
-    table.cell(align(right)[#text("-4,63,594.18")]),
-    table.cell(align(right)[#text("-1.96")]),
-    table.cell(align(right)[#text("8.37")]),
-  
-
-   
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Adani Green Energy Ltd")]),
-    table.cell(align(right)[#text("9,95,531.53")]),
-    table.cell(align(right)[#text("4,69,331.10")]),
-    table.cell(align(right)[#text("-5,26,200.43")]),
-    table.cell(align(right)[#text("-70.58")]),
-    table.cell(align(right)[#text("0.16")]),
-  
-
-   
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Adani Ports & Special Economic Zone Ltd")]),
-    table.cell(align(right)[#text("6,00,187.61")]),
-    table.cell(align(right)[#text("11,78,349.30")]),
-    table.cell(align(right)[#text("5,78,161.69")]),
-    table.cell(align(right)[#text("38.36")]),
-    table.cell(align(right)[#text("0.41")]),
-  
-
-   
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Aditya Birla Fashion & Retail Ltd")]),
-    table.cell(align(right)[#text("10,00,693.92")]),
-    table.cell(align(right)[#text("7,55,230.44")]),
-    table.cell(align(right)[#text("-2,45,463.48")]),
-    table.cell(align(right)[#text("-36.73")]),
-    table.cell(align(right)[#text("0.26")]),
-  
-
-   
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Ambuja Cements Ltd")]),
-    table.cell(align(right)[#text("6,99,542.76")]),
-    table.cell(align(right)[#text("10,01,352.90")]),
-    table.cell(align(right)[#text("3,01,810.14")]),
-    table.cell(align(right)[#text("18.87")]),
-    table.cell(align(right)[#text("0.35")]),
-  
-
-   
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("CARLENIAN AIF")]),
-    table.cell(align(right)[#text("1,47,74,912.00")]),
-    table.cell(align(right)[#text("1,69,82,491.71")]),
-    table.cell(align(right)[#text("22,07,579.71")]),
-    table.cell(align(right)[#text("12.52")]),
-    table.cell(align(right)[#text("5.86")]),
-  
-
-   
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("HDFC Mutual Fund")]),
-    table.cell(align(right)[#text("1,59,00,000.58")]),
-    table.cell(align(right)[#text("2,10,60,350.33")]),
-    table.cell(align(right)[#text("51,60,349.75")]),
-    table.cell(align(right)[#text("19.69")]),
-    table.cell(align(right)[#text("7.26")]),
-  
-
-   
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("ICICI PRUDENTIAL ASSET MANAGEMENT COMPANY LTD")]),
-    table.cell(align(right)[#text("1,00,00,000.00")]),
-    table.cell(align(right)[#text("93,75,531.20")]),
-    table.cell(align(right)[#text("-6,24,468.80")]),
-    table.cell(align(right)[#text("-10.37")]),
-    table.cell(align(right)[#text("3.23")]),
+    table.cell(align(right)[#text("1,12,99,435.02")]),
+    table.cell(align(right)[#text("1,11,65,752.32")]),
+    table.cell(align(right)[#text("-1,33,682.70")]),
+    table.cell(align(right)[#text("-1.78")]),
+    table.cell(align(right)[#text("12.98")]),
   
 
    
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("ICICI Prudential Mutual Fund")]),
-    table.cell(align(right)[#text("4,81,52,036.95")]),
-    table.cell(align(right)[#text("4,89,98,092.08")]),
-    table.cell(align(right)[#text("8,46,055.13")]),
-    table.cell(align(right)[#text("3.08")]),
-    table.cell(align(right)[#text("16.90")]),
+    table.cell(align(right)[#text("77,99,610.00")]),
+    table.cell(align(right)[#text("83,80,582.28")]),
+    table.cell(align(right)[#text("5,80,972.28")]),
+    table.cell(align(right)[#text("9.67")]),
+    table.cell(align(right)[#text("9.74")]),
   
 
    
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Nippon India Mutual Fund")]),
-    table.cell(align(right)[#text("3,39,03,426.47")]),
-    table.cell(align(right)[#text("3,13,83,507.77")]),
-    table.cell(align(right)[#text("-25,19,918.70")]),
-    table.cell(align(right)[#text("-16.30")]),
-    table.cell(align(right)[#text("10.82")]),
+    table.cell(align(left)[#text("Invesco Mutual Fund")]),
+    table.cell(align(right)[#text("58,99,705.02")]),
+    table.cell(align(right)[#text("51,50,894.41")]),
+    table.cell(align(right)[#text("-7,48,810.61")]),
+    table.cell(align(right)[#text("-27.34")]),
+    table.cell(align(right)[#text("5.99")]),
+  
+
+   
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Kotak Mahindra Mutual Fund")]),
+    table.cell(align(right)[#text("54,99,725.00")]),
+    table.cell(align(right)[#text("82,66,947.34")]),
+    table.cell(align(right)[#text("27,67,222.34")]),
+    table.cell(align(right)[#text("16.78")]),
+    table.cell(align(right)[#text("9.61")]),
+  
+
+   
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Mirae Asset Mutual Fund")]),
+    table.cell(align(right)[#text("81,99,590.00")]),
+    table.cell(align(right)[#text("1,10,68,625.35")]),
+    table.cell(align(right)[#text("28,69,035.35")]),
+    table.cell(align(right)[#text("12.51")]),
+    table.cell(align(right)[#text("12.87")]),
+  
+
+   
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("PGIM India Mutual Fund")]),
+    table.cell(align(right)[#text("66,99,664.99")]),
+    table.cell(align(right)[#text("93,16,282.91")]),
+    table.cell(align(right)[#text("26,16,617.92")]),
+    table.cell(align(right)[#text("13.76")]),
+    table.cell(align(right)[#text("10.83")]),
   
 
    
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("PPFAS Mutual Fund")]),
-    table.cell(align(right)[#text("1,35,94,285.84")]),
-    table.cell(align(right)[#text("1,79,20,829.83")]),
-    table.cell(align(right)[#text("43,26,543.99")]),
-    table.cell(align(right)[#text("20.44")]),
-    table.cell(align(right)[#text("6.18")]),
+    table.cell(align(right)[#text("1,41,99,290.02")]),
+    table.cell(align(right)[#text("2,04,47,402.35")]),
+    table.cell(align(right)[#text("62,48,112.33")]),
+    table.cell(align(right)[#text("20.59")]),
+    table.cell(align(right)[#text("23.77")]),
   
 
    
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("SBI Mutual Fund")]),
-    table.cell(align(right)[#text("1,21,54,013.85")]),
-    table.cell(align(right)[#text("1,52,54,668.84")]),
-    table.cell(align(right)[#text("31,00,654.99")]),
-    table.cell(align(right)[#text("15.03")]),
-    table.cell(align(right)[#text("5.26")]),
-  
-
-   
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("UNIFI CAPITAL PRIVATE LIMITED")]),
-    table.cell(align(right)[#text("1,30,57,010.00")]),
-    table.cell(align(right)[#text("1,51,21,501.03")]),
-    table.cell(align(right)[#text("20,64,491.03")]),
-    table.cell(align(right)[#text("8.06")]),
-    table.cell(align(right)[#text("5.22")]),
-  
-
-   
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("UTI Mutual Fund")]),
-    table.cell(align(right)[#text("1,59,00,006.84")]),
-    table.cell(align(right)[#text("1,25,57,296.66")]),
-    table.cell(align(right)[#text("-33,42,710.18")]),
-    table.cell(align(right)[#text("-44.81")]),
-    table.cell(align(right)[#text("4.33")]),
-  
-
-   
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("VALUEQUEST INVESTMENT ADVISORS PRIVATE LIMITED")]),
-    table.cell(align(right)[#text("5,24,98,184.00")]),
-    table.cell(align(right)[#text("4,94,65,732.71")]),
-    table.cell(align(right)[#text("-30,32,451.29")]),
-    table.cell(align(right)[#text("-21.03")]),
-    table.cell(align(right)[#text("17.06")]),
+    table.cell(align(right)[#text("82,99,585.01")]),
+    table.cell(align(right)[#text("1,22,13,881.71")]),
+    table.cell(align(right)[#text("39,14,296.70")]),
+    table.cell(align(right)[#text("15.85")]),
+    table.cell(align(right)[#text("14.20")]),
   
 
    
@@ -2852,10 +2416,10 @@ header: context{
     
     
     table.cell(align(left)[#text("Sub Total",fill :heading0)]),
-    table.cell(align(right)[#text("28,39,70,572.64",fill :heading0)]),
-    table.cell(align(right)[#text("28,99,27,837.05",fill :heading0)]),
-    table.cell(align(right)[#text("59,57,264.41",fill :heading0)]),
-    table.cell(align(right)[#text("2.31",fill :heading0)]),
+    table.cell(align(right)[#text("6,78,96,605.06",fill :heading0)]),
+    table.cell(align(right)[#text("8,60,10,368.67",fill :heading0)]),
+    table.cell(align(right)[#text("1,81,13,763.61",fill :heading0)]),
+    table.cell(align(right)[#text("14.17",fill :heading0)]),
     table.cell(align(right)[#text("100",fill :heading0)]),
   
 
@@ -2866,34 +2430,34 @@ header: context{
       
       
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("EMBASSY PROPERTY DEVELOPMENTS PRIVATE LIMITED")]),
-    table.cell(align(right)[#text("39,62,729.00")]),
-    table.cell(align(right)[#text("39,62,729.00")]),
-    table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("45.74")]),
+    table.cell(align(left)[#text("HSBC Mutual Fund")]),
+    table.cell(align(right)[#text("1,49,99,250.03")]),
+    table.cell(align(right)[#text("1,78,44,237.17")]),
+    table.cell(align(right)[#text("28,44,987.14")]),
+    table.cell(align(right)[#text("6.62")]),
+    table.cell(align(right)[#text("36.98")]),
   
 
    
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Housing & Urban Development Corporation Ltd")]),
-    table.cell(align(right)[#text("14,04,932.64")]),
-    table.cell(align(right)[#text("14,04,932.64")]),
-    table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("16.22")]),
+    table.cell(align(left)[#text("ICICI Prudential Mutual Fund")]),
+    table.cell(align(right)[#text("1,49,99,250.04")]),
+    table.cell(align(right)[#text("1,81,46,083.96")]),
+    table.cell(align(right)[#text("31,46,833.92")]),
+    table.cell(align(right)[#text("7.45")]),
+    table.cell(align(right)[#text("37.61")]),
   
 
    
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("NATIONAL HIGHWAYS AUTHORITY OF INDIA")]),
-    table.cell(align(right)[#text("32,96,411.35")]),
-    table.cell(align(right)[#text("32,96,411.35")]),
-    table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("0")]),
-    table.cell(align(right)[#text("38.05")]),
+    table.cell(align(left)[#text("Nippon India Mutual Fund")]),
+    table.cell(align(right)[#text("99,99,500.01")]),
+    table.cell(align(right)[#text("1,22,59,767.13")]),
+    table.cell(align(right)[#text("22,60,267.12")]),
+    table.cell(align(right)[#text("7.89")]),
+    table.cell(align(right)[#text("25.41")]),
   
 
    
@@ -2902,10 +2466,10 @@ header: context{
     
     
     table.cell(align(left)[#text("Sub Total",fill :heading0)]),
-    table.cell(align(right)[#text("86,64,072.99",fill :heading0)]),
-    table.cell(align(right)[#text("86,64,072.99",fill :heading0)]),
-    table.cell(align(right)[#text("0",fill :heading0)]),
-    table.cell(align(right)[#text("0",fill :heading0)]),
+    table.cell(align(right)[#text("3,99,98,000.08",fill :heading0)]),
+    table.cell(align(right)[#text("4,82,50,088.26",fill :heading0)]),
+    table.cell(align(right)[#text("82,52,088.18",fill :heading0)]),
+    table.cell(align(right)[#text("7.25",fill :heading0)]),
     table.cell(align(right)[#text("100",fill :heading0)]),
   
 
@@ -2916,12 +2480,34 @@ header: context{
       
       
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Nippon India Mutual Fund")]),
-    table.cell(align(right)[#text("21,430.27")]),
-    table.cell(align(right)[#text("22,466.84")]),
-    table.cell(align(right)[#text("1,036.57")]),
-    table.cell(align(right)[#text("7.13")]),
-    table.cell(align(right)[#text("100")]),
+    table.cell(align(left)[#text("HDFC Mutual Fund")]),
+    table.cell(align(right)[#text("49,99,750.01")]),
+    table.cell(align(right)[#text("52,26,971.84")]),
+    table.cell(align(right)[#text("2,27,221.83")]),
+    table.cell(align(right)[#text("6.82")]),
+    table.cell(align(right)[#text("20.86")]),
+  
+
+   
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Invesco Mutual Fund")]),
+    table.cell(align(right)[#text("1,09,68,451.58")]),
+    table.cell(align(right)[#text("1,11,54,185.72")]),
+    table.cell(align(right)[#text("1,85,734.14")]),
+    table.cell(align(right)[#text("6.73")]),
+    table.cell(align(right)[#text("44.52")]),
+  
+
+   
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("PPFAS Mutual Fund")]),
+    table.cell(align(right)[#text("85,15,247.67")]),
+    table.cell(align(right)[#text("86,72,547.11")]),
+    table.cell(align(right)[#text("1,57,299.44")]),
+    table.cell(align(right)[#text("6.47")]),
+    table.cell(align(right)[#text("34.62")]),
   
 
    
@@ -2930,10 +2516,23 @@ header: context{
     
     
     table.cell(align(left)[#text("Sub Total",fill :heading0)]),
-    table.cell(align(right)[#text("21,430.27",fill :heading0)]),
-    table.cell(align(right)[#text("22,466.84",fill :heading0)]),
-    table.cell(align(right)[#text("1,036.57",fill :heading0)]),
-    table.cell(align(right)[#text("7.13",fill :heading0)]),
+    table.cell(align(right)[#text("2,44,83,449.26",fill :heading0)]),
+    table.cell(align(right)[#text("2,50,53,704.67",fill :heading0)]),
+    table.cell(align(right)[#text("5,70,255.41",fill :heading0)]),
+    table.cell(align(right)[#text("6.68",fill :heading0)]),
+    table.cell(align(right)[#text("100",fill :heading0)]),
+  
+
+   
+    
+    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    
+    
+    table.cell(align(left)[#text("Grand Total",fill :heading0)]),
+    table.cell(align(right)[#text("13,23,78,054.40",fill :heading0)]),
+    table.cell(align(right)[#text("15,93,14,161.60",fill :heading0)]),
+    table.cell(align(right)[#text("2,69,36,107.20",fill :heading0)]),
+    table.cell(align(right)[#text("10.74",fill :heading0)]),
     table.cell(align(right)[#text("100",fill :heading0)]),
   
 
@@ -2990,136 +2589,82 @@ header: context{
 
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("-")]),
-    table.cell(align(left)[#text("VALUEQUEST INVESTMENT ADVISORS PRIVATE LIMITED")]),
-    table.cell(align(right)[#text("4,94,65,732.71")]),
-    table.cell(align(right)[#text("16.45")]),
+    table.cell(align(left)[#text("Gaurav Misra")]),
+    table.cell(align(left)[#text("Mirae Asset Mutual Fund")]),
+    table.cell(align(right)[#text("1,10,68,625.35")]),
+    table.cell(align(right)[#text("7.41")]),
   
 
 
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("-")]),
-    table.cell(align(left)[#text("Abakkus Asset Manager Private Limited")]),
-    table.cell(align(right)[#text("2,42,77,144.82")]),
-    table.cell(align(right)[#text("8.07")]),
-  
-
-
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("-")]),
-    table.cell(align(left)[#text("CARLENIAN AIF")]),
-    table.cell(align(right)[#text("1,69,82,491.71")]),
-    table.cell(align(right)[#text("5.65")]),
-  
-
-
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Sharmila D''mello")]),
+    table.cell(align(left)[#text("Manish Banthia")]),
     table.cell(align(left)[#text("ICICI Prudential Mutual Fund")]),
-    table.cell(align(right)[#text("1,56,60,429.40")]),
-    table.cell(align(right)[#text("5.21")]),
+    table.cell(align(right)[#text("90,73,041.98")]),
+    table.cell(align(right)[#text("6.08")]),
   
 
 
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("-")]),
-    table.cell(align(left)[#text("UNIFI CAPITAL PRIVATE LIMITED")]),
-    table.cell(align(right)[#text("1,51,21,501.03")]),
-    table.cell(align(right)[#text("5.03")]),
+    table.cell(align(left)[#text("Rohit Lakhotia")]),
+    table.cell(align(left)[#text("ICICI Prudential Mutual Fund")]),
+    table.cell(align(right)[#text("90,73,041.98")]),
+    table.cell(align(right)[#text("6.08")]),
   
 
 
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Dhruv Muchhal")]),
-    table.cell(align(left)[#text("HDFC Mutual Fund")]),
-    table.cell(align(right)[#text("1,05,30,175.16")]),
-    table.cell(align(right)[#text("3.50")]),
+    table.cell(align(left)[#text("Mahesh A Chhabria")]),
+    table.cell(align(left)[#text("HSBC Mutual Fund")]),
+    table.cell(align(right)[#text("89,22,118.59")]),
+    table.cell(align(right)[#text("5.98")]),
   
 
 
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Roshi Jain")]),
-    table.cell(align(left)[#text("HDFC Mutual Fund")]),
-    table.cell(align(right)[#text("1,05,30,175.16")]),
-    table.cell(align(right)[#text("3.50")]),
+    table.cell(align(left)[#text("Asif Rizwi")]),
+    table.cell(align(left)[#text("HSBC Mutual Fund")]),
+    table.cell(align(right)[#text("89,22,118.59")]),
+    table.cell(align(right)[#text("5.98")]),
   
 
 
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Amar Kalkundrikar")]),
+    table.cell(align(left)[#text("Harish Bihani")]),
+    table.cell(align(left)[#text("Kotak Mahindra Mutual Fund")]),
+    table.cell(align(right)[#text("82,66,947.34")]),
+    table.cell(align(right)[#text("5.54")]),
+  
+
+
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Vivek Sharma")]),
     table.cell(align(left)[#text("Nippon India Mutual Fund")]),
-    table.cell(align(right)[#text("1,03,10,577.56")]),
-    table.cell(align(right)[#text("3.43")]),
+    table.cell(align(right)[#text("61,29,883.56")]),
+    table.cell(align(right)[#text("4.11")]),
   
 
 
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Aishwarya Deepak Agarwal")]),
+    table.cell(align(left)[#text("Pranay Sinha")]),
     table.cell(align(left)[#text("Nippon India Mutual Fund")]),
-    table.cell(align(right)[#text("1,03,10,577.56")]),
-    table.cell(align(right)[#text("3.43")]),
+    table.cell(align(right)[#text("61,29,883.56")]),
+    table.cell(align(right)[#text("4.11")]),
   
 
 
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("-")]),
-    table.cell(align(left)[#text("ICICI PRUDENTIAL ASSET MANAGEMENT COMPANY LTD")]),
-    table.cell(align(right)[#text("93,75,531.20")]),
-    table.cell(align(right)[#text("3.12")]),
-  
-
-
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Sankaran Naren")]),
-    table.cell(align(left)[#text("ICICI Prudential Mutual Fund")]),
-    table.cell(align(right)[#text("90,11,591.40")]),
-    table.cell(align(right)[#text("3.00")]),
-  
-
-
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Roshan Chutkey")]),
-    table.cell(align(left)[#text("ICICI Prudential Mutual Fund")]),
-    table.cell(align(right)[#text("90,11,591.40")]),
-    table.cell(align(right)[#text("3.00")]),
-  
-
-
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Ashish Ongari")]),
-    table.cell(align(left)[#text("360 ONE Mutual Fund")]),
-    table.cell(align(right)[#text("80,42,142.11")]),
-    table.cell(align(right)[#text("2.67")]),
-  
-
-
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Parijat Garg")]),
-    table.cell(align(left)[#text("360 ONE Mutual Fund")]),
-    table.cell(align(right)[#text("80,42,142.11")]),
-    table.cell(align(right)[#text("2.67")]),
-  
-
-
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Rohit Vaidyanathan")]),
-    table.cell(align(left)[#text("360 ONE Mutual Fund")]),
-    table.cell(align(right)[#text("80,42,142.11")]),
-    table.cell(align(right)[#text("2.67")]),
+    table.cell(align(left)[#text("Rama Iyer Srinivasan")]),
+    table.cell(align(left)[#text("SBI Mutual Fund")]),
+    table.cell(align(right)[#text("61,06,940.86")]),
+    table.cell(align(right)[#text("4.09")]),
   
 
 
@@ -3127,98 +2672,17 @@ header: context{
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Pradeep Kesavan")]),
     table.cell(align(left)[#text("SBI Mutual Fund")]),
-    table.cell(align(right)[#text("76,27,334.42")]),
-    table.cell(align(right)[#text("2.54")]),
+    table.cell(align(right)[#text("61,06,940.86")]),
+    table.cell(align(right)[#text("4.09")]),
   
 
 
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Bhavin Vithlani")]),
-    table.cell(align(left)[#text("SBI Mutual Fund")]),
-    table.cell(align(right)[#text("76,27,334.42")]),
-    table.cell(align(right)[#text("2.54")]),
-  
-
-
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Vaibhav Dusad")]),
-    table.cell(align(left)[#text("ICICI Prudential Mutual Fund")]),
-    table.cell(align(right)[#text("66,48,838.00")]),
-    table.cell(align(right)[#text("2.21")]),
-  
-
-
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Anish Tawakley")]),
-    table.cell(align(left)[#text("ICICI Prudential Mutual Fund")]),
-    table.cell(align(right)[#text("66,48,838.00")]),
-    table.cell(align(right)[#text("2.21")]),
-  
-
-
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Ayush Jain")]),
-    table.cell(align(left)[#text("UTI Mutual Fund")]),
-    table.cell(align(right)[#text("62,78,648.33")]),
-    table.cell(align(right)[#text("2.09")]),
-  
-
-
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Sharwan Kumar Goyal")]),
-    table.cell(align(left)[#text("UTI Mutual Fund")]),
-    table.cell(align(right)[#text("62,78,648.33")]),
-    table.cell(align(right)[#text("2.09")]),
-  
-
-
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Kinjal Desai")]),
-    table.cell(align(left)[#text("Nippon India Mutual Fund")]),
-    table.cell(align(right)[#text("53,81,176.33")]),
-    table.cell(align(right)[#text("1.79")]),
-  
-
-
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Rupesh Patel")]),
-    table.cell(align(left)[#text("Nippon India Mutual Fund")]),
-    table.cell(align(right)[#text("53,81,176.33")]),
-    table.cell(align(right)[#text("1.79")]),
-  
-
-
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("-")]),
-    table.cell(align(left)[#text("EMBASSY PROPERTY DEVELOPMENTS PRIVATE LIMITED")]),
-    table.cell(align(right)[#text("39,62,729.00")]),
-    table.cell(align(right)[#text("1.32")]),
-  
-
-
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Raunak Onkar")]),
-    table.cell(align(left)[#text("PPFAS Mutual Fund")]),
-    table.cell(align(right)[#text("35,84,165.97")]),
-    table.cell(align(right)[#text("1.19")]),
-  
-
-
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Rajeev Thakkar")]),
-    table.cell(align(left)[#text("PPFAS Mutual Fund")]),
-    table.cell(align(right)[#text("35,84,165.97")]),
-    table.cell(align(right)[#text("1.19")]),
+    table.cell(align(left)[#text("Dhruv Muchhal")]),
+    table.cell(align(left)[#text("HDFC Mutual Fund")]),
+    table.cell(align(right)[#text("52,83,382.81")]),
+    table.cell(align(right)[#text("3.54")]),
   
 
 
@@ -3226,17 +2690,8 @@ header: context{
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Rukun Tarachandani")]),
     table.cell(align(left)[#text("PPFAS Mutual Fund")]),
-    table.cell(align(right)[#text("35,84,165.97")]),
-    table.cell(align(right)[#text("1.19")]),
-  
-
-
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Raj Mehta")]),
-    table.cell(align(left)[#text("PPFAS Mutual Fund")]),
-    table.cell(align(right)[#text("35,84,165.97")]),
-    table.cell(align(right)[#text("1.19")]),
+    table.cell(align(right)[#text("48,23,735.30")]),
+    table.cell(align(right)[#text("3.23")]),
   
 
 
@@ -3244,156 +2699,180 @@ header: context{
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Mansi Kariya")]),
     table.cell(align(left)[#text("PPFAS Mutual Fund")]),
-    table.cell(align(right)[#text("35,84,165.97")]),
-    table.cell(align(right)[#text("1.19")]),
+    table.cell(align(right)[#text("48,23,735.30")]),
+    table.cell(align(right)[#text("3.23")]),
   
 
 
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("-")]),
-    table.cell(align(left)[#text("NATIONAL HIGHWAYS AUTHORITY OF INDIA")]),
-    table.cell(align(right)[#text("32,96,411.35")]),
-    table.cell(align(right)[#text("1.10")]),
+    table.cell(align(left)[#text("Raj Mehta")]),
+    table.cell(align(left)[#text("PPFAS Mutual Fund")]),
+    table.cell(align(right)[#text("48,23,735.30")]),
+    table.cell(align(right)[#text("3.23")]),
   
 
 
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Himanshu Mange")]),
-    table.cell(align(left)[#text("Nippon India Mutual Fund")]),
-    table.cell(align(right)[#text("21,37,536.07")]),
-    table.cell(align(right)[#text("0.71")]),
+    table.cell(align(left)[#text("Raunak Onkar")]),
+    table.cell(align(left)[#text("PPFAS Mutual Fund")]),
+    table.cell(align(right)[#text("48,23,735.30")]),
+    table.cell(align(right)[#text("3.23")]),
   
 
 
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("-")]),
-    table.cell(align(left)[#text("Housing & Urban Development Corporation Ltd")]),
-    table.cell(align(right)[#text("14,04,932.64")]),
-    table.cell(align(right)[#text("0.47")]),
+    table.cell(align(left)[#text("Rajeev Thakkar")]),
+    table.cell(align(left)[#text("PPFAS Mutual Fund")]),
+    table.cell(align(right)[#text("48,23,735.30")]),
+    table.cell(align(right)[#text("3.23")]),
   
 
 
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("-")]),
-    table.cell(align(left)[#text("Adani Ports & Special Economic Zone Ltd")]),
-    table.cell(align(right)[#text("11,78,349.30")]),
-    table.cell(align(right)[#text("0.39")]),
+    table.cell(align(left)[#text("Roshi Jain")]),
+    table.cell(align(left)[#text("HDFC Mutual Fund")]),
+    table.cell(align(right)[#text("39,76,639.85")]),
+    table.cell(align(right)[#text("2.66")]),
   
 
 
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("-")]),
-    table.cell(align(left)[#text("Ambuja Cements Ltd")]),
-    table.cell(align(right)[#text("10,01,352.90")]),
-    table.cell(align(right)[#text("0.33")]),
+    table.cell(align(left)[#text("Kuber Mannadi")]),
+    table.cell(align(left)[#text("Invesco Mutual Fund")]),
+    table.cell(align(right)[#text("30,75,902.79")]),
+    table.cell(align(right)[#text("2.06")]),
   
 
 
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("-")]),
-    table.cell(align(left)[#text("Aditya Birla Fashion & Retail Ltd")]),
-    table.cell(align(right)[#text("7,55,230.44")]),
-    table.cell(align(right)[#text("0.25")]),
+    table.cell(align(left)[#text("Deepak Gupta")]),
+    table.cell(align(left)[#text("Invesco Mutual Fund")]),
+    table.cell(align(right)[#text("30,75,902.79")]),
+    table.cell(align(right)[#text("2.06")]),
   
 
 
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Ashwini Shinde")]),
+    table.cell(align(left)[#text("Arun Agarwal")]),
+    table.cell(align(left)[#text("HDFC Mutual Fund")]),
+    table.cell(align(right)[#text("29,12,979.27")]),
+    table.cell(align(right)[#text("1.95")]),
+  
+
+
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Nirman S. Morakhia")]),
+    table.cell(align(left)[#text("HDFC Mutual Fund")]),
+    table.cell(align(right)[#text("29,12,979.27")]),
+    table.cell(align(right)[#text("1.95")]),
+  
+
+
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Roshan Chutkey")]),
     table.cell(align(left)[#text("ICICI Prudential Mutual Fund")]),
-    table.cell(align(right)[#text("6,72,267.96")]),
-    table.cell(align(right)[#text("0.22")]),
+    table.cell(align(right)[#text("27,93,527.43")]),
+    table.cell(align(right)[#text("1.87")]),
   
 
 
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Nishit Patel")]),
+    table.cell(align(left)[#text("Sankaran Naren")]),
     table.cell(align(left)[#text("ICICI Prudential Mutual Fund")]),
-    table.cell(align(right)[#text("6,72,267.96")]),
-    table.cell(align(right)[#text("0.22")]),
+    table.cell(align(right)[#text("27,93,527.43")]),
+    table.cell(align(right)[#text("1.87")]),
   
 
 
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Kayzad Eghlim")]),
+    table.cell(align(left)[#text("Sharmila D''mello")]),
     table.cell(align(left)[#text("ICICI Prudential Mutual Fund")]),
-    table.cell(align(right)[#text("6,72,267.96")]),
-    table.cell(align(right)[#text("0.22")]),
+    table.cell(align(right)[#text("27,93,527.43")]),
+    table.cell(align(right)[#text("1.87")]),
   
 
 
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("-")]),
-    table.cell(align(left)[#text("Adani Green Energy Ltd")]),
-    table.cell(align(right)[#text("4,69,331.10")]),
-    table.cell(align(right)[#text("0.16")]),
+    table.cell(align(left)[#text("Taher Badshah")]),
+    table.cell(align(left)[#text("Invesco Mutual Fund")]),
+    table.cell(align(right)[#text("25,75,447.20")]),
+    table.cell(align(right)[#text("1.72")]),
   
 
 
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Siddharth Deb")]),
-    table.cell(align(left)[#text("Nippon India Mutual Fund")]),
-    table.cell(align(right)[#text("11,233.42")]),
-    table.cell(align(right)[#text("0")]),
+    table.cell(align(left)[#text("Amit Ganatra")]),
+    table.cell(align(left)[#text("Invesco Mutual Fund")]),
+    table.cell(align(right)[#text("25,75,447.20")]),
+    table.cell(align(right)[#text("1.72")]),
   
 
 
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Vikash Agarwal")]),
-    table.cell(align(left)[#text("Nippon India Mutual Fund")]),
-    table.cell(align(right)[#text("11,233.42")]),
-    table.cell(align(right)[#text("0")]),
+    table.cell(align(left)[#text("Utsav Mehta")]),
+    table.cell(align(left)[#text("PGIM India Mutual Fund")]),
+    table.cell(align(right)[#text("23,29,070.73")]),
+    table.cell(align(right)[#text("1.56")]),
+  
+
+
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Puneet Pal")]),
+    table.cell(align(left)[#text("PGIM India Mutual Fund")]),
+    table.cell(align(right)[#text("23,29,070.73")]),
+    table.cell(align(right)[#text("1.56")]),
+  
+
+
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Vivek Sharma")]),
+    table.cell(align(left)[#text("PGIM India Mutual Fund")]),
+    table.cell(align(right)[#text("23,29,070.73")]),
+    table.cell(align(right)[#text("1.56")]),
+  
+
+
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Vinay Paharia")]),
+    table.cell(align(left)[#text("PGIM India Mutual Fund")]),
+    table.cell(align(right)[#text("23,29,070.73")]),
+    table.cell(align(right)[#text("1.56")]),
+  
+
+
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Anil Bamboli")]),
+    table.cell(align(left)[#text("HDFC Mutual Fund")]),
+    table.cell(align(right)[#text("13,06,742.96")]),
+    table.cell(align(right)[#text("0.88")]),
   
 
 
 
   
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Grand Total",fill :heading0)]),
+    table.cell(align(left)[#text("Total",fill :heading0)]),
     table.cell(align(left)[#text("-",fill :heading0)]),
-    table.cell(align(right)[#text("30,07,51,912.95",fill :heading0)]),
+    table.cell(align(right)[#text("14,93,10,508.50",fill :heading0)]),
     table.cell(align(right)[#text("100",fill :heading0)]),
-  
-
-
-  
-
-
-  
-
-
-  
-
-
-  
-
-
-  
-
-
-  
-
-
-  
-
-
-  
-
-
-  
-
-
   
 
 
@@ -3537,24 +3016,24 @@ header: context{
 
 #let currentData1 = (
  
-  ( value: 34.79,
+  ( value: 53.21,
      name: "Multi/Flexi cap"
   ),
 
-  ( value: 22.59,
-     name: "Factor"
+  ( value: 16.60,
+     name: "Large Cap"
   ),
 
-  ( value: 15.78,
-     name: "Thematic"
-  ),
-
-  ( value: 15.19,
+  ( value: 10.83,
      name: "Mid Cap"
   ),
 
-  ( value: 11.64,
-     name: "Large Cap"
+  ( value: 9.74,
+     name: "Thematic"
+  ),
+
+  ( value: 9.61,
+     name: "Small Cap"
   ),
 
  )
@@ -3603,33 +3082,33 @@ header: context{
     ]
  #let EquityMFIndData =(
       
- (category :"Others", value:49.82),
+ (category :"Others", value:49.70),
  
- (category :"Banking", value:16.52),
+ (category :"Banking", value:20.36),
  
- (category :"Software", value:7.90),
+ (category :"Software", value:6.85),
  
- (category :"Drugs & Pharma", value:7.45),
+ (category :"Drugs & Pharma", value:5.41),
  
- (category :"Cement", value:4.39),
+ (category :"Cement", value:3.23),
  
- (category :"Cars & Multi Utility Vehicles", value:2.75),
+ (category :"Coal & Lignite", value:2.88),
  
- (category :"Telecom Services", value:2.46),
+ (category :"Online Services", value:2.73),
  
- (category :"Life Insurance", value:2.44),
+ (category :"Telecom Services", value:2.50),
  
- (category :"E-Commerce", value:2.22),
+ (category :"Cars & Multi Utility Vehicles", value:2.25),
  
- (category :"Auto Ancillaries", value:2.07),
+ (category :"Auto Ancillaries", value:2.19),
  
- (category :"Other Financial Instututions", value:1.98),
+ (category :"Electricity Distribution", value:1.90),
  
 )
-   #place(dx:50pt,dy:0pt)[
-        #box(stroke:none,clip: true)[#echarm.render(width: 2000pt, height: 400pt, options: (
+   #place(dx:50pt,dy:30pt)[#echarm.render(width: 2000pt, height: 100%, options: (
           yAxis: (
           type: "category",
+          inverse:true,
           data: EquityMFIndData.map((items)=> (items.category)),
           axisLine: ("show": false),
           axisTick: ("show": false),
@@ -3642,7 +3121,6 @@ header: context{
                 type: "value",
                 min: 0,
                 max: 450.00,
-                //  inverse:true,
                 axisLine: ("show": false),
                 axisLabel: ("show": false),
               ),
@@ -3651,6 +3129,8 @@ header: context{
                 color:primaryColors.at(0),
                 stack:"a",
                 name:"a",
+                barWidth: 20,
+                barGap: 15,
                 label: (
                       "show": true,
                       position: "right",
@@ -3660,7 +3140,7 @@ header: context{
                     ),
               )
       )
-      )]]
+      )]
   ]
 ]
 
@@ -3681,25 +3161,26 @@ header: context{
     ]
  #let EquityMFAmcData =(
       
- (category :"ICICI Prudential Mutual Fund", value:28.60),
+ (category :"PPFAS Mutual Fund", value:23.77),
  
- (category :"Nippon India Mutual Fund", value:18.32),
+ (category :"Others", value:15.60),
  
- (category :"360 ONE Mutual Fund", value:14.08),
+ (category :"SBI Mutual Fund", value:14.20),
  
- (category :"HDFC Mutual Fund", value:12.29),
+ (category :"HDFC Mutual Fund", value:12.98),
  
- (category :"PPFAS Mutual Fund", value:10.46),
+ (category :"Mirae Asset Mutual Fund", value:12.87),
  
- (category :"SBI Mutual Fund", value:8.91),
+ (category :"PGIM India Mutual Fund", value:10.83),
  
- (category :"Others", value:7.33),
+ (category :"ICICI Prudential Mutual Fund", value:9.74),
  
 )
-   #place(dx:50pt,dy:0pt)[
-        #box(stroke:none,clip: true)[#echarm.render(width: 2000pt, height: 400pt, options: (
+   #place(dx:50pt,dy:20pt)[
+        #box(stroke:none,clip: true)[#echarm.render(width: 2000pt, height: 100%, options: (
           yAxis: (
           type: "category",
+          inverse:true,
           data: EquityMFAmcData.map((items)=> (items.category)),
           axisLine: ("show": false),
           axisTick: ("show": false),
@@ -3711,8 +3192,7 @@ header: context{
         xAxis: (splitLine: ("show": false),
                 type: "value",
                 min: 0,
-                -max: 450.00,
-                //  inverse:true,
+                max: 450.00,
                 axisLine: ("show": false),
                 axisLabel: ("show": false),
               ),
@@ -3721,6 +3201,8 @@ header: context{
                 color:primaryColors.at(0),
                 stack:"a",
                 name:"a",
+                barWidth: 20,
+                barGap: 15,
                 label: (
                       "show": true,
                       position: "right",
@@ -3736,7 +3218,7 @@ header: context{
  //top right
 #place(top+right,
 dx: 0pt,dy:20pt)[
-#place(dx: 20pt,dy:20pt)[#text(" Market Capitalization Allocation(%)", size: 25pt,  fill: rgb("0e496e"), weight: "extrabold")]
+#place(dx: 20pt,dy:20pt)[#text("Market Capitalization Allocation(%)", size: 25pt,  fill: rgb("0e496e"), weight: "extrabold")]
   #box(width: 49%,height: 50%, stroke: rgb("#cecece"),radius: 20pt)[
   #pad(left: 250pt,top: -650pt,
     grid(
@@ -3809,9 +3291,9 @@ dx: 0pt,dy:20pt)[
 
   #let EquityQuantsData = (
 
-    (Metric: "P/E", Values: [23.55]),
+    (Metric: "P/E", Values: [24.75]),
 
-    (Metric: "P/B", Values: [3.77]),
+    (Metric: "P/B", Values: [3.89]),
 
     (Metric: "Weighted Avg. Market Cap(Cr) ", Values: [0]),
 
@@ -3906,160 +3388,160 @@ header: context{
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Financial")]),
-    table.cell(align(right)[#text("3,96,34,63,563.18")]),
-    table.cell(align(right)[#text("22.85")]),
-  
-
-  
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Healthcare")]),
-    table.cell(align(right)[#text("1,55,63,88,350.91")]),
-    table.cell(align(right)[#text("8.97")]),
-  
-
-  
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Automobile")]),
-    table.cell(align(right)[#text("1,51,76,36,063.77")]),
-    table.cell(align(right)[#text("8.75")]),
-  
-
-  
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Services")]),
-    table.cell(align(right)[#text("1,41,52,98,174.68")]),
-    table.cell(align(right)[#text("8.16")]),
-  
-
-  
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Technology")]),
-    table.cell(align(right)[#text("1,39,92,34,609.53")]),
-    table.cell(align(right)[#text("8.07")]),
-  
-
-  
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Energy")]),
-    table.cell(align(right)[#text("1,12,48,06,695.13")]),
-    table.cell(align(right)[#text("6.48")]),
-  
-
-  
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Capital Goods")]),
-    table.cell(align(right)[#text("1,04,35,82,950.48")]),
-    table.cell(align(right)[#text("6.02")]),
+    table.cell(align(right)[#text("5,03,24,52,031.32")]),
+    table.cell(align(right)[#text("31.59")]),
   
 
   
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Others")]),
-    table.cell(align(right)[#text("72,91,53,578.61")]),
-    table.cell(align(right)[#text("4.20")]),
+    table.cell(align(right)[#text("3,52,22,73,990.28")]),
+    table.cell(align(right)[#text("22.11")]),
   
 
   
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Consumer Staples")]),
-    table.cell(align(right)[#text("71,71,37,100.94")]),
-    table.cell(align(right)[#text("4.13")]),
+    table.cell(align(left)[#text("Services")]),
+    table.cell(align(right)[#text("94,53,09,837.89")]),
+    table.cell(align(right)[#text("5.93")]),
   
 
   
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Insurance")]),
-    table.cell(align(right)[#text("63,56,07,196.37")]),
-    table.cell(align(right)[#text("3.66")]),
+    table.cell(align(left)[#text("Healthcare")]),
+    table.cell(align(right)[#text("71,03,35,678.27")]),
+    table.cell(align(right)[#text("4.46")]),
   
 
   
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Materials")]),
-    table.cell(align(right)[#text("62,19,15,140.57")]),
-    table.cell(align(right)[#text("3.59")]),
-  
-
-  
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Metals & Mining")]),
-    table.cell(align(right)[#text("54,76,35,019.10")]),
-    table.cell(align(right)[#text("3.16")]),
-  
-
-  
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Construction")]),
-    table.cell(align(right)[#text("51,76,54,232.93")]),
-    table.cell(align(right)[#text("2.98")]),
-  
-
-  
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Communication")]),
-    table.cell(align(right)[#text("48,62,00,686.95")]),
-    table.cell(align(right)[#text("2.80")]),
-  
-
-  
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Unclassified")]),
-    table.cell(align(right)[#text("41,54,36,003.52")]),
-    table.cell(align(right)[#text("2.40")]),
-  
-
-  
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Chemicals")]),
-    table.cell(align(right)[#text("34,73,47,217.00")]),
-    table.cell(align(right)[#text("2.00")]),
-  
-
-  
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Consumer Discretionary")]),
-    table.cell(align(right)[#text("16,63,70,580.11")]),
-    table.cell(align(right)[#text("0.96")]),
-  
-
-  
-  
-     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Textiles")]),
-    table.cell(align(right)[#text("11,65,44,008.37")]),
-    table.cell(align(right)[#text("0.67")]),
+    table.cell(align(left)[#text("Automobile")]),
+    table.cell(align(right)[#text("70,59,39,777.75")]),
+    table.cell(align(right)[#text("4.43")]),
   
 
   
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Sovereign")]),
-    table.cell(align(right)[#text("1,63,00,711.16")]),
-    table.cell(align(right)[#text("0.09")]),
+    table.cell(align(right)[#text("66,08,00,374.52")]),
+    table.cell(align(right)[#text("4.15")]),
+  
+
+  
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Energy")]),
+    table.cell(align(right)[#text("62,57,03,873.59")]),
+    table.cell(align(right)[#text("3.93")]),
+  
+
+  
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Technology")]),
+    table.cell(align(right)[#text("61,04,21,255.71")]),
+    table.cell(align(right)[#text("3.83")]),
+  
+
+  
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Construction")]),
+    table.cell(align(right)[#text("45,40,15,771.32")]),
+    table.cell(align(right)[#text("2.85")]),
+  
+
+  
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Unclassified")]),
+    table.cell(align(right)[#text("40,02,70,423.16")]),
+    table.cell(align(right)[#text("2.51")]),
+  
+
+  
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Materials")]),
+    table.cell(align(right)[#text("39,22,22,620.43")]),
+    table.cell(align(right)[#text("2.46")]),
+  
+
+  
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Consumer Staples")]),
+    table.cell(align(right)[#text("36,89,41,813.66")]),
+    table.cell(align(right)[#text("2.32")]),
+  
+
+  
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Capital Goods")]),
+    table.cell(align(right)[#text("31,77,55,542.50")]),
+    table.cell(align(right)[#text("1.99")]),
+  
+
+  
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Communication")]),
+    table.cell(align(right)[#text("29,51,48,385.92")]),
+    table.cell(align(right)[#text("1.85")]),
+  
+
+  
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Consumer Discretionary")]),
+    table.cell(align(right)[#text("22,38,45,348.80")]),
+    table.cell(align(right)[#text("1.41")]),
+  
+
+  
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Chemicals")]),
+    table.cell(align(right)[#text("20,54,61,372.34")]),
+    table.cell(align(right)[#text("1.29")]),
+  
+
+  
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Insurance")]),
+    table.cell(align(right)[#text("19,03,11,907.40")]),
+    table.cell(align(right)[#text("1.19")]),
+  
+
+  
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Metals & Mining")]),
+    table.cell(align(right)[#text("18,49,12,922.79")]),
+    table.cell(align(right)[#text("1.16")]),
+  
+
+  
+  
+     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Textiles")]),
+    table.cell(align(right)[#text("6,61,16,813.56")]),
+    table.cell(align(right)[#text("0.42")]),
   
 
   
   
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Diversified")]),
-    table.cell(align(right)[#text("79,64,140.97")]),
-    table.cell(align(right)[#text("0.05")]),
+    table.cell(align(right)[#text("1,91,55,330.42")]),
+    table.cell(align(right)[#text("0.12")]),
   
 
 
@@ -4159,7 +3641,7 @@ header: context{
   #place()[== #text("Mutual Fund Analysis - Transaction History")]
 ]
 #table(
-    columns: (.7fr, 1.5fr, 1.5fr, .7fr, .7fr, .7fr, .7fr, .7fr, .7fr),
+    columns: (.7fr, 1.5fr, 1.5fr, .7fr, .9fr, .7fr, .7fr, .7fr, .7fr),
 
     // Header
     table.header(
@@ -4182,1437 +3664,290 @@ header: context{
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities")]),
     table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential Nifty 100 Low Volatility 30 ETF FOF - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("22 Mar 2024")]),
+    table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund - Growth")]),
+    table.cell(align(left)[#text("22784851/86")]),
+    table.cell(align(center)[#text("26 Mar 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("30,956.8630")]),
-    table.cell(align(right)[#text("16.1515")]),
-    table.cell(align(right)[#text("4,99,999.77")]),
+    table.cell(align(right)[#text("17,081.4830")]),
+    table.cell(align(right)[#text("29.2700")]),
+    table.cell(align(right)[#text("4,99,975.00")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities")]),
     table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential Nifty 100 Low Volatility 30 ETF FOF - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("22 Apr 2024")]),
+    table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund - Growth")]),
+    table.cell(align(left)[#text("22784851/86")]),
+    table.cell(align(center)[#text("26 Mar 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("31,527.0580")]),
-    table.cell(align(right)[#text("15.8594")]),
-    table.cell(align(right)[#text("5,00,000.22")]),
+    table.cell(align(right)[#text("-17,081.4830")]),
+    table.cell(align(right)[#text("29.2700")]),
+    table.cell(align(right)[#text("-4,99,975.00")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities")]),
     table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
     table.cell(align(left)[#text("Parag Parikh Flexi Cap Fund Regular-Growth")]),
-    table.cell(align(left)[#text("0")]),
+    table.cell(align(left)[#text("12689762")]),
+    table.cell(align(center)[#text("26 Mar 2024")]),
+    table.cell(align(left)[#text("MFSUB")]),
+    table.cell(align(right)[#text("7,238.4720")]),
+    table.cell(align(right)[#text("69.0719")]),
+    table.cell(align(right)[#text("4,99,975.00")]),
+
+    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Equities")]),
+    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
+    table.cell(align(left)[#text("HDFC Nifty 50 Index Fund -Growth")]),
+    table.cell(align(left)[#text("20036786/57")]),
+    table.cell(align(center)[#text("15 Apr 2024")]),
+    table.cell(align(left)[#text("MFSUB")]),
+    table.cell(align(right)[#text("2,398.9830")]),
+    table.cell(align(right)[#text("208.4112")]),
+    table.cell(align(right)[#text("4,99,975.00")]),
+
+    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+    table.cell(align(left)[#text("Equities")]),
+    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
+    table.cell(align(left)[#text("Parag Parikh Flexi Cap Fund Regular-Growth")]),
+    table.cell(align(left)[#text("12689762")]),
     table.cell(align(center)[#text("25 Apr 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("9,824.6360")]),
-    table.cell(align(right)[#text("71.2495")]),
-    table.cell(align(right)[#text("7,00,000.40")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("360 ONE Quant Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("25 Apr 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("41,975.1490")]),
-    table.cell(align(right)[#text("16.6765")]),
-    table.cell(align(right)[#text("6,99,998.57")]),
+    table.cell(align(right)[#text("7,017.5970")]),
+    table.cell(align(right)[#text("71.2459")]),
+    table.cell(align(right)[#text("4,99,975.00")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities")]),
     table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
     table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("25 Apr 2024")]),
+    table.cell(align(left)[#text("22784851/86")]),
+    table.cell(align(center)[#text("15 May 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("23,169.9770")]),
-    table.cell(align(right)[#text("30.2115")]),
-    table.cell(align(right)[#text("6,99,999.76")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential Nifty 100 Low Volatility 30 ETF FOF - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("22 May 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("30,836.7670")]),
-    table.cell(align(right)[#text("16.2144")]),
-    table.cell(align(right)[#text("4,99,999.67")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("28 May 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("6,480.5570")]),
-    table.cell(align(right)[#text("30.8615")]),
-    table.cell(align(right)[#text("1,99,999.71")]),
+    table.cell(align(right)[#text("16,522.6370")]),
+    table.cell(align(right)[#text("30.2600")]),
+    table.cell(align(right)[#text("4,99,975.00")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities")]),
     table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
     table.cell(align(left)[#text("Parag Parikh Flexi Cap Fund Regular-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("28 May 2024")]),
+    table.cell(align(left)[#text("12689762")]),
+    table.cell(align(center)[#text("27 May 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("2,749.3470")]),
-    table.cell(align(right)[#text("72.7445")]),
-    table.cell(align(right)[#text("1,99,999.87")]),
+    table.cell(align(right)[#text("6,849.2170")]),
+    table.cell(align(right)[#text("72.9974")]),
+    table.cell(align(right)[#text("4,99,975.00")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities")]),
     table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("SBI Magnum Mid Cap Fund-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("28 May 2024")]),
+    table.cell(align(left)[#text("HDFC Nifty 50 Index Fund -Growth")]),
+    table.cell(align(left)[#text("20036786/57")]),
+    table.cell(align(center)[#text("05 Jun 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("925.0330")]),
-    table.cell(align(right)[#text("216.2085")]),
-    table.cell(align(right)[#text("2,00,000.00")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("360 ONE Quant Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("28 May 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("11,216.6780")]),
-    table.cell(align(right)[#text("17.8306")]),
-    table.cell(align(right)[#text("2,00,000.10")]),
+    table.cell(align(right)[#text("2,353.8070")]),
+    table.cell(align(right)[#text("212.4112")]),
+    table.cell(align(right)[#text("4,99,975.00")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities")]),
     table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
     table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("29 May 2024")]),
+    table.cell(align(left)[#text("22784851/86")]),
+    table.cell(align(center)[#text("18 Jun 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("3,259.2890")]),
-    table.cell(align(right)[#text("30.6815")]),
-    table.cell(align(right)[#text("99,999.88")]),
+    table.cell(align(right)[#text("15,668.2860")]),
+    table.cell(align(right)[#text("31.9100")]),
+    table.cell(align(right)[#text("4,99,975.00")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities")]),
     table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
     table.cell(align(left)[#text("Parag Parikh Flexi Cap Fund Regular-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("29 May 2024")]),
+    table.cell(align(left)[#text("12689762")]),
+    table.cell(align(center)[#text("25 Jun 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("1,379.5330")]),
-    table.cell(align(right)[#text("72.4883")]),
-    table.cell(align(right)[#text("1,00,000.00")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("SBI Magnum Mid Cap Fund-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("29 May 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("463.5580")]),
-    table.cell(align(right)[#text("215.7227")]),
-    table.cell(align(right)[#text("99,999.98")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("360 ONE Quant Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("29 May 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("5,647.2650")]),
-    table.cell(align(right)[#text("17.7077")]),
-    table.cell(align(right)[#text("1,00,000.07")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("360 ONE Quant Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("30 May 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("11,475.7390")]),
-    table.cell(align(right)[#text("17.4281")]),
-    table.cell(align(right)[#text("2,00,000.33")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Parag Parikh Flexi Cap Fund Regular-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("30 May 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("2,782.4040")]),
-    table.cell(align(right)[#text("71.8803")]),
-    table.cell(align(right)[#text("2,00,000.03")]),
+    table.cell(align(right)[#text("6,615.0100")]),
+    table.cell(align(right)[#text("75.5819")]),
+    table.cell(align(right)[#text("4,99,975.00")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities")]),
     table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
     table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("30 May 2024")]),
+    table.cell(align(left)[#text("22784851/86")]),
+    table.cell(align(center)[#text("15 Jul 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("6,572.1330")]),
-    table.cell(align(right)[#text("30.4315")]),
-    table.cell(align(right)[#text("1,99,999.87")]),
+    table.cell(align(right)[#text("14,991.7540")]),
+    table.cell(align(right)[#text("33.3500")]),
+    table.cell(align(right)[#text("4,99,975.00")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities")]),
     table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("SBI Magnum Mid Cap Fund-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("30 May 2024")]),
+    table.cell(align(left)[#text("Parag Parikh Flexi Cap Fund Regular-Growth")]),
+    table.cell(align(left)[#text("12689762")]),
+    table.cell(align(center)[#text("16 Jul 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("935.1260")]),
-    table.cell(align(right)[#text("213.8749")]),
-    table.cell(align(right)[#text("1,99,999.98")]),
+    table.cell(align(right)[#text("32,094.6120")]),
+    table.cell(align(right)[#text("77.8908")]),
+    table.cell(align(right)[#text("24,99,875.01")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities")]),
     table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("360 ONE Quant Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("19 Jun 2024")]),
+    table.cell(align(left)[#text("HDFC Focused 30 Fund-Growth")]),
+    table.cell(align(left)[#text("20036786/57")]),
+    table.cell(align(center)[#text("16 Jul 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("16,194.0470")]),
-    table.cell(align(right)[#text("18.5253")]),
-    table.cell(align(right)[#text("2,99,999.58")]),
+    table.cell(align(right)[#text("11,724.7780")]),
+    table.cell(align(right)[#text("213.2130")]),
+    table.cell(align(right)[#text("24,99,875.01")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities")]),
     table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Growth Fund - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("19 Jun 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("78.0710")]),
-    table.cell(align(right)[#text("3,842.6560")]),
-    table.cell(align(right)[#text("3,00,000.00")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential Nifty 100 Low Volatility 30 ETF FOF - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("24 Jun 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("29,676.1580")]),
-    table.cell(align(right)[#text("16.8485")]),
-    table.cell(align(right)[#text("4,99,998.75")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Growth Fund - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("02 Jul 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("76.9340")]),
-    table.cell(align(right)[#text("3,899.4463")]),
-    table.cell(align(right)[#text("3,00,000.00")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("360 ONE Quant Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("02 Jul 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("15,958.5160")]),
-    table.cell(align(right)[#text("18.7987")]),
-    table.cell(align(right)[#text("2,99,999.35")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("360 ONE Quant Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("10 Jul 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("1,28,780.5420")]),
-    table.cell(align(right)[#text("19.4129")]),
-    table.cell(align(right)[#text("25,00,003.78")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("23 Jul 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("356.8680")]),
-    table.cell(align(right)[#text("1,401.0783")]),
-    table.cell(align(right)[#text("5,00,000.01")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("23 Jul 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("1,070.6040")]),
-    table.cell(align(right)[#text("1,401.0783")]),
-    table.cell(align(right)[#text("15,00,000.03")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("360 ONE Quant Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("23 Jul 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("41,998.1620")]),
-    table.cell(align(right)[#text("19.0485")]),
-    table.cell(align(right)[#text("8,00,001.99")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Growth Fund - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("23 Jul 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("127.5570")]),
-    table.cell(align(right)[#text("3,919.8162")]),
-    table.cell(align(right)[#text("5,00,000.00")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Growth Fund - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("23 Jul 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("382.6720")]),
-    table.cell(align(right)[#text("3,919.8060")]),
-    table.cell(align(right)[#text("15,00,000.00")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("25 Jul 2024")]),
-    table.cell(align(left)[#text("SWIN")]),
-    table.cell(align(right)[#text("177.7200")]),
-    table.cell(align(right)[#text("1,406.7072")]),
-    table.cell(align(right)[#text("2,50,000.00")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("01 Aug 2024")]),
-    table.cell(align(left)[#text("SWIN")]),
-    table.cell(align(right)[#text("174.3040")]),
-    table.cell(align(right)[#text("1,434.2757")]),
-    table.cell(align(right)[#text("2,49,999.99")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("360 ONE Quant Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("02 Aug 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("25,585.2930")]),
-    table.cell(align(right)[#text("19.5425")]),
-    table.cell(align(right)[#text("5,00,000.59")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("02 Aug 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("352.1010")]),
-    table.cell(align(right)[#text("1,420.0471")]),
-    table.cell(align(right)[#text("5,00,000.00")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Growth Fund - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("02 Aug 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("124.1140")]),
-    table.cell(align(right)[#text("4,028.5544")]),
-    table.cell(align(right)[#text("5,00,000.00")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("05 Aug 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("1,06,688.6460")]),
-    table.cell(align(right)[#text("23.4327")]),
-    table.cell(align(right)[#text("25,00,003.04")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("360 ONE Quant Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("05 Aug 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("79,112.0550")]),
-    table.cell(align(right)[#text("18.9604")]),
-    table.cell(align(right)[#text("14,99,996.21")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Growth Fund - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("05 Aug 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("487.7020")]),
-    table.cell(align(right)[#text("3,895.8216")]),
-    table.cell(align(right)[#text("18,99,999.99")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("07 Aug 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("41,753.3090")]),
-    table.cell(align(right)[#text("23.9502")]),
-    table.cell(align(right)[#text("10,00,000.10")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("08 Aug 2024")]),
-    table.cell(align(left)[#text("SWIN")]),
-    table.cell(align(right)[#text("180.0800")]),
-    table.cell(align(right)[#text("1,388.2719")]),
-    table.cell(align(right)[#text("2,50,000.00")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("13 Aug 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("20,929.6140")]),
-    table.cell(align(right)[#text("23.8896")]),
-    table.cell(align(right)[#text("5,00,000.11")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
+    table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund - Growth")]),
+    table.cell(align(left)[#text("22784851/86")]),
     table.cell(align(center)[#text("16 Aug 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("20,561.6490")]),
-    table.cell(align(right)[#text("24.3171")]),
-    table.cell(align(right)[#text("4,99,999.67")]),
+    table.cell(align(right)[#text("14,705.1470")]),
+    table.cell(align(right)[#text("34.0000")]),
+    table.cell(align(right)[#text("4,99,975.00")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities")]),
     table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("16 Aug 2024")]),
-    table.cell(align(left)[#text("SWIN")]),
-    table.cell(align(right)[#text("177.3140")]),
-    table.cell(align(right)[#text("1,409.9282")]),
-    table.cell(align(right)[#text("2,50,000.01")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("21 Aug 2024")]),
+    table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund - Growth")]),
+    table.cell(align(left)[#text("22784851/86")]),
+    table.cell(align(center)[#text("16 Sep 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("20,289.2170")]),
-    table.cell(align(right)[#text("24.6436")]),
-    table.cell(align(right)[#text("4,99,999.35")]),
+    table.cell(align(right)[#text("14,032.4170")]),
+    table.cell(align(right)[#text("35.6300")]),
+    table.cell(align(right)[#text("4,99,975.00")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities")]),
     table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("22 Aug 2024")]),
-    table.cell(align(left)[#text("SWIN")]),
-    table.cell(align(right)[#text("174.3700")]),
-    table.cell(align(right)[#text("1,433.7329")]),
-    table.cell(align(right)[#text("2,50,000.01")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("29 Aug 2024")]),
+    table.cell(align(left)[#text("HDFC Focused 30 Fund-Growth")]),
+    table.cell(align(left)[#text("20036786/57")]),
+    table.cell(align(center)[#text("10 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("19,999.8000")]),
-    table.cell(align(right)[#text("25.0002")]),
-    table.cell(align(right)[#text("4,99,999.00")]),
+    table.cell(align(right)[#text("22,624.8390")]),
+    table.cell(align(right)[#text("220.9850")]),
+    table.cell(align(right)[#text("49,99,750.01")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities")]),
     table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("29 Aug 2024")]),
-    table.cell(align(left)[#text("SWIN")]),
-    table.cell(align(right)[#text("172.5800")]),
-    table.cell(align(right)[#text("1,448.6035")]),
-    table.cell(align(right)[#text("2,49,999.99")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("02 Sep 2024")]),
-    table.cell(align(left)[#text("SWIN")]),
-    table.cell(align(right)[#text("553.5980")]),
-    table.cell(align(right)[#text("1,451.2816")]),
-    table.cell(align(right)[#text("8,03,426.59")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("05 Sep 2024")]),
-    table.cell(align(left)[#text("SWIN")]),
-    table.cell(align(right)[#text("171.7500")]),
-    table.cell(align(right)[#text("1,455.6041")]),
-    table.cell(align(right)[#text("2,50,000.00")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("12 Sep 2024")]),
-    table.cell(align(left)[#text("SWIN")]),
-    table.cell(align(right)[#text("169.6540")]),
-    table.cell(align(right)[#text("1,473.5874")]),
-    table.cell(align(right)[#text("2,50,000.00")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("20 Sep 2024")]),
-    table.cell(align(left)[#text("SWIN")]),
-    table.cell(align(right)[#text("167.8970")]),
-    table.cell(align(right)[#text("1,489.0081")]),
-    table.cell(align(right)[#text("2,49,999.99")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("26 Sep 2024")]),
-    table.cell(align(left)[#text("SWIN")]),
-    table.cell(align(right)[#text("166.2260")]),
-    table.cell(align(right)[#text("1,503.9765")]),
-    table.cell(align(right)[#text("2,50,000.00")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("360 ONE Quant Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("04 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("98,161.3460")]),
-    table.cell(align(right)[#text("20.3746")]),
-    table.cell(align(right)[#text("19,99,998.16")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Growth Fund Direct- Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("04 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("443.7990")]),
-    table.cell(align(right)[#text("4,506.5446")]),
-    table.cell(align(right)[#text("19,99,999.99")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("HDFC Flexi Cap Direct Plan-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("04 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("965.4440")]),
-    table.cell(align(right)[#text("2,071.5857")]),
-    table.cell(align(right)[#text("19,99,999.98")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential Bluechip Fund Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("04 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("16,765.0260")]),
-    table.cell(align(right)[#text("119.2960")]),
-    table.cell(align(right)[#text("20,00,000.54")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("04 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("52,615.1010")]),
-    table.cell(align(right)[#text("38.0119")]),
-    table.cell(align(right)[#text("19,99,999.96")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("04 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("79,692.5310")]),
-    table.cell(align(right)[#text("25.0965")]),
-    table.cell(align(right)[#text("20,00,003.60")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("04 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("1,291.4080")]),
-    table.cell(align(right)[#text("1,548.6972")]),
-    table.cell(align(right)[#text("19,99,999.95")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("07 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("40,628.2250")]),
-    table.cell(align(right)[#text("24.6134")]),
-    table.cell(align(right)[#text("9,99,998.75")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential Bluechip Fund Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("07 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("8,463.3940")]),
-    table.cell(align(right)[#text("118.1559")]),
-    table.cell(align(right)[#text("9,99,999.94")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Growth Fund Direct- Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("07 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("226.3020")]),
-    table.cell(align(right)[#text("4,418.8739")]),
-    table.cell(align(right)[#text("10,00,000.00")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("360 ONE Quant Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("07 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("50,019.5090")]),
-    table.cell(align(right)[#text("19.9922")]),
-    table.cell(align(right)[#text("10,00,000.03")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("HDFC Flexi Cap Direct Plan-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("07 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("487.5220")]),
-    table.cell(align(right)[#text("2,051.1895")]),
-    table.cell(align(right)[#text("10,00,000.01")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("07 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("654.2490")]),
-    table.cell(align(right)[#text("1,528.4700")]),
-    table.cell(align(right)[#text("9,99,999.97")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("07 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("26,679.5620")]),
-    table.cell(align(right)[#text("37.4819")]),
-    table.cell(align(right)[#text("10,00,000.67")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential Bluechip Fund Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
+    table.cell(align(left)[#text("Invesco India Flexi Cap Fund Regular - Growth")]),
+    table.cell(align(left)[#text("31023974234")]),
     table.cell(align(center)[#text("11 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("16,784.7250")]),
-    table.cell(align(right)[#text("119.1560")]),
-    table.cell(align(right)[#text("20,00,000.69")]),
+    table.cell(align(right)[#text("2,63,839.0510")]),
+    table.cell(align(right)[#text("18.9500")]),
+    table.cell(align(right)[#text("49,99,750.02")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities")]),
     table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("360 ONE Quant Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("11 Oct 2024")]),
+    table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund - Growth")]),
+    table.cell(align(left)[#text("22784851/86")]),
+    table.cell(align(center)[#text("15 Oct 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("97,283.2300")]),
-    table.cell(align(right)[#text("20.5585")]),
-    table.cell(align(right)[#text("19,99,997.28")]),
+    table.cell(align(right)[#text("14,280.9200")]),
+    table.cell(align(right)[#text("35.0100")]),
+    table.cell(align(right)[#text("4,99,975.00")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities")]),
     table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("360 ONE Quant Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("16 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("96,382.1160")]),
-    table.cell(align(right)[#text("20.7507")]),
-    table.cell(align(right)[#text("19,99,996.37")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("16 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("1,270.0600")]),
-    table.cell(align(right)[#text("1,574.7288")]),
-    table.cell(align(right)[#text("20,00,000.06")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("16 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("77,695.8910")]),
-    table.cell(align(right)[#text("25.7414")]),
-    table.cell(align(right)[#text("20,00,001.01")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("16 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("52,893.4140")]),
-    table.cell(align(right)[#text("37.8119")]),
-    table.cell(align(right)[#text("20,00,000.48")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("HDFC Flexi Cap Direct Plan-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("16 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("959.0770")]),
-    table.cell(align(right)[#text("2,085.3383")]),
-    table.cell(align(right)[#text("20,00,000.00")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential Bluechip Fund Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("16 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("16,734.1650")]),
-    table.cell(align(right)[#text("119.5160")]),
-    table.cell(align(right)[#text("20,00,000.46")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential Bluechip Fund Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("17 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("12,671.4960")]),
-    table.cell(align(right)[#text("118.3759")]),
-    table.cell(align(right)[#text("14,99,999.74")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Growth Fund Direct- Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("17 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("329.7990")]),
-    table.cell(align(right)[#text("4,548.2248")]),
-    table.cell(align(right)[#text("14,99,999.99")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("17 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("40,019.3440")]),
-    table.cell(align(right)[#text("37.4819")]),
-    table.cell(align(right)[#text("15,00,001.05")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("17 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("59,837.5930")]),
-    table.cell(align(right)[#text("25.0679")]),
-    table.cell(align(right)[#text("15,00,002.80")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("HDFC Flexi Cap Direct Plan-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("17 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("727.0790")]),
-    table.cell(align(right)[#text("2,063.0495")]),
-    table.cell(align(right)[#text("14,99,999.97")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("360 ONE Quant Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("17 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("73,863.1890")]),
-    table.cell(align(right)[#text("20.3078")]),
-    table.cell(align(right)[#text("14,99,998.87")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("17 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("965.5380")]),
-    table.cell(align(right)[#text("1,553.5380")]),
-    table.cell(align(right)[#text("14,99,999.97")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Growth Fund Direct- Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("25 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("344.9220")]),
-    table.cell(align(right)[#text("4,348.8093")]),
-    table.cell(align(right)[#text("15,00,000.00")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("25 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("734.6560")]),
-    table.cell(align(right)[#text("1,497.2994")]),
-    table.cell(align(right)[#text("10,99,999.99")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("25 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("29,995.7730")]),
-    table.cell(align(right)[#text("36.6718")]),
-    table.cell(align(right)[#text("10,99,998.99")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("HDFC Flexi Cap Direct Plan-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("25 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("538.9910")]),
-    table.cell(align(right)[#text("2,040.8504")]),
-    table.cell(align(right)[#text("11,00,000.00")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("25 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("46,566.0090")]),
-    table.cell(align(right)[#text("23.6224")]),
-    table.cell(align(right)[#text("11,00,000.89")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("360 ONE Quant Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("25 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("57,487.9140")]),
-    table.cell(align(right)[#text("19.1345")]),
-    table.cell(align(right)[#text("11,00,002.49")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential Bluechip Fund Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("25 Oct 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("9,490.4660")]),
-    table.cell(align(right)[#text("115.9058")]),
-    table.cell(align(right)[#text("11,00,000.05")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("360 ONE Quant Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
+    table.cell(align(left)[#text("HDFC Focused 30 Fund-Growth")]),
+    table.cell(align(left)[#text("20036786/57")]),
     table.cell(align(center)[#text("05 Nov 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("41,857.7390")]),
-    table.cell(align(right)[#text("19.1124")]),
-    table.cell(align(right)[#text("8,00,001.85")]),
+    table.cell(align(right)[#text("3,662.7030")]),
+    table.cell(align(right)[#text("218.4070")]),
+    table.cell(align(right)[#text("7,99,960.00")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities")]),
     table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
+    table.cell(align(left)[#text("Invesco India Flexi Cap Fund Regular - Growth")]),
+    table.cell(align(left)[#text("31023974234")]),
     table.cell(align(center)[#text("05 Nov 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("21,004.2640")]),
-    table.cell(align(right)[#text("23.8047")]),
-    table.cell(align(right)[#text("5,00,000.20")]),
+    table.cell(align(right)[#text("49,666.3910")]),
+    table.cell(align(right)[#text("18.1200")]),
+    table.cell(align(right)[#text("8,99,955.00")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities")]),
     table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("05 Nov 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("531.9550")]),
-    table.cell(align(right)[#text("1,503.8866")]),
-    table.cell(align(right)[#text("8,00,000.00")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("05 Nov 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("13,527.4620")]),
-    table.cell(align(right)[#text("36.9618")]),
-    table.cell(align(right)[#text("4,99,999.34")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("08 Nov 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("594.9880")]),
-    table.cell(align(right)[#text("1,512.6355")]),
-    table.cell(align(right)[#text("8,99,999.97")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("HDFC Flexi Cap Direct Plan-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("08 Nov 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("438.8470")]),
-    table.cell(align(right)[#text("2,050.8286")]),
-    table.cell(align(right)[#text("8,99,999.98")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("08 Nov 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("24,488.5710")]),
-    table.cell(align(right)[#text("36.7518")]),
-    table.cell(align(right)[#text("8,99,999.06")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("08 Nov 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("37,958.0500")]),
-    table.cell(align(right)[#text("23.7104")]),
-    table.cell(align(right)[#text("9,00,000.55")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential Bluechip Fund Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("08 Nov 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("7,795.8680")]),
-    table.cell(align(right)[#text("115.4458")]),
-    table.cell(align(right)[#text("9,00,000.22")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
+    table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund - Growth")]),
+    table.cell(align(left)[#text("22784851/86")]),
     table.cell(align(center)[#text("18 Nov 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("39,690.1810")]),
-    table.cell(align(right)[#text("22.6756")]),
-    table.cell(align(right)[#text("8,99,998.67")]),
+    table.cell(align(right)[#text("15,123.2610")]),
+    table.cell(align(right)[#text("33.0600")]),
+    table.cell(align(right)[#text("4,99,975.00")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities")]),
     table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("18 Nov 2024")]),
+    table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund - Growth")]),
+    table.cell(align(left)[#text("22784851/86")]),
+    table.cell(align(center)[#text("16 Dec 2024")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("612.5700")]),
-    table.cell(align(right)[#text("1,469.2198")]),
-    table.cell(align(right)[#text("8,99,999.97")]),
+    table.cell(align(right)[#text("14,445.9690")]),
+    table.cell(align(right)[#text("34.6100")]),
+    table.cell(align(right)[#text("4,99,975.00")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities")]),
     table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Growth Fund Direct- Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("18 Nov 2024")]),
+    table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund - Growth")]),
+    table.cell(align(left)[#text("22784851/86")]),
+    table.cell(align(center)[#text("15 Jan 2025")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("211.2900")]),
-    table.cell(align(right)[#text("4,259.5485")]),
-    table.cell(align(right)[#text("9,00,000.00")]),
+    table.cell(align(right)[#text("15,285.0810")]),
+    table.cell(align(right)[#text("32.7100")]),
+    table.cell(align(right)[#text("4,99,975.00")]),
 
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell(align(left)[#text("Equities")]),
     table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("HDFC Flexi Cap Direct Plan-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("18 Nov 2024")]),
+    table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund - Growth")]),
+    table.cell(align(left)[#text("22784851/86")]),
+    table.cell(align(center)[#text("17 Feb 2025")]),
     table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("450.6460")]),
-    table.cell(align(right)[#text("1,997.1330")]),
-    table.cell(align(right)[#text("9,00,000.00")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("18 Nov 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("25,145.4320")]),
-    table.cell(align(right)[#text("35.7918")]),
-    table.cell(align(right)[#text("9,00,000.27")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("HDFC Flexi Cap Direct Plan-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("25 Nov 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("975.1210")]),
-    table.cell(align(right)[#text("2,051.0275")]),
-    table.cell(align(right)[#text("19,99,999.99")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("25 Nov 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("54,686.9020")]),
-    table.cell(align(right)[#text("36.5718")]),
-    table.cell(align(right)[#text("19,99,998.44")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential Bluechip Fund Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("25 Nov 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("17,206.4010")]),
-    table.cell(align(right)[#text("116.2358")]),
-    table.cell(align(right)[#text("19,99,999.79")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("360 ONE Quant Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("25 Nov 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("1,04,373.4670")]),
-    table.cell(align(right)[#text("19.1620")]),
-    table.cell(align(right)[#text("20,00,004.37")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("25 Nov 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("1,315.8660")]),
-    table.cell(align(right)[#text("1,519.9116")]),
-    table.cell(align(right)[#text("20,00,000.00")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("25 Nov 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("85,304.3170")]),
-    table.cell(align(right)[#text("23.4455")]),
-    table.cell(align(right)[#text("20,00,002.36")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("360 ONE Quant Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("13 Dec 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("1,26,247.3870")]),
-    table.cell(align(right)[#text("19.8024")]),
-    table.cell(align(right)[#text("25,00,001.26")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("13 Dec 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("1,23,385.1170")]),
-    table.cell(align(right)[#text("24.3141")]),
-    table.cell(align(right)[#text("29,99,998.07")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential Bluechip Fund Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("13 Dec 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("21,065.7710")]),
-    table.cell(align(right)[#text("118.6759")]),
-    table.cell(align(right)[#text("24,99,999.33")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("360 ONE Quant Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("17 Dec 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("50,756.8220")]),
-    table.cell(align(right)[#text("19.7018")]),
-    table.cell(align(right)[#text("10,00,000.76")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential Bluechip Fund Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("17 Dec 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("8,553.1610")]),
-    table.cell(align(right)[#text("116.9158")]),
-    table.cell(align(right)[#text("9,99,999.66")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("17 Dec 2024")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("41,610.3170")]),
-    table.cell(align(right)[#text("24.0325")]),
-    table.cell(align(right)[#text("9,99,999.94")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential Bluechip Fund Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("28 Jan 2025")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("18,245.5980")]),
-    table.cell(align(right)[#text("109.6155")]),
-    table.cell(align(right)[#text("20,00,000.35")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("28 Jan 2025")]),
-    table.cell(align(left)[#text("MFRED")]),
-    table.cell(align(right)[#text("1,06,688.6460")]),
-    table.cell(align(right)[#text("19.4518")]),
-    table.cell(align(right)[#text("25,96,558.48")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("28 Jan 2025")]),
-    table.cell(align(left)[#text("MFRED")]),
-    table.cell(align(right)[#text("19,999.8000")]),
-    table.cell(align(right)[#text("19.4518")]),
-    table.cell(align(right)[#text("4,77,366.57")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("28 Jan 2025")]),
-    table.cell(align(left)[#text("MFRED")]),
-    table.cell(align(right)[#text("20,289.2170")]),
-    table.cell(align(right)[#text("19.4518")]),
-    table.cell(align(right)[#text("4,75,431.13")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("28 Jan 2025")]),
-    table.cell(align(left)[#text("MFRED")]),
-    table.cell(align(right)[#text("20,561.6490")]),
-    table.cell(align(right)[#text("19.4518")]),
-    table.cell(align(right)[#text("4,81,814.95")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("28 Jan 2025")]),
-    table.cell(align(left)[#text("MFRED")]),
-    table.cell(align(right)[#text("20,929.6140")]),
-    table.cell(align(right)[#text("19.4518")]),
-    table.cell(align(right)[#text("4,90,437.37")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("UTI Nifty200 Momentum 30 Index Fund Regular - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("28 Jan 2025")]),
-    table.cell(align(left)[#text("MFRED")]),
-    table.cell(align(right)[#text("41,753.3090")]),
-    table.cell(align(right)[#text("19.4518")]),
-    table.cell(align(right)[#text("9,78,392.77")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("28 Jan 2025")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("1,416.5550")]),
-    table.cell(align(right)[#text("1,411.8760")]),
-    table.cell(align(right)[#text("20,00,000.01")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("11 Feb 2025")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("708.7890")]),
-    table.cell(align(right)[#text("1,410.8571")]),
-    table.cell(align(right)[#text("9,99,999.99")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("11 Feb 2025")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("28,263.1430")]),
-    table.cell(align(right)[#text("35.3818")]),
-    table.cell(align(right)[#text("10,00,000.87")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential Bluechip Fund Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("11 Feb 2025")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("9,083.8480")]),
-    table.cell(align(right)[#text("110.0855")]),
-    table.cell(align(right)[#text("9,99,999.95")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Nippon India Vision Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("05 Mar 2025")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("729.4940")]),
-    table.cell(align(right)[#text("1,370.8132")]),
-    table.cell(align(right)[#text("10,00,000.00")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential India Opportunities Fund Direct - Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("05 Mar 2025")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("29,042.9860")]),
-    table.cell(align(right)[#text("34.4317")]),
-    table.cell(align(right)[#text("9,99,999.38")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("Parag Parikh Flexi Cap Fund Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("05 Mar 2025")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("11,941.7980")]),
-    table.cell(align(right)[#text("83.7395")]),
-    table.cell(align(right)[#text("10,00,000.19")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential Bluechip Fund Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("05 Mar 2025")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("9,368.0910")]),
-    table.cell(align(right)[#text("106.7453")]),
-    table.cell(align(right)[#text("9,99,999.68")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("ICICI Prudential Bluechip Fund Direct-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("06 Mar 2025")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("9,285.4490")]),
-    table.cell(align(right)[#text("107.6954")]),
-    table.cell(align(right)[#text("10,00,000.14")]),
-
-    table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(align(left)[#text("Equities")]),
-    table.cell(align(left)[#text("Equities: Mutual Funds/ETFs")]),
-    table.cell(align(left)[#text("HDFC Flexi Cap Direct Plan-Growth")]),
-    table.cell(align(left)[#text("0")]),
-    table.cell(align(center)[#text("06 Mar 2025")]),
-    table.cell(align(left)[#text("MFSUB")]),
-    table.cell(align(right)[#text("518.9090")]),
-    table.cell(align(right)[#text("1,927.1202")]),
-    table.cell(align(right)[#text("10,00,000.02")]),
+    table.cell(align(right)[#text("15,412.3000")]),
+    table.cell(align(right)[#text("32.4400")]),
+    table.cell(align(right)[#text("4,99,975.00")]),
 
 )
 
 
-/*
+
+// Debt Mutual Fund - Quants
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // #pagebreak()
 #let customHeader =box(
@@ -5641,60 +3976,53 @@ header: context{
   #place()[== #text("Mutual Fund Analysis - Debt Mutual Fund Quants")]
 ]
 
-#let currentData1 = (
+#let DebtMFRatingData = (
   
-  ( value: 34.79,
-     name: "Multi/Flexi cap"
+  ( value: 44.32,
+     name: "CRISIL AAA"
   ),
 
-  ( value: 22.59,
-     name: "Factor"
+  ( value: 37.58,
+     name: "SOV"
   ),
 
-  ( value: 15.78,
-     name: "Thematic"
+  ( value: 8.06,
+     name: "ICRA AAA"
   ),
 
-  ( value: 15.19,
-     name: "Mid Cap"
+  ( value: 5.42,
+     name: "CRISIL A1+"
   ),
 
-  ( value: 11.64,
-     name: "Large Cap"
+  ( value: 1.33,
+     name: "CARE AAA"
   ),
 
+  ( value: 0.86,
+     name: "FITCH AAA(CE)"
+  ),
 
-
+  ( value: 2.42,
+     name: "Others"
+  ),
  )
 
-
-
- //top left
-
 #place(top+left,
-dx: 0pt,dy:20pt)[
-
+dx: 0pt,dy:10pt)[
 #place(
-dx: 20pt,dy:30pt)[#text(" Rating Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")]
-
-
-  #box(width: 32%,height: 48%,stroke: rgb("#cecece"),radius: 20pt)[
-
-
-  #pad(left: 150pt,top: -650pt,
-
-
+dx: 10pt,dy:30pt)[#text(" Rating Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")]
+  #box(width: 32%,height: 48%,stroke: rgb("#cecece"),radius: 20pt,clip: true)[
+  #place(dx: 130pt,dy: -190pt,
     grid(
       columns: (1fr, 1fr),
       align: (center),
-      // Current allocation chart
       box(
         width: 130%, height: 150%, stroke: none)[
         #echarm.render(width: 100%, height: 100%, options: (
           series: (
-            name: "Current Allocation",
+            name: "Debt Rating Allocation",
             type: "pie",
-            radius: ("60%", "70%"),
+            radius: ("40%", "50%"),
             avoidLabelOverlap: false,
             color: primaryColors,
             itemStyle: (
@@ -5702,9 +4030,9 @@ dx: 20pt,dy:30pt)[#text(" Rating Allocation(%)", size: 30pt,  fill: rgb("0e496e"
               borderWidth: 0,
             ),
             labelLine: (
-              //show: true,
+              // "show": true,
             ),
-            data: currentData1
+            data: DebtMFRatingData
           ),
         )
       ),
@@ -5713,16 +4041,15 @@ dx: 20pt,dy:30pt)[#text(" Rating Allocation(%)", size: 30pt,  fill: rgb("0e496e"
 )
 
 #place(
- dx: 80pt, dy: -180pt
+ dx: 50pt, dy: 290pt
 )[
    #grid(
   columns: (1fr, 1fr, 1fr),
   column-gutter: -120pt,
-  gutter: 10pt,
   inset: 20pt,
   align: left,
   // Dynamically generate legend items
-  ..currentData1.enumerate().map(((i, item)) => {
+  ..DebtMFRatingData.enumerate().map(((i, item)) => {
     let value = str(item.value) + "%"
     let name = item.name
     stack(
@@ -5740,66 +4067,57 @@ dx: 20pt,dy:30pt)[#text(" Rating Allocation(%)", size: 30pt,  fill: rgb("0e496e"
       )
     )
   })
-)
-]
+)]]]
 
 
-]
-  ]
-
-
-#let currentData2 = (
+#let DbetMfInstrumentData = (
   
-  ( value: 34.79,
-     name: "Multi/Flexi cap"
+  ( value: 13.64,
+     name: "GOI"
   ),
 
-  ( value: 22.59,
-     name: "Factor"
+  ( value: 9.30,
+     name: "Maharashtra State"
   ),
 
-  ( value: 15.78,
-     name: "Thematic"
+  ( value: 7.21,
+     name: "National Bank Agr. Rur. Devp"
   ),
 
-  ( value: 15.19,
-     name: "Mid Cap"
+  ( value: 6.95,
+     name: "Small Industries"
   ),
 
-  ( value: 11.64,
-     name: "Large Cap"
+  ( value: 5.86,
+     name: "Tamilnadu State"
   ),
 
- )
+  ( value: 5.66,
+     name: "HDFC Bank"
+  ),
 
+  ( value: 51.37,
+     name: "Others"
+  ),
 
-
+)
 //  //top mid
-
 #place(top+left,
-dx: 550pt,dy:20pt)[
-
+dx: 550pt,dy:10pt)[
 #place(
-dx: 20pt,dy:30pt)[#text(" Instrument Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")]
-
-
-  #box(width: 32%,height: 48%,stroke: rgb("#cecece"),radius: 20pt)[
-
-
-  #pad(left: 150pt,top: -650pt,
-
-
+dx: 10pt,dy:30pt)[#text("Instrument Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")]
+  #box(width: 32%,height: 48%,stroke: rgb("#cecece"),radius: 20pt,clip: true)[
+  #place(dx: 20pt, dy: -240pt
     grid(
       columns: (1fr, 1fr),
       align: (center),
-      // Current allocation chart
       box(
         width: 130%, height: 150%, stroke: none)[
         #echarm.render(width: 100%, height: 100%, options: (
           series: (
-            name: "Current Allocation",
+            name: "Debt Instrument Allocation",
             type: "pie",
-            radius: ("60%", "70%"),
+            radius: ("40%", "50%"),
             avoidLabelOverlap: false,
             color: primaryColors,
             itemStyle: (
@@ -5807,9 +4125,9 @@ dx: 20pt,dy:30pt)[#text(" Instrument Allocation(%)", size: 30pt,  fill: rgb("0e4
               borderWidth: 0,
             ),
             labelLine: (
-            //  show: true,
+              // "show": true,
             ),
-            data: currentData2
+            data: DbetMfInstrumentData
           ),
         )
       ),
@@ -5817,18 +4135,16 @@ dx: 20pt,dy:30pt)[#text(" Instrument Allocation(%)", size: 30pt,  fill: rgb("0e4
   )
 )
 
-
 #place(
- dx: 80pt, dy: -180pt
+ dx: 50pt, dy: 290pt
 )[
-  #grid(
+   #grid(
   columns: (1fr, 1fr, 1fr),
   column-gutter: -120pt,
-  gutter: 10pt,
   inset: 20pt,
   align: left,
   // Dynamically generate legend items
-  ..currentData2.enumerate().map(((i, item)) => {
+  ..DbetMfInstrumentData.enumerate().map(((i, item)) => {
     let value = str(item.value) + "%"
     let name = item.name
     stack(
@@ -5847,19 +4163,15 @@ dx: 20pt,dy:30pt)[#text(" Instrument Allocation(%)", size: 30pt,  fill: rgb("0e4
     )
   })
 )
+]]
 ]
 
-
-]
-  ]
-
- //top right
-
+ //top right Sector Allocation(%)
 #place(top+right,
   dx: 0pt, dy: 20pt
 )[
   #box(
-    width: 32%,
+    width: 33.3%,
     height:48%,
    stroke: rgb("#cecece"),
     radius: 20pt,
@@ -5867,37 +4179,27 @@ dx: 20pt,dy:30pt)[#text(" Instrument Allocation(%)", size: 30pt,  fill: rgb("0e4
     inset: 20pt
   )[// Title
     #place(dx: 0pt,dy: 5pt)[
-    #text("Industry Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")
+    #text("Sector Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")
     ]
  #let EquityMFIndData =(
       
- (category :"Others", value:49.82),
+ (category :"Financial", value:51.94),
  
- (category :"Banking", value:16.52),
+ (category :"Others", value:23.01),
  
- (category :"Software", value:7.90),
+ (category :"Sovereign", value:13.64),
  
- (category :"Drugs & Pharma", value:7.45),
+ (category :"Construction", value:5.20),
  
- (category :"Cement", value:4.39),
+ (category :"Energy", value:4.87),
  
- (category :"Cars & Multi Utility Vehicles", value:2.75),
- 
- (category :"Telecom Services", value:2.46),
- 
- (category :"Life Insurance", value:2.44),
- 
- (category :"E-Commerce", value:2.22),
- 
- (category :"Auto Ancillaries", value:2.07),
- 
- (category :"Other Financial Instututions", value:1.98),
+ (category :"Communication", value:1.33),
  
 )
-    #place(dx:100pt,dy:-50pt)[
-        #box(stroke: 1pt,clip: true,inset: 20pt)[#echarm.render(width: 2000pt, height: 400pt, options: (
+   #place(dx:50pt,dy:30pt)[#echarm.render(width: 2000pt, height: 100%, options: (
           yAxis: (
           type: "category",
+          inverse:true,
           data: EquityMFIndData.map((items)=> (items.category)),
           axisLine: ("show": false),
           axisTick: ("show": false),
@@ -5918,6 +4220,8 @@ dx: 20pt,dy:30pt)[#text(" Instrument Allocation(%)", size: 30pt,  fill: rgb("0e4
                 color:primaryColors.at(0),
                 stack:"a",
                 name:"a",
+                barWidth: 20,
+                barGap: 15,
                 label: (
                       "show": true,
                       position: "right",
@@ -5927,27 +4231,21 @@ dx: 20pt,dy:30pt)[#text(" Instrument Allocation(%)", size: 30pt,  fill: rgb("0e4
                     ),
               )
       )
-      )]]
+      )]
   ]
 ]
 
-#let currentData2 = (
-  (value:  100, name: "Upto 12 Months"),
+#let DebtMfAvgMatData = (
+  
  )
 
+// Avg Maturity Allocation(%)
 #place(bottom+left,
 dx: 0pt,dy:20pt)[
-
 #place(
 dx: 20pt,dy:30pt)[#text("Avg Maturity Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")]
-
-
   #box(width: 32%,height: 48%,stroke: rgb("#cecece"),radius: 20pt)[
-
-
   #pad(left: 150pt,top: 100pt,
-
-
     grid(
       columns: (1fr, 1fr),
       align: (center),
@@ -5968,7 +4266,7 @@ dx: 20pt,dy:30pt)[#text("Avg Maturity Allocation(%)", size: 30pt,  fill: rgb("0e
             labelLine: (
             //  show: true,
             ),
-            data: currentData1
+            data: DebtMfAvgMatData
           ),
         )
       ),
@@ -5985,7 +4283,7 @@ dx: 20pt,dy:30pt)[#text("Avg Maturity Allocation(%)", size: 30pt,  fill: rgb("0e
   inset: 20pt,
   align: left,
   // Dynamically generate legend items
-  ..currentData1.enumerate().map(((i, item)) => {
+  ..DebtMfAvgMatData.enumerate().map(((i, item)) => {
     let value = str(item.value) + "%"
     let name = item.name
     stack(
@@ -6007,65 +4305,86 @@ dx: 20pt,dy:30pt)[#text("Avg Maturity Allocation(%)", size: 30pt,  fill: rgb("0e
 ]
 ]
   ]
-//top left
-#place(top+left,
-dx: 0pt,dy:20pt)[
 
-
-
-  #box(width: 32%,height: 48%,stroke: rgb("#cecece"),radius: 20pt)[
-
-
-  #pad(left: 150pt,top: -650pt,
-
-
-    grid(
-      columns: (1fr, 1fr),
-      align: (center),
-      // Current allocation chart
-      box(
-        width: 130%, height: 150%, stroke: none)[
-        #echarm.render(width: 100%, height: 100%, options: (
-          series: (
-            name: "Current Allocation",
-            type: "pie",
-            radius: ("60%", "70%"),
-            avoidLabelOverlap: false,
-            color: primaryColors,
-            itemStyle: (
-              borderColor: "#fff",
-              borderWidth: 0,
-            ),
-            labelLine: (
-            //  show: true,
-            ),
-            data: currentData1
-          ),
-        )
-      ),
+// AMC Allocation(%)
+#place(bottom+right,
+  dx: 0pt, dy: 20pt
+)[
+  #box(
+    width: 33.3%,
+    height:48%,
+   stroke: rgb("#cecece"),
+    radius: 20pt,
+    clip: true,
+    inset: 20pt
+  )[// Title
+    #place(dx: 0pt,dy: 5pt)[
+    #text("AMC Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")
     ]
-  )
+ #let EquityMFIndData =(
+      
+ (category :"ICICI Prudential Mutual Fund", value:37.61),
+ 
+ (category :"HSBC Mutual Fund", value:36.98),
+ 
+ (category :"Nippon India Mutual Fund", value:25.41),
+ 
 )
-
-
-
-
-
-]
+   #place(dx:50pt,dy:30pt)[#echarm.render(width: 2000pt, height: 100%, options: (
+          yAxis: (
+          type: "category",
+          inverse:true,
+          data: EquityMFIndData.map((items)=> (items.category)),
+          axisLine: ("show": false),
+          axisTick: ("show": false),
+          axisLabel: (align: right,
+                    // padding: (0,12,0,0),
+                      color: "#000000",
+                      fontWeight: "bold"),
+          ),
+        xAxis: (splitLine: ("show": false),
+                type: "value",
+                min: 0,
+                max: 450.00,
+                axisLine: ("show": false),
+                axisLabel: ("show": false),
+              ),
+        series: (data: (EquityMFIndData.map((items)=> items.value)),
+                type: "bar",
+                color:primaryColors.at(0),
+                stack:"a",
+                name:"a",
+                barWidth: 20,
+                barGap: 15,
+                label: (
+                      "show": true,
+                      position: "right",
+                      color: "#000000",
+                      "formatter": "{c}%",
+                      fontWeight:"bold"
+                    ),
+              )
+      )
+      )]
   ]
+]
 
 
 
 
 //  //bottom mid
-
 #place(bottom+left,
   dx: 550pt, dy: 20pt
 )[
-  #let bottomdata = (
-    (Metric: " AverageMaturity", Values: [4.9]),
-    (Metric: "Duration", Values: [3.2]),
-    (Metric: "YTM", Values: [0.6]),
+  #let DebtQuantsData = (
+    
+    (Metric: "AverageMaturity", Values: [4.09]),
+    
+    (Metric: "Duration", Values: [0]),
+    
+    (Metric: "YTM", Values: [3.05]),
+    
+
 
   )
 
@@ -6078,9 +4397,7 @@ dx: 0pt,dy:20pt)[
     inset: 20pt
   )[
     #place(
-dx: 20pt,dy:30pt)[#text("Debt Quants", size: 30pt,  fill: rgb("0e496e"),font: "Bai Jamjuree", weight: "extrabold")]
-
-
+dx: 20pt,dy:30pt)[#text("Debt Quants", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")]
 
 //table
 #set table(
@@ -6104,116 +4421,20 @@ dx: 20pt,dy:30pt)[#text("Debt Quants", size: 30pt,  fill: rgb("0e496e"),font: "B
       table.cell(fill: rgb("#f1f1f1"))[*Metric*],
       table.cell(fill: rgb("#f1f1f1"), align: right)[*Value(yr)*],
       // Data rows
-      ..bottomdata.map(row => {
-        (
-          text(size: 14pt, row.Metric),
-          text(size: 14pt, row.Values),
-        )
-      }).flatten()
-    )
-  ]
-  ]
-
-
-//bottom right
-
-#place(bottom+right,
-  dx: 0pt, dy: 20pt
-)[
-
-  #box(
-    width: 33%,
-    height: 48%,
-    clip: true,
-    stroke: rgb("#cecece"),
-    radius: 20pt,
-    inset: 20pt
-  )[
-    // Title
-    #place(dx: 0pt,dy: 5pt)[
-    #text("AMC Allocation(%)", font: "Bai Jamjuree", size: 18pt, fill: rgb("0e496e"), weight: "bold")
-
-   #v(10pt)
-
-  #let amcBar = (width, label: "100%", color: rgb("#2caffe")) => {
-  // Convert width to a ratio if it's a float (assuming width is a percentage like 16.52)
-  let widthRatio = if type(width) == "float" { calc.min(width / 100, 1.0) } else { width }
-
-
-  if (widthRatio <= 0.0) {
-    return rect(
-      width: 20%,
-      fill: white,
-      height: 17.2pt,
-      align(left + horizon, text(size: 15pt, label, fill: black)) // Left-align label
-    )
-  }
-  return stack(
-    dir: ltr,
-    spacing: 5pt,
-    rect(width: widthRatio * 100%, fill: color, height: 30pt, radius: (right: 5pt)),
-    align(left + horizon, text(size: 15pt, label, baseline: 3pt)) // Left-align label outside bar
-  )
-}
-
-#set table(
-  align: (x, y) => {
-    if x == 0 {
-      (right + horizon)
-    } else {
-      (left + horizon)
-    }
-  },
-  inset: 2pt
+       
+       table.cell( text("AverageMaturity")),
+        table.cell(text("4.09")),
+        
+       table.cell( text("Duration")),
+        table.cell(text("0")),
+        
+       table.cell( text("YTM")),
+        table.cell(text("3.05")),
+        
 )
-
-#place(dx: 100pt, dy: 40pt)[
-  #table(
-    columns: (150pt, 240pt),
-    stroke: none,
-    column-gutter: 10pt,
-    
-    box(width: 250pt,align(top, text(size: 15pt, "Others"))),
-    amcBar(49.82, label: text(size: 15pt, "49.82%")),
-    
-    box(width: 250pt,align(top, text(size: 15pt, "Banking"))),
-    amcBar(16.52, label: text(size: 15pt, "16.52%")),
-    
-    box(width: 250pt,align(top, text(size: 15pt, "Software"))),
-    amcBar(7.90, label: text(size: 15pt, "7.90%")),
-    
-    box(width: 250pt,align(top, text(size: 15pt, "Drugs & Pharma"))),
-    amcBar(7.45, label: text(size: 15pt, "7.45%")),
-    
-    box(width: 250pt,align(top, text(size: 15pt, "Cement"))),
-    amcBar(4.39, label: text(size: 15pt, "4.39%")),
-    
-    box(width: 250pt,align(top, text(size: 15pt, "Cars & Multi Utility Vehicles"))),
-    amcBar(2.75, label: text(size: 15pt, "2.75%")),
-    
-    box(width: 250pt,align(top, text(size: 15pt, "Telecom Services"))),
-    amcBar(2.46, label: text(size: 15pt, "2.46%")),
-    
-    box(width: 250pt,align(top, text(size: 15pt, "Life Insurance"))),
-    amcBar(2.44, label: text(size: 15pt, "2.44%")),
-    
-    box(width: 250pt,align(top, text(size: 15pt, "E-Commerce"))),
-    amcBar(2.22, label: text(size: 15pt, "2.22%")),
-    
-    box(width: 250pt,align(top, text(size: 15pt, "Auto Ancillaries"))),
-    amcBar(2.07, label: text(size: 15pt, "2.07%")),
-    
-    box(width: 250pt,align(top, text(size: 15pt, "Other Financial Instututions"))),
-    amcBar(1.98, label: text(size: 15pt, "1.98%")),
-    
-  )
-]
   ]
   ]
-]
-
-
-*/
+ 
 #pagebreak()
 #let customHeader =box(
       width: 100%,

@@ -234,7 +234,7 @@ header: context{
   })
 )
 ]
-#place(dx:408pt,dy:40pt)[#line(length: 80%,angle: 90deg,stroke: (2.8pt + luma(88%)))]
+#place(dx:408pt,dy:0pt)[#line(length: 100%,angle: 90deg,stroke: (2.8pt + luma(88%)))]
 
       ],
       box(

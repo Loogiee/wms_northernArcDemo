@@ -153,12 +153,12 @@ header: context{
   #place()[== #text("Asset Class Summary - Asset Class Wise Summary")]
 ]
   #table(
-    columns: (1.5fr, 1fr, 1fr, 1fr, 1.2fr, 1fr, 1.2fr, .5fr, 1.5fr),
+    columns: (1.5fr, 1fr, 1fr, 1fr, 1.2fr, 1fr, 1.2fr, .5fr,.5fr, 1.5fr),
     stroke: none,
     inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     // Header
     table.header(
-    table.cell(rowspan: 2, colspan: 9, align: left + horizon, [#text(fill: heading0,size: 20pt, weight: "bold", [ Portfolio Analysis Report])]),
+    table.cell(rowspan: 2, colspan: 10, align: left + horizon, [#text(fill: heading0,size: 20pt, weight: "bold", [ Portfolio Analysis Report])]),
     table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
 
     // Column headers
@@ -170,6 +170,7 @@ header: context{
     table.cell(align(right)[#text(fill: heading0,weight: "black", "Dividend Interest")]),
     table.cell(align(right)[#text(fill: heading0,weight: "black", "Gain/Loss Unrealised")]),
     table.cell(align(right)[#text(fill: heading0,weight: "black", "IRR %")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "BMIRR %")]),
     table.cell(align(left)[#text(fill: heading0,weight: "black", "Benchmark")]),
   ),
 {{$ShowOnce := true}}
@@ -178,7 +179,7 @@ header: context{
     {{$ShowOnce = true}}
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     {{$TotalLable:="Sub Total"}}
-    {{if Contains .SecurityCategory "GRAND_TOTAL"}}{{$TotalLable ="Grand Total"}}{{end}}
+    {{if Contains .SecurityCategory "GRAND TOTAL"}}{{$TotalLable ="Grand Total"}}{{end}}
     table.cell(align(left)[#text("{{$TotalLable}}",fill: heading0)],),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}",fill:heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .AssetExposure}}",fill:heading0)]),
@@ -187,11 +188,12 @@ header: context{
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Dividend}}",fill:heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}",fill:heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .XIRR}}",fill:heading0)]),
+    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .BMXIRR}}",fill:heading0)]),
     table.cell(align(left)[#text("{{.BenchmarkName}}",fill:heading0)]),
     {{else}}
     {{if $ShowOnce}}
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-    table.cell(colspan: 9, align(left)[#text("{{.AssetGroupName}}" )],fill: highlightBlue),
+    table.cell(colspan: 10, align(left)[#text("{{.AssetGroupName}}" )],fill: highlightBlue),
     {{$ShowOnce = false}}
     {{end}}
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -203,6 +205,7 @@ header: context{
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Dividend}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .XIRR}}")]),
+    table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .BMXIRR}}")]),
     table.cell(align(left)[#text("{{.BenchmarkName}}")]),
     {{end}}
   {{end}}
@@ -243,7 +246,7 @@ header: context{
    inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     // Header
     table.header(
-    table.cell(rowspan: 2, colspan: 8, align: left + horizon, [#text(fill: heading0,size: 15pt, weight: "bold", [ Portfolio Analysis Report])]),
+    table.cell(rowspan: 2, colspan: 9, align: left + horizon, [#text(fill: heading0,size: 15pt, weight: "bold", [ Portfolio Analysis Report])]),
     table.hline(stroke: rgb(gray)),
     // Column headers
     table.cell(align(left)[#text(fill: heading0,weight: "black", "Asset Class")]),
@@ -261,7 +264,7 @@ header: context{
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
        {{$ShowOnce = true}}
       {{$TotalLable:="Sub Total"}}
-      {{if Contains .SecurityCategory "GRAND_TOTAL"}}{{$TotalLable ="Grand Total"}}{{end}}
+      {{if Contains .SecurityCategory "GRAND TOTAL"}}{{$TotalLable ="Grand Total"}}{{end}}
       table.cell(align(left)[#text("{{$TotalLable}}" ,fill: heading0)],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}" ,fill: heading0)],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}" ,fill: heading0)],),
@@ -318,12 +321,12 @@ header: context{
   #place()[== #text("Asset Class Summary - Sub Asset Class wise Summary")]
 ]
   #table(
-    columns: (2fr, 1fr, 1fr, 1.3fr, 1fr, 1fr, .5fr, .7fr),
+    columns: (2fr, 1fr, 1fr, 1.3fr, 1fr, 1fr, .5fr,.5fr, .7fr),
     stroke: none,
     inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     // Header
     table.header(
-    table.cell(rowspan: 2, colspan: 8, align: left + horizon, [#text(fill: heading0,size: 15pt, weight: "bold", [ Portfolio Analysis Report])]),
+    table.cell(rowspan: 2, colspan: 9, align: left + horizon, [#text(fill: heading0,size: 15pt, weight: "bold", [ Portfolio Analysis Report])]),
     table.hline(stroke: rgb(gray)),
 
     // Column headers
@@ -334,6 +337,7 @@ header: context{
     table.cell(align(right)[#text(fill: heading0,weight: "black", "Dividend Interest")]),
     table.cell(align(right)[#text(fill: heading0,weight: "black", "Realised Gain/Loss")]),
     table.cell(align(right)[#text(fill: heading0,weight: "black", "IRR %")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "BMIRR %")]),
     table.cell(align(right)[#text(fill: heading0,weight: "black", "Exposure %")]),
   ),
  {{$ShowOnce := true}}
@@ -343,7 +347,7 @@ header: context{
        {{$ShowOnce = true}}
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
       {{$TotalLable:="Sub Total"}}
-      {{if Contains .SecurityCategory "GRAND_TOTAL"}}{{$TotalLable ="Grand Total"}}{{end}}
+      {{if Contains .SecurityCategory "GRAND TOTAL"}}{{$TotalLable ="Grand Total"}}{{end}}
       table.cell(align(left)[#text("{{$TotalLable}}" ,fill: heading0)],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}" ,fill: heading0)],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}" ,fill: heading0)],),
@@ -351,11 +355,12 @@ header: context{
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .DistributedIncome}}" ,fill: heading0)],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .RealGainLoss}}" ,fill: heading0)],),
       table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .XIRR}}" ,fill: heading0)],),
+      table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .BMXIRR}}" ,fill: heading0)],),
       table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .AssetExposure}}" ,fill: heading0)],),
     {{else}}
       {{if $ShowOnce}}
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-      table.cell(colspan: 8, align(left)[#text("{{.SecurityCategory}}" )],fill: highlightBlue ),
+      table.cell(colspan: 9, align(left)[#text("{{.SecurityCategory}}" )],fill: highlightBlue ),
       {{$ShowOnce = false}}
       {{end}}
       table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
@@ -366,6 +371,7 @@ header: context{
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .DistributedIncome}}" )],),
       table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .RealGainLoss}}" )],),
       table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .XIRR}}" )],),
+      table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .BMXIRR}}" )],),
       table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .AssetExposure}}" )],),
     {{end}}
   {{end}}
@@ -428,7 +434,7 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     {{$ShowOnce = true}}
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     {{$TotalLable:="Sub Total"}}
-      {{if Contains .SecurityName "GRAND_TOTAL"}}{{$TotalLable ="Grand Total"}}{{end}}
+      {{if Contains .SecurityName "GRAND TOTAL"}}{{$TotalLable ="Grand Total"}}{{end}}
     table.cell([#text("{{$TotalLable}}",fill :heading0)]),
     table.cell(align(left)[#text("{{.FolioNo}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Quantity}}",fill :heading0)]),
@@ -508,7 +514,7 @@ header: context{
    {{if Contains .SecurityName "TOTAL"}}
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     {{$TotalLable:="Sub Total"}}
-      {{if Contains .SecurityName "GRAND_TOTAL"}}{{$TotalLable ="Grand Total"}}{{end}}
+      {{if Contains .SecurityName "GRAND TOTAL"}}{{$TotalLable ="Grand Total"}}{{end}}
     table.cell([#text("{{$TotalLable}}",fill :heading0)]),
     table.cell(align(left)[#text("{{.FolioNo}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Inflow}}",fill :heading0)]),
@@ -582,7 +588,7 @@ header: context{
    {{if Contains .SecurityName "TOTAL"}}
     table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     {{$TotalLable:="Sub Total"}}
-      {{if Contains .SecurityName "GRAND_TOTAL"}}{{$TotalLable ="Grand Total"}}{{end}}
+      {{if Contains .SecurityName "GRAND TOTAL"}}{{$TotalLable ="Grand Total"}}{{end}}
     table.cell([#text("{{$TotalLable}}",fill :heading0)]),
     table.cell(align(left)[#text("{{.ISIN}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Quantity}}",fill :heading0)]),

@@ -33,6 +33,18 @@ func ProcessMutualFund(sqlData *[]map[string]interface{}) (string, error) {
 				mapEqQuantsSection(value, &FinalProcessData) //Equity Quants
 			case "equity_mf_industry_allocation%":
 				mapEqIndAllocSection(value, &FinalProcessData) //Industry Allocation(%)
+			case "debt_mf_amc_allocation%":
+				mapDebtMfAmcAlloc(value, &FinalProcessData) //AMC Allocation(%) --> Debt Mutual Fund - Quants
+			case "debt_mf_sector_allocation%":
+				mapDebtMfSectorAlloc(value, &FinalProcessData) //Sector Allocation(%) --> Debt Mutual Fund - Quants
+			case "debt_avg_maturity_allocation":
+				mapDebtMfDebtavgMatAlloc(value, &FinalProcessData) //Avg Maturity Allocation(%) --> Debt Mutual Fund - Quants
+			case "debt_quants":
+				mapDebtQuantsSection(value, &FinalProcessData) //Debt Quants --> Debt Mutual Fund - Quants
+			case "debt_mf_rating_allocation%":
+				mapDebtMfRatingAlloc(value, &FinalProcessData) //Rating Allocation(%) --> Debt Mutual Fund - Quants
+			case "debt_mf_instrument_allocation%":
+				mapDebtMfinstrumentAlloc(value, &FinalProcessData) //Sector Allocation(%) --> Debt Mutual Fund - Quants
 			}
 		}
 	}
@@ -122,4 +134,56 @@ func mapEqIndAllocSection(value interface{}, parsingData *MutualFundSection) {
 		return processData[i].Percentage > processData[j].Percentage
 	})
 	parsingData.EquityMfIndustryAllocation = processData
+}
+
+func mapDebtMfAmcAlloc(value interface{}, parsingData *MutualFundSection) {
+	var processData []DebtMfAmcAllocation
+	MapToStruct(value, &processData)
+	sort.Slice(processData, func(i, j int) bool {
+		return processData[i].Percentage > processData[j].Percentage
+	})
+	parsingData.DebtMfAmcAllocation = processData
+}
+
+func mapDebtMfSectorAlloc(value interface{}, parsingData *MutualFundSection) {
+	var processData []DebtMfSectorAllocation
+	MapToStruct(value, &processData)
+	sort.Slice(processData, func(i, j int) bool {
+		return processData[i].Percentage > processData[j].Percentage
+	})
+	parsingData.DebtMfSectorAllocation = processData
+}
+
+func mapDebtMfDebtavgMatAlloc(value interface{}, parsingData *MutualFundSection) {
+	var processData []DebtMfAvgMatAllocation
+	MapToStruct(value, &processData)
+	parsingData.DebtMfAvgMatAllocation = processData
+}
+
+func mapDebtQuantsSection(value interface{}, parsingData *MutualFundSection) {
+	var processData []DebtQuants
+	MapToStruct(value, &processData)
+	for index, item := range processData {
+		switch item.Metric {
+		case "AVERAGE_MATURITY_PERIOD":
+			processData[index].Metric = "AverageMaturity"
+		case "AVG_YTM":
+			processData[index].Metric = "Duration"
+		case "DURATION":
+			processData[index].Metric = "YTM"
+		}
+	}
+	parsingData.DebtQuants = processData
+}
+
+func mapDebtMfRatingAlloc(value interface{}, parsingData *MutualFundSection) {
+	var processData []DebtMfRatingAllocation
+	MapToStruct(value, &processData)
+	parsingData.DebtMfRatingAllocation = processData
+}
+
+func mapDebtMfinstrumentAlloc(value interface{}, parsingData *MutualFundSection) {
+	var processData []DebtMfInstrumentSecAllocation
+	MapToStruct(value, &processData)
+	parsingData.DebtMfInstrumentSecAllocation = processData
 }
