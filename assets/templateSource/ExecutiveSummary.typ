@@ -344,9 +344,9 @@ header: context{
         table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
         table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .XIRR}}"+"%")]),
                 table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
-        table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .ExcessReturns}}"+"%")]),
-                table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
         table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .BMXIRR}}"+"%")]),
+                table.hline(stroke: stroke(thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
+        table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .ExcessReturns}}"+"%")]),
         {{end}}
       ),
     )

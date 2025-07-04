@@ -8,6 +8,10 @@
 margin: (top:80pt,left:15pt,right:15pt),
 header: none
 )
+#set table(
+  stroke: none,
+inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
+)
 #pagebreak()
 #hide[ #heading(outlined: true)[#text([Mutual Fund Analysis],fill:rgb("#0d3c6a"))]]
 #place(dx: -15pt,dy:-80pt,
@@ -123,6 +127,7 @@ header: context{
 #hide[
   #place()[== #text("Mutual Fund Analysis - AMC wise Exposure")]
 ]
+
 #table(
     columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1fr),
 

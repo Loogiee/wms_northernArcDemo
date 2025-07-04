@@ -86,7 +86,7 @@ func ConvertToFormattedNumberPointer(amount *float64) string {
 	n := len(intPart)
 
 	if n <= 3 {
-		return intPart
+		return intPart + "." + decimalPart
 	}
 
 	result := intPart[n-3:]
@@ -121,7 +121,7 @@ func ConvertToFormattedNumber4Pointer(amount *float64) string {
 	n := len(intPart)
 
 	if n <= 3 {
-		return intPart+"."+decimalPart
+		return intPart + "." + decimalPart
 	}
 
 	result := intPart[n-3:]

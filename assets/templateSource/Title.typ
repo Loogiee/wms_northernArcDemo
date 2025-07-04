@@ -231,7 +231,10 @@
     )
   ])
 
-
+#set table(
+  stroke: none,
+inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
+)
 
 #place(bottom + left, dx: 510pt, dy: -70pt, rect(width: 100%, stroke: none)[
   #set stack(spacing: 16pt)
