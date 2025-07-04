@@ -429,6 +429,7 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     table.cell(align(right)[#text(fill: heading0, weight: "black", "Life Days")]),
   ),
   {{$ShowOnce := true}}
+ {{$RequredDateFormat :="02 Jan 2006"}}
 {{range  .MututalFundHoldingSection}}
    {{if Contains .SecurityName "TOTAL"}}
     {{$ShowOnce = true}}
@@ -437,13 +438,13 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
       {{if Contains .SecurityName "GRAND TOTAL"}}{{$TotalLable ="Grand Total"}}{{end}}
     table.cell([#text("{{$TotalLable}}",fill :heading0)]),
     table.cell(align(left)[#text("{{.FolioNo}}",fill :heading0)]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Quantity}}",fill :heading0)]),
+    table.cell(align(right)[#text("{{ConvertToFormattedNumber4Pointer .Quantity}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .AbsoluteReturn}}",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .XIRR}}",fill :heading0)]),
-    table.cell(align(center)[#text("{{.PurchaseDate}}",fill :heading0)]),
+    table.cell(align(center)[#text("-",fill :heading0)]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberWithoutDecimalPointer .HoldingDays}}",fill :heading0)]),
   {{else}}
   {{if $ShowOnce}}
@@ -454,13 +455,13 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell([#text("{{.SecurityName}}")]),
     table.cell(align(left)[#text("{{.FolioNo}}")]),
-    table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Quantity}}")]),
+    table.cell(align(right)[#text("{{ConvertToFormattedNumber4Pointer .Quantity}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .AcquisitionCost}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .MarketValue}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberPointer .Appreciation}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .AbsoluteReturn}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedPercentagePointer .XIRR}}")]),
-    table.cell(align(center)[#text("{{.PurchaseDate}}")]),
+    table.cell(align(center)[#text("{{DateFormatter .PurchaseDate $RequredDateFormat}}")]),
     table.cell(align(right)[#text("{{ConvertToFormattedNumberWithoutDecimalPointer .HoldingDays}}")]),
   {{end}}
 {{end}}

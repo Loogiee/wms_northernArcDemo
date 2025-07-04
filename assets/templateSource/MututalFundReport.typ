@@ -287,40 +287,12 @@ header: context{
 {{end}}
  )
  //top left
- #let amcBar = (width, label: "100%", color: rgb("#2caffe")) => {
-  // Convert width to a ratio if it's a float (assuming width is a percentage like 16.52)
-  let widthRatio = if type(width) == "float" { calc.min(width / 100, 1.0) } else { width }
-
-  // Apply a scaling factor to increase the standard width (e.g., 1.5x)
-  let scaledWidthRatio = calc.min(widthRatio * 1.0, 1.0) // Scale width by 1.5, cap at 1.0
-
-  if (scaledWidthRatio <= 0.0) {
-    return rect(
-      width: 20%,
-      fill: white,
-      height: 17.2pt,
-      align(left + horizon, text(size: 15pt, label, fill: black)) // Left-align label
-    )
-  }
-  return stack(
-    dir: ltr,
-    spacing: 5pt,
-    rect(
-      width: scaledWidthRatio * 100%, // Use scaled width
-      fill: color,
-      height: 35pt,
-      radius: (right: 5pt)
-    ),
-    align(left + horizon, text(size: 15pt, label, baseline: 3pt)) // Left-align label outside bar
-  )
-}
-
 #place(top+left,
   dx: 0pt, dy: 20pt
 )[
   #box(
     width: 49.5%,
-    height:48%,
+    height:48.8%,
    stroke: rgb("#cecece"),
     radius: 20pt,
     clip: true,
@@ -334,7 +306,7 @@ header: context{
  (category :"{{.IndustryName}}", value:{{ConvertToFormattedPercentagePointer .Percentage}}),
  {{end}}
 )
-   #place(dx:50pt,dy:30pt)[#echarm.render(width: 2000pt, height: 100%, options: (
+   #place(dx:50pt,dy:30pt)[#echarm.render(width: 2610pt, height: 100%, options: (
           yAxis: (
           type: "category",
           inverse:true,
@@ -344,6 +316,7 @@ header: context{
           axisLabel: (align: right,
                     // padding: (0,12,0,0),
                       color: "#000000",
+                      fontSize:16,
                       fontWeight: "bold"),
           ),
         xAxis: (splitLine: ("show": false),
@@ -364,6 +337,7 @@ header: context{
                       "show": true,
                       position: "right",
                       color: "#000000",
+                      fontSize:16,
                       "formatter": "{c}%",
                       fontWeight:"bold"
                     ),
@@ -375,11 +349,11 @@ header: context{
 
  //bottom left
 #place(bottom+left,
-  dx: 0pt, dy: 0pt
+  dx: 0pt, dy: 5pt
 )[
   #box(
     width: 49.5%,
-    height:45%,
+    height:48.5%,
    stroke: rgb("#cecece"),
     radius: 20pt,
     clip: true,
@@ -394,7 +368,7 @@ header: context{
  {{end}}
 )
    #place(dx:50pt,dy:20pt)[
-        #box(stroke:none,clip: true)[#echarm.render(width: 2000pt, height: 100%, options: (
+        #box(stroke:none,clip: true)[#echarm.render(width: 2610pt, height: 100%, options: (
           yAxis: (
           type: "category",
           inverse:true,
@@ -404,6 +378,7 @@ header: context{
           axisLabel: (align: right,
                     // padding: (0,12,0,0),
                       color: "#000000",
+                      fontSize:16,
                       fontWeight: "bold"),
           ),
         xAxis: (splitLine: ("show": false),
@@ -424,6 +399,7 @@ header: context{
                       "show": true,
                       position: "right",
                       color: "#000000",
+                      fontSize:16,
                       "formatter": "{c}%",
                       fontWeight:"bold"
                     ),
@@ -436,7 +412,7 @@ header: context{
 #place(top+right,
 dx: 0pt,dy:20pt)[
 #place(dx: 20pt,dy:20pt)[#text("Market Capitalization Allocation(%)", size: 25pt,  fill: rgb("0e496e"), weight: "extrabold")]
-  #box(width: 49%,height: 50%, stroke: rgb("#cecece"),radius: 20pt)[
+  #box(width: 49%,height: 48.8%, stroke: rgb("#cecece"),radius: 20pt)[
   #pad(left: 250pt,top: -650pt,
     grid(
       columns: (1fr, 1fr),
@@ -487,11 +463,11 @@ dx: 0pt,dy:20pt)[
         dir: ltr, // Horizontal stack for color and value
         spacing: 15pt,
         rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(i))),
-        text(value, size: 15pt)
+        text(value)
       ),
       place(
         dx: 27pt, // Offset to align name under value (12pt for rect width + 15pt for spacing)
-        text(name, size: 15pt)
+        text(name)
       )
     )
   })
@@ -503,7 +479,7 @@ dx: 0pt,dy:20pt)[
 
  //bottom right
 #place(bottom+right,
-  dx: 0pt, dy: -10pt
+  dx: 0pt, dy: 5pt
 )[
 
   #let EquityQuantsData = (
@@ -515,7 +491,7 @@ dx: 0pt,dy:20pt)[
   // Create a bordered box containing the table
   #box(
     width: 49%,
-    height: 45%,
+    height: 48.5%,
     stroke: rgb("#cecece"),
     radius: 20pt,
     inset: 20pt
@@ -759,7 +735,7 @@ dx: 10pt,dy:30pt)[#text("Instrument Allocation(%)", size: 30pt,  fill: rgb("0e49
  (category :"{{.InstrumentName}}", value:{{ConvertToFormattedPercentagePointer .Percentage}}),
  {{end}}
 )
-#place(dx:-30pt,dy:20pt)[#echarm.render(width: 2000pt, height: 400pt, options: (
+#place(dx:-100pt,dy:20pt)[#echarm.render(width: 2610pt, height: 400pt, options: (
           yAxis: (
           type: "category",
           inverse:true,
@@ -769,6 +745,7 @@ dx: 10pt,dy:30pt)[#text("Instrument Allocation(%)", size: 30pt,  fill: rgb("0e49
           axisLabel: (align: right,
                     // padding: (0,12,0,0),
                       color: "#000000",
+                      fontSize:16,
                       fontWeight: "bold"),
           ),
         xAxis: (splitLine: ("show": false),
@@ -789,6 +766,7 @@ dx: 10pt,dy:30pt)[#text("Instrument Allocation(%)", size: 30pt,  fill: rgb("0e49
                       "show": true,
                       position: "right",
                       color: "#000000",
+                      fontSize:16,
                       "formatter": "{c}%",
                       fontWeight:"bold"
                     ),
@@ -891,7 +869,7 @@ dx: 20pt,dy:30pt)[#text("Avg Maturity Allocation(%)", size: 30pt,  fill: rgb("0e
  (category :"{{.IssuerName}}", value:{{ConvertToFormattedPercentagePointer .Percentage}}),
  {{end}}
 )
-#place(dx:10pt,dy:20pt)[#echarm.render(width: 2000pt, height: 400pt, options: (
+#place(dx:-30pt,dy:20pt)[#echarm.render(width: 2610pt, height: 400pt, options: (
           yAxis: (
           type: "category",
           inverse:true,
@@ -901,6 +879,7 @@ dx: 20pt,dy:30pt)[#text("Avg Maturity Allocation(%)", size: 30pt,  fill: rgb("0e
           axisLabel: (align: right,
                     // padding: (0,12,0,0),
                       color: "#000000",
+                      fontSize:16,
                       fontWeight: "bold"),
           ),
         xAxis: (splitLine: ("show": false),
@@ -921,6 +900,7 @@ dx: 20pt,dy:30pt)[#text("Avg Maturity Allocation(%)", size: 30pt,  fill: rgb("0e
                       "show": true,
                       position: "right",
                       color: "#000000",
+                      fontSize:16,
                       "formatter": "{c}%",
                       fontWeight:"bold"
                     ),

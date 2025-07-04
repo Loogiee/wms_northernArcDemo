@@ -76,7 +76,7 @@
 //   #image("./assets/images/bg design2.jpg", width: 100%, height: 100%)
 // ]
 #place(top + right, dx: -90pt)[
-  #image("./assets/images/kfintech-logo.png", width: 300pt)
+  #image("./assets/images/Client_logo.png", width: 300pt)
 ]
 #place(bottom + left, dx: -40pt, dy: -100pt)[
   #image("./assets/images/design.png", width: 480pt)
@@ -298,7 +298,7 @@
         #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
        place(top+right,dx: -15pt,dy: 12pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+          [#image("./assets/images/Client_logo.png", width: 250pt,height: 40pt, fit: "contain")])
 )
 )
 #set page(paper: "a2", flipped: true,fill: rgb("#f4f5f6"),
@@ -887,7 +887,7 @@ header: context{
         #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
        place(top+right,dx: -15pt,dy: 12pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+          [#image("./assets/images/Client_logo.png", width: 250pt,height: 40pt, fit: "contain")])
 )
 )
 #set page(paper: "a2", flipped: true,fill: rgb("#f4f5f6"),
@@ -1387,7 +1387,7 @@ header: none)
         #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
        place(top+right,dx: -15pt,dy: 12pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+          [#image("./assets/images/Client_logo.png", width: 250pt,height: 40pt, fit: "contain")])
 )
 )
 #set page(paper: "a2", flipped: true,
@@ -1401,7 +1401,7 @@ header: context{
   #place()[== #text("Asset Class Summary - Asset Class Wise Summary")]
 ]
   #table(
-    columns: (1.5fr, 1fr, 1fr, 1fr, 1.2fr, 1fr, 1.2fr, .5fr,.5fr, 1.5fr),
+    columns: (1.5fr, 1fr, .7fr, 1fr, 1.2fr, 1fr, 1.2fr, .5fr,.6fr, 1.5fr),
     stroke: none,
     inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     // Header
@@ -1568,7 +1568,7 @@ header: context{
         #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
        place(top+right,dx: -15pt,dy: 12pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+          [#image("./assets/images/Client_logo.png", width: 250pt,height: 40pt, fit: "contain")])
 
 )
 )
@@ -1788,7 +1788,7 @@ header: context{
         #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
        place(top+right,dx: -15pt,dy: 12pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+          [#image("./assets/images/Client_logo.png", width: 250pt,height: 40pt, fit: "contain")])
 
 )
 )
@@ -1827,6 +1827,7 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     table.cell(align(right)[#text(fill: heading0, weight: "black", "Life Days")]),
   ),
   
+ 
 
    
   
@@ -1837,13 +1838,13 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell([#text("HDFC Nifty 50 Index Fund -Growth")]),
     table.cell(align(left)[#text("20036786/57")]),
-    table.cell(align(right)[#text("14,866.37")]),
+    table.cell(align(right)[#text("14,866.3700")]),
     table.cell(align(right)[#text("29,99,850.00")]),
     table.cell(align(right)[#text("32,12,472.62")]),
     table.cell(align(right)[#text("2,12,622.62")]),
     table.cell(align(right)[#text("7.09")]),
     table.cell(align(right)[#text("6.35")]),
-    table.cell(align(center)[#text("2023-10-12")]),
+    table.cell(align(center)[#text("12 Oct 2023")]),
     table.cell(align(right)[#text("404")]),
   
 
@@ -1852,13 +1853,13 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell([#text("Mirae Asset Large Cap Fund Regular- Growth")]),
     table.cell(align(left)[#text("79958647361")]),
-    table.cell(align(right)[#text("1,08,164.93")]),
+    table.cell(align(right)[#text("1,08,164.9300")]),
     table.cell(align(right)[#text("81,99,590.00")]),
     table.cell(align(right)[#text("1,10,68,625.35")]),
     table.cell(align(right)[#text("28,69,035.35")]),
     table.cell(align(right)[#text("34.99")]),
     table.cell(align(right)[#text("12.51")]),
-    table.cell(align(center)[#text("2022-06-24")]),
+    table.cell(align(center)[#text("24 Jun 2022")]),
     table.cell(align(right)[#text("898")]),
   
 
@@ -1869,7 +1870,7 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
       
     table.cell([#text("Sub Total",fill :heading0)]),
     table.cell(align(left)[#text("-",fill :heading0)]),
-    table.cell(align(right)[#text("1,23,031.30",fill :heading0)]),
+    table.cell(align(right)[#text("1,23,031.3000",fill :heading0)]),
     table.cell(align(right)[#text("1,11,99,440.00",fill :heading0)]),
     table.cell(align(right)[#text("1,42,81,097.97",fill :heading0)]),
     table.cell(align(right)[#text("30,81,657.97",fill :heading0)]),
@@ -1888,13 +1889,13 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell([#text("PGIM India Midcap Opportunities Fund Regular-Growth")]),
     table.cell(align(left)[#text("91014278746")]),
-    table.cell(align(right)[#text("1,61,432.73")]),
+    table.cell(align(right)[#text("1,61,432.7300")]),
     table.cell(align(right)[#text("66,99,664.99")]),
     table.cell(align(right)[#text("93,16,282.91")]),
     table.cell(align(right)[#text("26,16,617.92")]),
     table.cell(align(right)[#text("39.06")]),
     table.cell(align(right)[#text("13.76")]),
-    table.cell(align(center)[#text("2022-06-24")]),
+    table.cell(align(center)[#text("24 Jun 2022")]),
     table.cell(align(right)[#text("892")]),
   
 
@@ -1905,7 +1906,7 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
       
     table.cell([#text("Sub Total",fill :heading0)]),
     table.cell(align(left)[#text("-",fill :heading0)]),
-    table.cell(align(right)[#text("1,61,432.73",fill :heading0)]),
+    table.cell(align(right)[#text("1,61,432.7300",fill :heading0)]),
     table.cell(align(right)[#text("66,99,664.99",fill :heading0)]),
     table.cell(align(right)[#text("93,16,282.91",fill :heading0)]),
     table.cell(align(right)[#text("26,16,617.92",fill :heading0)]),
@@ -1924,13 +1925,13 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell([#text("HDFC Focused 30 Fund-Growth")]),
     table.cell(align(left)[#text("20036786/57")]),
-    table.cell(align(right)[#text("38,012.32")]),
+    table.cell(align(right)[#text("38,012.3200")]),
     table.cell(align(right)[#text("82,99,585.02")]),
     table.cell(align(right)[#text("79,53,279.70")]),
     table.cell(align(right)[#text("-3,46,305.32")]),
     table.cell(align(right)[#text("-4.17")]),
     table.cell(align(right)[#text("-8.14")]),
-    table.cell(align(center)[#text("2024-07-16")]),
+    table.cell(align(center)[#text("16 Jul 2024")]),
     table.cell(align(right)[#text("181")]),
   
 
@@ -1939,13 +1940,13 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell([#text("Invesco India Flexi Cap Fund Regular - Growth")]),
     table.cell(align(left)[#text("31023974234")]),
-    table.cell(align(right)[#text("3,13,505.44")]),
+    table.cell(align(right)[#text("3,13,505.4400")]),
     table.cell(align(right)[#text("58,99,705.02")]),
     table.cell(align(right)[#text("51,50,894.41")]),
     table.cell(align(right)[#text("-7,48,810.61")]),
     table.cell(align(right)[#text("-12.69")]),
     table.cell(align(right)[#text("-27.34")]),
-    table.cell(align(center)[#text("2024-10-11")]),
+    table.cell(align(center)[#text("11 Oct 2024")]),
     table.cell(align(right)[#text("148")]),
   
 
@@ -1954,13 +1955,13 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell([#text("Parag Parikh Flexi Cap Fund Regular-Growth")]),
     table.cell(align(left)[#text("12689762")]),
-    table.cell(align(right)[#text("2,62,306.93")]),
+    table.cell(align(right)[#text("2,62,306.9300")]),
     table.cell(align(right)[#text("1,41,99,290.02")]),
     table.cell(align(right)[#text("2,04,47,402.35")]),
     table.cell(align(right)[#text("62,48,112.33")]),
     table.cell(align(right)[#text("44.00")]),
     table.cell(align(right)[#text("20.59")]),
-    table.cell(align(center)[#text("2022-06-24")]),
+    table.cell(align(center)[#text("24 Jun 2022")]),
     table.cell(align(right)[#text("630")]),
   
 
@@ -1969,13 +1970,13 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell([#text("SBI Focused Equity Fund-Growth")]),
     table.cell(align(left)[#text("30372259")]),
-    table.cell(align(right)[#text("38,240.30")]),
+    table.cell(align(right)[#text("38,240.3000")]),
     table.cell(align(right)[#text("82,99,585.01")]),
     table.cell(align(right)[#text("1,22,13,881.71")]),
     table.cell(align(right)[#text("39,14,296.70")]),
     table.cell(align(right)[#text("47.16")]),
     table.cell(align(right)[#text("15.85")]),
-    table.cell(align(center)[#text("2022-06-24")]),
+    table.cell(align(center)[#text("24 Jun 2022")]),
     table.cell(align(right)[#text("923")]),
   
 
@@ -1986,7 +1987,7 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
       
     table.cell([#text("Sub Total",fill :heading0)]),
     table.cell(align(left)[#text("-",fill :heading0)]),
-    table.cell(align(right)[#text("6,52,064.99",fill :heading0)]),
+    table.cell(align(right)[#text("6,52,064.9900",fill :heading0)]),
     table.cell(align(right)[#text("3,66,98,165.07",fill :heading0)]),
     table.cell(align(right)[#text("4,57,65,458.17",fill :heading0)]),
     table.cell(align(right)[#text("90,67,293.10",fill :heading0)]),
@@ -2005,13 +2006,13 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell([#text("Kotak Small Cap Fund Regular-Growth")]),
     table.cell(align(left)[#text("10784222/35")]),
-    table.cell(align(right)[#text("35,680.76")]),
+    table.cell(align(right)[#text("35,680.7600")]),
     table.cell(align(right)[#text("54,99,725.00")]),
     table.cell(align(right)[#text("82,66,947.34")]),
     table.cell(align(right)[#text("27,67,222.34")]),
     table.cell(align(right)[#text("50.32")]),
     table.cell(align(right)[#text("16.78")]),
-    table.cell(align(center)[#text("2022-06-24")]),
+    table.cell(align(center)[#text("24 Jun 2022")]),
     table.cell(align(right)[#text("935")]),
   
 
@@ -2022,7 +2023,7 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
       
     table.cell([#text("Sub Total",fill :heading0)]),
     table.cell(align(left)[#text("-",fill :heading0)]),
-    table.cell(align(right)[#text("35,680.76",fill :heading0)]),
+    table.cell(align(right)[#text("35,680.7600",fill :heading0)]),
     table.cell(align(right)[#text("54,99,725.00",fill :heading0)]),
     table.cell(align(right)[#text("82,66,947.34",fill :heading0)]),
     table.cell(align(right)[#text("27,67,222.34",fill :heading0)]),
@@ -2041,13 +2042,13 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell([#text("ICICI Prudential India Opportunities Fund - Growth")]),
     table.cell(align(left)[#text("22784851/86")]),
-    table.cell(align(right)[#text("2,58,979.68")]),
+    table.cell(align(right)[#text("2,58,979.6800")]),
     table.cell(align(right)[#text("77,99,610.00")]),
     table.cell(align(right)[#text("83,80,582.28")]),
     table.cell(align(right)[#text("5,80,972.28")]),
     table.cell(align(right)[#text("7.45")]),
     table.cell(align(right)[#text("9.67")]),
-    table.cell(align(center)[#text("2023-03-20")]),
+    table.cell(align(center)[#text("20 Mar 2023")]),
     table.cell(align(right)[#text("312")]),
   
 
@@ -2058,7 +2059,7 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
       
     table.cell([#text("Sub Total",fill :heading0)]),
     table.cell(align(left)[#text("-",fill :heading0)]),
-    table.cell(align(right)[#text("2,58,979.68",fill :heading0)]),
+    table.cell(align(right)[#text("2,58,979.6800",fill :heading0)]),
     table.cell(align(right)[#text("77,99,610.00",fill :heading0)]),
     table.cell(align(right)[#text("83,80,582.28",fill :heading0)]),
     table.cell(align(right)[#text("5,80,972.28",fill :heading0)]),
@@ -2077,13 +2078,13 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell([#text("HSBC Banking and PSU Debt Fund-Growth")]),
     table.cell(align(left)[#text("5962018/67")]),
-    table.cell(align(right)[#text("7,58,351.45")]),
+    table.cell(align(right)[#text("7,58,351.4500")]),
     table.cell(align(right)[#text("1,49,99,250.03")]),
     table.cell(align(right)[#text("1,78,44,237.17")]),
     table.cell(align(right)[#text("28,44,987.14")]),
     table.cell(align(right)[#text("18.97")]),
     table.cell(align(right)[#text("6.62")]),
-    table.cell(align(center)[#text("2022-06-24")]),
+    table.cell(align(center)[#text("24 Jun 2022")]),
     table.cell(align(right)[#text("973")]),
   
 
@@ -2092,13 +2093,13 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell([#text("ICICI Prudential Banking & PSU Debt-Growth")]),
     table.cell(align(left)[#text("22784851/86")]),
-    table.cell(align(right)[#text("5,70,192.27")]),
+    table.cell(align(right)[#text("5,70,192.2700")]),
     table.cell(align(right)[#text("1,49,99,250.04")]),
     table.cell(align(right)[#text("1,81,46,083.96")]),
     table.cell(align(right)[#text("31,46,833.92")]),
     table.cell(align(right)[#text("20.98")]),
     table.cell(align(right)[#text("7.45")]),
-    table.cell(align(center)[#text("2022-06-24")]),
+    table.cell(align(center)[#text("24 Jun 2022")]),
     table.cell(align(right)[#text("973")]),
   
 
@@ -2109,7 +2110,7 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
       
     table.cell([#text("Sub Total",fill :heading0)]),
     table.cell(align(left)[#text("-",fill :heading0)]),
-    table.cell(align(right)[#text("13,28,543.72",fill :heading0)]),
+    table.cell(align(right)[#text("13,28,543.7200",fill :heading0)]),
     table.cell(align(right)[#text("2,99,98,500.07",fill :heading0)]),
     table.cell(align(right)[#text("3,59,90,321.13",fill :heading0)]),
     table.cell(align(right)[#text("59,91,821.06",fill :heading0)]),
@@ -2128,13 +2129,13 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
      table.hline(stroke: (thickness: 0.1pt,  paint:rgb("#cdcdcd"))),
     table.cell([#text("Nippon India Dynamic Bond Fund-Growth")]),
     table.cell(align(left)[#text("499266492702")]),
-    table.cell(align(right)[#text("3,38,898.84")]),
+    table.cell(align(right)[#text("3,38,898.8400")]),
     table.cell(align(right)[#text("99,99,500.01")]),
     table.cell(align(right)[#text("1,22,59,767.13")]),
     table.cell(align(right)[#text("22,60,267.12")]),
     table.cell(align(right)[#text("22.60")]),
     table.cell(align(right)[#text("7.89")]),
-    table.cell(align(center)[#text("2022-06-24")]),
+    table.cell(align(center)[#text("24 Jun 2022")]),
     table.cell(align(right)[#text("973")]),
   
 
@@ -2145,7 +2146,7 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
       
     table.cell([#text("Sub Total",fill :heading0)]),
     table.cell(align(left)[#text("-",fill :heading0)]),
-    table.cell(align(right)[#text("3,38,898.84",fill :heading0)]),
+    table.cell(align(right)[#text("3,38,898.8400",fill :heading0)]),
     table.cell(align(right)[#text("99,99,500.01",fill :heading0)]),
     table.cell(align(right)[#text("1,22,59,767.13",fill :heading0)]),
     table.cell(align(right)[#text("22,60,267.12",fill :heading0)]),
@@ -2162,7 +2163,7 @@ inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
       
     table.cell([#text("Grand Total",fill :heading0)]),
     table.cell(align(left)[#text("-",fill :heading0)]),
-    table.cell(align(right)[#text("28,98,632.02",fill :heading0)]),
+    table.cell(align(right)[#text("28,98,632.0200",fill :heading0)]),
     table.cell(align(right)[#text("10,78,94,605.14",fill :heading0)]),
     table.cell(align(right)[#text("13,42,60,456.93",fill :heading0)]),
     table.cell(align(right)[#text("2,63,65,851.79",fill :heading0)]),
@@ -2286,7 +2287,7 @@ header: none
         #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
        place(top+right,dx: -15pt,dy: 12pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+          [#image("./assets/images/Client_logo.png", width: 250pt,height: 40pt, fit: "contain")])
 
 )
 )
@@ -2553,7 +2554,7 @@ header: context{
         #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
        place(top+right,dx: -15pt,dy: 12pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+          [#image("./assets/images/Client_logo.png", width: 250pt,height: 40pt, fit: "contain")])
 
 )
 )
@@ -2999,7 +3000,7 @@ header: context{
         #place(dy: 14pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
        place(top+right,dx: -15pt,dy: 15pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+          [#image("./assets/images/Client_logo.png", width: 250pt,height: 40pt, fit: "contain")])
 
 )
 )
@@ -3038,40 +3039,12 @@ header: context{
 
  )
  //top left
- #let amcBar = (width, label: "100%", color: rgb("#2caffe")) => {
-  // Convert width to a ratio if it's a float (assuming width is a percentage like 16.52)
-  let widthRatio = if type(width) == "float" { calc.min(width / 100, 1.0) } else { width }
-
-  // Apply a scaling factor to increase the standard width (e.g., 1.5x)
-  let scaledWidthRatio = calc.min(widthRatio * 1.0, 1.0) // Scale width by 1.5, cap at 1.0
-
-  if (scaledWidthRatio <= 0.0) {
-    return rect(
-      width: 20%,
-      fill: white,
-      height: 17.2pt,
-      align(left + horizon, text(size: 15pt, label, fill: black)) // Left-align label
-    )
-  }
-  return stack(
-    dir: ltr,
-    spacing: 5pt,
-    rect(
-      width: scaledWidthRatio * 100%, // Use scaled width
-      fill: color,
-      height: 35pt,
-      radius: (right: 5pt)
-    ),
-    align(left + horizon, text(size: 15pt, label, baseline: 3pt)) // Left-align label outside bar
-  )
-}
-
 #place(top+left,
   dx: 0pt, dy: 20pt
 )[
   #box(
     width: 49.5%,
-    height:48%,
+    height:48.8%,
    stroke: rgb("#cecece"),
     radius: 20pt,
     clip: true,
@@ -3105,7 +3078,7 @@ header: context{
  (category :"Electricity Distribution", value:1.90),
  
 )
-   #place(dx:50pt,dy:30pt)[#echarm.render(width: 2000pt, height: 100%, options: (
+   #place(dx:50pt,dy:30pt)[#echarm.render(width: 2610pt, height: 100%, options: (
           yAxis: (
           type: "category",
           inverse:true,
@@ -3115,6 +3088,7 @@ header: context{
           axisLabel: (align: right,
                     // padding: (0,12,0,0),
                       color: "#000000",
+                      fontSize:15,
                       fontWeight: "bold"),
           ),
         xAxis: (splitLine: ("show": false),
@@ -3135,6 +3109,7 @@ header: context{
                       "show": true,
                       position: "right",
                       color: "#000000",
+                      fontSize:15,
                       "formatter": "{c}%",
                       fontWeight:"bold"
                     ),
@@ -3146,11 +3121,11 @@ header: context{
 
  //bottom left
 #place(bottom+left,
-  dx: 0pt, dy: 20pt
+  dx: 0pt, dy: 5pt
 )[
   #box(
     width: 49.5%,
-    height:48%,
+    height:48.5%,
    stroke: rgb("#cecece"),
     radius: 20pt,
     clip: true,
@@ -3177,7 +3152,7 @@ header: context{
  
 )
    #place(dx:50pt,dy:20pt)[
-        #box(stroke:none,clip: true)[#echarm.render(width: 2000pt, height: 100%, options: (
+        #box(stroke:none,clip: true)[#echarm.render(width: 2610pt, height: 100%, options: (
           yAxis: (
           type: "category",
           inverse:true,
@@ -3187,6 +3162,7 @@ header: context{
           axisLabel: (align: right,
                     // padding: (0,12,0,0),
                       color: "#000000",
+                      fontSize:15,
                       fontWeight: "bold"),
           ),
         xAxis: (splitLine: ("show": false),
@@ -3207,6 +3183,7 @@ header: context{
                       "show": true,
                       position: "right",
                       color: "#000000",
+                      fontSize:15,
                       "formatter": "{c}%",
                       fontWeight:"bold"
                     ),
@@ -3219,7 +3196,7 @@ header: context{
 #place(top+right,
 dx: 0pt,dy:20pt)[
 #place(dx: 20pt,dy:20pt)[#text("Market Capitalization Allocation(%)", size: 25pt,  fill: rgb("0e496e"), weight: "extrabold")]
-  #box(width: 49%,height: 50%, stroke: rgb("#cecece"),radius: 20pt)[
+  #box(width: 49%,height: 48.8%, stroke: rgb("#cecece"),radius: 20pt)[
   #pad(left: 250pt,top: -650pt,
     grid(
       columns: (1fr, 1fr),
@@ -3270,11 +3247,11 @@ dx: 0pt,dy:20pt)[
         dir: ltr, // Horizontal stack for color and value
         spacing: 15pt,
         rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(i))),
-        text(value, size: 15pt)
+        text(value)
       ),
       place(
         dx: 27pt, // Offset to align name under value (12pt for rect width + 15pt for spacing)
-        text(name, size: 15pt)
+        text(name)
       )
     )
   })
@@ -3286,7 +3263,7 @@ dx: 0pt,dy:20pt)[
 
  //bottom right
 #place(bottom+right,
-  dx: 0pt, dy: -10pt
+  dx: 0pt, dy: 5pt
 )[
 
   #let EquityQuantsData = (
@@ -3308,7 +3285,7 @@ dx: 0pt,dy:20pt)[
   // Create a bordered box containing the table
   #box(
     width: 49%,
-    height: 45%,
+    height: 48.5%,
     stroke: rgb("#cecece"),
     radius: 20pt,
     inset: 20pt
@@ -3340,6 +3317,520 @@ dx: 0pt,dy:20pt)[
 ]
 
 
+
+// Debt Mutual Fund - Quants
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #pagebreak()
+#let customHeader =box(
+      width: 100%,
+      height: 30pt,
+      stack(
+     place(dx: 10pt,dy: 15pt)[
+        #text("Debt Mutual Fund - Quants", size: 38pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
+        // #text(" ")
+       #text("as on "+ReportDate,size: 14pt, fill: rgb("#585858"))
+        #place(dy: 14pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
+      ],
+       place(top+right,dx: -15pt,dy: 15pt,
+          [#image("./assets/images/Client_logo.png", width: 250pt,height: 40pt, fit: "contain")])
+
+)
+)
+#set page(paper: "a2", flipped: true,
+margin: (top:80pt,left:15pt,right:15pt),
+header: context{
+  if counter(page).get().first() >= 1 {
+    align(top)[#customHeader]
+  }
+})
+#hide[
+  #place()[== #text("Mutual Fund Analysis - Debt Mutual Fund Quants")]
+]
+
+#let DebtMFRatingData = (
+  
+  ( value: 44.32,
+     name: "CRISIL AAA"
+  ),
+
+  ( value: 37.58,
+     name: "SOV"
+  ),
+
+  ( value: 8.06,
+     name: "ICRA AAA"
+  ),
+
+  ( value: 5.42,
+     name: "CRISIL A1+"
+  ),
+
+  ( value: 1.33,
+     name: "CARE AAA"
+  ),
+
+  ( value: 0.86,
+     name: "FITCH AAA(CE)"
+  ),
+
+  ( value: 2.42,
+     name: "Others"
+  ),
+ )
+
+#place(top+left,
+dx: 0pt,dy:10pt)[
+#place(
+dx: 10pt,dy:30pt)[#text(" Rating Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")]
+  #box(width: 32%,height: 48%,stroke: rgb("#cecece"),radius: 20pt,clip: true)[
+  #place(dx: 130pt,dy: -190pt,
+    grid(
+      columns: (1fr, 1fr),
+      align: (center),
+      box(
+        width: 130%, height: 150%, stroke: none)[
+        #echarm.render(width: 100%, height: 100%, options: (
+          series: (
+            name: "Debt Rating Allocation",
+            type: "pie",
+            radius: ("40%", "50%"),
+            avoidLabelOverlap: false,
+            color: primaryColors,
+            itemStyle: (
+              borderColor: "#fff",
+              borderWidth: 0,
+            ),
+            labelLine: (
+              // "show": true,
+            ),
+            data: DebtMFRatingData
+          ),
+        )
+      ),
+    ]
+  )
+)
+
+#place(
+ dx: 50pt, dy: 290pt
+)[
+   #grid(
+  columns: (1fr, 1fr, 1fr),
+  column-gutter: -120pt,
+  inset: 20pt,
+  align: left,
+  // Dynamically generate legend items
+  ..DebtMFRatingData.enumerate().map(((i, item)) => {
+    let value = str(item.value) + "%"
+    let name = item.name
+    stack(
+      dir: ttb, // Stack vertically
+      spacing: 5pt, // Space between color-value and name
+      stack(
+        dir: ltr, // Horizontal stack for color and value
+        spacing: 15pt,
+        rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(i))),
+        text(value, size: 15pt)
+      ),
+      place(
+        dx: 27pt, // Offset to align name under value (12pt for rect width + 15pt for spacing)
+        text(name, size: 15pt)
+      )
+    )
+  })
+)]]]
+
+
+#let DbetMfInstrumentData = (
+  
+  ( value: 13.64,
+     name: "GOI"
+  ),
+
+  ( value: 9.30,
+     name: "Maharashtra State"
+  ),
+
+  ( value: 7.21,
+     name: "National Bank Agr. Rur. Devp"
+  ),
+
+  ( value: 6.95,
+     name: "Small Industries"
+  ),
+
+  ( value: 5.86,
+     name: "Tamilnadu State"
+  ),
+
+  ( value: 5.66,
+     name: "HDFC Bank"
+  ),
+
+  ( value: 51.37,
+     name: "Others"
+  ),
+
+)
+//  //top mid
+#place(top+left,
+dx: 550pt,dy:10pt)[
+#place(
+dx: 10pt,dy:30pt)[#text("Instrument Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")]
+  #box(width: 32%,height: 48%,stroke: rgb("#cecece"),radius: 20pt,clip: true)[
+  #place(dx: 130pt,dy: -190pt,
+    grid(
+      columns: (1fr, 1fr),
+      align: (center),
+      box(
+        width: 130%, height: 150%, stroke: none)[
+        #echarm.render(width: 100%, height: 100%, options: (
+          series: (
+            name: "Debt Instrument Allocation",
+            type: "pie",
+            radius: ("40%", "50%"),
+            avoidLabelOverlap: false,
+            color: primaryColors,
+            itemStyle: (
+              borderColor: "#fff",
+              borderWidth: 0,
+            ),
+            labelLine: (
+              // "show": true,
+            ),
+            data: DbetMfInstrumentData
+          ),
+        )
+      ),
+    ]
+  )
+)
+
+#place(
+ dx: 30pt, dy: 290pt
+)[
+   #grid(
+  columns: (1fr, 1fr, 1fr),
+  column-gutter: -120pt,
+  inset: 20pt,
+  align: left,
+  // Dynamically generate legend items
+  ..DbetMfInstrumentData.enumerate().map(((i, item)) => {
+    let value = str(item.value) + "%"
+    let name = item.name
+    stack(
+      dir: ttb, // Stack vertically
+      spacing: 5pt, // Space between color-value and name
+      stack(
+        dir: ltr, // Horizontal stack for color and value
+        spacing: 15pt,
+        rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(i))),
+        text(value, size: 15pt)
+      ),
+      place(
+        dx: 27pt, // Offset to align name under value (12pt for rect width + 15pt for spacing)
+        text(name, size: 15pt)
+      )
+    )
+  })
+)
+]]
+]
+
+ //top right Sector Allocation(%)
+#place(top+right,
+  dx: 0pt, dy: 10pt
+)[
+  #box(
+    width: 33.3%,
+    height:48%,
+   stroke: rgb("#cecece"),
+    radius: 20pt,
+    clip: true,
+    inset: 20pt
+  )[// Title
+    #place(dx: 0pt,dy: 5pt)[
+    #text("Sector Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")
+    ]
+ #let EquityMFIndData =(
+      
+ (category :"Financial", value:51.94),
+ 
+ (category :"Others", value:23.01),
+ 
+ (category :"Sovereign", value:13.64),
+ 
+ (category :"Construction", value:5.20),
+ 
+ (category :"Energy", value:4.87),
+ 
+ (category :"Communication", value:1.33),
+ 
+)
+#place(dx:-30pt,dy:20pt)[#echarm.render(width:                       fontSize:15,
+, height: 400pt, options: (
+          yAxis: (
+          type: "category",
+          inverse:true,
+          data: EquityMFIndData.map((items)=> (items.category)),
+          axisLine: ("show": false),
+          axisTick: ("show": false),
+          axisLabel: (align: right,
+                    // padding: (0,12,0,0),
+                      color: "#000000",fontSize:15,
+                      fontWeight: "bold"),
+          ),
+        xAxis: (splitLine: ("show": false),
+                type: "value",
+                min: 0,
+                max: 450.00,
+                axisLine: ("show": false),
+                axisLabel: ("show": false),
+              ),
+        series: (data: (EquityMFIndData.map((items)=> items.value)),
+                type: "bar",
+                color:primaryColors.at(0),
+                stack:"a",
+                name:"a",
+                barWidth: 20,
+                barGap: 15,
+                label: (
+                      "show": true,
+                      position: "right",
+                      color: "#000000",fontSize:15,
+                      "formatter": "{c}%",
+                      fontWeight:"bold"
+                    ),
+              )
+      )
+      )]
+  ]
+]
+
+#let DebtMfAvgMatData = (
+  
+  (value: 100, name: "12+ months"),
+  
+ )
+
+// Avg Maturity Allocation(%)
+#place(bottom+left,
+dx: 0pt,dy:0pt)[
+#place(
+dx: 20pt,dy:30pt)[#text("Avg Maturity Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")]
+  #box(width: 32%,height: 48%,stroke: rgb("#cecece"),radius: 20pt)[
+  #pad(left: 150pt,top: 100pt,
+    grid(
+      columns: (1fr, 1fr),
+      align: (center),
+      // Current allocation chart
+      box(
+        width: 130%, height: 150%, stroke: none)[
+        #echarm.render(width: 100%, height: 100%, options: (
+          series: (
+            name: "Current Allocation",
+            type: "pie",
+            radius: ("60%", "70%"),
+            avoidLabelOverlap: false,
+            color: primaryColors,
+            itemStyle: (
+              borderColor: "#fff",
+              borderWidth: 0,
+            ),
+            labelLine: (
+            //  show: true,
+            ),
+            data: DebtMfAvgMatData
+          ),
+        )
+      )
+    ]
+  )
+)
+#place(
+ dx: 80pt, dy: -180pt
+)[
+  #grid(
+  columns: (1fr, 1fr, 1fr),
+  column-gutter: -120pt,
+  gutter: 10pt,
+  inset: 20pt,
+  align: left,
+  // Dynamically generate legend items
+  ..DebtMfAvgMatData.enumerate().map(((i, item)) => {
+    let value = str(item.value) + "%"
+    let name = item.name
+    stack(
+      dir: ttb, // Stack vertically
+      spacing: 5pt, // Space between color-value and name
+      stack(
+        dir: ltr, // Horizontal stack for color and value
+        spacing: 15pt,
+        rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(i))),
+        text(value, size: 15pt)
+      ),
+      place(
+        dx: 27pt, // Offset to align name under value (12pt for rect width + 15pt for spacing)
+        text(name, size: 15pt)
+      )
+    )
+  })
+)
+]
+]
+  ]
+
+// AMC Allocation(%)
+#place(bottom+right,
+  dx: 0pt, dy: 0pt
+)[
+  #box(
+    width: 33.3%,
+    height:48%,
+   stroke: rgb("#cecece"),
+    radius: 20pt,
+    clip: true,
+    inset: 20pt
+  )[// Title
+    #place(dx: 0pt,dy: 5pt)[
+    #text("AMC Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")
+    ]
+ #let EquityMFIndData =(
+      
+ (category :"ICICI Prudential Mutual Fund", value:37.61),
+ 
+ (category :"HSBC Mutual Fund", value:36.98),
+ 
+ (category :"Nippon India Mutual Fund", value:25.41),
+ 
+)
+#place(dx:10pt,dy:20pt)[#echarm.render(width: 2610pt, height: 400pt, options: (
+          yAxis: (
+          type: "category",
+          inverse:true,
+          data: EquityMFIndData.map((items)=> (items.category)),
+          axisLine: ("show": false),
+          axisTick: ("show": false),
+          axisLabel: (align: right,
+                    // padding: (0,12,0,0),
+                      color: "#000000",fontSize:15,
+                      fontWeight: "bold"),
+          ),
+        xAxis: (splitLine: ("show": false),
+                type: "value",
+                min: 0,
+                max: 450.00,
+                axisLine: ("show": false),
+                axisLabel: ("show": false),
+              ),
+        series: (data: (EquityMFIndData.map((items)=> items.value)),
+                type: "bar",
+                color:primaryColors.at(0),
+                stack:"a",
+                name:"a",
+                barWidth: 20,
+                barGap: 15,
+                label: (
+                      "show": true,
+                      position: "right",
+                      color: "#000000",fontSize:15,
+                      "formatter": "{c}%",
+                      fontWeight:"bold"
+                    ),
+              )
+      )
+      )]
+  ]
+]
+
+
+
+
+//  //bottom mid
+#place(bottom+left,
+  dx: 550pt, dy: 0pt
+)[
+  #let DebtQuantsData = (
+    
+    (Metric: "AverageMaturity", Values: [4.09]),
+    
+    (Metric: "Duration", Values: [0]),
+    
+    (Metric: "YTM", Values: [3.05]),
+    
+
+
+  )
+
+  // Create a bordered box containing the table
+  #box(
+    width: 32%,
+    height: 48%,
+    stroke: rgb("#cecece") ,
+    radius: 20pt,
+    inset: 20pt
+  )[
+    #place(
+dx: 20pt,dy:30pt)[#text("Debt Quants", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")]
+
+//table
+#set table(
+      fill: (x, y) =>
+      if y == 0 {
+        rgb("#f1f1f1")
+      },
+    )
+#table(
+      columns: (2fr, 1fr),
+      stroke: (x, y) => {
+        if y == 0 {
+          (bottom: 1pt + gray)
+        } else {
+          (bottom: 0.5pt + gray.lighten(50%))
+        }
+      },
+      inset: 40pt,
+      align: (left, right),
+   // Header row
+      table.cell(fill: rgb("#f1f1f1"))[*Metric*],
+      table.cell(fill: rgb("#f1f1f1"), align: right)[*Value(yr)*],
+      // Data rows
+       
+       table.cell( text("AverageMaturity")),
+        table.cell(text("4.09")),
+        
+       table.cell( text("Duration")),
+        table.cell(text("0")),
+        
+       table.cell( text("YTM")),
+        table.cell(text("3.05")),
+        
+)
+  ]
+  ]
+ 
+
+
 // Mutual Fund - Sector Wise Exposure
 
 #pagebreak()
@@ -3353,7 +3844,7 @@ dx: 0pt,dy:20pt)[
         #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
        place(top+right,dx: -15pt,dy: 12pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+          [#image("./assets/images/Client_logo.png", width: 250pt,height: 40pt, fit: "contain")])
 
 )
 )
@@ -3626,7 +4117,7 @@ header: context{
         #place(dy: 14pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
        place(top+right,dx: -15pt,dy: 15pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+          [#image("./assets/images/Client_logo.png", width: 250pt,height: 40pt, fit: "contain")])
 
 )
 )
@@ -3927,514 +4418,6 @@ header: context{
 
 )
 
-
-
-// Debt Mutual Fund - Quants
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// #pagebreak()
-#let customHeader =box(
-      width: 100%,
-      height: 30pt,
-      stack(
-     place(dx: 10pt,dy: 15pt)[
-        #text("Debt Mutual Fund - Quants", size: 38pt, fill: rgb("#0d3c6a"), weight: "extrabold")\
-        // #text(" ")
-       #text("as on "+ReportDate,size: 14pt, fill: rgb("#585858"))
-        #place(dy: 14pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
-      ],
-       place(top+right,dx: -15pt,dy: 15pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
-
-)
-)
-#set page(paper: "a2", flipped: true,
-margin: (top:80pt,left:15pt,right:15pt),
-header: context{
-  if counter(page).get().first() >= 1 {
-    align(top)[#customHeader]
-  }
-})
-#hide[
-  #place()[== #text("Mutual Fund Analysis - Debt Mutual Fund Quants")]
-]
-
-#let DebtMFRatingData = (
-  
-  ( value: 44.32,
-     name: "CRISIL AAA"
-  ),
-
-  ( value: 37.58,
-     name: "SOV"
-  ),
-
-  ( value: 8.06,
-     name: "ICRA AAA"
-  ),
-
-  ( value: 5.42,
-     name: "CRISIL A1+"
-  ),
-
-  ( value: 1.33,
-     name: "CARE AAA"
-  ),
-
-  ( value: 0.86,
-     name: "FITCH AAA(CE)"
-  ),
-
-  ( value: 2.42,
-     name: "Others"
-  ),
- )
-
-#place(top+left,
-dx: 0pt,dy:10pt)[
-#place(
-dx: 10pt,dy:30pt)[#text(" Rating Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")]
-  #box(width: 32%,height: 48%,stroke: rgb("#cecece"),radius: 20pt,clip: true)[
-  #place(dx: 130pt,dy: -190pt,
-    grid(
-      columns: (1fr, 1fr),
-      align: (center),
-      box(
-        width: 130%, height: 150%, stroke: none)[
-        #echarm.render(width: 100%, height: 100%, options: (
-          series: (
-            name: "Debt Rating Allocation",
-            type: "pie",
-            radius: ("40%", "50%"),
-            avoidLabelOverlap: false,
-            color: primaryColors,
-            itemStyle: (
-              borderColor: "#fff",
-              borderWidth: 0,
-            ),
-            labelLine: (
-              // "show": true,
-            ),
-            data: DebtMFRatingData
-          ),
-        )
-      ),
-    ]
-  )
-)
-
-#place(
- dx: 50pt, dy: 290pt
-)[
-   #grid(
-  columns: (1fr, 1fr, 1fr),
-  column-gutter: -120pt,
-  inset: 20pt,
-  align: left,
-  // Dynamically generate legend items
-  ..DebtMFRatingData.enumerate().map(((i, item)) => {
-    let value = str(item.value) + "%"
-    let name = item.name
-    stack(
-      dir: ttb, // Stack vertically
-      spacing: 5pt, // Space between color-value and name
-      stack(
-        dir: ltr, // Horizontal stack for color and value
-        spacing: 15pt,
-        rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(i))),
-        text(value, size: 15pt)
-      ),
-      place(
-        dx: 27pt, // Offset to align name under value (12pt for rect width + 15pt for spacing)
-        text(name, size: 15pt)
-      )
-    )
-  })
-)]]]
-
-
-#let DbetMfInstrumentData = (
-  
-  ( value: 13.64,
-     name: "GOI"
-  ),
-
-  ( value: 9.30,
-     name: "Maharashtra State"
-  ),
-
-  ( value: 7.21,
-     name: "National Bank Agr. Rur. Devp"
-  ),
-
-  ( value: 6.95,
-     name: "Small Industries"
-  ),
-
-  ( value: 5.86,
-     name: "Tamilnadu State"
-  ),
-
-  ( value: 5.66,
-     name: "HDFC Bank"
-  ),
-
-  ( value: 51.37,
-     name: "Others"
-  ),
-
-)
-//  //top mid
-#place(top+left,
-dx: 550pt,dy:10pt)[
-#place(
-dx: 10pt,dy:30pt)[#text("Instrument Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")]
-  #box(width: 32%,height: 48%,stroke: rgb("#cecece"),radius: 20pt,clip: true)[
-  #place(dx: 20pt, dy: -240pt
-    grid(
-      columns: (1fr, 1fr),
-      align: (center),
-      box(
-        width: 130%, height: 150%, stroke: none)[
-        #echarm.render(width: 100%, height: 100%, options: (
-          series: (
-            name: "Debt Instrument Allocation",
-            type: "pie",
-            radius: ("40%", "50%"),
-            avoidLabelOverlap: false,
-            color: primaryColors,
-            itemStyle: (
-              borderColor: "#fff",
-              borderWidth: 0,
-            ),
-            labelLine: (
-              // "show": true,
-            ),
-            data: DbetMfInstrumentData
-          ),
-        )
-      ),
-    ]
-  )
-)
-
-#place(
- dx: 50pt, dy: 290pt
-)[
-   #grid(
-  columns: (1fr, 1fr, 1fr),
-  column-gutter: -120pt,
-  inset: 20pt,
-  align: left,
-  // Dynamically generate legend items
-  ..DbetMfInstrumentData.enumerate().map(((i, item)) => {
-    let value = str(item.value) + "%"
-    let name = item.name
-    stack(
-      dir: ttb, // Stack vertically
-      spacing: 5pt, // Space between color-value and name
-      stack(
-        dir: ltr, // Horizontal stack for color and value
-        spacing: 15pt,
-        rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(i))),
-        text(value, size: 15pt)
-      ),
-      place(
-        dx: 27pt, // Offset to align name under value (12pt for rect width + 15pt for spacing)
-        text(name, size: 15pt)
-      )
-    )
-  })
-)
-]]
-]
-
- //top right Sector Allocation(%)
-#place(top+right,
-  dx: 0pt, dy: 20pt
-)[
-  #box(
-    width: 33.3%,
-    height:48%,
-   stroke: rgb("#cecece"),
-    radius: 20pt,
-    clip: true,
-    inset: 20pt
-  )[// Title
-    #place(dx: 0pt,dy: 5pt)[
-    #text("Sector Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")
-    ]
- #let EquityMFIndData =(
-      
- (category :"Financial", value:51.94),
- 
- (category :"Others", value:23.01),
- 
- (category :"Sovereign", value:13.64),
- 
- (category :"Construction", value:5.20),
- 
- (category :"Energy", value:4.87),
- 
- (category :"Communication", value:1.33),
- 
-)
-   #place(dx:50pt,dy:30pt)[#echarm.render(width: 2000pt, height: 100%, options: (
-          yAxis: (
-          type: "category",
-          inverse:true,
-          data: EquityMFIndData.map((items)=> (items.category)),
-          axisLine: ("show": false),
-          axisTick: ("show": false),
-          axisLabel: (align: right,
-                    // padding: (0,12,0,0),
-                      color: "#000000",
-                      fontWeight: "bold"),
-          ),
-        xAxis: (splitLine: ("show": false),
-                type: "value",
-                min: 0,
-                max: 450.00,
-                axisLine: ("show": false),
-                axisLabel: ("show": false),
-              ),
-        series: (data: (EquityMFIndData.map((items)=> items.value)),
-                type: "bar",
-                color:primaryColors.at(0),
-                stack:"a",
-                name:"a",
-                barWidth: 20,
-                barGap: 15,
-                label: (
-                      "show": true,
-                      position: "right",
-                      color: "#000000",
-                      "formatter": "{c}%",
-                      fontWeight:"bold"
-                    ),
-              )
-      )
-      )]
-  ]
-]
-
-#let DebtMfAvgMatData = (
-  
- )
-
-// Avg Maturity Allocation(%)
-#place(bottom+left,
-dx: 0pt,dy:20pt)[
-#place(
-dx: 20pt,dy:30pt)[#text("Avg Maturity Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")]
-  #box(width: 32%,height: 48%,stroke: rgb("#cecece"),radius: 20pt)[
-  #pad(left: 150pt,top: 100pt,
-    grid(
-      columns: (1fr, 1fr),
-      align: (center),
-      // Current allocation chart
-      box(
-        width: 130%, height: 150%, stroke: none)[
-        #echarm.render(width: 100%, height: 100%, options: (
-          series: (
-            name: "Current Allocation",
-            type: "pie",
-            radius: ("60%", "70%"),
-            avoidLabelOverlap: false,
-            color: primaryColors,
-            itemStyle: (
-              borderColor: "#fff",
-              borderWidth: 0,
-            ),
-            labelLine: (
-            //  show: true,
-            ),
-            data: DebtMfAvgMatData
-          ),
-        )
-      ),
-    ]
-  )
-)
-#place(
- dx: 80pt, dy: -180pt
-)[
-  #grid(
-  columns: (1fr, 1fr, 1fr),
-  column-gutter: -120pt,
-  gutter: 10pt,
-  inset: 20pt,
-  align: left,
-  // Dynamically generate legend items
-  ..DebtMfAvgMatData.enumerate().map(((i, item)) => {
-    let value = str(item.value) + "%"
-    let name = item.name
-    stack(
-      dir: ttb, // Stack vertically
-      spacing: 5pt, // Space between color-value and name
-      stack(
-        dir: ltr, // Horizontal stack for color and value
-        spacing: 15pt,
-        rect(width: 12pt, height: 10pt, radius: 50%, fill: rgb(primaryColors.at(i))),
-        text(value, size: 15pt)
-      ),
-      place(
-        dx: 27pt, // Offset to align name under value (12pt for rect width + 15pt for spacing)
-        text(name, size: 15pt)
-      )
-    )
-  })
-)
-]
-]
-  ]
-
-// AMC Allocation(%)
-#place(bottom+right,
-  dx: 0pt, dy: 20pt
-)[
-  #box(
-    width: 33.3%,
-    height:48%,
-   stroke: rgb("#cecece"),
-    radius: 20pt,
-    clip: true,
-    inset: 20pt
-  )[// Title
-    #place(dx: 0pt,dy: 5pt)[
-    #text("AMC Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")
-    ]
- #let EquityMFIndData =(
-      
- (category :"ICICI Prudential Mutual Fund", value:37.61),
- 
- (category :"HSBC Mutual Fund", value:36.98),
- 
- (category :"Nippon India Mutual Fund", value:25.41),
- 
-)
-   #place(dx:50pt,dy:30pt)[#echarm.render(width: 2000pt, height: 100%, options: (
-          yAxis: (
-          type: "category",
-          inverse:true,
-          data: EquityMFIndData.map((items)=> (items.category)),
-          axisLine: ("show": false),
-          axisTick: ("show": false),
-          axisLabel: (align: right,
-                    // padding: (0,12,0,0),
-                      color: "#000000",
-                      fontWeight: "bold"),
-          ),
-        xAxis: (splitLine: ("show": false),
-                type: "value",
-                min: 0,
-                max: 450.00,
-                axisLine: ("show": false),
-                axisLabel: ("show": false),
-              ),
-        series: (data: (EquityMFIndData.map((items)=> items.value)),
-                type: "bar",
-                color:primaryColors.at(0),
-                stack:"a",
-                name:"a",
-                barWidth: 20,
-                barGap: 15,
-                label: (
-                      "show": true,
-                      position: "right",
-                      color: "#000000",
-                      "formatter": "{c}%",
-                      fontWeight:"bold"
-                    ),
-              )
-      )
-      )]
-  ]
-]
-
-
-
-
-//  //bottom mid
-#place(bottom+left,
-  dx: 550pt, dy: 20pt
-)[
-  #let DebtQuantsData = (
-    
-    (Metric: "AverageMaturity", Values: [4.09]),
-    
-    (Metric: "Duration", Values: [0]),
-    
-    (Metric: "YTM", Values: [3.05]),
-    
-
-
-  )
-
-  // Create a bordered box containing the table
-  #box(
-    width: 32%,
-    height: 48%,
-    stroke: rgb("#cecece") ,
-    radius: 20pt,
-    inset: 20pt
-  )[
-    #place(
-dx: 20pt,dy:30pt)[#text("Debt Quants", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")]
-
-//table
-#set table(
-      fill: (x, y) =>
-      if y == 0 {
-        rgb("#f1f1f1")
-      },
-    )
-#table(
-      columns: (2fr, 1fr),
-      stroke: (x, y) => {
-        if y == 0 {
-          (bottom: 1pt + gray)
-        } else {
-          (bottom: 0.5pt + gray.lighten(50%))
-        }
-      },
-      inset: 40pt,
-      align: (left, right),
-   // Header row
-      table.cell(fill: rgb("#f1f1f1"))[*Metric*],
-      table.cell(fill: rgb("#f1f1f1"), align: right)[*Value(yr)*],
-      // Data rows
-       
-       table.cell( text("AverageMaturity")),
-        table.cell(text("4.09")),
-        
-       table.cell( text("Duration")),
-        table.cell(text("0")),
-        
-       table.cell( text("YTM")),
-        table.cell(text("3.05")),
-        
-)
-  ]
-  ]
- 
 #pagebreak()
 #let customHeader =box(
       width: 100%,
@@ -4446,7 +4429,7 @@ dx: 20pt,dy:30pt)[#text("Debt Quants", size: 30pt,  fill: rgb("0e496e"), weight:
         #place(dy: 8pt,dx:-10pt,[#line(length: 100%,stroke: 0.4pt + rgb("#cdcdcd"))])
       ],
        place(top+right,dx: -15pt,dy: 12pt,
-          [#image("./assets/images/kfintech-logo.png", width: 250pt,height: 40pt, fit: "contain")])
+          [#image("./assets/images/Client_logo.png", width: 250pt,height: 40pt, fit: "contain")])
 )
 )
 #set page(paper: "a2", flipped: true,fill: rgb("#f4f5f6"),
