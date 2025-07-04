@@ -261,9 +261,11 @@ header: context{
     calculable: true,
   yAxis: (
     type: "value",
-
     axisLine: ("show": true),
      axisLabel:(formatter: "{value}M",color: "#000000",fontWeight: "bold"),
+    splitLine: (
+      "show": false
+    ),
   ),
   series: (
     (data: portBrkupdata.map((items)=> items.StartExposure),

@@ -1919,3 +1919,16 @@ Key: relative_performance_over_quarters, Value: [map[Dec 2024: -13.69 Jun 2025: 
 {"time":"2025-07-03T21:14:48.9027123+05:30","level":"INFO","msg":"Generating report","ReportID:":[],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
 {"time":"2025-07-03T21:17:19.3802364+05:30","level":"DEBUG","msg":"Application Started"}
 {"time":"2025-07-03T21:17:19.3829165+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-07-03T21:17:27.9842733+05:30","level":"INFO","msg":"Generating report","ReportID:":[],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-03T21:17:43.2547684+05:30","level":"INFO","msg":"Generating report","ReportID:":[],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-03T21:24:15.3257142+05:30","level":"INFO","msg":"Generating report","ReportID:":[],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-04T07:11:46.5829221+05:30","level":"DEBUG","msg":"Application Started"}
+{"time":"2025-07-04T07:11:46.5839548+05:30","level":"INFO","msg":"Starting server on port","Port :":"5445"}
+{"time":"2025-07-04T07:12:28.6833508+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-04T07:14:40.2721265+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-04T07:15:44.0885376+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-04T07:17:41.3380512+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-04T07:17:56.2557391+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-04T07:31:43.7566609+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-04T07:32:42.5248864+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}
+{"time":"2025-07-04T07:33:53.4992171+05:30","level":"INFO","msg":"Generating report","ReportID:":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"Customer:":"NX100037","Portfolio:":"NX100037","ReportDate:":"2025-07-03"}

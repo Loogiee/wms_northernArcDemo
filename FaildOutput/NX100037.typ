@@ -2,7 +2,7 @@
 // Define colors and data
 
 #let primaryColors = (
-  "#1e90ff"
+  "#1e90ff",
   "#0ecb81",
   "#f79009",
   "#f14366",
@@ -1216,9 +1216,11 @@ header: context{
     calculable: true,
   yAxis: (
     type: "value",
-
     axisLine: ("show": true),
      axisLabel:(formatter: "{value}M",color: "#000000",fontWeight: "bold"),
+    splitLine: (
+      "show": false
+    ),
   ),
   series: (
     (data: portBrkupdata.map((items)=> items.StartExposure),
@@ -3611,49 +3613,97 @@ header: context{
 )
 
 #place(dx: -100pt, dy: 20pt)[
-  #table(
-    columns: (1fr, 1fr),
-    stroke: none,
-    column-gutter: 10pt,
-    
-    box(align(top, text("Others"))),
-    amcBar(49.82, label: text("49.82%")),
-    
-    box(align(top, text("Banking"))),
-    amcBar(16.52, label: text("16.52%")),
-    
-    box(align(top, text("Software"))),
-    amcBar(7.90, label: text("7.90%")),
-    
-    box(align(top, text("Drugs & Pharma"))),
-    amcBar(7.45, label: text("7.45%")),
-    
-    box(align(top, text("Cement"))),
-    amcBar(4.39, label: text("4.39%")),
-    
-    box(align(top, text("Cars & Multi Utility Vehicles"))),
-    amcBar(2.75, label: text("2.75%")),
-    
-    box(align(top, text("Telecom Services"))),
-    amcBar(2.46, label: text("2.46%")),
-    
-    box(align(top, text("Life Insurance"))),
-    amcBar(2.44, label: text("2.44%")),
-    
-    box(align(top, text("E-Commerce"))),
-    amcBar(2.22, label: text("2.22%")),
-    
-    box(align(top, text("Auto Ancillaries"))),
-    amcBar(2.07, label: text("2.07%")),
-    
-    box(align(top, text("Other Financial Instututions"))),
-    amcBar(1.98, label: text("1.98%")),
-    
+#let EquityMFIndData =(
+
+  category :"Others",
+  value:(.Percentage),
+)
+
+  category :"Banking",
+  value:(.Percentage),
+)
+
+  category :"Software",
+  value:(.Percentage),
+)
+
+  category :"Drugs & Pharma",
+  value:(.Percentage),
+)
+
+  category :"Cement",
+  value:(.Percentage),
+)
+
+  category :"Cars & Multi Utility Vehicles",
+  value:(.Percentage),
+)
+
+  category :"Telecom Services",
+  value:(.Percentage),
+)
+
+  category :"Life Insurance",
+  value:(.Percentage),
+)
+
+  category :"E-Commerce",
+  value:(.Percentage),
+)
+
+  category :"Auto Ancillaries",
+  value:(.Percentage),
+)
+
+  category :"Other Financial Instututions",
+  value:(.Percentage),
+)
+
+
+  #box()[#echarm.render(width: 500pt, height: 400pt, options: (
+    yAxis: (
+    type: "category",
+    data: ("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
+    axisLine: (
+      "show": false,
+    ),
+     axisTick: (
+      "show": false
+    ),
+  ),
+  xAxis: (
+         splitLine: (
+      "show": false
+    ),
+    type: "value",
+    axisLine: (
+      "show": false,
+    ),
+     axisLabel: (
+      "show": false,
+    ),
+  ),
+  series: (
+    (data: (120, 20, 150, 80, 70, 110, 130),
+    type: "bar",
+    stack:"a",
+    name:"a",
+    label: (
+          "show": true,
+          position: "",
+          "formatter": "{c}%",
+          fontWeight:"bold"
+        )
   )
-]  ]
+)
+))]
+
 
   ]
-  ]
+]
+
+]
+]
 
  //bottom left
 #place(bottom+left,
