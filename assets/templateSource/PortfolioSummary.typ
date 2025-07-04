@@ -153,7 +153,7 @@ header: context{
   #place()[== #text("Asset Class Summary - Asset Class Wise Summary")]
 ]
   #table(
-    columns: (1.5fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, .5fr, 1.5fr),
+    columns: (1.5fr, 1fr, 1fr, 1fr, 1.2fr, 1fr, 1.2fr, .5fr, 1.5fr),
     stroke: none,
     inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     // Header
@@ -318,7 +318,7 @@ header: context{
   #place()[== #text("Asset Class Summary - Sub Asset Class wise Summary")]
 ]
   #table(
-    columns: (2fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+    columns: (2fr, 1fr, 1fr, 1.3fr, 1fr, 1fr, .5fr, .7fr),
     stroke: none,
     inset: (top: 20pt, left: 10pt, right: 10pt, bottom: 20pt),
     // Header

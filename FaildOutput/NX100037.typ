@@ -3586,186 +3586,153 @@ header: context{
     align(left + horizon, text(size: 15pt, label, baseline: 3pt)) // Left-align label outside bar
   )
 }
+
 #place(top+left,
   dx: 0pt, dy: 20pt
 )[
   #box(
-    width: 49%,
-    height: 50%,
+    width: 49.5%,
+    height:48%,
    stroke: rgb("#cecece"),
     radius: 20pt,
-    inset: 10pt
-  )[
-    // Title
+    clip: true,
+    inset: 20pt
+  )[// Title
     #place(dx: 0pt,dy: 5pt)[
-    #text("Industry Allocation(%)", size: 25pt, fill: rgb("0e496e"), weight: "bold")
-    #v(10pt)
-
-#set table(
-  align: (x, y) => {
-    if x == 0 {
-      (right + horizon)
-    } else {
-      (left + horizon)
-    }
-  },
-  inset: 2pt
+    #text("Industry Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")
+    ]
+ #let EquityMFIndData =(
+      
+ (category :"Others", value:49.82),
+ 
+ (category :"Banking", value:16.52),
+ 
+ (category :"Software", value:7.90),
+ 
+ (category :"Drugs & Pharma", value:7.45),
+ 
+ (category :"Cement", value:4.39),
+ 
+ (category :"Cars & Multi Utility Vehicles", value:2.75),
+ 
+ (category :"Telecom Services", value:2.46),
+ 
+ (category :"Life Insurance", value:2.44),
+ 
+ (category :"E-Commerce", value:2.22),
+ 
+ (category :"Auto Ancillaries", value:2.07),
+ 
+ (category :"Other Financial Instututions", value:1.98),
+ 
 )
-
-#place(dx: -100pt, dy: 20pt)[
-#let EquityMFIndData =(
-
-  category :"Others",
-  value:(.Percentage),
-)
-
-  category :"Banking",
-  value:(.Percentage),
-)
-
-  category :"Software",
-  value:(.Percentage),
-)
-
-  category :"Drugs & Pharma",
-  value:(.Percentage),
-)
-
-  category :"Cement",
-  value:(.Percentage),
-)
-
-  category :"Cars & Multi Utility Vehicles",
-  value:(.Percentage),
-)
-
-  category :"Telecom Services",
-  value:(.Percentage),
-)
-
-  category :"Life Insurance",
-  value:(.Percentage),
-)
-
-  category :"E-Commerce",
-  value:(.Percentage),
-)
-
-  category :"Auto Ancillaries",
-  value:(.Percentage),
-)
-
-  category :"Other Financial Instututions",
-  value:(.Percentage),
-)
-
-
-  #box()[#echarm.render(width: 500pt, height: 400pt, options: (
-    yAxis: (
-    type: "category",
-    data: ("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
-    axisLine: (
-      "show": false,
-    ),
-     axisTick: (
-      "show": false
-    ),
-  ),
-  xAxis: (
-         splitLine: (
-      "show": false
-    ),
-    type: "value",
-    axisLine: (
-      "show": false,
-    ),
-     axisLabel: (
-      "show": false,
-    ),
-  ),
-  series: (
-    (data: (120, 20, 150, 80, 70, 110, 130),
-    type: "bar",
-    stack:"a",
-    name:"a",
-    label: (
-          "show": true,
-          position: "",
-          "formatter": "{c}%",
-          fontWeight:"bold"
-        )
-  )
-)
-))]
-
-
+   #place(dx:50pt,dy:0pt)[
+        #box(stroke:none,clip: true)[#echarm.render(width: 2000pt, height: 400pt, options: (
+          yAxis: (
+          type: "category",
+          data: EquityMFIndData.map((items)=> (items.category)),
+          axisLine: ("show": false),
+          axisTick: ("show": false),
+          axisLabel: (align: right,
+                    // padding: (0,12,0,0),
+                      color: "#000000",
+                      fontWeight: "bold"),
+          ),
+        xAxis: (splitLine: ("show": false),
+                type: "value",
+                min: 0,
+                max: 450.00,
+                //  inverse:true,
+                axisLine: ("show": false),
+                axisLabel: ("show": false),
+              ),
+        series: (data: (EquityMFIndData.map((items)=> items.value)),
+                type: "bar",
+                color:primaryColors.at(0),
+                stack:"a",
+                name:"a",
+                label: (
+                      "show": true,
+                      position: "right",
+                      color: "#000000",
+                      "formatter": "{c}%",
+                      fontWeight:"bold"
+                    ),
+              )
+      )
+      )]]
   ]
-]
-
-]
 ]
 
  //bottom left
 #place(bottom+left,
-  dx: 0pt, dy: -10pt
+  dx: 0pt, dy: 20pt
 )[
-
   #box(
-    width: 49%,
-    height: 45%,
-    stroke: rgb("#cecece"),
+    width: 49.5%,
+    height:48%,
+   stroke: rgb("#cecece"),
     radius: 20pt,
+    clip: true,
     inset: 20pt
-  )[
-    // Title
+  )[// Title
     #place(dx: 0pt,dy: 5pt)[
-    #text("AMC Allocation(%)",  size: 25pt, fill: rgb("0e496e"), weight: "bold")
-
-    #v(10pt)
-#set table(
-  align: (x, y) => {
-    if x == 0 {
-      (right + horizon)
-    } else {
-      (left + horizon)
-    }
-  },
-  inset: 2pt
+    #text("AMC Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")
+    ]
+ #let EquityMFAmcData =(
+      
+ (category :"ICICI Prudential Mutual Fund", value:28.60),
+ 
+ (category :"Nippon India Mutual Fund", value:18.32),
+ 
+ (category :"360 ONE Mutual Fund", value:14.08),
+ 
+ (category :"HDFC Mutual Fund", value:12.29),
+ 
+ (category :"PPFAS Mutual Fund", value:10.46),
+ 
+ (category :"SBI Mutual Fund", value:8.91),
+ 
+ (category :"Others", value:7.33),
+ 
 )
-
-#place(dx: -100pt, dy: 20pt)[
-  #table(
-    columns: (1fr, 1fr),
-    stroke: none,
-    column-gutter: 10pt,
-    
-    box(width: 250pt,align(top, text("ICICI Prudential Mutual Fund"))),
-    amcBar(28.60, label: text("28.60%")),
-    
-    box(width: 250pt,align(top, text("Nippon India Mutual Fund"))),
-    amcBar(18.32, label: text("18.32%")),
-    
-    box(width: 250pt,align(top, text("360 ONE Mutual Fund"))),
-    amcBar(14.08, label: text("14.08%")),
-    
-    box(width: 250pt,align(top, text("HDFC Mutual Fund"))),
-    amcBar(12.29, label: text("12.29%")),
-    
-    box(width: 250pt,align(top, text("PPFAS Mutual Fund"))),
-    amcBar(10.46, label: text("10.46%")),
-    
-    box(width: 250pt,align(top, text("SBI Mutual Fund"))),
-    amcBar(8.91, label: text("8.91%")),
-    
-    box(width: 250pt,align(top, text("Others"))),
-    amcBar(7.33, label: text("7.33%")),
-    
-  )
-]
+   #place(dx:50pt,dy:0pt)[
+        #box(stroke:none,clip: true)[#echarm.render(width: 2000pt, height: 400pt, options: (
+          yAxis: (
+          type: "category",
+          data: EquityMFAmcData.map((items)=> (items.category)),
+          axisLine: ("show": false),
+          axisTick: ("show": false),
+          axisLabel: (align: right,
+                    // padding: (0,12,0,0),
+                      color: "#000000",
+                      fontWeight: "bold"),
+          ),
+        xAxis: (splitLine: ("show": false),
+                type: "value",
+                min: 0,
+                -max: 450.00,
+                //  inverse:true,
+                axisLine: ("show": false),
+                axisLabel: ("show": false),
+              ),
+        series: (data: (EquityMFAmcData.map((items)=> items.value)),
+                type: "bar",
+                color:primaryColors.at(0),
+                stack:"a",
+                name:"a",
+                label: (
+                      "show": true,
+                      position: "right",
+                      color: "#000000",
+                      "formatter": "{c}%",
+                      fontWeight:"bold"
+                    ),
+              )
+      )
+      )]]
   ]
-  ]
 ]
-
  //top right
 #place(top+right,
 dx: 0pt,dy:20pt)[
@@ -3842,17 +3809,17 @@ dx: 0pt,dy:20pt)[
 
   #let EquityQuantsData = (
 
-    (Metric: "PE_RATIO", Values: [23.55]),
+    (Metric: "P/E", Values: [23.55]),
 
-    (Metric: "PB_RATIO", Values: [3.77]),
+    (Metric: "P/B", Values: [3.77]),
 
-    (Metric: "MARKET_CAP", Values: [0]),
+    (Metric: "Weighted Avg. Market Cap(Cr) ", Values: [0]),
 
-    (Metric: "SHARPE_RATIO", Values: [0]),
+    (Metric: "Sharpe Ratio", Values: [0]),
 
-    (Metric: "BETA", Values: [0]),
+    (Metric: "Portfolio Beta", Values: [0]),
 
-    (Metric: "STANDARD_DEVIATION", Values: [0]),
+    (Metric: "Standard Deviation", Values: [0]),
 
   )
 
@@ -5645,6 +5612,7 @@ header: context{
 )
 
 
+/*
 
 // #pagebreak()
 #let customHeader =box(
@@ -5897,78 +5865,69 @@ dx: 20pt,dy:30pt)[#text(" Instrument Allocation(%)", size: 30pt,  fill: rgb("0e4
     radius: 20pt,
     clip: true,
     inset: 20pt
-  )[
-    // Title
+  )[// Title
     #place(dx: 0pt,dy: 5pt)[
     #text("Industry Allocation(%)", size: 30pt,  fill: rgb("0e496e"), weight: "extrabold")
-
-
-
-     #v(10pt)
-
-  #let amcBar = (width, label: "100%", color: rgb("#2caffe")) => {
-  // Convert width to a ratio if it's a float (assuming width is a percentage like 16.52)
-  let widthRatio = if type(width) == "float" { calc.min(width / 100, 1.0) } else { width }
-
-
-  if (widthRatio <= 0.0) {
-    return rect(
-      width: 20%,
-      fill: white,
-      height: 17.2pt,
-      align(left + horizon, text(size: 15pt, label, fill: black)) // Left-align label
-    )
-  }
-  return stack(
-    dir: ltr,
-    spacing: 5pt,
-    rect(width: widthRatio * 100%, fill: color, height: 30pt, radius: (right: 5pt)),
-    align(left + horizon, text(size: 15pt, label, baseline: 3pt)) // Left-align label outside bar
-  )
-}
-
-#set table(
-  align: (x, y) => {
-    if x == 0 {
-      (right + horizon)
-    } else {
-      (left + horizon)
-    }
-  },
-  inset: 2pt
+    ]
+ #let EquityMFIndData =(
+      
+ (category :"Others", value:49.82),
+ 
+ (category :"Banking", value:16.52),
+ 
+ (category :"Software", value:7.90),
+ 
+ (category :"Drugs & Pharma", value:7.45),
+ 
+ (category :"Cement", value:4.39),
+ 
+ (category :"Cars & Multi Utility Vehicles", value:2.75),
+ 
+ (category :"Telecom Services", value:2.46),
+ 
+ (category :"Life Insurance", value:2.44),
+ 
+ (category :"E-Commerce", value:2.22),
+ 
+ (category :"Auto Ancillaries", value:2.07),
+ 
+ (category :"Other Financial Instututions", value:1.98),
+ 
 )
-
-#place(dx: 80pt, dy: 40pt)[
-  #table(
-    columns: (150pt, 240pt),
-    stroke: none,
-    column-gutter: 10pt,
-    
-    box(width: 250pt,align(top, text(size: 15pt, "ICICI Prudential Mutual Fund"))),
-    amcBar(28.60, label: text(size: 15pt, "28.60%")),
-    
-    box(width: 250pt,align(top, text(size: 15pt, "Nippon India Mutual Fund"))),
-    amcBar(18.32, label: text(size: 15pt, "18.32%")),
-    
-    box(width: 250pt,align(top, text(size: 15pt, "360 ONE Mutual Fund"))),
-    amcBar(14.08, label: text(size: 15pt, "14.08%")),
-    
-    box(width: 250pt,align(top, text(size: 15pt, "HDFC Mutual Fund"))),
-    amcBar(12.29, label: text(size: 15pt, "12.29%")),
-    
-    box(width: 250pt,align(top, text(size: 15pt, "PPFAS Mutual Fund"))),
-    amcBar(10.46, label: text(size: 15pt, "10.46%")),
-    
-    box(width: 250pt,align(top, text(size: 15pt, "SBI Mutual Fund"))),
-    amcBar(8.91, label: text(size: 15pt, "8.91%")),
-    
-    box(width: 250pt,align(top, text(size: 15pt, "Others"))),
-    amcBar(7.33, label: text(size: 15pt, "7.33%")),
-    
-  )
-]
-
-  ]
+    #place(dx:100pt,dy:-50pt)[
+        #box(stroke: 1pt,clip: true,inset: 20pt)[#echarm.render(width: 2000pt, height: 400pt, options: (
+          yAxis: (
+          type: "category",
+          data: EquityMFIndData.map((items)=> (items.category)),
+          axisLine: ("show": false),
+          axisTick: ("show": false),
+          axisLabel: (align: right,
+                    // padding: (0,12,0,0),
+                      color: "#000000",
+                      fontWeight: "bold"),
+          ),
+        xAxis: (splitLine: ("show": false),
+                type: "value",
+                min: 0,
+                max: 450.00,
+                axisLine: ("show": false),
+                axisLabel: ("show": false),
+              ),
+        series: (data: (EquityMFIndData.map((items)=> items.value)),
+                type: "bar",
+                color:primaryColors.at(0),
+                stack:"a",
+                name:"a",
+                label: (
+                      "show": true,
+                      position: "right",
+                      color: "#000000",
+                      "formatter": "{c}%",
+                      fontWeight:"bold"
+                    ),
+              )
+      )
+      )]]
   ]
 ]
 
@@ -6254,6 +6213,7 @@ dx: 20pt,dy:30pt)[#text("Debt Quants", size: 30pt,  fill: rgb("0e496e"),font: "B
 ]
 
 
+*/
 #pagebreak()
 #let customHeader =box(
       width: 100%,

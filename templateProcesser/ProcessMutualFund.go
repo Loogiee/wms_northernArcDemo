@@ -96,6 +96,22 @@ func mapEqAmcAllocSection(value interface{}, parsingData *MutualFundSection) {
 func mapEqQuantsSection(value interface{}, parsingData *MutualFundSection) {
 	var processData []EquityQuants
 	MapToStruct(value, &processData)
+	for index, item := range processData {
+		switch item.Metric {
+		case "PE_RATIO":
+			processData[index].Metric = "P/E"
+		case "PB_RATIO":
+			processData[index].Metric = "P/B"
+		case "MARKET_CAP":
+			processData[index].Metric = "Weighted Avg. Market Cap(Cr) "
+		case "SHARPE_RATIO":
+			processData[index].Metric = "Sharpe Ratio"
+		case "BETA":
+			processData[index].Metric = "Portfolio Beta"
+		case "STANDARD_DEVIATION":
+			processData[index].Metric = "Standard Deviation"
+		}
+	}
 	parsingData.EquityQuants = processData
 }
 
