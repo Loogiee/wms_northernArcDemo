@@ -311,7 +311,7 @@ header: context{
  (category :"{{.IndustryName}}", value:{{ConvertToFormattedPercentagePointer .Percentage}}),
  {{end}}
 )
-   #place(dx:50pt,dy:30pt)[#echarm.render(width: 2610pt, height: 100%, options: (
+   #place(dx:0pt,dy:30pt)[#echarm.render(width: 2520pt, height: 100%, options: (
           yAxis: (
           type: "category",
           inverse:true,
@@ -372,8 +372,8 @@ header: context{
  (category :"{{.IssuerName}}", value:{{ConvertToFormattedPercentagePointer .Percentage}}),
  {{end}}
 )
-   #place(dx:50pt,dy:20pt)[
-        #box(stroke:none,clip: true)[#echarm.render(width: 2610pt, height: 100%, options: (
+   #place(dx:0pt,dy:20pt)[
+        #box(stroke:none,clip: true)[#echarm.render(width: 2520pt, height: 100%, options: (
           yAxis: (
           type: "category",
           inverse:true,

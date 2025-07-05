@@ -166,7 +166,7 @@ header: context{
     table.cell(align(right)[#text(fill: heading0,weight: "black", "Market Value")]),
     table.cell(align(right)[#text(fill: heading0, weight: "black","% Holding")]),
     table.cell(align(right)[#text(fill: heading0,weight: "black", "Holding Cost")]),
-    table.cell(align(right)[#text(fill: heading0,weight: "black", "Gain/Loss Realised")]),
+    table.cell(align(right)[#text(fill: heading0,weight: "black", "Realised Gain/Loss")]),
     table.cell(align(right)[#text(fill: heading0,weight: "black", "Dividend Interest")]),
     table.cell(align(right)[#text(fill: heading0,weight: "black", "Gain/Loss Unrealised")]),
     table.cell(align(right)[#text(fill: heading0,weight: "black", "IRR %")]),
